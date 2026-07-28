@@ -1,26 +1,55 @@
-# Directories that Ren'Py changes files in.
-/game/saves
-/game/cache
+# =====================================
+# Ren'Py
+# =====================================
 
-# Compiled script files. These are important for saving, and so should
-# be preserved by developer and build systems after the game has been released.
-/game/**/*.rpyc
-/game/**/*.rpymc
+# Cache
+game/cache/
 
-# Files Ren'Py can generate.
-/game/**/*.bak
-/game/**/*.new
-/game/**/*.old
+# Save files
+game/saves/
 
-# Error, log, and output files.
-/errors.txt
-/files.txt
-/image_cache.txt
-/log.txt
-/save_dump.txt
-/traceback.txt
+# Compiled Ren'Py files
+*.rpyc
+*.rpymc
 
-# Launcher-generated files.
-/dialogue.tab
-/dialogue.txt
-/strings.json
+# Logs
+log.txt
+
+# =====================================
+# Python
+# =====================================
+
+__pycache__/
+*.py[cod]
+
+# Virtual Environment (optional)
+.venv/
+venv/
+
+# =====================================
+# IDE
+# =====================================
+
+.vscode/
+.idea/
+
+# =====================================
+# Operating System
+# =====================================
+
+Thumbs.db
+.DS_Store
+
+# =====================================
+# Backup files
+# =====================================
+
+*~
+*.bak
+
+# =====================================
+# Temporary files
+# =====================================
+
+*.tmp
+*.temp
