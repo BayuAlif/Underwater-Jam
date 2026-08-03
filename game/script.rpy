@@ -3,31 +3,66 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
+define g = Character("Gulugulu")
+define f2 = Character("Fihfriend2")
+define f3 = Character("Fihfriend3")
 
+image jumping:
+    "testmchappy"
+    yalign 1.0
+    easeout 0.4 yoffset -50
+    easein 0.4 yoffset 0
+    repeat
 
-# The game starts here.
+screen riverside_click():
+    add "rivershoredaybg"
+    modal True
+
+    imagebutton auto "fihfriend2_%s":
+        focus_mask True
+        hovered SetVariable("screen_tooltip", "fihfriend2")
+        unhovered SetVariable("screen_tooltip", "")
+        action Jump("fihfriendsporty")
+
+    imagebutton auto "fihfriend3_%s":
+        hovered SetVariable("screen_tooltip", "fihfriend3")
+        unhovered SetVariable("screen_tooltip", "")
+        focus_mask True
+        action Jump("fihfriendgoth")
+
 
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    scene rivershorebg
 
-    scene bg room
+    "The rivershore.. super calm woauh.. so calm you can feel yourself becoming one with everything else around you"
+    "A little child then shows up"
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    show testmcdefault
 
-    show eileen happy
 
-    # These display lines of dialogue.
+    g "like always! its just me and the fishies today :D"
 
-    e "You've created a new Ren'Py game."
+    hide testmcdefault
+    show jumping
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    g "hehe i wonder what kind of fish i can find today.. i hope i can find something new"
 
-    # This ends the game.
+
+label riverside_click:
+    scene rivershoredaybg
+    call screen riverside_click
+    return
+
+label fihfriendsporty:
+    show fihfriend2_idle
+    f2 "hi there!"
+    jump riverside_click
+
+label fihfriendgoth:
+    show fihfriend3_idle
+    f3 "greetings..."
+    jump riverside_click
+
 
     return
