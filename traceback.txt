@@ -1,179 +1,34 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/style.pyx", line 808, in renpy.style.rebuild
-  File "game/script.rpy", line 16, in prepare_screen
-    screen scene6_night():
-  File "game/script.rpy", line 16, in prepare
-    screen scene6_night():
-  File "game/script.rpy", line 24, in prepare
-    if not day_item_takens:
-  File "game/script.rpy", line 24, in prepare
-    if not day_item_takens:
-  File "game/script.rpy", line 25, in prepare
-    imagebutton:
-  File "game/script.rpy", line 25, in prepare
-    imagebutton:
-  File "game/script.rpy", line 30
-    Notify("Diambil: Item Day yang ketinggalan!")
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "game/script.rpy", line 16, in prepare_screen
-    screen scene6_night():
-  File "game/script.rpy", line 16, in prepare
-    screen scene6_night():
-  File "game/script.rpy", line 24, in prepare
-    if not day_item_takens:
-  File "game/script.rpy", line 24, in prepare
-    if not day_item_takens:
-  File "game/script.rpy", line 25, in prepare
-    imagebutton:
-  File "game/script.rpy", line 25, in prepare
-    imagebutton:
-  File "game/script.rpy", line 30
-    Notify("Diambil: Item Day yang ketinggalan!")
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+  File "game/script.rpy", line 147, in script
+    $ load_area("deep_ocean")   # Ganti nama area selanjutnya
+  File "game/script.rpy", line 147, in <module>
+    $ load_area("deep_ocean")   # Ganti nama area selanjutnya
+         ~~~~~~^^^^^^^^^^^^^^~~~                             
+  File "game/systems/area_manager.rpy", line 42, in load_area
+    raise Exception("Area '{}' tidak ditemukan.".format(area_name))
+Exception: Area 'deep_ocean' tidak ditemukan.
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "renpy/common/00start.rpy", line 216, in script
-    python:
+  File "game/script.rpy", line 147, in script
+    $ load_area("deep_ocean")   # Ganti nama area selanjutnya
   File "renpy/ast.py", line 1193, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/python.py", line 1276, in py_exec_bytecode
     exec(bytecode, globals, locals)
     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/common/00start.rpy", line 217, in <module>
-    _init_language()
-    ~~~~~~~~~~~~~~^^
-  File "renpy/common/00start.rpy", line 86, in _init_language
-    renpy.change_language(language, force=True)
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/translation/__init__.py", line 854, in change_language
-    renpy.style.rebuild()
-    ~~~~~~~~~~~~~~~~~~~^^
-  File "renpy/style.pyx", line 808, in renpy.style.rebuild
-  File "renpy/display/screen.py", line 1035, in prepare_screens
-    s.ast.prepare_screen()
-    ~~~~~~~~~~~~~~~~~~~~^^
-  File "game/script.rpy", line 16, in prepare_screen
-    screen scene6_night():
-  File "game/script.rpy", line 16, in prepare
-    screen scene6_night():
-  File "game/script.rpy", line 24, in prepare
-    if not day_item_takens:
-  File "game/script.rpy", line 24, in prepare
-    if not day_item_takens:
-  File "game/script.rpy", line 25, in prepare
-    imagebutton:
-  File "game/script.rpy", line 25, in prepare
-    imagebutton:
-  File "renpy/pyanalysis.py", line 913, in ast_eval
-    return self.ast_eval_literal(expr)[0]
-           ~~~~~~~~~~~~~~~~~~~~~^^^^^^   
-  File "renpy/pyanalysis.py", line 895, in ast_eval_literal
-    expr = py_compile(expr, "eval", ast_node=True)
-           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1263, in py_compile
-    raise e
-  File "renpy/python.py", line 1193, in py_compile
-    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, True)
-           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/script.rpy", line 30
-    Notify("Diambil: Item Day yang ketinggalan!")
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "renpy/bootstrap.py", line 401, in bootstrap
-    renpy.main.main()
-    ~~~~~~~~~~~~~~~^^
-  File "renpy/main.py", line 596, in main
-    run(restart)
-    ~~~^^^^^^^^^
-  File "renpy/main.py", line 137, in run
-    renpy.execution.run_context(True)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "renpy/execution.py", line 1050, in run_context
-    context.run()
-    ~~~~~~~~~~~^^
-  File "renpy/common/00start.rpy", line 216, in script
-    python:
-  File "renpy/common/00start.rpy", line 216, in script
-    python:
-  File "renpy/display/error.py", line 135, in report_exception
-    renpy.game.invoke_in_new_context(
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        call_exception_screen,
-        ^^^^^^^^^^^^^^^^^^^^^^
-    ...<4 lines>...
-        ignore_action=ignore_action,
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "renpy/game.py", line 285, in invoke_in_new_context
-    return callable(*args, **kwargs)
-           ~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "renpy/display/error.py", line 44, in call_exception_screen
-    return renpy.ui.interact(mouse="screen", type="screen", suppress_overlay=True, suppress_underlay=True)
-           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/ui.py", line 306, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/core.py", line 2163, in interact
-    repeat, rv = self.interact_core(
-                 ~~~~~~~~~~~~~~~~~~^
-        preloads=preloads,
-        ^^^^^^^^^^^^^^^^^^
-    ...<4 lines>...
-        **kwargs,
-        ^^^^^^^^^
-    )
-    ^
-  File "renpy/display/core.py", line 2393, in interact_core
-    renpy.display.screen.prepare_screens()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "renpy/display/screen.py", line 1035, in prepare_screens
-    s.ast.prepare_screen()
-    ~~~~~~~~~~~~~~~~~~~~^^
-  File "game/script.rpy", line 16, in prepare_screen
-    screen scene6_night():
-  File "game/script.rpy", line 16, in prepare
-    screen scene6_night():
-  File "game/script.rpy", line 24, in prepare
-    if not day_item_takens:
-  File "game/script.rpy", line 24, in prepare
-    if not day_item_takens:
-  File "game/script.rpy", line 25, in prepare
-    imagebutton:
-  File "game/script.rpy", line 25, in prepare
-    imagebutton:
-  File "renpy/pyanalysis.py", line 913, in ast_eval
-    return self.ast_eval_literal(expr)[0]
-           ~~~~~~~~~~~~~~~~~~~~~^^^^^^   
-  File "renpy/pyanalysis.py", line 895, in ast_eval_literal
-    expr = py_compile(expr, "eval", ast_node=True)
-           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1263, in py_compile
-    raise e
-  File "renpy/python.py", line 1193, in py_compile
-    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, True)
-           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/script.rpy", line 30
-    Notify("Diambil: Item Day yang ketinggalan!")
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+  File "game/script.rpy", line 147, in <module>
+    $ load_area("deep_ocean")   # Ganti nama area selanjutnya
+         ~~~~~~^^^^^^^^^^^^^^~~~                             
+  File "game/systems/area_manager.rpy", line 42, in load_area
+    raise Exception("Area '{}' tidak ditemukan.".format(area_name))
+Exception: Area 'deep_ocean' tidak ditemukan.
 
 Windows-11-10.0.26200-SP0 AMD64
 Ren'Py 8.5.3.26051504
 DraftGame 1.0
-Wed Aug  5 22:30:17 2026
+Wed Aug  5 23:45:38 2026
