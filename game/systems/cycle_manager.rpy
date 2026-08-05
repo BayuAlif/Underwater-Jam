@@ -33,3 +33,20 @@ init python:
             store.current_cycle = "night"
         else:
             store.current_cycle = "day"
+
+
+screen day_night_hud():
+    frame:
+        xalign 0.98
+        yalign 0.02
+        padding (15, 10)
+        background Solid("#000000aa")
+
+        vbox:
+            spacing 2
+            if is_day():
+                text "{color=#f9d71c}☀️ HARI [get_current_day()] - SIANG{/color}" size 18 bold True
+            else:
+                text "{color=#4a90e2}🌙 HARI [get_current_day()] - MALAM{/color}" size 18 bold True
+            
+            text "Kedalaman: [get_depth()]m" size 14 color "#ffffff"
