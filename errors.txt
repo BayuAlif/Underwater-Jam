@@ -1,0 +1,14 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 25: expected end of line
+    play sound bush rustling
+                    ^
+
+File "game/script.rpy", line 70: expected end of line
+    play sound forest run
+                      ^
+
+Ren'Py Version: Ren'Py 8.5.3.26051504
+Mon Aug 10 21:37:12 2026

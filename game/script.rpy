@@ -16,13 +16,13 @@ image jumping:
     repeat
 
 label start:
-    play sound happy
+    play music happy
     scene rivershorebg
     "{i}Ah, the rivershore. A serene calming scene adorned by the rustling wind of leaves.{/i}" 
     "{i}Gentle applauses are carried by the trees of forest in celebration for yet another day of the sun’s blessing..{/i}"
    
     scene rustlingbush
-    play sound bush rustling
+    play sound bushrustling
     "{i}An absolute perfect scene for….{/i}"
 
     scene flyingfish
@@ -64,10 +64,10 @@ label start:
     mc "Ah! Wait up!!"
 
     scene rivershoredaybg
-    play sound melancholy
+    play music melancholy
     #insert cutscene running through the forest 
     
-    play sound forest run
+    play sound forestrun
     "{i}An intense need to follow that mysterious gorgeous fish overwhelms my whole body. My heart is urging me to see more of it. To get closer. To touch it.{/i}"
     scene runforest
     "{i}Before I knew it my feet brought me up in a speed bolt. I ran along the river. Eyes locked onto the mysterious golden fish. 
@@ -95,7 +95,7 @@ label start:
     "{i}A single scale, spinning loose from its tail, catching the light like a falling star.{/i}"
     scene goldscale3
     "{i}Without thinking, my hand shot out.{/i}"
-    #sfx small chime/glimmer sound
+    play sound sparkle
     scene goldscale4
     "{i}It landed square in my palm. Warm. Impossibly warm for something that just came off a fish underwater.{/i}"
     "{i}I barely had time to look at it before the current dragged me under again.{/i}"
@@ -103,6 +103,5 @@ label start:
     scene black
     f1u "ay ay ay! Where do ya think you're going guppy?! That's the end of the line!"
     mc "huh?"
-
 
     return
