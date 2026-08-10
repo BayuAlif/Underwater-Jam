@@ -1,0 +1,49 @@
+# Copy this entire script to your game/script.rpy to quickly test the affection feature!
+
+define e = Character("Eileen")
+default eileen_affection = CharacterAffection("Eileen")
+
+# The game starts here.
+label start:
+    scene bg room # Optional: If you don't have a background, you can remove this line.
+    
+    "Let's test the affection system!"
+    
+    jump test_affection
+
+label test_affection:
+    # Show the affection UI
+    show screen relationship_indicator(eileen_affection)
+    
+    e "Oh, hello there! I was just reading my favorite book."
+    e "Is there something you needed?"
+
+    menu eileen_interaction:
+        "Give her a freshly baked cupcake.":
+            $ eileen_affection.add(15)
+            e "Oh my goodness, is this for me? It looks delicious!"
+            e "Thank you so much, that's incredibly sweet of you."
+            "Eileen smiles warmly, her affection for you growing."
+            jump eileen_interaction
+            
+        "Interrupt her rudely.":
+            $ eileen_affection.subtract(10)
+            e "Um, excuse me? I was right in the middle of a chapter..."
+            e "Please be a little more considerate."
+            "Eileen sighs and looks away."
+            jump eileen_interaction
+            
+        "Tell her she's your favorite person.":
+            $ eileen_affection.set_points(100)
+            e "W-Wait, really? You mean it?"
+            e "I... I don't know what to say. I'm so happy..."
+            "Eileen blushes deeply, her heart fluttering."
+            jump eileen_interaction
+            
+        "Just smile and wave (Leave).":
+            e "Have a wonderful day! Let's talk again soon."
+            "You wave goodbye and let her get back to her book."
+            
+    # Hide the UI when the scene ends
+    hide screen relationship_indicator
+    return
