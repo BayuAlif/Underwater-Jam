@@ -15,23 +15,6 @@ image jumping:
     easein 0.4 yoffset 0
     repeat
 
-screen riverside_click():
-    add "rivershoredaybg"
-    modal True
-
-    imagebutton auto "fihfriend2_%s":
-        focus_mask True
-        hovered SetVariable("screen_tooltip", "fihfriend2")
-        unhovered SetVariable("screen_tooltip", "")
-        action Jump("fihfriendsporty")
-
-    imagebutton auto "fihfriend3_%s":
-        hovered SetVariable("screen_tooltip", "fihfriend3")
-        unhovered SetVariable("screen_tooltip", "")
-        focus_mask True
-        action Jump("fihfriendgoth")
-
-
 label start:
     play sound happy
     scene rivershorebg
@@ -39,6 +22,7 @@ label start:
     "{i}Gentle applauses are carried by the trees of forest in celebration for yet another day of the sun’s blessing..{/i}"
    
     scene rustlingbush
+    play sound bush rustling
     "{i}An absolute perfect scene for….{/i}"
 
     scene flyingfish
@@ -50,6 +34,7 @@ label start:
     scene rivershoredaybg
     hide testmcdefault
     show jumping
+    play sound thump
     mc "woahwoah WOAH-!"
     mc "This jump was definitely higher than yesterday's 26 tries! Maybe my flying fish genes have finally awoken!"
     hide jumping
@@ -82,7 +67,7 @@ label start:
     play sound melancholy
     #insert cutscene running through the forest 
     
-    #insert sfx runthroughforest
+    play sound forest run
     "{i}An intense need to follow that mysterious gorgeous fish overwhelms my whole body. My heart is urging me to see more of it. To get closer. To touch it.{/i}"
     scene runforest
     "{i}Before I knew it my feet brought me up in a speed bolt. I ran along the river. Eyes locked onto the mysterious golden fish. 
@@ -96,7 +81,7 @@ label start:
     "{i}One step became two, and before I knew it..{/i}"
 
     scene fallwater
-    #sfxsplash
+    play sound splash
     "{i}A cold paralyzing splash embraces me tight.{/i}"
     "{i}For a brief moment my vision is surrounded by pitch black. The only guidance a blur flicker of shimmery gold.{/i}"
     scene reachgold
@@ -118,22 +103,6 @@ label start:
     scene black
     f1u "ay ay ay! Where do ya think you're going guppy?! That's the end of the line!"
     mc "huh?"
-
-    
-label riverside_click:
-    scene rivershoredaybg
-    call screen riverside_click
-    return
-
-label fihfriendsporty:
-    show fihfriend2_idle
-    f2 "hi there!"
-    jump riverside_click
-
-label fihfriendgoth:
-    show fihfriend3_idle
-    f3 "greetings..."
-    jump riverside_click
 
 
     return
