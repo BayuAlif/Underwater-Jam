@@ -153,5 +153,3 @@ label start:
     k "Wah, pemandangannya beda lagi nih pas siang hari..."
 
     return
-
-    return
