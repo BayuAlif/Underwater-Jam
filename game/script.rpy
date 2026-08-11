@@ -144,7 +144,7 @@ label start:
     k "Baguslah! Sekarang ayo kita lanjut pindah ke area laut berikutnya!"
 
     # Memanggil fungsi transisi area & cycle buatan temenmu
-    $ load_area("deep_ocean")   # Ganti nama area selanjutnya
+    $ load_area("beach")   # Ganti nama area selanjutnya
     $ change_cycle()            # Kembali berubah jadi Day Cycle
     
     scene expression get_background() with fade
