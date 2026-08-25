@@ -1,34 +1,39 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 147, in script
-    $ load_area("deep_ocean")   # Ganti nama area selanjutnya
-  File "game/script.rpy", line 147, in <module>
-    $ load_area("deep_ocean")   # Ganti nama area selanjutnya
-         ~~~~~~^^^^^^^^^^^^^^~~~                             
-  File "game/systems/area_manager.rpy", line 42, in load_area
-    raise Exception("Area '{}' tidak ditemukan.".format(area_name))
-Exception: Area 'deep_ocean' tidak ditemukan.
+  File "game/script.rpy", line 142, in script
+    if night_objectives_complete():
+  File "game/script.rpy", line 142, in <module>
+    if night_objectives_complete():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~^^ 
+  File "game/systems/progress_manager.rpy", line 50, in night_objectives_complete
+    store.fish03_talked
+    ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'StoreModule' object has no attribute 'fish03_talked'
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/script.rpy", line 147, in script
-    $ load_area("deep_ocean")   # Ganti nama area selanjutnya
-  File "renpy/ast.py", line 1193, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1276, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/script.rpy", line 147, in <module>
-    $ load_area("deep_ocean")   # Ganti nama area selanjutnya
-         ~~~~~~^^^^^^^^^^^^^^~~~                             
-  File "game/systems/area_manager.rpy", line 42, in load_area
-    raise Exception("Area '{}' tidak ditemukan.".format(area_name))
-Exception: Area 'deep_ocean' tidak ditemukan.
+  File "game/script.rpy", line 142, in script
+    if night_objectives_complete():
+  File "renpy/ast.py", line 2089, in execute
+    if renpy.python.py_eval(condition):
+       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^ 
+  File "renpy/python.py", line 1308, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1301, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/script.rpy", line 142, in <module>
+    if night_objectives_complete():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~^^ 
+  File "game/systems/progress_manager.rpy", line 50, in night_objectives_complete
+    store.fish03_talked
+    ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'StoreModule' object has no attribute 'fish03_talked'
 
 Windows-11-10.0.26200-SP0 AMD64
 Ren'Py 8.5.3.26051504
 DraftGame 1.0
-Tue Aug 11 20:27:12 2026
+Tue Aug 25 23:45:46 2026

@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 ## Initialization
 ################################################################################
 
@@ -14,6 +14,10 @@ init python:
 ## Enable checks for invalid or unstable properties in screens or transforms
 define config.check_conflicting_properties = True
 
+init python:
+    ## Memberikan outline hitam 2px di sekitar teks dialog
+    style.say_dialogue.outlines = [(2, "#000000", 0, 0)]
+    style.say_label.outlines = [(2, "#000000", 0, 0)]
 
 ################################################################################
 ## GUI Configuration Variables
@@ -50,10 +54,12 @@ define gui.muted_color = '#6684a3'
 define gui.hover_muted_color = '#99adc1'
 
 ## The colors used for dialogue and menu choice text.
-define gui.text_color = '#404040'
-define gui.interface_text_color = '#404040'
+define gui.text_color = '#ffffff'
+define gui.interface_text_color = '#fff8e7'
 
+define gui.name_text_color = '#ffffff'
 
+define gui.choice_text_color = '#ffffff'
 ## Fonts and Font Sizes ########################################################
 
 ## The font used for in-game text.
@@ -69,19 +75,19 @@ define gui.interface_text_font = "DejaVuSans.ttf"
 define gui.text_size = 33
 
 ## The size of character names.
-define gui.name_text_size = 45
+define gui.name_text_size = 36
 
 ## The size of text in the game's user interface.
-define gui.interface_text_size = 33
+define gui.interface_text_size = 27
 
 ## The size of labels in the game's user interface.
-define gui.label_text_size = 36
+define gui.label_text_size = 27
 
 ## The size of text on the notify screen.
 define gui.notify_text_size = 24
 
 ## The size of the game's title.
-define gui.title_text_size = 75
+define gui.title_text_size = 50
 
 
 ## Main and Game Menus #########################################################
@@ -96,27 +102,21 @@ define gui.game_menu_background = "gui/game_menu.png"
 ## These variables control how dialogue is displayed on the screen one line at a
 ## time.
 
-## The height of the textbox containing dialogue.
-define gui.textbox_height = 278
+## Sesuaikan tinggi textbox dengan kanvas gambar (sekitar 405px di resolusi 1080p)
 
-## The placement of the textbox vertically on the screen. 0.0 is the top, 0.5 is
-## center, and 1.0 is the bottom.
+define gui.textbox_height = 405
 define gui.textbox_yalign = 1.0
 
-
-## The placement of the speaking character's name, relative to the textbox.
-## These can be a whole number of pixels from the left or top, or 0.5 to center.
-define gui.name_xpos = 360
-define gui.name_ypos = 0
-
-## The horizontal alignment of the character's name. This can be 0.0 for left-
-## aligned, 0.5 for centered, and 1.0 for right-aligned.
+## 1. NAMA KARAKTER
+define gui.name_xpos = 360          
+define gui.name_ypos = 100          # Posisi nama di bagian atas kotak hitam
+define gui.name_size = 36
 define gui.name_xalign = 0.0
 
-## The width, height, and borders of the box containing the character's name, or
-## None to automatically size it.
-define gui.namebox_width = None
-define gui.namebox_height = None
+## 2. TEKS DIALOG
+define gui.dialogue_xpos = 360       
+define gui.dialogue_ypos = 165      # Posisi teks dialog di tengah kotak hitam
+define gui.dialogue_width = 1200
 
 ## The borders of the box containing the character's name, in left, top, right,
 ## bottom order.
@@ -125,16 +125,6 @@ define gui.namebox_borders = Borders(5, 5, 5, 5)
 ## If True, the background of the namebox will be tiled, if False, the
 ## background of the namebox will be scaled.
 define gui.namebox_tile = False
-
-
-## The placement of dialogue relative to the textbox. These can be a whole
-## number of pixels relative to the left or top side of the textbox, or 0.5 to
-## center.
-define gui.dialogue_xpos = 402
-define gui.dialogue_ypos = 75
-
-## The maximum width of dialogue text, in pixels.
-define gui.dialogue_width = 1116
 
 ## The horizontal alignment of the dialogue text. This can be 0.0 for left-
 ## aligned, 0.5 for centered, and 1.0 for right-aligned.

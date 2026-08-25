@@ -16,15 +16,15 @@ init python:
 
         "beach": {
 
-            "day_bg": "bg room",
-            "night_bg": "bg room",
+            "day_bg": "background/night-bg.png",
+            "night_bg": "background/FIXbgnight1.png",
 
         },
 
         "cave": {
 
-            "day_bg": "bg room",
-            "night_bg": "bg room",
+            "day_bg": "background/FIXbgnight1.png",
+            "night_bg": "background/FIXbgnight1.png",
 
         },
 
