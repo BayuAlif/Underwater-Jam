@@ -100,11 +100,11 @@ screen say(who, what):
 
     window:
         id "window"
-        ysize 405
+        ysize 500
         xsize 1920
         yalign 1.0
         xalign 0.5
-        background Transform("gui/DialogueBox.png.bak", size=(1920, 1080), xalign=0.5, yalign=1.0)
+        background Transform("gui/DialogueBox.png", yzoom=1.4, xalign=0.5, yalign=1.0)
 
         # 1. Nama Karakter (Diletakkan di atas)
         if who is not None:
@@ -112,14 +112,14 @@ screen say(who, what):
                 id "namebox"
                 style "namebox"
                 xpos 360
-                ypos 100
+                ypos 250
                 text who id "who"
 
         # 2. Teks Dialog (Diturunkan ke bawah nama)
         text what:
             id "what"
             xpos 360
-            ypos 165
+            ypos 310
             xmaximum 1200
 
 ## Make the namebox available for styling through the Character object.
@@ -138,8 +138,8 @@ style window:
     xalign 0.5
     xfill True
     yalign 1.0
-    ysize 405
-    background Transform("gui/DialogueBox.png.bak", size=(1920, 1080), xalign=0.5, yalign=1.0)
+    ysize 500
+    background Transform("gui/DialogueBox.png", yzoom=1.4, xalign=0.5, yalign=1.0)
 
 style namebox:
     xanchor 0.0

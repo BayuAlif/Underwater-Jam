@@ -53,11 +53,12 @@ init python:
 
 
     # Semua objective Night selesai:
-    # ngobrol Buaya (Fish01/Fish04) dan Lele (Fish03)
+    # ngobrol Buaya (Fish01/Fish04) dan Lele (Fish03), serta ambil item Ambalabu (shell_taken)
     def night_objectives_complete():
         gator_done = getattr(store, "fish01_talked", False) or getattr(store, "fish04_talked", False)
         catfish_done = getattr(store, "fish03_talked", False)
-        return gator_done and catfish_done
+        item_done = getattr(store, "shell_taken", False)
+        return gator_done and catfish_done and item_done
     
     # Untuk nandain NPC yang udah diajak bicara
     def mark_fish_talked(fish_number):

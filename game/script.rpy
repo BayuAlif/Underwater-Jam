@@ -1,4 +1,4 @@
-﻿# =========================================================
+# =========================================================
 # GAME SCRIPT - CHAPTER 1 (NIGHT CYCLE)
 # =========================================================
 
@@ -190,17 +190,19 @@ label start:
     "The familiar rocks were now little more than silhouettes."
     "The plants swayed slowly in darkness, their shadows stretching across the riverbed."
     
-    show mc exited with dissolve
+    show mc bingungbanget with dissolve
     mc "Whoa…"
     show cory normal with dissolve
     F1 "Don’t wander too far."
     
-    show mc normal with dissolve
+    show cory normal hu with dissolve
     F1 "Night’s a little different around here."
     "Then suddenly the golden scale in my palm starts to emit a soft blue glow. Giving a small light to those around me"
-    show cory surprise with dissolve
+    
+    show cory smile with dissolve
+    show mc bingung2 with dissolve
     F1 "well that's.. convenient!"
-    show cory proud with dissolve
+    show cory normal with dissolve
     F1 "Though still,"
     F1 "Keep your eyes open.. We dont know what might lurk in here"
 
@@ -239,9 +241,9 @@ label night_exploration_loop:
         
         show mc bingung2 with dissolve
         mc "what is it mr cory?"
-        show cory smile with dissolve
+        show cory disrespectful with dissolve
         F1 "eh, just a toy.. A very popular one"
-        show cory proud with dissolve
+        show cory smile with dissolve
         F1 "I might know who might like this… hah!"
         
         hide mc
@@ -282,12 +284,15 @@ label night_exploration_loop:
         # PILIHAN ROTASI INTEROGASI (MC / CORY)
         system "Choose who should ask mr catfish! The answers it gave may varied based on its relationship with the character"
 
-        menu:
-            "Ask as MC":
-                jump lele_interrogation_mc
+        call screen rotasi_ikan_select(
+            title="PILIH KARAKTER INTEROGASI",
+            subtitle="Choose who should ask Mr. Catfish!"
+        )
 
-            "Ask as Cory":
-                jump lele_interrogation_cory
+        if _return == "mc":
+            jump lele_interrogation_mc
+        elif _return == "cory":
+            jump lele_interrogation_cory
 
 
     # ---------------------------------------------------------
@@ -499,9 +504,44 @@ label night_exploration_loop:
                 
                 show gator default with dissolve
                 alligator "Because it was fast."
+                alligator "Besides I had better things to do."
+                
+                show mc bingung2 with dissolve
+                mc "Like what?"
+                
+                show gator default with dissolve
+                alligator "..."
+                "The alligator glanced at the rock next to it."
+                alligator "Guarding this rock."
+                
+                show mc bingungbanget with dissolve
+                mc "..."
+                hide mc
+                show cory unimpressed1 at mc_left with dissolve
+                F1 "..."
+                
+                show gator annoyed with dissolve
+                alligator "It’s important."
+                
+                hide cory
+                show mc bingung2 at mc_left with dissolve
+                mc "What’s so special about it."
+                
+                show gator default with dissolve
+                alligator "It’s a rock."
                 
                 show mc dongok with dissolve
-                mc "Oh! :o"
+                mc "Oh!"
+                show mc senang with dissolve
+                mc "I like rocks!"
+                
+                show gator surprised with dissolve
+                alligator "..."
+                show gator smile with dissolve
+                alligator "You’re alright, kid."
+                
+                show mc senang with dissolve
+                mc "Hehe!"
                 hide mc
                 show cory smile at mc_left with dissolve
                 F1 ".... Heh"
@@ -833,55 +873,102 @@ label lele_interrogation_cory:
 
 
 # =========================================================
-# PROMPT GANTI KARAKTER (2 PILIHAN)
+# PROMPT GANTI KARAKTER (ROTASI EKSPLORASI)
 # =========================================================
 label switch_character_prompt:
+
+    if getattr(store, "fish01_talked", False) and getattr(store, "fish03_talked", False):
+        jump night_exploration_loop
+
     scene bg_dialog_night with fade
 
     show mc normal at mc_left with dissolve
     system "Pilih karakter yang akan memimpin eksplorasi berikutnya:"
 
-    menu:
-        "Eksplorasi sebagai MC":
-            $ current_character = "MC"
-            show mc senang with dissolve
-            mc "Giliranku yang maju!"
-            $ renpy.notify("Karakter Aktif: MC")
-            hide mc with dissolve
+    call screen rotasi_ikan_select(
+        title="PILIH PEMIMPIN EKSPLORASI",
+        subtitle="Pilih karakter yang akan berjalan di depan"
+    )
 
-        "Eksplorasi sebagai Cory":
-            $ current_character = "Cory"
-            hide mc
-            show cory proud at mc_left with dissolve
-            F1 "Biar bang Cory yang urus sisanya!"
-            $ renpy.notify("Karakter Aktif: Cory")
-            hide cory with dissolve
+    if _return == "mc":
+        $ current_character = "MC"
+        show mc senang with dissolve
+        mc "Giliranku yang maju!"
+        $ renpy.notify("Karakter Aktif: MC")
+        hide mc with dissolve
+
+    elif _return == "cory":
+        $ current_character = "Cory"
+        hide mc
+        show cory proud at mc_left with dissolve
+        F1 "Biar bang Cory yang urus sisanya!"
+        $ renpy.notify("Karakter Aktif: Cory")
+        hide cory with dissolve
 
     jump night_exploration_loop
 
 
 # =========================================================
-# TRANSISI AREA CLEAR (SELESAI MALAM)
+# TRANSISI AREA CLEAR (SELESAI MALAM) & AKHIR CHAPTER 1
 # =========================================================
 label area_clear_transition:
 
-    system "--- AREA CLEAR ---"
+    scene bg_dialog_night with fade
+    "A tiny peek of sunlight cuts through the riverwater. Tainting the murkish dark water in small dots of light that slowly stretches its reach. Soon enough the river is glowing in a calming blue"
     
-    show mc senang at mc_left with dissolve
-    show cory proud at npc_right with dissolve
-    F1 "Yayyy! Semua urusan, item, dan interogasi di area ini akhirnya selesai!"
-    mc "Baguslah! Sekarang ayo kita lanjut berpindah hari dan area!"
-
-    $ complete_night_cycle(50)
+    show mc exited at mc_left with dissolve
+    mc "woah.. dawn in the river.."
+    mc "so this is what a fish sees.."
     
-    scene expression get_background() with fade
+    show cory smile at npc_right with dissolve
+    F1 "Mhm, not so scary anymore is it?"
     
-    system "Hari berganti jadi Hari ke-[get_current_day()] | Kedalaman: [get_depth()]m"
+    show cory normal hu with dissolve
+    F1 "And? What've we got?"
     
-    show mc senang at mc_left with dissolve
-    mc "Wah, pemandangannya beda lagi nih pas siang hari..."
+    show mc normal with dissolve
+    mc "North!"
+    
+    show mc senang with dissolve
+    mc "They all said north!"
+    
+    show cory side with dissolve
+    F1 "north eh? The direction where the river ends.."
+    
+    show cory smile with dissolve
+    F1 "...Guess we've got our answer."
+    
+    "I looked toward the distant current. The water there flowed faster. The sunlight barely reached it."
+    
+    show cory normal with dissolve
+    F1 "but uhh guppy.. ain't your parents worried..?"
+    F1 "it's been a full day since we got here.. ya don't wanna go back for a bit?"
+    
+    show mc bingung2 with dissolve
+    mc "mm? No it's fine! My parents allow me to come back home whenever I want!"
+    
+    show mc normal with dissolve
+    mc "I don't think I'm coming back before I see that fish again.."
+    mc "aren't they just the kindest? To give freewill at my age!"
+    
+    show cory side with dissolve
+    F1 "free will ay..? Sounds worrying to me."
+    F1 "but you're right about one thing, guppy"
+    F1 "we ain't going back until we catch that damn fish together!"
+    
+    show mc senang with dissolve
+    mc "Let's go!"
+    
+    show cory fond with dissolve
+    F1 "Just don’t make me save ya twice."
+    
+    "We begin swimming toward the northern stream. As we disappeared into the rushing water…"
 
     hide mc
     hide cory
     with dissolve
+    
+    scene black with fade
+    system "--- END OF CHAPTER 1 ---"
+
     return

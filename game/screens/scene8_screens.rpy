@@ -2,48 +2,58 @@
 # UI SCENE 8: ROTASI IKAN (CHARACTER CARDS CHOICE)
 # =========================================================
 
-screen rotasi_ikan_select():
-    add "#00000088" # Dim background
+screen rotasi_ikan_select(title="PILIH KARAKTER UNTUK MEMULAI INTEROGASI", subtitle="Pilih karakter yang akan berbicara"):
+    modal True
+    zorder 200
 
-    text "PILIH KARAKTER UNTUK MEMULAI INTEROGASI" xalign 0.5 yalign 0.08 color "#ffffff" size 22 bold True
+    add "#000000bb" # Dim background
+
+    vbox:
+        xalign 0.5
+        yalign 0.08
+        spacing 10
+
+        text title:
+            xalign 0.5
+            color "#ffffff"
+            size 28
+            bold True
+            outlines [(2, "#000000", 0, 0)]
+
+        if subtitle:
+            text subtitle:
+                xalign 0.5
+                color "#f9d71c"
+                size 18
+                outlines [(1, "#000000", 0, 0)]
 
     hbox:
         xalign 0.5
-        yalign 0.55
-        spacing 40
+        yalign 0.58
+        spacing 80
 
-        # KARTU 1 (Jose / Character 1)
-        frame:
-            xsize 280 ysize 450
-            background Solid("#222222")
-            vbox:
-                xalign 0.5 yalign 0.5
-                spacing 15
-                imagebutton:
-                    idle Solid("#ff4444", xsize=240, ysize=340)
-                    action Return("select_jose")
-                text "FIH FRIEND 1\n(Jose)" xalign 0.5 color "#ffffff" size 16 bold True
+        # KARTU 1: MC
+        vbox:
+            xalign 0.5
+            spacing 12
 
-        # KARTU 2 (Cory / Character 2)
-        frame:
-            xsize 280 ysize 450
-            background Solid("#222222")
-            vbox:
-                xalign 0.5 yalign 0.5
-                spacing 15
-                imagebutton:
-                    idle Solid("#444444", xsize=240, ysize=340)
-                    action Return("select_cory")
-                text "FIH FRIEND 2\n(Cory)" xalign 0.5 color "#ffffff" size 16 bold True
+            imagebutton:
+                idle Transform("images/Rotation/McIdle.png", zoom=0.55)
+                hover Transform("images/Rotation/McHover.png", zoom=0.55)
+                focus_mask True
+                action Return("mc")
 
-        # KARTU 3 (Slot Kosong / Character 3)
-        frame:
-            xsize 280 ysize 450
-            background Solid("#222222")
-            vbox:
-                xalign 0.5 yalign 0.5
-                spacing 15
-                imagebutton:
-                    idle Solid("#888888", xsize=240, ysize=340)
-                    action Return("select_char3")
-                text "FIH FRIEND 3\n(Kankan)" xalign 0.5 color "#ffffff" size 16 bold True
+            text "MC" xalign 0.5 color "#ffffff" size 24 bold True outlines [(2, "#000000", 0, 0)]
+
+        # KARTU 2: CORY
+        vbox:
+            xalign 0.5
+            spacing 12
+
+            imagebutton:
+                idle Transform("images/Rotation/CoryIdle.png", zoom=0.55)
+                hover Transform("images/Rotation/CoryHover.png", zoom=0.55)
+                focus_mask True
+                action Return("cory")
+
+            text "CORY" xalign 0.5 color "#00a86b" size 24 bold True outlines [(2, "#000000", 0, 0)]

@@ -104,18 +104,18 @@ define gui.game_menu_background = "gui/game_menu.png"
 
 ## Sesuaikan tinggi textbox dengan kanvas gambar (sekitar 405px di resolusi 1080p)
 
-define gui.textbox_height = 405
+define gui.textbox_height = 500
 define gui.textbox_yalign = 1.0
 
 ## 1. NAMA KARAKTER
 define gui.name_xpos = 360          
-define gui.name_ypos = 100          # Posisi nama di bagian atas kotak hitam
+define gui.name_ypos = 130          # Posisi nama di bagian atas kotak hitam
 define gui.name_size = 36
 define gui.name_xalign = 0.0
 
 ## 2. TEKS DIALOG
 define gui.dialogue_xpos = 360       
-define gui.dialogue_ypos = 165      # Posisi teks dialog di tengah kotak hitam
+define gui.dialogue_ypos = 200      # Posisi teks dialog di tengah kotak hitam
 define gui.dialogue_width = 1200
 
 ## The borders of the box containing the character's name, in left, top, right,
