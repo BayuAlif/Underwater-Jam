@@ -1,0 +1,34 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/systems/stickers.rpy", line 19: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    zorder 20
+             ^
+
+File "game/systems/stickers.rpy", line 30: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    zorder 20
+             ^
+
+File "game/systems/stickers.rpy", line 46: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    zorder 20
+             ^
+
+File "game/systems/stickers.rpy", line 56: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    zorder 20
+             ^
+
+File "game/systems/stickers.rpy", line 67: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    zorder 20
+             ^
+
+File "game/systems/stickers.rpy", line 77: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    zorder 20
+             ^
+
+File "game/systems/stickers.rpy", line 87: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    zorder 20
+             ^
+
+Ren'Py Version: Ren'Py 8.5.3.26051504
+Sun Aug 30 00:25:59 2026

@@ -34,18 +34,50 @@ transform npc_center:
 # =========================================================
 # DEKLARASI SPRITE MC
 # =========================================================
-image mc normal = Transform("images/Mc/McNormal.png", zoom=1.25)
-image mc normal2 = Transform("images/Mc/McNormal-2.png", zoom=1.25)
-image mc senang = Transform("images/Mc/McSenang.png", zoom=1.25)
-image mc exited = Transform("images/Mc/McExited.png", zoom=1.25)
-image mc excited = Transform("images/Mc/McExited.png", zoom=1.25)
-image mc bingung = Transform("images/Mc/McBingung-1.png", zoom=1.25)
-image mc bingung1 = Transform("images/Mc/McBingung-1.png", zoom=1.25)
-image mc bingung2 = Transform("images/Mc/McBingung2.png", zoom=1.25)
-image mc bingungbanget = Transform("images/Mc/McBingungBanget.png", zoom=1.25)
-image mc bingungbanget2 = Transform("images/Mc/McBingungBanget-2.png", zoom=1.25)
-image mc dongok = Transform("images/Mc/McDongok.png", zoom=1.25)
-image mc gakpuas = Transform("images/Mc/McGakPuasDenganJawaban.png", zoom=1.25)
+image mc default = Transform("images/Mc/McDefault.png", crop=(1200, 0, 1150, 1440), zoom=0.6875)
+image mc normal = "mc default"
+image mc netral = "mc default"
+
+image mc happy = Transform("images/Mc/McHappy.png", crop=(1200, 0, 1150, 1440), zoom=0.6875)
+image mc senang = "mc happy"
+image mc senyum = "mc happy"
+
+image mc actually = Transform("images/Mc/McActually.png", crop=(1200, 0, 1150, 1440), zoom=0.6875)
+image mc normal2 = "mc actually"
+image mc smug = "mc actually"
+
+image mc excited = Transform("images/Mc/McExcited.png", crop=(1200, 0, 1150, 1440), zoom=0.6875)
+image mc exited = "mc excited"
+image mc semangat = "mc excited"
+
+image mc dizzy = Transform("images/Mc/McDizzy.png", crop=(1200, 0, 1150, 1440), zoom=0.6875)
+image mc bingung = "mc dizzy"
+image mc bingung1 = "mc dizzy"
+image mc pusing = "mc dizzy"
+
+image mc dizzy actually = Transform("images/Mc/McDizzyActually.png", crop=(1200, 0, 1150, 1440), zoom=0.6875)
+image mc bingungbanget = "mc dizzy actually"
+image mc bingungbanget2 = "mc dizzy actually"
+
+image mc o = Transform("images/Mc/Mc_o.png", crop=(1200, 0, 1150, 1440), zoom=0.6875)
+image mc _o = "mc o"
+image mc bingung2 = "mc o"
+image mc wow = "mc o"
+
+image mc shock = Transform("images/Mc/McShock.png", crop=(1200, 0, 1150, 1440), zoom=0.6875)
+image mc kaget = "mc shock"
+image mc dongok = "mc shock"
+image mc surprised = "mc shock"
+
+image mc shock hu = Transform("images/Mc/McShockHU.png", crop=(1200, 0, 1150, 1440), zoom=0.6875)
+image mc shockhu = "mc shock hu"
+image mc kaget hu = "mc shock hu"
+image mc dongok hu = "mc shock hu"
+
+image mc pout = Transform("images/Mc/McPout.png", crop=(1200, 0, 1150, 1440), zoom=0.6875)
+image mc gakpuas = "mc pout"
+image mc cemberut = "mc pout"
+image mc kecewa = "mc pout"
 
 # =========================================================
 # DEKLARASI SPRITE CORY (F1)
@@ -133,11 +165,11 @@ image alligator upset = "gator upset"
 # =========================================================
 # DEKLARASI SPRITE MR. CATFISH (LELE)
 # =========================================================
-image lele default = Transform("images/npc/LeleDefault.png", zoom=0.475)
-image lele curiga = Transform("images/npc/LeleCuriga.png", zoom=0.475)
-image lele depan = Transform("images/npc/LeleDepan.png", zoom=0.475)
-image lele purapuratidur = Transform("images/npc/LelePuraPuraTidur.png", zoom=0.475)
-image lele tidur = Transform("images/npc/LelePuraPuraTidur.png", zoom=0.475)
+image lele default = Transform("images/npc/LeleDefault.png", crop=(1260, 0, 1080, 1440), zoom=0.6875)
+image lele curiga = Transform("images/npc/LeleCuriga.png", crop=(1260, 0, 1080, 1440), zoom=0.6875)
+image lele depan = Transform("images/npc/LeleDepan.png", crop=(1260, 0, 1080, 1440), zoom=0.6875)
+image lele purapuratidur = Transform("images/npc/LelePuraPuraTidur_.png", crop=(1260, 0, 1080, 1440), zoom=0.6875)
+image lele tidur = "lele purapuratidur"
 
 
 # =========================================================
@@ -274,9 +306,10 @@ label night_exploration_loop:
         hide mc
         show cory smile at mc_left with dissolve
         F1 "ay.. Good pal, catfish."
-        $ renpy.notify("Stiker: Admin Datang")
+        show stiker admin_datang at stiker_lele
         lele "Here comes admin huh?"
         
+        hide stiker with dissolve
         hide cory
         show mc bingung at mc_left with dissolve
         "mm maybe i should let mr cory asks instead?"
@@ -630,18 +663,21 @@ label lele_interrogation_mc:
             show mc dongok with dissolve
             mc "H-Hey!"
             
+            show stiker gokil at stiker_lele
             show lele depan with dissolve
             lele "gokil"
             
             show mc bingung2 with dissolve
             mc "gokil…?"
             
+            show stiker super_gokil at stiker_lele
             show lele default with dissolve
             lele "super mega gokil"
             
             show mc bingungbanget with dissolve
             mc "I don’t know what that means…"
             
+            hide stiker with dissolve
             show lele default with dissolve
             lele "The sacred golden fish wields power enough to dry out all the water on this planet."
             lele "Yet not many would dare to pursue until the finish line"
@@ -654,7 +690,7 @@ label lele_interrogation_mc:
             mc "...Okay!"
 
         "What does that mean?":
-            $ renpy.notify("Stiker: Makanya dibaca 😂")
+            show stiker makanya_dibaca at stiker_lele
             show lele depan with dissolve
             lele "That’s why you should read more information 😂"
             
@@ -664,21 +700,21 @@ label lele_interrogation_mc:
             show mc exited with dissolve
             mc "We were looking for the golden fish!"
             
-            $ renpy.notify("Stiker: Ya ya ya 😹")
+            show stiker ya_ya_ya at stiker_lele
             show lele default with dissolve
             lele "Yes, yes, yes. I can see that. 😹"
             
-            $ renpy.notify("Stiker: fih")
+            show stiker fih at stiker_lele
             lele "The fish headed north."
             
             show mc senang with dissolve
             mc "North!"
             
-            $ renpy.notify("Stiker: Waspadalah sosok hitam")
+            show stiker waspadalah_sosok_hitam at stiker_lele
             show lele curiga with dissolve
             lele "But stay vigilant!"
             
-            $ renpy.notify("Stiker: Perlu pencahayaan")
+            show stiker perlu_pencahayaan at stiker_lele
             lele "You might need to light your ways."
 
         "How can I even say that…":
@@ -691,9 +727,9 @@ label lele_interrogation_mc:
             
             show lele curiga with dissolve
             lele "Suki’s Member… Member of Suki!!!"
-            $ renpy.notify("Stiker: Terdeteksi Suki harap waspada ygy")
+            show stiker terdeteksi_suki at stiker_lele
             lele "Gotta be alert…"
-            $ renpy.notify("Stiker: Pergi kau Suki")
+            show stiker pergi_kau_suki at stiker_lele
             lele "Go away."
             "The catfish scares us away."
 
@@ -701,6 +737,7 @@ label lele_interrogation_mc:
     $ renpy.notify("Final Clue Added: All clues point toward the northern current.")
     hide mc
     hide lele
+    hide stiker
     with dissolve
     jump switch_character_prompt
 
@@ -716,101 +753,104 @@ label lele_interrogation_cory:
 
     menu:
         "Which way is it pal?, i needa find out":
-            $ renpy.notify("Stiker: Mencari tahu")
+            show stiker mencari_tahu at stiker_lele
             show cory smile with dissolve
             F1 "which way is it pal?, i needa find out"
             
-            $ renpy.notify("Stiker: Main sini ke Kalimantan")
+            show stiker main_sini_ke_kalimantan at stiker_lele
             show lele depan with dissolve
             lele "North Kalimantan"
             
-            $ renpy.notify("Stiker: Pembohonk publik")
+            show stiker pembohonk_publik at stiker_lele
             show cory disrespectful with dissolve
             F1 "is what a public liar woulda say!"
             
-            $ renpy.notify("Stiker: Ada info doksli pakcik")
+            show stiker doksli at stiker_lele
             show cory normal with dissolve
             F1 "ay, spare me some real doksli would ya"
             
-            $ renpy.notify("Stiker: Besok aja")
+            show stiker besok_aja at stiker_lele
             show lele purapuratidur with dissolve
             lele "i’ll tell ya tomorrow"
             
-            $ renpy.notify("Stiker: Tempe goreng")
+            show stiker tempe_goreng at stiker_lele
             show cory smile with dissolve
             F1 "Even with tempe goreng on the line?"
             
-            $ renpy.notify("Stiker: Menggoda")
+            show stiker menggoda at stiker_lele
             show lele default with dissolve
             lele "tempting."
             
-            $ renpy.notify("Stiker: Malas")
+            show stiker malas at stiker_lele
             show lele purapuratidur with dissolve
             lele "but nah."
             
-            $ renpy.notify("Stiker: Awas kamu yah")
+            show stiker awas_kamu_yah at stiker_lele
             show cory upset with dissolve
             F1 "oh you watch your back"
             
-            $ renpy.notify("Stiker: Es teh")
+            show stiker es_teh at stiker_lele
             show cory smile with dissolve
             F1 "what about iced tea?"
             
-            $ renpy.notify("Stiker: Menggugah selera")
+            show stiker menggugah_selera at stiker_lele
             show lele default with dissolve
             lele "Appetizing.."
             
-            $ renpy.notify("Stiker: Pake nasi")
+            show stiker pake_nasi at stiker_lele
             show cory proud with dissolve
             F1 "also with rice"
             
-            $ renpy.notify("Stiker: Pake sambal")
+            show stiker pake_sambal at stiker_lele
             F1 "and spice"
             
-            $ renpy.notify("Stiker: Nah ini")
+            show stiker nah_ini at stiker_lele
             show lele depan with dissolve
             lele "that’s what i’m talking about!"
             
-            $ renpy.notify("Stiker: Cerdas")
+            show stiker cerdas at stiker_lele
             show cory smile with dissolve
             F1 "smart choice"
             
-            $ renpy.notify("Stiker: Aku mau sepuluh")
+            show stiker aku_mau_sepuluh at stiker_lele
             show lele curiga with dissolve
             lele "but i want 10 of each of them"
             
-            $ renpy.notify("Stiker: Waduh")
+            show stiker waduh at stiker_lele
             show cory surprise with dissolve
             F1 "oh shrimp"
             
-            $ renpy.notify("Stiker: Logikanya dimana")
+            show stiker logikanya_dimana at stiker_lele
             show cory upset hu with dissolve
             F1 "where’s the logic behind that?!"
             
-            $ renpy.notify("Stiker: Apa boleh buat")
+            show stiker apa_boleh_buat at stiker_lele
             show cory normal with dissolve
             F1 "oh well what can i do,, we have a deal"
             
-            $ renpy.notify("Stiker: Luar biasa")
+            show stiker luar_biasa at stiker_lele
             show lele default with dissolve
             lele "awesome"
             
-            $ renpy.notify("Stiker: fih")
+            show stiker fih at stiker_lele
             lele "The fish headed north"
             
-            $ renpy.notify("Stiker: Alhamdulillah")
+            show stiker alhamdulillah at stiker_lele
             show cory proud with dissolve
             F1 "Alhamdulillah"
 
         "Gives Ambalabu" if shell_taken:
+            show stiker gokil at stiker_lele
             show lele depan with dissolve
             lele "gokil"
+            show stiker super_gokil at stiker_lele
             show cory smile with dissolve
             F1 "super gokil"
             lele "super mega gokil"
             show cory proud with dissolve
             F1 "super mega gokil pro max"
             
+            hide stiker with dissolve
             show lele default with dissolve
             lele "The sacred golden fish wields power enough to dry out all the water on this planet."
             lele "Yet not many would dare to pursue until the finish line"
@@ -819,12 +859,12 @@ label lele_interrogation_cory:
             lele "Repeating Fate only awaits by the hand of our God"
             lele "You should understand that better than anyone"
             
-            $ renpy.notify("Stiker: Apa makna dari hal tersebut")
+            show stiker apa_makna_dari_hal_tersebut at stiker_lele
             show cory unimpressed1 with dissolve
             F1 "what does that even mean…"
 
         "What does that mean?":
-            $ renpy.notify("Stiker: Makanya dibaca 😂")
+            show stiker makanya_dibaca at stiker_lele
             show lele depan with dissolve
             lele "That’s why you should read more information 😂"
             show cory unimpressed2 with dissolve
@@ -832,20 +872,20 @@ label lele_interrogation_cory:
             show cory normal with dissolve
             F1 "We were looking for the golden fish!"
             
-            $ renpy.notify("Stiker: Ya ya ya 😹")
+            show stiker ya_ya_ya at stiker_lele
             show lele default with dissolve
             lele "Yes, yes, yes. I can see that. 😹"
             
-            $ renpy.notify("Stiker: fih")
+            show stiker fih at stiker_lele
             lele "The fish headed north."
             show cory smile with dissolve
             F1 "North!"
             
-            $ renpy.notify("Stiker: Waspadalah sosok hitam")
+            show stiker waspadalah_sosok_hitam at stiker_lele
             show lele curiga with dissolve
             lele "But stay vigilant!"
             
-            $ renpy.notify("Stiker: Perlu pencahayaan")
+            show stiker perlu_pencahayaan at stiker_lele
             lele "You might need to light your ways."
 
         "How can I even say that…":
@@ -858,9 +898,9 @@ label lele_interrogation_cory:
             
             show lele curiga with dissolve
             lele "Suki’s Member… Member of Suki!!!"
-            $ renpy.notify("Stiker: Terdeteksi Suki harap waspada ygy")
+            show stiker terdeteksi_suki at stiker_lele
             lele "Gotta be alert…"
-            $ renpy.notify("Stiker: Pergi kau Suki")
+            show stiker pergi_kau_suki at stiker_lele
             lele "Go away."
             "The catfish scares us away."
 
@@ -868,6 +908,7 @@ label lele_interrogation_cory:
     $ renpy.notify("Final Clue Added: All clues point toward the northern current.")
     hide cory
     hide lele
+    hide stiker
     with dissolve
     jump switch_character_prompt
 
