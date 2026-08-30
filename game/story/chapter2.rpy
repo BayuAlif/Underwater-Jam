@@ -7,8 +7,8 @@
 
 label chapter2:
 
-    e "===== CHAPTER 2 ====="
+    f1 "===== CHAPTER 2 ====="
 
-    e "(Placeholder) Cerita Chapter 2 belum dibuat."
+    f1 "(Placeholder) Cerita Chapter 2 belum dibuat."
 
     return

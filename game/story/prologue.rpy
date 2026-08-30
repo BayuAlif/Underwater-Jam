@@ -9,13 +9,13 @@ label prologue:
 
     scene expression get_background()
 
-    e "===== PROLOGUE ====="
+    f1 "===== PROLOGUE ====="
 
-    e "Di suatu pagi..."
+    f1 "Di suatu pagi..."
 
-    e "Aku terbangun di tepi laut."
+    f1 "Aku terbangun di tepi laut."
 
-    e "Hari ini petualangan dimulai."
+    f1 "Hari ini petualangan dimulai."
 
     call chapter1
 

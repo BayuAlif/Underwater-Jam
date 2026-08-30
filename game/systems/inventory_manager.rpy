@@ -4,21 +4,29 @@
 
 default inventory = []
 
-# Flag terpisah dari inventory, supaya Shell tetap
-# tercatat "sudah pernah diambil" walau nanti
-# dihapus lagi dari inventory (misal setelah
-# diberikan ke NPC).
-default shell_taken = False
+# =====================================
+# Chapter 1 - Bongkahan Emas
+# =====================================
+
+default gold_nugget_taken = False
+
 
 init python:
 
     def add_item(item):
-        if item not in inventory:
-            inventory.append(item)
+
+        if item not in store.inventory:
+
+            store.inventory.append(item)
+
 
     def has_item(item):
-        return item in inventory
+
+        return item in store.inventory
+
 
     def remove_item(item):
-        if item in inventory:
-            inventory.remove(item)
+
+        if item in store.inventory:
+
+            store.inventory.remove(item)

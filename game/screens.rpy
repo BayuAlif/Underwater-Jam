@@ -97,16 +97,25 @@ style frame:
 
 screen say(who, what):
 
+    # Custom dialogue box asset for Chapter 1.
+    add "images/ui/DialogueBox.png":
+        xalign 0.5
+        yalign 1.0
+        xsize 1920
+        ysize 1080
+
+    # Nama karakter sekarang ditaruh di lambung/layar kapal kiri atas,
+    # bukan lagi nempel di dalam window bawah. Makanya dipisah, biar bisa
+    # diposisikan bebas ke mana saja di layar.
+    if who is not None:
+
+        window:
+            id "namebox"
+            style "namebox"
+            text who id "who"
+
     window:
         id "window"
-
-        if who is not None:
-
-            window:
-                id "namebox"
-                style "namebox"
-                text who id "who"
-
         text what id "what"
 
 
@@ -135,22 +144,33 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background None
+
 
 style namebox:
-    xpos gui.name_xpos
-    xanchor gui.name_xalign
-    xsize gui.namebox_width
-    ypos gui.name_ypos
-    ysize gui.namebox_height
+    # Posisi di bagian rata lambung kapal, tepat di bawah layar, di
+    # artwork DialogueBox.png (art digambar di kanvas 1920x1080, jadi
+    # angka ini koordinat pixel absolut layar).
+    xpos 400
+    xanchor 0.5
+    ypos 730
+    yanchor 0.5
+    xsize 260
+    ysize 90
 
-    background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
-    padding gui.namebox_borders.padding
+    background None
+    padding (0, 0, 0, 0)
+
 
 style say_label:
     properties gui.text_properties("name", accent=True)
-    xalign gui.name_xalign
+    xalign 0.5
     yalign 0.5
+    color "#F7ECC9"
+    size 40
+    outlines [ (2, "#14142B", 0, 0) ]
+    text_align 0.5
+
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
@@ -158,6 +178,7 @@ style say_dialogue:
     xpos gui.dialogue_xpos
     xsize gui.dialogue_width
     ypos gui.dialogue_ypos
+    line_spacing 6
 
     adjust_spacing False
 

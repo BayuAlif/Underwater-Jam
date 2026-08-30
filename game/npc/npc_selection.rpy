@@ -10,22 +10,22 @@ init python:
     NPC_REGISTRY = {
 
         "fish01": {
-            "display_name": "Fish 01",
+            "display_name": "Bass",
             "cycle": "day",
         },
 
         "fish02": {
-            "display_name": "Fish 02",
+            "display_name": "Uceng",
             "cycle": "day",
         },
 
         "fish03": {
-            "display_name": "Fish 03",
+            "display_name": "Lele",
             "cycle": "night",
         },
 
         "fish04": {
-            "display_name": "Fish 04",
+            "display_name": "Gator",
             "cycle": "night",
         },
 
