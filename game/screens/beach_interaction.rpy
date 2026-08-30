@@ -43,11 +43,10 @@ screen beach_interaction():
             idle "images/npc/chapter1/fish01_idle.png"
             hover "images/npc/chapter1/fish01_hover.png"
 
+            focus_mask True
+
             xpos 140
             ypos 210
-
-            xsize 560
-            ysize 560
 
             action Return("fish_left")
 
@@ -59,11 +58,10 @@ screen beach_interaction():
             idle safe_hotspot_image("images/npc/chapter1/fish03_idle.png", "images/npc/chapter1/fish01_idle.png")
             hover safe_hotspot_image("images/npc/chapter1/fish03_hover.png", "images/npc/chapter1/fish01_hover.png")
 
-            xpos 140
-            ypos 210
+            focus_mask True
 
-            xsize 560
-            ysize 560
+            xpos 180
+            ypos 220
 
             action Return("fish_left")
 
@@ -79,11 +77,10 @@ screen beach_interaction():
             idle "images/npc/chapter1/fish02_idle.png"
             hover "images/npc/chapter1/fish02_hover.png"
 
+            focus_mask True
+
             xpos 1150
             ypos 260
-
-            xsize 350
-            ysize 350
 
             action Return("fish_right")
 
@@ -95,33 +92,50 @@ screen beach_interaction():
             idle safe_hotspot_image("images/npc/chapter1/fish04_idle.png", "images/npc/chapter1/fish02_idle.png")
             hover safe_hotspot_image("images/npc/chapter1/fish04_hover.png", "images/npc/chapter1/fish02_hover.png")
 
-            xpos 1150
-            ypos 260
+            focus_mask True
 
-            xsize 350
-            ysize 350
+            xpos 880
+            ypos 220
 
             action Return("fish_right")
 
 
     # =================================
-    # BONGKAHAN EMAS
+    # ITEM: BONGKAHAN EMAS (DAY)
     # =================================
 
-    if not gold_nugget_taken:
+    if is_day() and not gold_nugget_taken:
 
         imagebutton:
 
             idle "images/item/chapter1/gold_nugget_idle.png"
             hover "images/item/chapter1/gold_nugget_hover.png"
 
+            focus_mask True
+
             xpos 810
             ypos 700
 
-            xsize 180
-            ysize 140
-
             action Return("gold_nugget")
+
+
+    # =================================
+    # ITEM: AMBALABU (NIGHT)
+    # =================================
+
+    if is_night() and not ambalabu_taken:
+
+        imagebutton:
+
+            idle "images/npc/chapter1/ambalabu_idle.png"
+            hover "images/npc/chapter1/ambalabu_hover.png"
+
+            focus_mask True
+
+            xpos 800
+            ypos 650
+
+            action Return("ambalabu")
 
 
     # =================================

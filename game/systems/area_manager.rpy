@@ -28,6 +28,13 @@ init python:
 
         },
 
+        "border": {
+
+            "day_bg": "images/backgrounds/chapter 2/bg-day.jpg",
+            "night_bg": "images/backgrounds/chapter 2/bg-day.jpg",
+
+        },
+
     }
 
 

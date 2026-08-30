@@ -4,26 +4,40 @@
 
 label fish01:
 
-    show f1 default at mc_pos
-    show bass default at npc_pos
+    show mc default at mc_pos
+    show bass default at bass_pos
 
     bass "Hey there, guppy."
 
-    f1 "Oh... hello."
+    show mc actual at mc_pos
+
+    mc "Oh... hello."
 
     bass "You look like you've got a lot on your mind."
 
-    f1 "I guess I do."
+    mc "I guess I do."
+
+    show bass berpikir at bass_pos
 
     bass "Hah. Don't we all."
 
-    f1 "I'm Cory, by the way."
+    show mc default at mc_pos
+
+    mc "I'm just a little guppy, by the way."
+
+    show bass default at bass_pos
 
     bass "Bass."
 
+    show bass oh at bass_pos
+
     bass "And before you ask, no, I don't play an instrument."
 
-    f1 "I wasn't going to ask that."
+    show mc shock at mc_pos
+
+    mc "I wasn't going to ask that."
+
+    show bass default at bass_pos
 
     bass "Sure."
 
@@ -31,9 +45,15 @@ label fish01:
 
         "Who are you?":
 
-            f1 "So... what exactly do you do around here?"
+            show mc default at mc_pos
+
+            mc "So... what exactly do you do around here?"
+
+            show bass oh at bass_pos
 
             bass "Me?"
+
+            show bass default at bass_pos
 
             bass "I watch the current."
 
@@ -41,51 +61,71 @@ label fish01:
 
             bass "Sometimes it brings trouble."
 
-            f1 "That's... surprisingly philosophical."
+            show mc actual at mc_pos
 
-            show bass berpikir at npc_pos
+            mc "That's... surprisingly philosophical."
+
+            show bass berpikir at bass_pos
 
             bass "I'm a fish, guppy."
 
             bass "We have a lot of time to think."
 
-            show bass default at npc_pos
+            show bass default at bass_pos
 
 
         "Have you seen anything unusual?":
 
-            f1 "Have you seen anything strange around here?"
+            show mc actual at mc_pos
+
+            mc "Have you seen anything strange around here?"
+
+            show bass default at bass_pos
 
             bass "Depends."
 
             bass "What do you consider strange?"
 
-            f1 "A golden fish, maybe?"
+            show mc excited at mc_pos
 
-            show bass berpikir at npc_pos
+            mc "A golden fish, maybe?"
+
+            show bass berpikir at bass_pos
 
             bass "..."
 
+            show bass oh at bass_pos
+
             bass "Maybe."
 
-            f1 "You know something?"
+            show mc shock at mc_pos
+
+            mc "You know something?"
+
+            show bass default at bass_pos
 
             bass "Maybe I do."
 
             bass "Maybe you should keep looking."
 
-            show bass default at npc_pos
+            show bass default at bass_pos
 
 
         "Leave":
 
-            f1 "I should get going."
+            show mc default at mc_pos
+
+            mc "I should get going."
+
+            show bass default at bass_pos
 
             bass "Try not to get swept away, guppy."
 
-            f1 "I'll try."
+            show mc happy at mc_pos
 
-    hide f1
+            mc "I'll try."
+
+    hide mc
     hide bass
 
     return

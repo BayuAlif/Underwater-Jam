@@ -5,10 +5,17 @@
 default inventory = []
 
 # =====================================
-# Chapter 1 - Bongkahan Emas
+# Chapter 1 Items
 # =====================================
 
 default gold_nugget_taken = False
+default ambalabu_taken = False
+
+# =====================================
+# Chapter 2 Items
+# =====================================
+
+default tiny_krill_taken = False
 
 
 init python:

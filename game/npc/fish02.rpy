@@ -4,28 +4,40 @@
 
 label fish02:
 
-    show f1 default at mc_pos
-    show uceng default at npc_pos
+    show mc default at mc_pos
+    show uceng default at uceng_pos
 
     uceng "HEY!"
 
-    f1 "Whoa!"
+    show mc shock at mc_pos
+
+    mc "Whoa!"
 
     uceng "You're new here, aren't you?"
 
-    f1 "Is it that obvious?"
+    show mc actual at mc_pos
+
+    mc "Is it that obvious?"
 
     uceng "Very!"
 
-    f1 "Great."
+    show mc pout at mc_pos
+
+    mc "Great."
+
+    show uceng default at uceng_pos
 
     uceng "Don't worry, I mean it in a good way!"
 
-    f1 "I'm not sure that makes it better."
+    mc "I'm not sure that makes it better."
 
     uceng "I'm Uceng!"
 
-    f1 "Cory."
+    show mc default at mc_pos
+
+    mc "Cory."
+
+    show mc happy at mc_pos
 
     uceng "Nice to meet you, Cory!"
 
@@ -33,19 +45,31 @@ label fish02:
 
         "What are you doing here?":
 
-            f1 "What are you doing all the way out here?"
+            show mc default at mc_pos
+
+            mc "What are you doing all the way out here?"
+
+            show uceng default at uceng_pos
 
             uceng "Exploring!"
 
-            f1 "By yourself?"
+            show mc actual at mc_pos
+
+            mc "By yourself?"
 
             uceng "Of course!"
+
+            show uceng annoyed at uceng_pos
 
             uceng "Well..."
 
             uceng "Most of the time."
 
-            f1 "You don't sound very sure."
+            show mc pout at mc_pos
+
+            mc "You don't sound very sure."
+
+            show uceng annoyed at uceng_pos
 
             uceng "I'm very brave."
 
@@ -54,13 +78,21 @@ label fish02:
 
         "Did you see anything?":
 
-            f1 "Did you see anything strange around here?"
+            show mc actual at mc_pos
+
+            mc "Did you see anything strange around here?"
+
+            show uceng default at uceng_pos
 
             uceng "Hmm..."
 
             uceng "I saw something moving earlier."
 
-            f1 "What was it?"
+            show mc shock at mc_pos
+
+            mc "What was it?"
+
+            show uceng annoyed at uceng_pos
 
             uceng "I don't know!"
 
@@ -68,30 +100,40 @@ label fish02:
 
             uceng "And kind of shiny."
 
-            f1 "Shiny?"
+            show mc excited at mc_pos
+
+            mc "Shiny?"
+
+            show uceng default at uceng_pos
 
             uceng "Yeah!"
 
             uceng "You should probably ask someone else about it."
 
-            show uceng upset at npc_pos
+            show uceng upset at uceng_pos
 
             uceng "I'm not going near that thing again."
 
-            show uceng default at npc_pos
+            show uceng default at uceng_pos
 
 
         "Leave":
 
-            f1 "I should get going."
+            show mc default at mc_pos
+
+            mc "I should get going."
+
+            show uceng default at uceng_pos
 
             uceng "Okay!"
 
             uceng "Be careful, Cory!"
 
-            f1 "You too, Uceng."
+            show mc happy at mc_pos
 
-    hide f1
+            mc "You too, Uceng."
+
+    hide mc
     hide uceng
 
     return

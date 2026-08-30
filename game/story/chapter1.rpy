@@ -11,11 +11,14 @@ label chapter1:
     $ set_cycle("day")
     $ load_area("beach")
 
-    # Override background khusus Chapter 1.
-    # Tidak mengganggu Prologue.
+    # Background default (Full / Non-bordered) untuk gameplay & eksplorasi (Siang & Malam)
     $ set_background(
         "images/backgrounds/chapter1/chapter1_beach_day.png",
-        "images/backgrounds/chapter1/chapter1_beach_day.png"
+        "images/backgrounds/chapter1/bg night1.jpg"
+    )
+    $ set_dialogue_background(
+        "images/backgrounds/chapter1/bg day1_bordered.jpg",
+        "images/backgrounds/chapter1/bg night1_bordered.jpg"
     )
 
     scene expression get_background()
@@ -33,93 +36,101 @@ label chapter1:
 
 label chapter1_opening:
 
-    scene expression get_background()
+    # Saat teks sistem / narator awal, gunakan background full (non-bordered)
+    scene expression "images/backgrounds/chapter1/chapter1_beach_day.png"
 
-    show f1 default at mc_pos
-
-    f1 "===== CHAPTER 1 ====="
+    "===== CHAPTER 1 ====="
 
     "An unknown brazen voice pulled me out of a trance as my gaze dropped down to be unexpectedly met with a bottomless pit right before my toes, flinching back in instinct."
 
-    show f1 shock at mc_pos
+    # Saat dialog karakter dimulai, beralih ke background bordered
+    scene expression get_dialogue_background()
 
-    f1 "...!"
+    show cory talk at cory_pos
+    show mc shock at mc_pos
 
-    f1 "You take one more step..."
+    mc "...!"
 
-    f1 "...And you'd be a goner."
+    show cory talk at cory_pos
+
+    cory "You take one more step..."
+
+    cory "...And you'd be a goner."
 
     "The image of the darkness beyond is burned crisp into my mind. The current below twisted slowly as if alive, taunting those who stare long enough."
 
-    show f1 default at mc_pos
+    show cory side at cory_pos
 
-    f1 "Not exactly the kinda place ya wanna stumble into.."
+    cory "Not exactly the kinda place ya wanna stumble into.."
 
     "I slowly nodded in agreement. Before my mind could curiously wonder more to the depth of said cliff, I looked up to the source of voice."
 
     "What I expected was a kind mr human. I was instead met with a fish! A Corydoras perhaps? My eyes lit up with unbridled enthusiasm."
 
-    show f1 excited at mc_pos
+    show mc excited at mc_pos
 
     "Excitement held out, I mustn't forget to express my gratitude to those who saved my life. I start to wiggle my body in an interpretative dance of gratitude."
 
-    f1 "..."
+    show cory unimpressed at cory_pos
 
-    show f1 actual at mc_pos
+    cory "..."
 
-    f1 "Mane just what the fugu is you doing..?!"
+    show cory disrespectful at cory_pos
 
-    show f1 pout at mc_pos
+    cory "Mane just what the fugu is you doing..?!"
 
-    f1 "Fishes communicate through gestures and and visual as well as colors I'm trying to express my gratitude through-"
+    show mc pout at mc_pos
 
-    show f1 shock at mc_pos
+    mc "Fishes communicate through gestures and and visual as well as colors I'm trying to express my gratitude through-"
 
-    f1 "Wait.. I just spoke in water…"
+    show mc shock at mc_pos
 
-    show f1 excited at mc_pos
+    mc "Wait.. I just spoke in water…"
 
-    f1 "ARE YOU GETTING ME, MR FISH?? :D"
+    show mc excited at mc_pos
 
-    show f1 default at mc_pos
+    mc "ARE YOU GETTING ME, MR FISH?? :D"
 
-    f1 "chill the carp out! Yes and yes I'm understanding all the word you saying"
+    show cory sideclose at cory_pos
 
-    show f1 excited at mc_pos
+    cory "chill the carp out! Yes and yes I'm understanding all the word you saying"
 
-    f1 "I'M HAVING A CONVERSATION WITH A FISH!!"
+    show mc excited at mc_pos
+
+    mc "I'M HAVING A CONVERSATION WITH A FISH!!"
 
     "Struck with a thunder of explosive excitement a loud squeak pushed through me. At the same time my mouth is wide open-"
 
-    show f1 dizzy at mc_pos
+    show mc dizzy at mc_pos
 
-    f1 "{i}COUGHCOUCHCOUGHBLURURHRGHUGUHRH-!{/i}"
+    mc "{i}COUGHCOUCHCOUGHBLURURHRGHUGUHRH-!{/i}"
 
-    show f1 default at mc_pos
+    show cory surprise at cory_pos
 
-    f1 "Holy SHRIMP you still need air huh? I think I have just what ya need"
+    cory "Holy SHRIMP you still need air huh? I think I have just what ya need"
 
     # cutscene: cory putting a fishbowl on mc's head
 
-    show f1 excited at mc_pos
+    show mc excited at mc_pos
+    show cory smile at cory_pos
 
-    f1 "Huh-? Whoaaah.. I can see better now!"
+    mc "Huh-? Whoaaah.. I can see better now!"
 
-    show f1 happy at mc_pos
+    show cory proud at cory_pos
 
-    f1 "You sure do!"
+    cory "You sure do!"
 
-    show f1 actual at mc_pos
+    show cory talk at cory_pos
 
-    f1 "But.. huh is that a first.. alien guppy of two legs speaks under water.. you a witch?"
+    cory "But.. huh is that a first.. alien guppy of two legs speaks under water.. you a witch?"
 
-    show f1 happy at mc_pos
+    show mc happy at mc_pos
 
-    f1 "Am no witch! Am fish! It's my ever dream!"
+    mc "Am no witch! Am fish! It's my ever dream!"
 
-    show f1 actual at mc_pos
+    show mc actual at mc_pos
 
-    f1 "Ah but I couldn't do any of this before... maybe it's because of.."
+    mc "Ah but I couldn't do any of this before... maybe it's because of.."
 
     "My gaze fell down to the translucent scale I didn't realize was clutched tight in my palm the entire time. Curious, I let go of it just for one millisecond."
 
@@ -129,75 +140,72 @@ label chapter1_opening:
 
     "Mr kind fish's voice became audible again too.."
 
-    show f1 default at mc_pos
+    show cory talk at cory_pos
 
-    f1 "--- –in't ya one step closer to a dream come true, little guppy?"
+    cory "--- –in't ya one step closer to a dream come true, little guppy?"
 
     "This is the power of only one scale. Imagine what a whole fish can do…"
 
-    show f1 actual at mc_pos
+    show mc actual at mc_pos
 
-    f1 "Mr kind fish did you see a shiny golden fish that passed by?"
+    mc "Mr kind fish did you see a shiny golden fish that passed by?"
 
-    show f1 shock at mc_pos
+    show cory fond at cory_pos
 
-    f1 "Golden fish? I ain't see no gold, what I saw was straight DIAMOND."
+    cory "Golden fish? I ain't see no gold, what I saw was straight DIAMOND."
 
-    show f1 happy at mc_pos
+    cory "Visceral beauty struck me tantalized. type shrimp."
 
-    f1 "Visceral beauty struck me tantalized. type shrimp."
+    show cory side at cory_pos
 
-    show f1 default at mc_pos
+    cory "Didn't bother following it though. That and ion remember where it went."
 
-    f1 "Didn't bother following it though. That and ion remember where it went."
+    show mc shock at mc_pos
 
-    show f1 shock at mc_pos
+    mc "Whuh? Why? :o"
 
-    f1 "Whuh? Why? :o"
+    show cory talk at cory_pos
 
-    show f1 actual at mc_pos
+    cory "Ay.. how should I be telling you this.. Pretty things usually mean trouble around here."
 
-    f1 "Ay.. how should I be telling you this.. Pretty things usually mean trouble around here."
+    show mc pout at mc_pos
 
-    show f1 pout at mc_pos
+    cory "And I might just be too out of their league."
 
-    f1 "And I might just be too out of their league."
+    show mc excited at mc_pos
 
-    show f1 excited at mc_pos
+    mc "Yeah! I know! Like blue dragons and and lionfish and"
 
-    f1 "Yeah! I know! Like blue dragons and and lionfish and"
+    show cory smile at cory_pos
 
-    show f1 default at mc_pos
+    cory "*whistle* Well ain't you done your research.."
 
-    f1 "*whistle* Well ain't you done your research.."
+    show mc pout at mc_pos
 
-    show f1 pout at mc_pos
-
-    f1 "Mhm! won't make me not touch them though!"
+    mc "Mhm! won't make me not touch them though!"
 
     "Mr kind fish sighed."
 
-    show f1 default at mc_pos
+    show cory talk at cory_pos
 
-    f1 "Point is just careful around yeah?"
+    cory "Point is just careful around yeah?"
 
-    f1 "And if you don't know your way to mystery fish."
+    cory "And if you don't know your way to mystery fish."
 
-    f1 "Try exploring, ask around, riverfolks are one friendly neighborhood."
+    cory "Try exploring, ask around, riverfolks are one friendly neighborhood."
 
-    show f1 excited at mc_pos
+    show mc excited at mc_pos
 
-    f1 "Okay! :D"
+    mc "Okay! :D"
 
-    show f1 happy at mc_pos
+    show cory smile at cory_pos
 
-    f1 "Alright, good. Have fun, weird guppy! Best prayers to ya adventure"
+    cory "Alright, good. Have fun, weird guppy! Best prayers to ya adventure"
 
-    show f1 pout at mc_pos
+    hide mc
+    hide cory
 
-    f1 "Nay.. who am I kidding.. letting a 1 minute old guppy wander alone? That ain't me…"
-
-    hide f1
+    scene expression get_background()
 
     return
 
@@ -207,6 +215,9 @@ label chapter1_opening:
 # =====================================
 
 label beach_hub:
+
+    # Selalu pastikan saat eksplorasi / klik ikan / item, background adalah Full sesuai cycle (Siang/Malam)
+    scene expression get_background()
 
     call screen beach_interaction
 
@@ -249,7 +260,7 @@ label beach_hub:
 
 
     # =================================
-    # KLIK BONGKAHAN EMAS
+    # KLIK BONGKAHAN EMAS (DAY)
     # =================================
 
     elif _return == "gold_nugget":
@@ -259,7 +270,47 @@ label beach_hub:
             $ add_item("gold_nugget")
             $ gold_nugget_taken = True
 
-            "Kamu mengambil bongkahan emas."
+            "She kept a small gold lump."
+
+        jump beach_hub
+
+
+    # =================================
+    # KLIK AMBALABU (NIGHT)
+    # =================================
+
+    elif _return == "ambalabu":
+
+        if not ambalabu_taken:
+
+            $ add_item("ambalabu")
+            $ ambalabu_taken = True
+
+            scene expression get_dialogue_background()
+
+            "Item get: Ambalabu"
+
+            show cory surprise at cory_pos
+            show mc o at mc_pos
+
+            cory "...!"
+
+            cory "is that what i think it is??"
+
+            mc "what is it mr cory?"
+
+            show cory disrespectful at cory_pos
+
+            cory "eh, just a toy.. A very popular one"
+
+            show cory smile at cory_pos
+
+            cory "I might know who might like this… hah!"
+
+            hide mc
+            hide cory
+
+            scene expression get_background()
 
         jump beach_hub
 
@@ -274,87 +325,80 @@ label beach_hub:
 
             $ change_cycle()
 
-            # Saat cycle berubah, pakai BG Night.
-            $ set_background(
-                "images/backgrounds/chapter1/chapter1_beach_day.png",
-                "images/backgrounds/chapter1/chapter1_beach_day.png"
-            )
+            scene expression get_dialogue_background()
+
+            "After spending some time exploring the riverbed, the warm light above us slowly began to fade."
+
+            "The golden rays that once danced across the water became dimmer and dimmer."
+
+            show mc o at mc_pos
+            show cory side at cory_pos
+
+            mc "..."
+
+            mc "Mr. Cory?"
+
+            mc "Its getting dark.. is it night already?"
+
+            show cory talk at cory_pos
+
+            cory "Time flies when yer busy picking up rocks."
+
+            show mc happy at mc_pos
+
+            mc "Cool rocks!"
+
+            show cory fond at cory_pos
+
+            cory "they sure are."
+
+            "The last traces of sunlight slowly disappeared behind the surface."
+
+            "For a moment, the riverbed was bathed in a pretty faint blue glow."
+
+            "Then… The world went dark."
+
+            show mc o at mc_pos
+
+            mc "..."
+
+            "I looked around."
+
+            "The river looked completely different."
+
+            "The familiar rocks were now little more than silhouettes."
+
+            "The plants swayed slowly in darkness, their shadows stretching across the riverbed."
+
+            show mc shock at mc_pos
+
+            mc "Whoa…"
+
+            show cory talk at cory_pos
+
+            cory "Don’t wander too far."
+
+            show cory netral_hu at cory_pos
+
+            cory "Night’s a little different around here."
+
+            # insert cutscene glowing scale in dark
+
+            "Then suddenly the golden scale in my palm starts to emit a soft blue glow. Giving a small light to those around me"
+
+            show mc o at mc_pos
+            show cory smile at cory_pos
+
+            mc "well that's.. convenient!"
+
+            cory "Though still,"
+
+            mc "Keep your eyes open.. We dont know what might lurk in here"
+
+            hide mc
+            hide cory
 
             scene expression get_background()
-
-            show f1 actual at mc_pos
-
-            f1 "..."
-
-            f1 "Mr. Cory?"
-
-            show f1 default at mc_pos
-
-            f1 "Its getting dark.. is it night already?"
-
-            f1 "Time flies when yer busy picking up rocks."
-
-            f1 "Cool rocks!"
-
-            f1 "they sure are."
-
-            "The last traces of sunlight slowly disappeared behind the surface. For a moment, the riverbed was bathed in a pretty faint blue glow. Then… the world went dark."
-
-            show f1 actual at mc_pos
-
-            f1 "..."
-
-            "I looked around. The river looked completely different. The familiar rocks were now little more than silhouettes."
-
-            show f1 shock at mc_pos
-
-            f1 "Whoa…"
-
-            show f1 default at mc_pos
-
-            f1 "Don't wander too far."
-
-            f1 "Night's a little different around here."
-
-            # insert cutscene: glowing scale in dark
-
-            "Then suddenly the golden scale in my palm starts to emit a soft blue glow, giving a small light to those around me."
-
-            show f1 happy at mc_pos
-
-            f1 "well that's.. convenient!"
-
-            show f1 default at mc_pos
-
-            f1 "Though still,"
-
-            f1 "Keep your eyes open.. We dont know what might lurk in here"
-
-            $ add_item("ambalabu")
-
-            "Item get: Ambalabu"
-
-            show f1 shock at mc_pos
-
-            f1 "...!"
-
-            show f1 excited at mc_pos
-
-            f1 "is that what i think it is??"
-
-            show f1 actual at mc_pos
-
-            f1 "what is it mr cory?"
-
-            show f1 default at mc_pos
-
-            f1 "eh, just a toy.. A very popular one"
-
-            show f1 happy at mc_pos
-
-            f1 "I might know who might like this… hah!"
-
-            hide f1
 
             jump beach_hub
 
@@ -391,76 +435,82 @@ label beach_hub:
 
 label chapter1_ending:
 
-    scene expression get_background()
+    scene expression get_dialogue_background()
 
-    "A tiny peek of sunlight cuts through the riverwater, tainting the murkish dark water in small dots of light that slowly stretches its reach. Soon enough the river is glowing in a calming blue."
+    "A tiny peek of sunlight cuts through the riverwater. Tainting the murkish dark water in small dots of light that slowly stretches its reach. Soon enough the river is glowing in a calming blue"
 
-    show f1 shock at mc_pos
+    show mc o at mc_pos
+    show cory netral at cory_pos
 
-    f1 "woah.. dawn in the river.."
+    mc "woah.. dawn in the river.."
 
-    show f1 default at mc_pos
+    show mc excited at mc_pos
 
-    f1 "so this is what a fish sees.."
+    mc "so this is what a fish sees.."
 
-    f1 "Mhm, not so scary anymore is it?"
+    show cory smile at cory_pos
 
-    f1 "And? What've we got?"
+    cory "Mhm, not so scary anymore is it?"
 
-    show f1 excited at mc_pos
+    show cory netral_hu at cory_pos
 
-    f1 "North!"
+    cory "And? What've we got?"
 
-    f1 "They all said north!"
+    show mc default at mc_pos
 
-    show f1 actual at mc_pos
+    mc "North!"
 
-    f1 "north eh? The direction where the river ends.."
+    show mc happy at mc_pos
 
-    show f1 default at mc_pos
+    mc "They all said north!"
 
-    f1 "...Guess we've got our answer."
+    show cory side at cory_pos
+
+    cory "north eh? The direction where the river ends.."
+
+    show cory smile at cory_pos
+
+    cory "...Guess we've got our answer."
 
     "I looked toward the distant current. The water there flowed faster. The sunlight barely reached it."
 
-    show f1 actual at mc_pos
+    show cory talk at cory_pos
 
-    f1 "but uhh guppy.. ain't your parents worried..?"
+    cory "but uhh guppy.. ain't your parents worried..?"
 
-    f1 "it's been a full day since we got here.. ya don't wanna go back for a bit?"
+    cory "it's been a full day since we got here.. ya don't wanna go back for a bit?"
 
-    show f1 happy at mc_pos
+    show mc o at mc_pos
 
-    f1 "mm? No it's fine! My parents allow me to come back home whenever I want!"
+    mc "mm? No it's fine! My parents allow me to come back home whenever I want!"
 
-    show f1 default at mc_pos
+    show mc default at mc_pos
 
-    f1 "I don't think I'm coming back before I see that fish again.."
+    mc "I don't think I'm coming back before I see that fish again.."
 
-    show f1 happy at mc_pos
+    mc "aren't they just the kindest? To give freewill at my age!"
 
-    f1 "aren't they just the kindest? To give freewill at my age!"
+    show cory side at cory_pos
 
-    show f1 actual at mc_pos
+    cory "free will ay..? Sounds worrying to me."
 
-    f1 "free will ay..? Sounds worrying to me."
+    cory "but you're right about one thing, guppy"
 
-    show f1 default at mc_pos
+    cory "we ain't going back until we catch that damn fish together!"
 
-    f1 "but you're right about one thing, guppy"
+    show mc happy at mc_pos
 
-    show f1 excited at mc_pos
+    mc "Let's go!"
 
-    f1 "we ain't going back until we catch that damn fish together!"
+    show cory fond at cory_pos
 
-    f1 "Let's go!"
+    cory "Just don’t make me save ya twice."
 
-    show f1 happy at mc_pos
+    "We begin swimming toward the northern stream. As we disappeared into the rushing water…"
 
-    f1 "Just don't make me save ya twice."
+    "Fade Out."
 
-    "We begin swimming toward the northern stream. As we disappeared into the rushing water… fade out."
-
-    hide f1
+    hide mc
+    hide cory
 
     jump chapter2

@@ -15,6 +15,13 @@ default fish02_talked = False
 default fish03_talked = False
 default fish04_talked = False
 
+# =====================================
+# Chapter 2 NPC Flags
+# =====================================
+
+default salmon_talked = False
+default wana_talked = False
+
 # Flag tambahan dari dialog NPC
 default uceng_told_lore = False
 
