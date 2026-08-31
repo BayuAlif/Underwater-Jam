@@ -27,13 +27,13 @@ transform mc_left_pos:
 
 # Cory di posisi kiri (default interaksi dengan MC)
 transform cory_pos:
-    xanchor 0.66
-    xpos 0.24
+    xanchor 0.34
+    xpos 0.28
     yanchor 1.0
     ypos 1.0
 
 transform cory_left_pos:
-    xanchor 0.66
+    xanchor 0.34
     xpos 0.24
     yanchor 1.0
     ypos 1.0
@@ -42,7 +42,7 @@ transform cory_left_pos:
 transform cory_right_pos:
     xzoom -1.0
     xanchor 0.66
-    xpos 0.77
+    xpos 1.06
     yanchor 1.0
     ypos 1.0
 
@@ -55,20 +55,20 @@ transform npc_pos:
 
 # Transform spesifik tiap karakter agar pas di layar
 transform bass_pos:
-    xanchor 0.26
-    xpos 0.24
+    xanchor 0.74
+    xpos 0.32
     yanchor 1.0
     ypos 1.0
 
 transform uceng_pos:
-    xanchor 0.30
-    xpos 0.24
+    xanchor 0.70
+    xpos 0.26
     yanchor 1.0
     ypos 1.0
 
 transform lele_pos:
-    xanchor 0.30
-    xpos 0.24
+    xanchor 0.70
+    xpos 0.25
     yanchor 1.0
     ypos 1.0
 
