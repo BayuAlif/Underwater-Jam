@@ -9,67 +9,71 @@ screen who_should_ask(title="Choose who should ask mr catfish!", subtitle="The a
     zorder 100
 
     # Dim background overlay
-    add "#00000088"
+    add "#000000aa"
 
-    frame:
+    # Header Text
+    vbox:
         xalign 0.5
-        yalign 0.5
-        xsize 1100
-        ysize 650
-        background Frame("#0f1d2acc", 20, 20)
-        padding (40, 40, 40, 40)
+        ypos 70
+        spacing 12
 
+        text title:
+            xalign 0.5
+            size 42
+            color "#ffffff"
+            bold True
+            outlines [ (2, "#000000bb", 0, 0) ]
+
+        text subtitle:
+            xalign 0.5
+            size 22
+            color "#a0d2eb"
+            text_align 0.5
+            outlines [ (1, "#000000aa", 0, 0) ]
+
+    # Character choices (Left: MC, Right: Cory)
+    hbox:
+        xalign 0.5
+        yalign 0.62
+        spacing 200
+
+        # MC Card (Left)
         vbox:
             xalign 0.5
-            yalign 0.5
-            spacing 25
+            spacing 16
 
-            text title:
+            imagebutton:
                 xalign 0.5
-                size 36
-                color "#ffffff"
-                bold True
+                idle Transform("images/backgrounds/chapter1/rotation_chara/McIdle.png", size=(540, 540))
+                hover Transform("images/backgrounds/chapter1/rotation_chara/McHover.png", size=(540, 540))
+                action Return("mc")
 
-            text subtitle:
+            textbutton "Ask as MC":
                 xalign 0.5
-                size 22
-                color "#a0d2eb"
-                text_align 0.5
+                text_size 28
+                text_bold True
+                text_color "#ffffff"
+                text_hover_color "#ffd700"
+                text_outlines [ (2, "#000000bb", 0, 0) ]
+                action Return("mc")
 
-            null height 15
+        # Cory Card (Right)
+        vbox:
+            xalign 0.5
+            spacing 16
 
-            hbox:
+            imagebutton:
                 xalign 0.5
-                spacing 80
+                idle Transform("images/backgrounds/chapter1/rotation_chara/CoryIdle.png", size=(540, 540))
+                hover Transform("images/backgrounds/chapter1/rotation_chara/CoryHover.png", size=(540, 540))
+                action Return("cory")
 
-                # MC Card
-                vbox:
-                    xalign 0.5
-                    spacing 12
+            textbutton "Ask as Cory":
+                xalign 0.5
+                text_size 28
+                text_bold True
+                text_color "#ffffff"
+                text_hover_color "#ffd700"
+                text_outlines [ (2, "#000000bb", 0, 0) ]
+                action Return("cory")
 
-                    imagebutton:
-                        idle Transform("images/backgrounds/chapter1/rotation_chara/McIdle.png", size=(300, 300))
-                        hover Transform("images/backgrounds/chapter1/rotation_chara/McHover.png", size=(300, 300))
-                        action Return("mc")
-
-                    text "Ask as MC":
-                        xalign 0.5
-                        size 24
-                        color "#ffffff"
-                        bold True
-
-                # Cory Card
-                vbox:
-                    xalign 0.5
-                    spacing 12
-
-                    imagebutton:
-                        idle Transform("images/backgrounds/chapter1/rotation_chara/CoryIdle.png", size=(300, 300))
-                        hover Transform("images/backgrounds/chapter1/rotation_chara/CoryHover.png", size=(300, 300))
-                        action Return("cory")
-
-                    text "Ask as Cory":
-                        xalign 0.5
-                        size 24
-                        color "#ffffff"
-                        bold True

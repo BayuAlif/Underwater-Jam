@@ -40,9 +40,8 @@ transform cory_left_pos:
 
 # Cory di posisi kanan samping/menggantikan MC saat berbicara dengan NPC
 transform cory_right_pos:
-    xzoom -1.0
-    xanchor 0.66
-    xpos 1.06
+    xanchor 0.34
+    xpos 0.77
     yanchor 1.0
     ypos 1.0
 

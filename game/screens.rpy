@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 ## Initialization
 ################################################################################
 
@@ -112,7 +112,7 @@ screen say(who, what):
         window:
             id "namebox"
             style "namebox"
-            text who id "who"
+            text who id "who" xalign 0.5 text_align 0.5
 
     window:
         id "window"
@@ -151,12 +151,12 @@ style namebox:
     # Posisi di bagian rata lambung kapal, tepat di bawah layar, di
     # artwork DialogueBox.png (art digambar di kanvas 1920x1080, jadi
     # angka ini koordinat pixel absolut layar).
-    xpos 400
+    xpos 435
     xanchor 0.5
     ypos 730
     yanchor 0.5
-    xsize 260
-    ysize 90
+    xsize None
+    ysize None
 
     background None
     padding (0, 0, 0, 0)
@@ -166,8 +166,19 @@ style say_label:
     properties gui.text_properties("name", accent=True)
     xalign 0.5
     yalign 0.5
+    xanchor 0.5
     color "#F7ECC9"
-    size 40
+    size 38
+    outlines [ (2, "#14142B", 0, 0) ]
+    text_align 0.5
+
+
+style namebox_label:
+    xalign 0.5
+    yalign 0.5
+    xanchor 0.5
+    color "#F7ECC9"
+    size 38
     outlines [ (2, "#14142B", 0, 0) ]
     text_align 0.5
 
