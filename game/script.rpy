@@ -1,4 +1,4 @@
-﻿# =====================================
+# =====================================
 # Characters
 # =====================================
 
@@ -16,6 +16,7 @@ define lele = Character("Lele", callback=speaker_callback("lele"))
 define gator = Character("Gator", callback=speaker_callback("gator"))
 define salmon = Character("Mrs. Salmon", callback=speaker_callback("salmon"))
 define wana = Character("Mr. Wana", callback=speaker_callback("wana"))
+define ghost = Character("Ghost", callback=speaker_callback("ghost"))
 
 
 # =====================================
@@ -85,6 +86,35 @@ image gator annoyed = Transform("images/npc/chapter1/gator/GatorAnnoyed.png", zo
 image gator smile = Transform("images/npc/chapter1/gator/GatorSmile.png", zoom=GATOR_SCALE)
 image gator surprised = Transform("images/npc/chapter1/gator/GatorSurprised.png", zoom=GATOR_SCALE)
 image gator upset = Transform("images/npc/chapter1/gator/GatorUpset.png", zoom=GATOR_SCALE)
+
+# Chapter 2 NPCs - Skala Global 0.95
+define WANA_SCALE = 0.95
+
+image wana default = Transform("images/npc/chapter2/arowana/AroDefault.png", zoom=WANA_SCALE)
+image wana mad = Transform("images/npc/chapter2/arowana/AroMad.png", zoom=WANA_SCALE)
+image wana smile = Transform("images/npc/chapter2/arowana/AroSmile.png", zoom=WANA_SCALE)
+image wana squint = Transform("images/npc/chapter2/arowana/AroSquint.png", zoom=WANA_SCALE)
+
+image arowana default = Transform("images/npc/chapter2/arowana/AroDefault.png", zoom=WANA_SCALE)
+image arowana mad = Transform("images/npc/chapter2/arowana/AroMad.png", zoom=WANA_SCALE)
+image arowana smile = Transform("images/npc/chapter2/arowana/AroSmile.png", zoom=WANA_SCALE)
+image arowana squint = Transform("images/npc/chapter2/arowana/AroSquint.png", zoom=WANA_SCALE)
+
+define SALMON_SCALE = 0.95
+
+image salmon default = Transform("images/npc/chapter2/salmon/SalDefault.png", zoom=SALMON_SCALE)
+image salmon happy = Transform("images/npc/chapter2/salmon/SalHappy.png", zoom=SALMON_SCALE)
+image salmon pien = Transform("images/npc/chapter2/salmon/SalPien.png", zoom=SALMON_SCALE)
+image salmon cry = Transform("images/npc/chapter2/salmon/SalPien.png", zoom=SALMON_SCALE)
+image salmon pout = Transform("images/npc/chapter2/salmon/SalPout.png", zoom=SALMON_SCALE)
+
+define GHOST_SCALE = 0.95
+
+image ghost default = Transform("images/npc/chapter2/ghost/GhostDefault.png", zoom=GHOST_SCALE)
+image ghost close = Transform("images/npc/chapter2/ghost/GhostClose.png", zoom=GHOST_SCALE)
+image ghost deadpan = Transform("images/npc/chapter2/ghost/GhostDeadpan.png", zoom=GHOST_SCALE)
+image ghost mweheh = Transform("images/npc/chapter2/ghost/GhostMweheh.png", zoom=GHOST_SCALE)
+image ghost side = Transform("images/npc/chapter2/ghost/GhostSide.png", zoom=GHOST_SCALE)
 
 
 # =====================================

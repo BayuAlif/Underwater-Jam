@@ -6,6 +6,7 @@ label salmon:
 
     $ cory_at_right = False
 
+    show salmon pien at salmon_pos
     show mc default at mc_pos
 
     "Mrs. Salmon is crying."
@@ -39,6 +40,8 @@ label salmon:
     mc "There, there."
     mc "If the mama is sad, the baby gets sad too."
 
+    show salmon default at salmon_pos
+
     salmon "...How on ocean does a tiny thing like you know that, love?"
 
     show mc excited at mc_pos
@@ -46,11 +49,15 @@ label salmon:
     mc "I watched salmon migration on YouTube!!"
     mc "Mama salmon swims really far to lay their eggs, right?"
 
+    show salmon happy at salmon_pos
+
     salmon "Oh my..."
     salmon "Hahaha."
     salmon "You're a very lovely little thing, aren't you?"
     salmon "Though I haven't a clue what this 'YouTube' is..."
     salmon "Must be a helpful source of information."
+
+    show salmon default at salmon_pos
 
     salmon "Tell me, love."
     salmon "Are there any sort of pregnancy tips in there?"
@@ -61,9 +68,13 @@ label salmon:
     mc "I think so!"
     mc "YouTube's got everything you'd want to see!"
 
+    show salmon happy at salmon_pos
+
     salmon "Oh that sounds about perfect!"
 
     "Mrs. Salmon looks at Cory."
+
+    show salmon default at salmon_pos
 
     salmon "Go back to your father now. He must be worried for you."
 
@@ -71,6 +82,8 @@ label salmon:
 
     mc "Ah, he's not my father!"
     mc "I only met him yesterday!"
+
+    show salmon pout at salmon_pos
 
     salmon "..........???"
 
@@ -105,11 +118,14 @@ label salmon_as_mc:
 
     $ cory_at_right = False
     hide cory
+    show salmon default at salmon_pos
     show mc default at mc_pos
 
     menu:
 
         "What's stopping you from going down there, ma'am?":
+
+            show salmon default at salmon_pos
 
             salmon "There's only one path down to the sea from here, innit."
             salmon "But a bloody mantis shrimp's blocking the way."
@@ -119,10 +135,14 @@ label salmon_as_mc:
 
             mc "But… why does the mantis shrimp block the way???"
 
+            show salmon pout at salmon_pos
+
             salmon "I haven't the foggiest idea, love."
 
 
         "Can't you just push past the river, ma'am?":
+
+            show salmon pout at salmon_pos
 
             salmon "Push past it??"
             salmon "Oh, perish that thought, love.."
@@ -144,6 +164,8 @@ label salmon_as_mc:
 
 
         "I found a tiny krill!" if has_item("tiny_krill"):
+
+            show salmon happy at salmon_pos
 
             salmon "Oh how lovely!"
             salmon "For me, sweet guppy?"
@@ -185,6 +207,8 @@ label salmon_as_mc:
             mc "mn.. *sniff*"
             mc "Mama..."
 
+            show salmon default at salmon_pos
+
             salmon "...!"
 
             "I feel a faint tap on my glass head."
@@ -193,10 +217,14 @@ label salmon_as_mc:
 
             "A gentle caress that would wipe all my worries and sadness away."
 
+            show salmon happy at salmon_pos
+
             salmon "Mhm, I'm here for you.."
             salmon "It's alright my sweet little guppy…"
             salmon "You're okay.."
 
+
+    show salmon default at salmon_pos
 
     salmon "I think I will have to take a detour-"
     salmon "-even it'll take me aeons."
@@ -214,7 +242,11 @@ label salmon_as_mc:
     mc "NOOO I don't wanna take a detour…!!"
     mc "The golden fish will be gone farther by then :("
 
+    show salmon default at salmon_pos
+
     salmon "Haven't a clue about any other way, unfortunately."
+
+    show salmon happy at salmon_pos
 
     salmon "I can only wish you the best of luck."
     salmon "I bid you farewell, guppy."
@@ -222,6 +254,7 @@ label salmon_as_mc:
     $ cory_at_right = False
     hide mc
     hide cory
+    hide salmon
 
     return
 
@@ -234,6 +267,7 @@ label salmon_as_cory:
 
     $ cory_at_right = True
     hide mc
+    show salmon pout at salmon_pos
     show cory side at cory_right_pos
 
     salmon "What on ocean are you doing with that guppy?"
@@ -256,6 +290,8 @@ label salmon_as_cory:
             cory "I haven't got a full picture of the guppy's story but..."
             cory "To me, it looks like their parents somewhat abandoned 'em."
 
+            show salmon default at salmon_pos
+
             salmon "......!"
 
             salmon "Then just turn around and go back."
@@ -274,6 +310,7 @@ label salmon_as_cory:
 
             $ cory_at_right = False
             hide cory
+            show salmon pout at salmon_pos
             show mc default at mc_pos
 
             salmon "...Are you sure he's not up to anything dodgy, dear?"
@@ -284,7 +321,11 @@ label salmon_as_cory:
             mc "Mr Cory is super nice!"
             mc "He's been helping me lots!"
 
+            show salmon happy at salmon_pos
+
             salmon "Hm, if you say so then…"
+
+            show salmon pout at salmon_pos
 
             salmon "But!"
             salmon "You watch your back around him anyway, love."
@@ -307,6 +348,8 @@ label salmon_as_cory:
 
             cory "I'll just... leave it here for you, ma'am."
 
+            show salmon default at salmon_pos
+
             salmon "Wait!"
 
             cory "...Hm?"
@@ -323,8 +366,12 @@ label salmon_as_cory:
 
             cory "Besides, a carrying mother needs to have their guard up, yeah?"
 
+            show salmon happy at salmon_pos
+
             salmon "Fair enough.."
             salmon "I can't help it."
+
+            show salmon default at salmon_pos
 
             salmon "You better take a dainty great care of the little fry, okay?"
             salmon "I'm bloody worried for them.."
@@ -338,5 +385,6 @@ label salmon_as_cory:
     $ cory_at_right = False
     hide mc
     hide cory
+    hide salmon
 
     return

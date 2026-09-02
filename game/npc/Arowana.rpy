@@ -9,15 +9,16 @@ label wana:
 
     $ cory_at_right = False
 
+    show wana default at wana_pos
     show mc default at mc_pos
 
     "A silver arowana kicks big rocks with a loud grumble."
 
     "I wonder what it's mad about.."
 
-    show mc default at mc_pos
-
     mc "Good morning si-"
+
+    show wana mad at wana_pos
 
     wana "SHHHRGGHHHJHNGHHRRAHH!!"
     wana "MY BOSS IS GOING TO KILL ME I'M GOING TO GET PUBLICLY EXECUTED"
@@ -31,6 +32,8 @@ label wana:
     cory "Woah, chill the eel out, my guy!"
     cory "Those rocks can hurt a ton."
 
+    show wana default at wana_pos
+
     wana "Oh."
     wana "A fish."
     wana "My apologies, sir."
@@ -40,6 +43,8 @@ label wana:
     cory "Wait!"
     cory "You a silver arowana right?"
     cory "From Amazon?"
+
+    show wana smile at wana_pos
 
     wana "...!"
     wana "Eel yeah I am!"
@@ -73,6 +78,7 @@ label wana_as_mc:
 
     $ cory_at_right = False
     hide cory
+    show wana default at wana_pos
     show mc default at mc_pos
 
     mc "What's wrong, Mr. Arowana?"
@@ -90,9 +96,14 @@ label wana_as_mc:
 
     mc "But you're still here…"
 
+    show wana mad at wana_pos
+
     wana "NO SHRIMP!"
     wana "I AM HERE."
     wana "Because of that stupid- egregious mantis shrimp!"
+
+    show wana default at wana_pos
+
     wana "My apologies."
     wana "That was unprofessional of me."
 
@@ -123,6 +134,8 @@ label wana_as_mc:
 
             mc "Not a thing?"
 
+            show wana squint at wana_pos
+
             wana "I'm sorry but I don't think I want to entertain a child right now.."
 
 
@@ -131,6 +144,8 @@ label wana_as_mc:
             mc "Mr Wana, if work is so important..."
             mc "Why don't you just leap up through the cave?"
 
+            show wana squint at wana_pos
+
             wana "..."
 
             show mc excited at mc_pos
@@ -138,6 +153,9 @@ label wana_as_mc:
             mc "Just like how a flying fish would!"
 
             wana "..."
+
+            show wana smile at wana_pos
+
             wana "HAH!"
             wana "Yes!"
             wana "How wonderful!"
@@ -148,6 +166,8 @@ label wana_as_mc:
             mc "Right?!"
             mc "So you can just go!"
 
+            show wana squint at wana_pos
+
             wana "..."
             wana "...Young fish."
 
@@ -156,6 +176,8 @@ label wana_as_mc:
             mc "Yes?"
             mc "Do you need a push?"
             mc "Me and Mr Cory can help!"
+
+            show wana default at wana_pos
 
             wana "I have a meeting."
             wana "I have a boss."
@@ -166,6 +188,8 @@ label wana_as_mc:
 
             mc "Huh?"
             mc "But why…"
+
+            show wana squint at wana_pos
 
             wana "Please don't give me career advice again."
 
@@ -186,6 +210,8 @@ label wana_as_mc:
 
             "Mr Cory sighs and proceeds to escort me away."
 
+            show wana default at wana_pos
+
             wana "I admire your patience in tending to the young one, Corydoras."
 
             $ cory_at_right = True
@@ -204,6 +230,7 @@ label wana_as_mc:
     $ cory_at_right = False
     hide mc
     hide cory
+    hide wana
 
     return
 
@@ -216,10 +243,13 @@ label wana_as_cory:
 
     $ cory_at_right = True
     hide mc
+    show wana default at wana_pos
     show cory talk at cory_right_pos
 
     cory "Ay mano, care to tell us what's up?"
     cory "We needa cross the border too."
+
+    show wana smile at wana_pos
 
     wana "Ay cara, of course I'll tell you everything."
     wana "I need him sober ASAP."
@@ -228,6 +258,8 @@ label wana_as_cory:
     menu:
 
         "Got an idea why shrimp's gatekeepin?":
+
+            show wana default at wana_pos
 
             wana "Not a clue, unfortunately."
             wana "All I know is, you have to win in some kind of duel against him."
@@ -238,6 +270,8 @@ label wana_as_cory:
             cory "Heh, you look tough though."
             cory "Why not give it a try?"
 
+            show wana squint at wana_pos
+
             wana "Can't risk having my ass beat."
             wana "When it's going to be absolutely clapped by the end of the day."
             wana "As in, from the amount of work my boss gave me."
@@ -247,10 +281,14 @@ label wana_as_cory:
             cory "Pfft."
             cory "Ya boss sure love yer hardworking ass huh."
 
+            show wana squint at wana_pos
+
             wana "I'm going to pretend I didn't hear that."
 
 
         "You know what's up with his bizarre act?":
+
+            show wana default at wana_pos
 
             wana "No."
             wana "He's usually not this strict."
@@ -266,8 +304,13 @@ label wana_as_cory:
             cory "Huh."
             cory "Something must've happened to him then."
 
+            show wana mad at wana_pos
+
             wana "How unprofessional of him!"
             wana "He shouldn't be letting personal matters fiddle his work!"
+
+            show wana default at wana_pos
+
             wana "Ugh."
             wana "This path is the only way I commute to work in the sea.."
             wana "What should I do now?"
@@ -278,7 +321,11 @@ label wana_as_cory:
             cory "You work at the sea?"
             cory "How are ya doing that?!"
 
+            show wana squint at wana_pos
+
             wana "Doing what exactly?"
+
+            show cory talk at cory_right_pos
 
             cory "Ya know!"
             cory "We're the freshwater kind."
@@ -293,12 +340,16 @@ label wana_as_cory:
             cory "*whistle*"
             cory "Sweet stuffs ya got!"
 
+            show wana smile at wana_pos
+
             wana "This device allows me to survive in saltwater."
             wana "It cost me more money than I'm comfortable admitting."
 
             show cory talk at cory_right_pos
 
             cory "How much are we talking?"
+
+            show wana squint at wana_pos
 
             wana "I would rather not expose the numbers."
             wana "But let's say it cost me my nine lives."
@@ -309,6 +360,8 @@ label wana_as_cory:
 
             mc "But you're not a cat!"
             mc "You're a fish!"
+
+            show wana default at wana_pos
 
             wana "Precisely."
             wana "This device was handed down eight generations before me."
@@ -337,6 +390,8 @@ label wana_as_cory:
 
             cory "Ay guppy, clam's tight on me too.."
 
+            show wana smile at wana_pos
+
             wana "Tell you what."
             wana "If you're really planning to confront that shrimp…"
             wana "You might as well take it."
@@ -345,6 +400,8 @@ label wana_as_cory:
             show cory surprise at cory_right_pos
 
             cory "For reals yo?!"
+
+            show wana default at wana_pos
 
             wana "Of course."
             wana "But it's broken."
@@ -356,10 +413,13 @@ label wana_as_cory:
             cory "I'll gladly take it!"
             cory "Appreciate it, mano!"
 
+            show wana smile at wana_pos
+
             wana "You put some sense into the guy for me in exchange, alright?"
 
     $ cory_at_right = False
     hide mc
     hide cory
+    hide wana
 
     return

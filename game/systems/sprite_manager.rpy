@@ -80,14 +80,20 @@ transform gator_pos:
 
 # Chapter 2 NPCs
 transform salmon_pos:
-    xanchor 0.28
-    xpos 0.24
+    xanchor 0.69
+    xpos 0.28
     yanchor 1.0
     ypos 1.0
 
 transform wana_pos:
-    xanchor 0.28
-    xpos 0.24
+    xanchor 0.69
+    xpos 0.28
+    yanchor 1.0
+    ypos 1.0
+
+transform ghost_pos:
+    xanchor 0.73
+    xpos 0.28
     yanchor 1.0
     ypos 1.0
 
@@ -124,6 +130,7 @@ init -10 python:
         "salmon": "salmon_pos",
         "wana": "wana_pos",
         "arowana": "wana_pos",
+        "ghost": "ghost_pos",
     }
 
 

@@ -12,12 +12,12 @@ label chapter2:
     $ load_area("border")
 
     $ set_background(
-        "images/backgrounds/chapter 2/bg-day.jpg",
-        "images/backgrounds/chapter 2/bg-day.jpg"
+        "images/backgrounds/chapter 2/bg day2.jpg",
+        "images/backgrounds/chapter 2/bg day2.jpg"
     )
     $ set_dialogue_background(
-        "images/backgrounds/chapter 2/bg-day.jpg",
-        "images/backgrounds/chapter 2/bg-day.jpg"
+        "images/backgrounds/chapter 2/bg day2_bordered.jpg",
+        "images/backgrounds/chapter 2/bg day2_bordered.jpg"
     )
 
     scene expression get_background()
