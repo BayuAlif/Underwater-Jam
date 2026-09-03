@@ -127,8 +127,8 @@ screen beach_interaction():
 
         imagebutton:
 
-            idle "images/npc/chapter1/ambalabu_idle.png"
-            hover "images/npc/chapter1/ambalabu_hover.png"
+            idle "images/item/chapter1/ambalabu_idle.png"
+            hover "images/item/chapter1/ambalabu_hover.png"
 
             focus_mask True
 

@@ -7,6 +7,13 @@ default depth_meters = 100
 
 
 # =====================================
+# Clue System
+# =====================================
+
+default clues = []
+
+
+# =====================================
 # Chapter 1 NPC Flags
 # =====================================
 
@@ -14,6 +21,7 @@ default fish01_talked = False
 default fish02_talked = False
 default fish03_talked = False
 default fish04_talked = False
+
 
 # =====================================
 # Chapter 2 NPC Flags
@@ -26,7 +34,34 @@ default wana_talked = False
 default uceng_told_lore = False
 
 
+# =====================================
+# Chapter 2 Night Flags
+# =====================================
+
+default ghost_talked = False
+default shrimp_confronted = False
+default shrimp_weakened = False
+default shrimp_duel_won = False
+default shrimp_joined = False
+
+
 init python:
+
+    # =================================
+    # Clue Management
+    # =================================
+
+    def add_clue(clue):
+
+        if clue not in store.clues:
+
+            store.clues.append(clue)
+
+
+    def has_clue(clue):
+
+        return clue in store.clues
+
 
     # =================================
     # General Progress
@@ -53,7 +88,7 @@ init python:
 
 
     # =================================
-    # DAY OBJECTIVE
+    # CHAPTER 1 DAY OBJECTIVE
     # =================================
     #
     # Bass + Uceng + Gold
@@ -69,7 +104,7 @@ init python:
 
 
     # =================================
-    # NIGHT OBJECTIVE
+    # CHAPTER 1 NIGHT OBJECTIVE
     # =================================
     #
     # Lele + Gator
@@ -80,4 +115,35 @@ init python:
         return (
             store.fish03_talked
             and store.fish04_talked
+        )
+
+
+    # =================================
+    # CHAPTER 2 DAY OBJECTIVE
+    # =================================
+    #
+    # Salmon + Arowana + Tiny Krill
+    #
+
+    def chapter2_day_objectives_complete():
+
+        return (
+            store.salmon_talked
+            and store.wana_talked
+            and store.tiny_krill_taken
+        )
+
+
+    # =================================
+    # CHAPTER 2 NIGHT OBJECTIVE
+    # =================================
+    #
+    # Ghost Fish + Mantis Shrimp victory
+    #
+
+    def chapter2_night_objectives_complete():
+
+        return (
+            store.ghost_talked
+            and store.shrimp_duel_won
         )

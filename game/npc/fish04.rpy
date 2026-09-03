@@ -6,14 +6,11 @@ label fish04:
 
     $ cory_at_right = False
 
-    show gator default at gator_pos
     show mc default at mc_pos
 
     "An alligator lounging beside a large rock. It looked completely unbothered by anything that would be around it. One of its claws casually tapped against the rock."
 
-    show mc default at mc_pos
-
-    mc "Hello! Good evening!"
+    show gator default at gator_pos
 
     "The alligator slowly turned its head toward me."
 
@@ -89,7 +86,12 @@ label fish04:
 
     mc "All leads road to north!"
 
-    # Cory masuk berbicara dengan Gator (Cory di kanan menggantikan MC)
+
+    # =====================================
+    # CORY MASUK - CORY DI KANAN
+    # MC DIHIDE
+    # =====================================
+
     $ cory_at_right = True
     hide mc
     show cory side at cory_right_pos
@@ -124,14 +126,22 @@ label fish04:
 
     cory "You always eat them for lunch, especially on Tuesdays."
 
-    # MC menyela
+
+    # =====================================
+    # MC MENYELA - CORY DIHIDE
+    # =====================================
+
     $ cory_at_right = False
     hide cory
     show mc o at mc_pos
 
     mc "mm, it is Tuesday today…"
 
-    # Gator & Cory kembali berdebat
+
+    # =====================================
+    # CORY KEMBALI - MC DIHIDE
+    # =====================================
+
     $ cory_at_right = True
     hide mc
     show cory disrespectful at cory_right_pos
@@ -148,9 +158,18 @@ label fish04:
 
     "I stare at both of them from the sidelines. Feeling a stiff electric tension swells between them as it goes on. It was like watching mama and papa speak to each other. Maybe I should try stopping them.."
 
+
+    # =====================================
+    # MENU
+    # =====================================
+
     menu:
 
         "Don't stop them":
+
+            # ---------------------------------
+            # MC
+            # ---------------------------------
 
             $ cory_at_right = False
             hide cory
@@ -164,13 +183,23 @@ label fish04:
 
             show mc o at mc_pos
 
-            mc "...!"
+            mc "..."
+
+
+            # ---------------------------------
+            # CORY
+            # ---------------------------------
 
             $ cory_at_right = True
             hide mc
             show cory upset at cory_right_pos
 
             cory "nasty NASTY gator..!"
+
+
+            # ---------------------------------
+            # MC
+            # ---------------------------------
 
             $ cory_at_right = False
             hide cory
@@ -180,14 +209,28 @@ label fish04:
 
             show mc shock at mc_pos
 
+
+            # ---------------------------------
+            # CORY
+            # ---------------------------------
+            # FIX:
+            # MC harus di-hide sebelum Cory bicara.
+
+            $ cory_at_right = True
+            hide mc
+            show cory upset at cory_right_pos
+
             cory "....."
 
             show gator surprised at gator_pos
 
             gator "......."
 
-            $ cory_at_right = True
-            hide mc
+
+            # ---------------------------------
+            # CORY
+            # ---------------------------------
+
             show cory side at cory_right_pos
 
             cory "it means uhh-!"
@@ -195,6 +238,11 @@ label fish04:
             show cory smile_hu at cory_right_pos
 
             cory "Means that you love your mother a lot!"
+
+
+            # ---------------------------------
+            # MC
+            # ---------------------------------
 
             $ cory_at_right = False
             hide cory
@@ -212,6 +260,11 @@ label fish04:
 
             mc "ohh.. okay I'm not a motherfucker then :("
 
+
+            # ---------------------------------
+            # CORY
+            # ---------------------------------
+
             $ cory_at_right = True
             hide mc
             show cory talk at cory_right_pos
@@ -221,6 +274,11 @@ label fish04:
             show gator default at gator_pos
 
             gator "Anyway."
+
+
+            # ---------------------------------
+            # MC
+            # ---------------------------------
 
             $ cory_at_right = False
             hide cory
@@ -252,6 +310,11 @@ label fish04:
 
             gator "Good, I’d hate to hear some little guppy got swept away."
 
+
+            # ---------------------------------
+            # CORY
+            # ---------------------------------
+
             $ cory_at_right = True
             hide mc
             show cory netral_hu at cory_right_pos
@@ -267,6 +330,11 @@ label fish04:
             show cory upset at cory_right_pos
 
             cory "no I'm not!"
+
+
+            # ---------------------------------
+            # MC
+            # ---------------------------------
 
             $ cory_at_right = False
             hide cory
@@ -288,11 +356,21 @@ label fish04:
 
             gator "punch Cory in the face, I'll come running"
 
+
+            # ---------------------------------
+            # CORY
+            # ---------------------------------
+
             $ cory_at_right = True
             hide mc
             show cory surprise at cory_right_pos
 
             cory "ay!"
+
+
+            # ---------------------------------
+            # MC
+            # ---------------------------------
 
             $ cory_at_right = False
             hide cory
@@ -301,7 +379,15 @@ label fish04:
             mc "Okay! Thank you!"
 
 
+        # =====================================
+        # DISTRACT THEM
+        # =====================================
+
         "Distract them":
+
+            # ---------------------------------
+            # MC
+            # ---------------------------------
 
             $ cory_at_right = False
             hide cory
@@ -321,6 +407,11 @@ label fish04:
 
             mc "Oh! :o"
 
+
+            # ---------------------------------
+            # CORY
+            # ---------------------------------
+
             $ cory_at_right = True
             hide mc
             show cory disrespectful at cory_right_pos
@@ -335,6 +426,11 @@ label fish04:
 
             gator "Don’t give me that look."
 
+
+            # ---------------------------------
+            # MC
+            # ---------------------------------
+
             $ cory_at_right = False
             hide cory
             show mc o at mc_pos
@@ -348,6 +444,11 @@ label fish04:
             show mc shock at mc_pos
 
             mc "I wasn’t at all thinking that!"
+
+
+            # ---------------------------------
+            # CORY
+            # ---------------------------------
 
             $ cory_at_right = True
             hide mc
@@ -377,6 +478,11 @@ label fish04:
 
             cory "whatever you say guppy."
 
+
+            # ---------------------------------
+            # MC
+            # ---------------------------------
+
             $ cory_at_right = False
             hide cory
             show mc shock at mc_pos
@@ -401,7 +507,12 @@ label fish04:
 
             "With a face of determination and disdain Ms gator left in a hurry. The current swirling in her wake."
 
-            # Hanya MC dan Cory yang tersisa (Cory di kiri, MC di kanan)
+
+            # =====================================
+            # GATOR LEAVES
+            # MC + CORY NORMAL POSITION
+            # =====================================
+
             $ cory_at_right = False
             show cory side at cory_pos
             show mc shock at mc_pos
@@ -420,7 +531,13 @@ label fish04:
 
             cory "WE SPRINTING GUPPY COME ON!"
 
+
+    # =====================================
+    # CLEANUP
+    # =====================================
+
     $ cory_at_right = False
+
     hide mc
     hide gator
     hide cory

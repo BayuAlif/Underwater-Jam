@@ -6,6 +6,7 @@
 # Area yang sedang aktif
 default current_area = None
 
+
 init python:
 
     # =====================================
@@ -19,19 +20,49 @@ init python:
             "day_bg": "bg room",
             "night_bg": "bg room",
 
+            "day_dialogue_bg": "bg room",
+            "night_dialogue_bg": "bg room",
+
         },
+
 
         "cave": {
 
             "day_bg": "bg room",
             "night_bg": "bg room",
 
+            "day_dialogue_bg": "bg room",
+            "night_dialogue_bg": "bg room",
+
         },
+
+
+        # =====================================
+        # CHAPTER 2 - NORTHERN CURRENT / BORDER
+        # =====================================
 
         "border": {
 
-            "day_bg": "images/backgrounds/chapter 2/bg day2.jpg",
-            "night_bg": "images/backgrounds/chapter 2/bg day2.jpg",
+            # -----------------------------
+            # DAY
+            # -----------------------------
+
+            "day_bg":
+                "images/backgrounds/chapter 2/bg day2.jpg",
+
+            "day_dialogue_bg":
+                "images/backgrounds/chapter 2/bg day2_bordered.jpg",
+
+
+            # -----------------------------
+            # NIGHT
+            # -----------------------------
+
+            "night_bg":
+                "images/backgrounds/chapter 2/bg night2.jpg",
+
+            "night_dialogue_bg":
+                "images/backgrounds/chapter 2/bg night2_bordered.jpg",
 
         },
 
@@ -45,15 +76,34 @@ init python:
     def load_area(area_name):
 
         if area_name not in AREA_DATA:
-            raise Exception("Area '{}' tidak ditemukan.".format(area_name))
+
+            raise Exception(
+                "Area '{}' tidak ditemukan.".format(area_name)
+            )
+
 
         store.current_area = area_name
 
         area = AREA_DATA[area_name]
 
+
+        # =================================
+        # Background utama
+        # =================================
+
         set_background(
             area["day_bg"],
             area["night_bg"]
+        )
+
+
+        # =================================
+        # Background dialogue
+        # =================================
+
+        set_dialogue_background(
+            area["day_dialogue_bg"],
+            area["night_dialogue_bg"]
         )
 
 

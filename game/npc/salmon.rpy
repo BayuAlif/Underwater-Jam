@@ -1,245 +1,239 @@
-# =========================================================
-# CHAPTER 2 - NPC: MRS. SALMON
-# =========================================================
-
 label salmon:
 
-    $ cory_at_right = False
+    scene expression get_dialogue_background()
 
     show salmon pien at salmon_pos
-    show mc default at mc_pos
 
-    "Mrs. Salmon is crying."
+    "A Salmon paces back and forth restlessly."
 
-    salmon "Hic... hic..."
-    salmon "Sniff..."
-    salmon "...oouuugh..."
-
-    show mc o at mc_pos
-
-    mc "...Ma'am?"
-    mc "Why are you crying? :("
-
-    salmon "...?"
-    salmon "Huh?"
-
-    salmon "I want to get down to the sea..."
-    salmon "But I bloody well can't..."
-    salmon "It's all because of that God-awful..."
-    salmon "UEEEEHHH...!"
+    salmon "Hic hic..."
+    salmon "Sniff....."
+    salmon "....oouuugh...."
 
     show mc shock at mc_pos
 
-    mc "WAOUH?!"
-    mc "Don't cry, Mrs. Salmon!"
+    mc "... Ma'am? Why are you crying :("
 
-    "I throw my arms around Mrs. Salmon."
+    show salmon default at salmon_pos
+
+    salmon "....? huh??"
+
+    show salmon pien at salmon_pos
+
+    salmon "..."
+    salmon "I want to go get down to the sea..."
+    salmon "but I bloody well can't..."
+
+    show salmon pout at salmon_pos
+
+    salmon "It's all... because... of that God awful....."
+
+    show salmon pien at salmon_pos
+
+    salmon "UEEEEЕННН."
+
+    show mc shockhu at mc_pos
+
+    mc "!! waouh-? Don't cry, Mrs Salmon!"
+    mc "(hugs the salmon)"
+
+    show salmon pien at salmon_pos
+
+    salmon "......!!!"
 
     show mc happy at mc_pos
 
     mc "There, there."
-    mc "If the mama is sad, the baby gets sad too."
+    mc "If the mama is sad, the baby gets sad, too."
 
     show salmon default at salmon_pos
 
-    salmon "...How on ocean does a tiny thing like you know that, love?"
+    salmon "...... how on ocean does a tiny you know that, love?"
 
-    show mc excited at mc_pos
+    show mc actual at mc_pos
 
     mc "I watched salmon migration on YouTube!!"
     mc "Mama salmon swims really far to lay their eggs, right?"
 
     show salmon happy at salmon_pos
 
-    salmon "Oh my..."
-    salmon "Hahaha."
+    salmon "Oh my.... Hahaha."
     salmon "You're a very lovely little thing, aren't you?"
-    salmon "Though I haven't a clue what this 'YouTube' is..."
-    salmon "Must be a helpful source of information."
 
     show salmon default at salmon_pos
 
-    salmon "Tell me, love."
-    salmon "Are there any sort of pregnancy tips in there?"
-    salmon "Or what a salmon parent must prepare to leave their young...?"
-
-    show mc happy at mc_pos
-
-    mc "I think so!"
-    mc "YouTube's got everything you'd want to see!"
+    salmon "Though I haven't a clue what this \"YouTube\" is...."
+    salmon "Must be a helpful source of information.."
 
     show salmon happy at salmon_pos
 
-    salmon "Oh that sounds about perfect!"
+    salmon "Tell me love, are there any sort of.. Pregnancy tips in there?"
+    salmon "Or what a salmon parent must prepare to leave their young..."
 
-    "Mrs. Salmon looks at Cory."
+    show mc happy at mc_pos
+
+    mc "I think so! YouTube's got everything you'd want to see!"
+
+    salmon "Oh that sounds about perfect!"
 
     show salmon default at salmon_pos
 
-    salmon "Go back to your father now. He must be worried for you."
+    "Mrs. Salmon looks at Cory."
 
-    show mc o at mc_pos
+    salmon "Go back to your father now. He must be worried for you"
+
+    show mc shock at mc_pos
 
     mc "Ah, he's not my father!"
+
+    show mc happy at mc_pos
+
     mc "I only met him yesterday!"
 
     show salmon pout at salmon_pos
 
     salmon "..........???"
 
-    "Mrs. Salmon glares at Cory suspiciously."
+    "Salmon glares at Cory suspiciously."
 
-    $ cory_at_right = True
-    hide mc
+    # Cory belum muncul sampai dia mulai bicara
     show cory side at cory_right_pos
+    hide mc
 
     cory "Ay.. no need to look at me like that ma'am.."
     cory "I'm a trusted adult!"
 
-    "Mrs. Salmon squints her eyes at him in suspicion, not believing a thing."
+    "Salmon squints her eyes at him in suspicion, not believing a thing"
 
     salmon "...."
 
-    cory "glup…."
+    show cory sideclose at cory_right_pos
 
-    call screen who_should_ask(title="Choose who should ask Mrs. Salmon!", subtitle="The answers she gives may vary based on her relationship with the character")
+    cory "glup...."
+
+    call select_interactor
 
     if _return == "mc":
-        jump salmon_as_mc
+
+        jump salmon_ask_as_mc
+
     else:
-        jump salmon_as_cory
+
+        jump salmon_ask_as_cory
 
 
 # =========================================================
-# SALMON - AS MC
+# AS MC
 # =========================================================
 
-label salmon_as_mc:
+label salmon_ask_as_mc:
 
-    $ cory_at_right = False
     hide cory
-    show salmon default at salmon_pos
     show mc default at mc_pos
 
     menu:
 
-        "What's stopping you from going down there, ma'am?":
-
-            show salmon default at salmon_pos
-
-            salmon "There's only one path down to the sea from here, innit."
-            salmon "But a bloody mantis shrimp's blocking the way."
-            salmon "So I can't get past, love."
-
-            show mc shock at mc_pos
-
-            mc "But… why does the mantis shrimp block the way???"
-
-            show salmon pout at salmon_pos
-
-            salmon "I haven't the foggiest idea, love."
-
-
-        "Can't you just push past the river, ma'am?":
-
-            show salmon pout at salmon_pos
-
-            salmon "Push past it??"
-            salmon "Oh, perish that thought, love.."
-            salmon "...that path is guarded… by a mantis shrimp."
-            salmon "Whacking great claws and all."
-
-            salmon "I reckon he's a bloody MMA fighter."
-            salmon "Marine Martial Arts."
-
-            salmon "Tried to ask nicely, but he shooed me right off…"
-
-            show mc shock at mc_pos
-
-            mc "Oh no that's terrible.."
-            mc "But why would Mr. Mantis do that?"
-
-            salmon "I haven't a clue dear, he looks like he lost his mind."
-            salmon "Only way to walk past him is to win in a duel."
-
-
-        "I found a tiny krill!" if has_item("tiny_krill"):
-
-            show salmon happy at salmon_pos
-
-            salmon "Oh how lovely!"
-            salmon "For me, sweet guppy?"
-
-            show mc happy at mc_pos
-
-            mc "Mhm!"
-            mc "It can be your tiny companion to keep you safe or-"
-
-            "Mrs. Salmon starts eating the krill with a delighted face."
-
-            $ remove_item("tiny_krill")
-
-            salmon "Mm! Scrumptious krill."
+        "What's stopping you from going down there, ma'am??":
 
             show mc o at mc_pos
 
-            mc "Ah.. Salmon does eat krills huh.."
+            show salmon default at salmon_pos
 
-            "Mrs. Salmon pulls me into a sudden hug."
+            salmon "There's only one path down to the sea from here, innit,"
 
-            "I can faintly hear the tiny eggs shuffling under her scales."
+            show salmon pout at salmon_pos
 
-            salmon "Thank you, thank you.."
-            salmon "I can't remember the last time I had a meal.."
+            salmon "But a bloody mantis shrimp's blocking the way,"
+            salmon "So I can't get past, love."
 
-            "Her voice trembles in sincere gratitude."
+            mc "But... why does the mantis shrimp block the way???"
 
-            "So soft it's enough to lull me to sleep."
+            show salmon default at salmon_pos
 
-            "It was akin to Mama's voice when she sings."
+            salmon "I haven't the foggiest idea, love."
 
-            "But it's not the same.."
+        "Can't you just push past the river, ma'am?":
 
-            "It's not her…"
+            show mc o at mc_pos
+
+            show salmon default at salmon_pos
+
+            salmon "Push past it??"
+            salmon "Oh, perish that thought, love.."
+            salmon "... that path is guarded... by a mantis shrimp."
+            salmon "Whacking great claws and all."
+
+            show salmon pout at salmon_pos
+
+            salmon "I reckon he's a bloody MMA (Marine Martial Arts) fighter."
+            salmon "Tried to ask nicely, but he shooed me right off..."
+
+            show mc shockhu at mc_pos
+
+            mc "Oh no that's terrible.."
+            mc "but why would Mr Mantis do that?"
+
+            show salmon default at salmon_pos
+
+            salmon "I haven't a clue dear, he looks like he lost his mind"
+            salmon "Only way to walk pass him is to win in a duel"
+
+        "I found a tiny krill!" if has_item("tiny_krill"):
+
+            show mc happy at mc_pos
+            show salmon happy at salmon_pos
+
+            salmon "Oh how lovely! For me, sweet guppy?"
+
+            mc "Mhm! It can be your tiny companion to keep you safe or-"
+
+            "Mrs. Salmon starts eating the krill with a delighted face."
 
             show mc shock at mc_pos
 
-            mc "mn.. *sniff*"
+            salmon "Mm! Scrumptious krill"
+
+            mc "Ah.. Salmon does eat krills huh.."
+
+            "Mrs. Salmon pulls me into a sudden hug. I can faintly hear the tiny eggs shuffling under her scales"
+
+            salmon "Thank you, thank you.. I can't remember the last time I had a meal.."
+
+            "Her voice trembles in sincere gratitude, so soft it's enough to lull me to sleep. It was akin to mama's voice when she sings. But it's not the same.."
+            "It's not her..."
+
+            show mc pout at mc_pos
+
+            mc "mn..*sniff*"
             mc "Mama..."
 
             show salmon default at salmon_pos
 
             salmon "...!"
 
-            "I feel a faint tap on my glass head."
-
-            "Even when I couldn't directly feel it, I could picture how it would land on my head."
-
-            "A gentle caress that would wipe all my worries and sadness away."
-
             show salmon happy at salmon_pos
 
-            salmon "Mhm, I'm here for you.."
-            salmon "It's alright my sweet little guppy…"
-            salmon "You're okay.."
+            "I feel a faint tap on my glass head. Even when I couldn't directly feel it, I could picture how it would land on my head, a gentle caress that would wipe all my worries and sadness away"
 
+            salmon "mhm, I'm here for you.."
+            salmon "It's alright my sweet little guppy... you're okay.."
 
-    show salmon default at salmon_pos
+            $ remove_item("tiny_krill")
+
+    show salmon pien at salmon_pos
 
     salmon "I think I will have to take a detour-"
     salmon "-even it'll take me aeons."
 
-    $ cory_at_right = True
+    show cory netral_hu at cory_right_pos
     hide mc
-    show cory side at cory_right_pos
 
-    cory "A detour…. whaddya think, guppy?"
+    cory "A detour.... whaddya think, guppy?"
 
-    $ cory_at_right = False
+    show mc pout at mc_pos
     hide cory
-    show mc shock at mc_pos
 
-    mc "NOOO I don't wanna take a detour…!!"
+    mc "NOOO I dont wanna take a detour...!!"
     mc "The golden fish will be gone farther by then :("
 
     show salmon default at salmon_pos
@@ -249,43 +243,51 @@ label salmon_as_mc:
     show salmon happy at salmon_pos
 
     salmon "I can only wish you the best of luck."
-    salmon "I bid you farewell, guppy."
+    salmon "I bid you farewell guppy"
 
-    $ cory_at_right = False
+    $ add_clue("The only way to go to the sea is blocked by a mantis shrimp.")
+
     hide mc
     hide cory
     hide salmon
+
+    scene expression get_background()
 
     return
 
 
 # =========================================================
-# SALMON - AS CORY
+# AS CORY
 # =========================================================
 
-label salmon_as_cory:
+label salmon_ask_as_cory:
 
-    $ cory_at_right = True
-    hide mc
+    "Before Cory can speak, Mrs salmon interrupts-"
+
     show salmon pout at salmon_pos
-    show cory side at cory_right_pos
 
     salmon "What on ocean are you doing with that guppy?"
 
-    cory "Ay, easy, ma'am…"
+    show cory netral_hu at cory_right_pos
+
+    cory "Ay, easy, ma'am..."
     cory "I'm just protecting the little guppy, alright?"
 
     menu:
 
         "D'you mind us asking why you can't get down to the sea?":
 
+            show cory netral_hu at cory_right_pos
+
+            show salmon pout at salmon_pos
+
             salmon "......."
-            salmon "I won't be answering your queries, young man!"
-            salmon "Not until you tell the truth about the little one."
+            salmon "I won't be answering your queries young man!"
+            salmon "not until you tell the truth about the little one."
 
-            "Mr. Cory approaches Mrs. Salmon with a sigh, lowering his voice to a whisper."
+            show cory side at cory_right_pos
 
-            "Though I can still make out the words quite clearly."
+            "Mr. Cory approached Mrs. Salmon with a sigh, lowering his voice to a whisper. Though I can still make out the words quite clear."
 
             cory "I haven't got a full picture of the guppy's story but..."
             cory "To me, it looks like their parents somewhat abandoned 'em."
@@ -294,97 +296,102 @@ label salmon_as_cory:
 
             salmon "......!"
 
-            salmon "Then just turn around and go back."
-            salmon "You'd know how bloody dangerous the sea can be for a fry…"
+            show salmon pout at salmon_pos
 
-            cory "I'm well aware, ma'am.."
-            cory "They almost fell a deep river hole where I first found 'em.."
+            salmon "Then just turn around and go back."
+            salmon "You'd know how bloody dangerous the sea can be for a fry..."
+
+            show cory netral at cory_right_pos
+
+            cory "I'm well aware ma'am.."
+            cory "they almost fell a deep river hole where I first found em.."
+
+            show cory sideclose at cory_right_pos
 
             cory "But withholding a guppy's dream from coming true?"
-            cory "I'd be too evil for that."
+            cory "I'd be too evil for that"
 
+        "Maam, why can't you go down to the sea?":
 
-        "Ma'am, why can't you go down to the sea?":
-
-            "Mrs. Salmon ignores Cory completely."
-
-            $ cory_at_right = False
-            hide cory
             show salmon pout at salmon_pos
+            show cory sideclose at cory_right_pos
+
+            "Mrs.Salmon ignores Cory completely."
+
+            salmon "... are you sure he's not up to anything dodgy, dear?"
+
+            hide cory
             show mc default at mc_pos
 
-            salmon "...Are you sure he's not up to anything dodgy, dear?"
+            mc "Mm-hmm! Mr Cory is super nice!"
 
             show mc happy at mc_pos
 
-            mc "Mm-hmm!"
-            mc "Mr Cory is super nice!"
             mc "He's been helping me lots!"
 
-            show salmon happy at salmon_pos
+            show salmon default at salmon_pos
 
-            salmon "Hm, if you say so then…"
+            salmon "Hm, if you say so then..."
 
             show salmon pout at salmon_pos
 
-            salmon "But!"
-            salmon "You watch your back around him anyway, love."
+            salmon "But! you watch your back around him anyway, love."
 
-            $ cory_at_right = True
             hide mc
-            show cory talk at cory_right_pos
+            show cory upset at cory_right_pos
 
             cory "I'm trustworthy, swear on my gills!"
 
-
         "May I offer you some food, ma'am?" if has_item("tiny_krill"):
 
-            "Cory offers a krill to Mrs. Salmon."
+            show cory smile_hu at cory_right_pos
+            show salmon default at salmon_pos
 
-            $ remove_item("tiny_krill")
+            "Cory offers a krill to Mrs. Salmon"
 
             salmon "...!"
-            salmon "...Hmph."
 
-            cory "I'll just... leave it here for you, ma'am."
+            show salmon pout at salmon_pos
+
+            salmon "... Hmph"
+
+            show cory sideclose at cory_right_pos
+
+            cory "I'll just... leave it here for you ma'am."
 
             show salmon default at salmon_pos
 
             salmon "Wait!"
 
-            cory "...Hm?"
-            cory "What is it, ma'am?"
+            show cory netral_hu at cory_right_pos
 
-            salmon "I should be thanking you bloke properly.."
-            salmon "That was rude of me."
-            salmon "My deepest apologies.."
-
-            show cory smile_hu at cory_right_pos
-
-            cory "Nay ma'am, it's chill."
-            cory "I'm used to it.."
-
-            cory "Besides, a carrying mother needs to have their guard up, yeah?"
-
-            show salmon happy at salmon_pos
-
-            salmon "Fair enough.."
-            salmon "I can't help it."
+            cory "... hm? What is it ma'am?"
 
             show salmon default at salmon_pos
 
+            salmon "I should be thanking you bloke properly.."
+            salmon "That was rude of me, My deepest apologies.."
+
+            show cory smile_hu at cory_right_pos
+
+            cory "Nay ma'am it's chill I'm used to it.."
+            cory "Besides, a carrying mother needs to have their guard up yeah?"
+
+            salmon "Fair enough.. I can't help it"
             salmon "You better take a dainty great care of the little fry, okay?"
             salmon "I'm bloody worried for them.."
 
-            show cory talk at cory_right_pos
-
-            cory "Don't worry ma'am."
-            cory "I had a little sibling just their age."
+            cory "Don't worry ma'am I had a little sibling just their age"
             cory "I know what I'm doing alright!"
 
+            $ remove_item("tiny_krill")
+
     $ cory_at_right = False
+
     hide mc
     hide cory
     hide salmon
+
+    scene expression get_background()
 
     return
