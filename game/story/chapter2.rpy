@@ -1,4 +1,28 @@
 # =========================================================
+# MANTIS SHRIMP WARNING
+# =========================================================
+
+screen mantis_warning():
+
+    modal True
+
+    text "If you interact with the shrimp, you can't go back to get item unless you had a save. Proceed to continue?":
+        xalign 0.5
+        yalign 0.42
+        text_align 0.5
+
+    textbutton "Yes, confront the Mantis Shrimp.":
+        xalign 0.5
+        yalign 0.55
+        action Return(True)
+
+    textbutton "Not yet..":
+        xalign 0.5
+        yalign 0.62
+        action Return(False)
+
+
+# =========================================================
 # CHAPTER 2 MAIN FLOW & HUB
 # =========================================================
 
@@ -277,23 +301,28 @@ label chapter2_hub:
 
     elif hub_choice == "mantis_shrimp":
 
-        menu:
-            "If you interact with the shrimp, you can't go back to get item unless you had a save. Proceed to continue?":
-                pass
+        call screen mantis_warning
 
-            "Yes, confront the Mantis Shrimp.":
-                call mantis_shrimp
+        if _return:
+            call mantis_shrimp
+
+            # mantis_shrimp now always returns to this point (win,
+            # or lose -> "Return to Hub"). duel_result tells us which
+            # one just happened, since it's set by rps_best_of_three()
+            # every time a duel finishes ("player_win" on a win, "ko"
+            # on a loss) and mantis_shrimp.rpy already relies on this
+            # same variable to route "player_win" to rps_check_winner.
+            if duel_result == "player_win":
                 call chapter2_night_ending
                 return
 
-            "Not yet..":
-                jump chapter2_hub
+            jump chapter2_hub
 
-    jump chapter2_hub
+        jump chapter2_hub
 
 
 # =========================================================
-# NIGHT - COAL TAR ITEM PICKUP
+# CHAPTER 2 NIGHT ENDING
 # =========================================================
 
 label chapter2_coal_tar_pickup:
@@ -323,7 +352,6 @@ label chapter2_coal_tar_pickup:
     mc "Yuck! it smells... weird."
 
     # GHOST
-    hide mc
     show ghost deadpan at ghost_pos
 
     "???" "You shouldn't be carrying things you don't understand."
@@ -364,7 +392,6 @@ label chapter2_coal_tar_pickup:
     mc "Woah! What are you?"
 
     # GHOST
-    hide mc
     show ghost default at ghost_pos
 
     ghost "A fish."
@@ -386,7 +413,6 @@ label chapter2_coal_tar_pickup:
     mc "Why are you here... fish?"
 
     # GHOST
-    hide mc
     show ghost side at ghost_pos
 
     ghost "You were meant to find me."
@@ -423,6 +449,7 @@ label chapter2_coal_tar_pickup:
     scene expression get_background()
 
     return
+
 
 # =========================================================
 # CHAPTER 2 NIGHT ENDING

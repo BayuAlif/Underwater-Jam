@@ -17,7 +17,7 @@ label wana:
 
     mc "Good morning si-"
 
-    show wana mad at wana_pos
+    show wana mad at wana_mad_pos
 
     wana "SHHHRGGHHHJHNGHHRRAHH!!"
     wana "MYBOSSISGOINTOKILLMEIMGOINGTOGETPUBLICLYEXECUTED"
@@ -30,7 +30,7 @@ label wana:
     cory "Woah chill the eel out my guy!"
     cory "Those rocks can hurt a ton"
 
-    show wana squint at wana_pos
+    show wana squint at wana_squint_pos
 
     wana "Oh. A fish."
     wana "My apologies, sir. I failed to notice you"
@@ -101,7 +101,7 @@ label arowana_ask_as_mc:
 
     mc "But you're still here..."
 
-    show wana mad at wana_pos
+    show wana mad at wana_mad_pos
 
     wana "NO SHRIMP!"
     wana "I AM HERE."
@@ -146,7 +146,7 @@ label arowana_ask_as_mc:
 
             mc "Not a thing?"
 
-            show wana squint at wana_pos
+            show wana squint at wana_squint_pos
 
             wana "I'm sorry but don't think I want to entertain a child right now.."
 
@@ -169,11 +169,11 @@ label arowana_ask_as_mc:
 
             mc "Just like how a flying fish would!"
 
-            show wana squint at wana_pos
+            show wana squint at wana_squint_pos
 
             wana "..."
 
-            show wana mad at wana_pos
+            show wana mad at wana_mad_pos
 
             wana "HAH! Yes! How wonderful I should've just tried that!."
 
@@ -301,7 +301,7 @@ label arowana_ask_as_cory:
 
             cory "Pfft, ya boss sure love yer hardworking ass huh"
 
-            show wana squint at wana_pos
+            show wana squint at wana_squint_pos
 
             wana "I'm going to pretend I didn't hear that."
 
@@ -321,7 +321,7 @@ label arowana_ask_as_cory:
 
             cory "Huh.. something must've happened to him then"
 
-            show wana squint at wana_pos
+            show wana squint at wana_squint_pos
 
             wana "How unprofessional of him! He shouldn't be letting personal matters fiddle his work!"
             wana "Ugh, this path is the only way I commute to work in the sea.. What should I do now"
@@ -352,7 +352,7 @@ label arowana_ask_as_cory:
 
             cory "How much are we talking?"
 
-            show wana squint at wana_pos
+            show wana squint at wana_squint_pos
 
             wana "I would rather not expose the numbers."
             wana "But let's say it cost me my nine lives."

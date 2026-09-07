@@ -5,7 +5,8 @@
 # Sprite show/hide dikontrol langsung
 # oleh file chapter / NPC.
 #
-# speaker_callback() TIDAK mengatur sprite.
+# speaker_callback() mengatur sprite
+# khusus saat Mantis Shrimp scene aktif.
 #
 # =====================================
 
@@ -63,6 +64,61 @@ transform cory_right_pos:
     yanchor 1.0
     ypos 1.0
 
+
+# =====================================
+# MANTIS SCENE POSITIONS
+# =====================================
+#
+# Posisi KHUSUS scene Mantis.
+#
+# Masing-masing karakter punya
+# transform sendiri supaya bisa diatur
+# tanpa mempengaruhi karakter lain.
+#
+# Mantis  = kiri
+# MC      = kanan
+# Cory    = kanan
+#
+# MC dan Cory memiliki posisi terpisah
+# walaupun keduanya menggunakan sisi
+# kanan.
+#
+# =====================================
+
+
+# -------------------------------------
+# MANTIS / SHRIMP
+# -------------------------------------
+
+transform mantis_scene_shrimp_pos:
+    xanchor 0.50
+    xpos 0.15
+    yanchor 1.0
+    ypos 1.0
+
+
+# -------------------------------------
+# MC - MANTIS SCENE
+# -------------------------------------
+
+transform mantis_scene_mc_pos:
+    xanchor 0.69
+    xpos 0.77
+    yanchor 1.0
+    ypos 1.0
+
+
+# -------------------------------------
+# CORY - MANTIS SCENE
+# -------------------------------------
+
+transform mantis_scene_cory_pos:
+    xanchor 0.69
+    xpos 1.1
+    yanchor 1.0
+    ypos 1.0
+
+
 # =====================================
 # NPC POSITIONS
 # =====================================
@@ -116,12 +172,32 @@ transform wana_pos:
     ypos 1.0
 
 
+# Arowana expressions with different transparent margins.
+# These offsets only apply to the affected expressions.
+transform wana_mad_pos:
+    xanchor 0.69
+    xpos 0.212
+    yanchor 1.0
+    ypos 1.0
+
+
+transform wana_squint_pos:
+    xanchor 0.69
+    xpos 0.249
+    yanchor 1.0
+    ypos 1.0
+
+
 transform ghost_pos:
     xanchor 0.73
     xpos 0.28
     yanchor 1.0
     ypos 1.0
 
+
+# =====================================
+# NORMAL MANTIS POSITION
+# =====================================
 
 transform shrimp_pos:
     xanchor 0.50
@@ -132,12 +208,6 @@ transform shrimp_pos:
 
 # =====================================
 # SPRITE ACTIVE / INACTIVE
-# =====================================
-#
-# Tetap dipertahankan karena mungkin
-# masih digunakan oleh file lain.
-#
-# Tidak dipanggil otomatis oleh callback.
 # =====================================
 
 transform sprite_active:
@@ -190,12 +260,43 @@ init -10 python:
 
     def get_speaker_pos(tag):
 
+        # =================================
+        # MANTIS SCENE
+        # =================================
+
+        if getattr(
+            store,
+            "mantis_scene_active",
+            False
+        ):
+
+            # MC menggunakan posisi khusus
+            # scene Mantis.
+            if tag == "mc":
+                return store.mantis_scene_mc_pos
+
+            # Cory menggunakan posisi khusus
+            # scene Mantis.
+            if tag == "cory":
+                return store.mantis_scene_cory_pos
+
+            # Mantis menggunakan posisi khusus
+            # scene Mantis.
+            if tag == "shrimp":
+                return store.mantis_scene_shrimp_pos
+
+
+        # =================================
+        # NORMAL SCENE
+        # =================================
+
         if tag == "cory":
 
             if store.cory_at_right:
                 return store.cory_right_pos
 
             return store.cory_pos
+
 
         pos_name = SPEAKER_POSITIONS.get(
             tag,
@@ -246,13 +347,45 @@ init -10 python:
 
 
 # =====================================
+# MANTIS SPRITE MEMORY
+# =====================================
+#
+# Menyimpan expression terakhir dari
+# MC, Cory, dan Mantis.
+#
+# Memory hanya digunakan untuk
+# kebutuhan scene Mantis.
+#
+# =====================================
+
+default mantis_last_sprite_attrs = {}
+
+
+# =====================================
 # SPEAKER CALLBACK
 # =====================================
 #
-# During the Mantis Shrimp scene, only the
-# character currently speaking is shown.
-# The last expression is restored when that
-# character speaks again.
+# NORMAL SCENE:
+# Tidak melakukan apa-apa.
+#
+# MANTIS SCENE:
+#
+# Mantis tetap di kiri.
+#
+# MC:
+#   MC      = kanan
+#   Cory    = hidden
+#
+# Cory:
+#   Cory    = kanan
+#   MC      = hidden
+#
+# Mantis:
+#   Mantis  = kiri
+#   MC/Cory terakhir tetap di kanan.
+#
+# Callback TIDAK mengganti expression
+# karakter yang sedang aktif.
 #
 # =====================================
 
@@ -266,15 +399,35 @@ init -10 python:
             **kwargs
         ):
 
-            if not getattr(store, "mantis_scene_active", False):
+            # =================================
+            # NORMAL SCENE
+            # =================================
+            #
+            # Jangan menyentuh NPC lain
+            # di luar scene Mantis.
+            #
+
+            if not getattr(
+                store,
+                "mantis_scene_active",
+                False
+            ):
                 return
 
-            if not hasattr(store, "mantis_last_sprite_attrs"):
-                store.mantis_last_sprite_attrs = {}
 
-            # Save the current expression of every sprite
-            # before hiding the other speakers.
-            for tag in ("mc", "cory", "shrimp"):
+            # =================================
+            # SAVE CURRENT EXPRESSIONS
+            # =================================
+            #
+            # Hanya menyimpan expression
+            # yang sedang benar-benar tampil.
+            #
+
+            for tag in (
+                "mc",
+                "cory",
+                "shrimp"
+            ):
 
                 if renpy.showing(tag):
 
@@ -284,32 +437,90 @@ init -10 python:
                     )
 
                     if attrs:
-                        store.mantis_last_sprite_attrs[tag] = attrs
 
-            # Only the active speaker remains visible.
-            for tag in ("mc", "cory", "shrimp"):
+                        store.mantis_last_sprite_attrs[
+                            tag
+                        ] = attrs
 
-                if tag != active_tag:
-                    renpy.hide(tag)
 
-            # If this speaker was hidden by the previous speaker,
-            # restore its last known expression.
-            if not renpy.showing(active_tag):
+            # =================================
+            # MC SPEAKING
+            # =================================
 
-                attrs = store.mantis_last_sprite_attrs.get(
-                    active_tag,
-                    ()
-                )
+            if active_tag == "mc":
 
-                if attrs:
+                # Cory tidak boleh tampil bersamaan dengan MC.
+                renpy.hide("cory")
 
-                    image_name = active_tag + " " + " ".join(attrs)
-
-                    renpy.show(
-                        image_name,
-                        at_list=[get_speaker_pos(active_tag)]
+                # Kalau MC belum tampil, pulihkan expression
+                # terakhir yang sudah dipakai di scene Mantis.
+                if not renpy.showing("mc"):
+                    mc_attrs = store.mantis_last_sprite_attrs.get(
+                        "mc",
+                        ()
                     )
 
+                    if mc_attrs:
+                        renpy.show(
+                            "mc " + " ".join(mc_attrs),
+                            at_list=[
+                                store.mantis_scene_mc_pos
+                            ],
+                            layer="master"
+                        )
+
+                return
+
+
+            # =================================
+            # CORY SPEAKING
+            # =================================
+
+            if active_tag == "cory":
+
+                # MC tidak boleh tampil bersamaan dengan Cory.
+                renpy.hide("mc")
+
+                # Kalau Cory belum tampil, pulihkan expression
+                # terakhir yang sudah dipakai di scene Mantis.
+                if not renpy.showing("cory"):
+                    cory_attrs = store.mantis_last_sprite_attrs.get(
+                        "cory",
+                        ()
+                    )
+
+                    if cory_attrs:
+                        renpy.show(
+                            "cory " + " ".join(cory_attrs),
+                            at_list=[
+                                store.mantis_scene_cory_pos
+                            ],
+                            layer="master"
+                        )
+
+                return
+
+
+            # =================================
+            # MANTIS SPEAKING
+            # =================================
+
+            if active_tag == "shrimp":
+
+                # MC / Cory terakhir tetap
+                # berada di sisi kanan.
+                #
+                # Jangan hide MC/Cory.
+
+                return
+
+
+            # =================================
+            # OTHER NPC
+            # =================================
+
+            # Jangan menyentuh NPC lain.
             return
+
 
         return _callback

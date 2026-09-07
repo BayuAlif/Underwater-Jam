@@ -293,42 +293,50 @@ define WANA_SCALE = 0.95
 
 image wana default = Transform(
     "images/npc/chapter2/arowana/AroDefault.png",
-    zoom=WANA_SCALE
+    zoom=WANA_SCALE,
+    xanchor=0.685
 )
 
 image wana mad = Transform(
     "images/npc/chapter2/arowana/AroMad.png",
-    zoom=WANA_SCALE
+    zoom=WANA_SCALE,
+    xanchor=0.758
 )
 
 image wana smile = Transform(
     "images/npc/chapter2/arowana/AroSmile.png",
-    zoom=WANA_SCALE
+    zoom=WANA_SCALE,
+    xanchor=0.685
 )
 
 image wana squint = Transform(
     "images/npc/chapter2/arowana/AroSquint.png",
-    zoom=WANA_SCALE
+    zoom=WANA_SCALE,
+    xanchor=0.719
 )
 
 image arowana default = Transform(
     "images/npc/chapter2/arowana/AroDefault.png",
-    zoom=WANA_SCALE
+    zoom=WANA_SCALE,
+    xanchor=0.685
 )
 
 image arowana mad = Transform(
     "images/npc/chapter2/arowana/AroMad.png",
-    zoom=WANA_SCALE
+    zoom=WANA_SCALE,
+    xanchor=0.758
 )
 
 image arowana smile = Transform(
     "images/npc/chapter2/arowana/AroSmile.png",
-    zoom=WANA_SCALE
+    zoom=WANA_SCALE,
+    xanchor=0.685
 )
 
 image arowana squint = Transform(
     "images/npc/chapter2/arowana/AroSquint.png",
-    zoom=WANA_SCALE
+    zoom=WANA_SCALE,
+    xanchor=0.719
 )
 
 
@@ -414,7 +422,7 @@ image shrimp proud = Transform(
 )
 
 image shrimp seppet = Transform(
-    "images/npc/chapter2/mantis/ScySeppet.png",
+    "images/npc/chapter2/mantis/ScySepet.png",
     zoom=MANTIS_SCALE
 )
 
