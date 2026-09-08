@@ -196,12 +196,59 @@ transform ghost_pos:
 
 
 # =====================================
+# CHAPTER 3 NPC POSITIONS
+# =====================================
+
+transform bunny_pos:
+    xanchor 0.70
+    xpos 0.28
+    yanchor 1.0
+    ypos 1.0
+
+transform seabunny_pos:
+    xanchor 0.70
+    xpos 0.28
+    yanchor 1.0
+    ypos 1.0
+
+transform hawk_pos:
+    xanchor 0.65
+    xpos 0.28
+    yanchor 1.0
+    ypos 1.0
+
+transform seaturtle_pos:
+    xanchor 0.65
+    xpos 0.28
+    yanchor 1.0
+    ypos 1.0
+
+
+# =====================================
 # NORMAL MANTIS POSITION
 # =====================================
 
 transform shrimp_pos:
     xanchor 0.50
     xpos 0.15
+    yanchor 1.0
+    ypos 1.0
+
+transform scy_pos:
+    xanchor 0.50
+    xpos 0.15
+    yanchor 1.0
+    ypos 1.0
+
+transform scy_right_pos:
+    xanchor 0.50
+    xpos 0.85
+    yanchor 1.0
+    ypos 1.0
+
+transform shrimp_right_pos:
+    xanchor 0.50
+    xpos 0.85
     yanchor 1.0
     ypos 1.0
 
@@ -249,6 +296,20 @@ init -10 python:
         "ghost": "ghost_pos",
 
         "shrimp": "shrimp_pos",
+        "scy": "scy_pos",
+
+        "bunny": "bunny_pos",
+        "parva": "bunny_pos",
+        "joruna": "bunny_pos",
+        "seabunny": "seabunny_pos",
+
+        "hawk": "hawk_pos",
+        "seaturtle": "seaturtle_pos",
+
+        "teto": "npc_pos",
+        "empress": "npc_pos",
+        "goby": "npc_pos",
+        "miku": "npc_pos",
     }
 
 

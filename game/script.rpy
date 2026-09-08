@@ -9,6 +9,21 @@ define mc = Character("MC", callback=speaker_callback("mc"))
 define cory = Character("Mr. Cory", callback=speaker_callback("cory"))
 define f1 = cory
 
+# Chapter 2 - Mantis Shrimp
+define shrimp = Character("Mantis Shrimp", callback=speaker_callback("shrimp"))
+define scy = shrimp
+define f2 = shrimp
+
+# Chapter 3 Characters
+define bunny = Character("Sea Bunny", callback=speaker_callback("bunny"))
+define parva = bunny
+define joruna = bunny
+define f3 = bunny
+
+define hawk = Character("Gran Hawk", callback=speaker_callback("hawk"))
+define teto = Character("Empress Teto", callback=speaker_callback("teto"))
+define goby = Character("Goby", callback=speaker_callback("goby"))
+
 # NPCs
 define bass = Character("Bass", callback=speaker_callback("bass"))
 define uceng = Character("Uceng", callback=speaker_callback("uceng"))
@@ -17,10 +32,6 @@ define gator = Character("Gator", callback=speaker_callback("gator"))
 define salmon = Character("Mrs. Salmon", callback=speaker_callback("salmon"))
 define wana = Character("Mr. Wana", callback=speaker_callback("wana"))
 define ghost = Character("Ghost", callback=speaker_callback("ghost"))
-
-# Chapter 2 - Mantis Shrimp
-define shrimp = Character("Mantis Shrimp", callback=speaker_callback("shrimp"))
-define f2 = shrimp
 
 
 # =====================================
@@ -401,7 +412,7 @@ image ghost side = Transform(
 
 
 # =====================================
-# Mantis Shrimp
+# Mantis Shrimp (Scyllarus)
 # =====================================
 
 define MANTIS_SCALE = 0.95
@@ -426,6 +437,11 @@ image shrimp seppet = Transform(
     zoom=MANTIS_SCALE
 )
 
+image shrimp sepet = Transform(
+    "images/npc/chapter2/mantis/ScySepet.png",
+    zoom=MANTIS_SCALE
+)
+
 image shrimp shy = Transform(
     "images/npc/chapter2/mantis/ScyShy.png",
     zoom=MANTIS_SCALE
@@ -440,6 +456,117 @@ image shrimp surprise = Transform(
     "images/npc/chapter2/mantis/ScySurprise.png",
     zoom=MANTIS_SCALE
 )
+
+image shrimp defaultom = Transform(
+    "images/npc/chapter2/mantis/ScyDefault.png",
+    zoom=MANTIS_SCALE
+)
+
+# Scy aliases for shrimp
+image scy default = Transform("images/npc/chapter2/mantis/ScyDefault.png", zoom=MANTIS_SCALE)
+image scy laugh = Transform("images/npc/chapter2/mantis/ScyLaugh.png", zoom=MANTIS_SCALE)
+image scy proud = Transform("images/npc/chapter2/mantis/ScyProud.png", zoom=MANTIS_SCALE)
+image scy sepet = Transform("images/npc/chapter2/mantis/ScySepet.png", zoom=MANTIS_SCALE)
+image scy seppet = Transform("images/npc/chapter2/mantis/ScySepet.png", zoom=MANTIS_SCALE)
+image scy shy = Transform("images/npc/chapter2/mantis/ScyShy.png", zoom=MANTIS_SCALE)
+image scy smile = Transform("images/npc/chapter2/mantis/ScySmile.png", zoom=MANTIS_SCALE)
+image scy surprise = Transform("images/npc/chapter2/mantis/ScySurprise.png", zoom=MANTIS_SCALE)
+image scy defaultom = Transform("images/npc/chapter2/mantis/ScyDefault.png", zoom=MANTIS_SCALE)
+
+
+# =====================================
+# Chapter 3 NPCs: Sea Bunny & Sea Turtle
+# =====================================
+
+define BUNNY_SCALE = 0.82
+define HAWK_SCALE = 0.90
+
+init -15 python:
+    def safe_ch3_sprite(path, fallback):
+        if renpy.loadable(path):
+            return path
+        return fallback
+
+image bunny default = Transform(
+    safe_ch3_sprite("images/npc/chapter3/bunny/BunnyDefault.png", "images/mc/McDefault.png"),
+    zoom=BUNNY_SCALE
+)
+image bunny cry = Transform(
+    safe_ch3_sprite("images/npc/chapter3/bunny/BunnyCry.png", "images/mc/McShock.png"),
+    zoom=BUNNY_SCALE
+)
+image bunny scared = Transform(
+    safe_ch3_sprite("images/npc/chapter3/bunny/BunnyScared.png", "images/mc/McPout.png"),
+    zoom=BUNNY_SCALE
+)
+image bunny sad = Transform(
+    safe_ch3_sprite("images/npc/chapter3/bunny/BunnySad.png", "images/mc/McPout.png"),
+    zoom=BUNNY_SCALE
+)
+image bunny happy = Transform(
+    safe_ch3_sprite("images/npc/chapter3/bunny/BunnyHappy.png", "images/mc/McHappy.png"),
+    zoom=BUNNY_SCALE
+)
+
+image hawk default = Transform(
+    safe_ch3_sprite("images/npc/chapter3/hawk/HawkDefault.png", "images/cory/CoryTalkNetral.png"),
+    zoom=HAWK_SCALE
+)
+image hawk sigh = Transform(
+    safe_ch3_sprite("images/npc/chapter3/hawk/HawkSigh.png", "images/cory/CorySide.png"),
+    zoom=HAWK_SCALE
+)
+image hawk laugh = Transform(
+    safe_ch3_sprite("images/npc/chapter3/hawk/HawkLaugh.png", "images/cory/CoryTalkSmile.png"),
+    zoom=HAWK_SCALE
+)
+image hawk smile = Transform(
+    safe_ch3_sprite("images/npc/chapter3/hawk/HawkSmile.png", "images/cory/CoryTalkSmile.png"),
+    zoom=HAWK_SCALE
+)
+
+
+# =====================================
+# Script Convenience Image Aliases
+# =====================================
+
+image CoryTalkSmileHU = Transform("images/cory/CoryTalkSmileHU.png", zoom=CORY_SCALE)
+image CoryFondSmile = Transform("images/cory/CoryFondSmile.png", zoom=CORY_SCALE)
+image CorySide = Transform("images/cory/CorySide.png", zoom=CORY_SCALE)
+image CorySideClose = Transform("images/cory/CorySideClose.png", zoom=CORY_SCALE)
+image CoryOhiounimpressed1 = Transform("images/cory/CoryOhiounimpressed1_.png", zoom=CORY_SCALE)
+image CoryTalkNetral = Transform("images/cory/CoryTalkNetral.png", zoom=CORY_SCALE)
+image CoryTalkNetralHU = Transform("images/cory/CoryTalkNetralHU_.png", zoom=CORY_SCALE)
+image CorySurprise = Transform("images/cory/CorySurprise.png", zoom=CORY_SCALE)
+image CoryUpset = Transform("images/cory/CoryUpset.png", zoom=CORY_SCALE)
+image CorySmile = Transform("images/cory/CoryTalkSmile.png", zoom=CORY_SCALE)
+
+image McExcited = Transform("images/mc/McExcited.png", zoom=MC_SCALE)
+image McShock = Transform("images/mc/McShock.png", zoom=MC_SCALE)
+image Mc_o = Transform("images/mc/Mc_o.png", zoom=MC_SCALE)
+image McHappy = Transform("images/mc/McHappy.png", zoom=MC_SCALE)
+image McDefault = Transform("images/mc/McDefault.png", zoom=MC_SCALE)
+image McPout = Transform("images/mc/McPout.png", zoom=MC_SCALE)
+image McActually = Transform("images/mc/McActually.png", zoom=MC_SCALE)
+
+image ScyProud = Transform("images/npc/chapter2/mantis/ScyProud.png", zoom=MANTIS_SCALE)
+image ScySepet = Transform("images/npc/chapter2/mantis/ScySepet.png", zoom=MANTIS_SCALE)
+image ScyDefaultOM = Transform("images/npc/chapter2/mantis/ScyDefault.png", zoom=MANTIS_SCALE)
+image ScySurprise = Transform("images/npc/chapter2/mantis/ScySurprise.png", zoom=MANTIS_SCALE)
+image ScyLaugh = Transform("images/npc/chapter2/mantis/ScyLaugh.png", zoom=MANTIS_SCALE)
+image ScyShy = Transform("images/npc/chapter2/mantis/ScyShy.png", zoom=MANTIS_SCALE)
+image ScyDefault = Transform("images/npc/chapter2/mantis/ScyDefault.png", zoom=MANTIS_SCALE)
+
+image BunnyCry = Transform(safe_ch3_sprite("images/npc/chapter3/bunny/BunnyCry.png", "images/mc/McShock.png"), zoom=BUNNY_SCALE)
+image BunnyScared = Transform(safe_ch3_sprite("images/npc/chapter3/bunny/BunnyScared.png", "images/mc/McPout.png"), zoom=BUNNY_SCALE)
+image BunnySad = Transform(safe_ch3_sprite("images/npc/chapter3/bunny/BunnySad.png", "images/mc/McPout.png"), zoom=BUNNY_SCALE)
+image BunnyDefault = Transform(safe_ch3_sprite("images/npc/chapter3/bunny/BunnyDefault.png", "images/mc/McDefault.png"), zoom=BUNNY_SCALE)
+image BunnyHappy = Transform(safe_ch3_sprite("images/npc/chapter3/bunny/BunnyHappy.png", "images/mc/McHappy.png"), zoom=BUNNY_SCALE)
+
+image HawkDefault = Transform(safe_ch3_sprite("images/npc/chapter3/hawk/HawkDefault.png", "images/cory/CoryTalkNetral.png"), zoom=HAWK_SCALE)
+image HawkSigh = Transform(safe_ch3_sprite("images/npc/chapter3/hawk/HawkSigh.png", "images/cory/CorySide.png"), zoom=HAWK_SCALE)
+image HawkLaugh = Transform(safe_ch3_sprite("images/npc/chapter3/hawk/HawkLaugh.png", "images/cory/CoryTalkSmile.png"), zoom=HAWK_SCALE)
+image HawkSmile = Transform(safe_ch3_sprite("images/npc/chapter3/hawk/HawkSmile.png", "images/cory/CoryTalkSmile.png"), zoom=HAWK_SCALE)
 
 
 # =====================================

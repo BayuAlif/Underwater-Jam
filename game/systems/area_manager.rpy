@@ -66,6 +66,36 @@ init python:
 
         },
 
+
+        # =====================================
+        # CHAPTER 3 - THE OPEN SEA
+        # =====================================
+
+        "sea": {
+
+            # -----------------------------
+            # DAY
+            # -----------------------------
+
+            "day_bg":
+                safe_ch3_sprite("images/backgrounds/chapter3/bg day3.jpg", "images/backgrounds/chapter 2/bg day2.jpg"),
+
+            "day_dialogue_bg":
+                safe_ch3_sprite("images/backgrounds/chapter3/bg day3_bordered.jpg", "images/backgrounds/chapter 2/bg day2_bordered.jpg"),
+
+
+            # -----------------------------
+            # NIGHT
+            # -----------------------------
+
+            "night_bg":
+                safe_ch3_sprite("images/backgrounds/chapter3/bg night3.jpg", "images/backgrounds/chapter 2/bg night2.jpg"),
+
+            "night_dialogue_bg":
+                safe_ch3_sprite("images/backgrounds/chapter3/bg night3_bordered.jpg", "images/backgrounds/chapter 2/bg night2_bordered.jpg"),
+
+        },
+
     }
 
 

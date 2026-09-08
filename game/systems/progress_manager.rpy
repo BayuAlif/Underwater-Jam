@@ -44,6 +44,16 @@ default shrimp_weakened = False
 default shrimp_duel_won = False
 default shrimp_joined = False
 
+# =====================================
+# Chapter 3 Flags
+# =====================================
+
+default seabunny_talked = False
+default seaturtle_talked = False
+default ch3_rotation_warning_shown = False
+default bunny_hugged = False
+default bunny_fed = False
+
 
 init python:
 

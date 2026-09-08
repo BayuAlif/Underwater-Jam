@@ -19,6 +19,12 @@ default tiny_krill_taken = False
 default coal_tar_taken = False
 default saltwater_device_taken = False
 
+# =====================================
+# Chapter 3 Items
+# =====================================
+
+default rainbow_algae_taken = False
+
 
 init python:
 

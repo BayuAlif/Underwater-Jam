@@ -609,4 +609,4 @@ label chapter2_night_ending:
 
     scene black with dissolve
 
-    return
+    jump chapter3

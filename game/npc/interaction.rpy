@@ -48,6 +48,14 @@ label interact_with_npc(npc_name):
 
         call mantis_shrimp
 
+    elif npc_name == "seabunny":
+
+        call seabunny
+
+    elif npc_name == "seaturtle":
+
+        call seaturtle
+
     else:
 
         "NPC ERROR."
