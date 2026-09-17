@@ -1,4 +1,5 @@
 label salmon_interaction:
+    hide mc
     scene ch2_day
     $ focus()
     show salmon pien:
@@ -162,6 +163,8 @@ label salmon_interaction:
     cory "glup...."
     
     $ focus()
+    hide mc
+    hide cory
     call screen choose_interactor(
         "Choose who should ask Mrs. Salmon!",
         "The answers may vary based on the character asking"
@@ -293,8 +296,8 @@ label salmon_as_mc:
                 full
                 right
                 vibrate
-            mc "{bt=5}mn..*sniff*{bt=5}"
-            mc "{bt=5}Mama...{bt=5}"
+            mc "{bt=5}mn..*sniff*{/bt}"
+            mc "{bt=5}Mama...{/bt}"
 
             show salmon default:
                 full
@@ -376,7 +379,7 @@ label salmon_as_cory:
                 leftish
             "Mr. Cory approached Mrs. Salmon with a sigh, lowering his voice to a whisper. Though I can still make out the words quite clear."
             cory "I haven't got a full picture of the guppy's story but..."
-            show cory side close:
+            show cory side_close:
                 full
                 leftish
                 sink
@@ -401,11 +404,11 @@ label salmon_as_cory:
             cory "I'm well aware ma'am.."
             cory "they almost fell a deep river hole where I first found em.."
 
-            show cory side talk_hu:
+            show cory talk_hu:
                 full
                 leftish
             cory "But withholding a guppy's dream from coming true?"
-            show cory side close:
+            show cory side_close:
                 full
                 leftish
             cory "I'd be too evil for that"
@@ -438,7 +441,7 @@ label salmon_as_cory:
                 vibrate
             salmon "But! you watch your back around him anyway, love."
 
-            show cory side close:
+            show cory side_close:
                 full
                 leftish
                 surprise
@@ -459,7 +462,7 @@ label salmon_as_cory:
                 vibrate
             salmon "... Hmph"
 
-            show cory side close:
+            show cory side_close:
                 full
                 leftish
             cory "I'll just... leave it here for you ma'am."

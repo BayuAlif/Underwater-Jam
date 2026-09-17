@@ -1,4 +1,5 @@
 label dunge_interaction:
+    hide mc
     scene ch3_night
     $ focus()
     show mc o:

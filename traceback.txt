@@ -1,0 +1,58 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+NameError: name 'tinykrill' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "game/story/chapter1.rpy", line 252, in script call
+    call chapter1_dawn
+  File "game/story/chapter2.rpy", line 138, in script call
+    call chapter2_day_exploration
+  File "game/story/chapter2.rpy", line 200, in script call
+    call chapter2_tiny_krill
+  File "game/story/chapter2.rpy", line 220, in script
+    tinykrill "Eah!"
+Exception: Sayer 'tinykrill' is not defined.
+
+-- Full Traceback ------------------------------------------------------------
+
+Traceback (most recent call last):
+  File "renpy/ast.py", line 625, in eval_who
+    return renpy.python.py_eval(who)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "renpy/python.py", line 1308, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1301, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<none>", line 1, in <module>
+NameError: name 'tinykrill' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "game/story/chapter1.rpy", line 252, in script call
+    call chapter1_dawn
+  File "game/story/chapter2.rpy", line 138, in script call
+    call chapter2_day_exploration
+  File "game/story/chapter2.rpy", line 200, in script call
+    call chapter2_tiny_krill
+  File "game/story/chapter2.rpy", line 220, in script
+    tinykrill "Eah!"
+  File "renpy/ast.py", line 2935, in execute
+    Say.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "renpy/ast.py", line 956, in execute
+    who = eval_who(self.who, self.who_fast)
+          ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ast.py", line 627, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'tinykrill' is not defined.
+
+Windows-11-10.0.26200-SP0 AMD64
+Ren'Py 8.5.3.26051504
+00underwaterreal 1.0
+Thu Sep 17 21:06:36 2026

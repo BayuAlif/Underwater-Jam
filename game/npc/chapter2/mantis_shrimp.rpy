@@ -1,4 +1,5 @@
 label mantis_interaction:
+    hide mc
     scene ch2_night
     $ focus()
     show shrimp default:
@@ -69,6 +70,10 @@ label mantis_interaction:
     shrimp "You have to prove yourself worthy through a duel!"
     shrimp "Only then I shall let you pass!"
 
+    hide mc
+    hide cory
+    hide mc
+    hide cory
     call screen choose_interactor(
         "Choose who should confront Mr. Shrimp!",
         "The approach and answers may vary based on the character"
@@ -83,6 +88,8 @@ label mantis_interaction:
 
 
 label mantis_as_mc:
+
+    $ duel_fighter = "mc"
 
     show mc default at mc_npc
     show cory talk at cory_npc
@@ -428,6 +435,8 @@ label mantis_as_mc:
 
 label mantis_as_cory:
 
+    $ duel_fighter = "cory"
+
     show mc default at mc_npc
     show cory smile_hu at cory_npc
     show shrimp default at shrimp_right
@@ -547,6 +556,7 @@ label mantis_as_cory:
 
 label mantis_start_duel:
 
+    hide mc
     scene ch2_dialogue
 
     show mc default at mc_npc
@@ -563,7 +573,7 @@ label mantis_start_duel:
 
     show shrimp default at shrimp_right
 
-    shrimp "We shall now start a sacred duel of... ROCK PAPER SCISSORS!"
+    shrimp "We shall now start a sacred duel! Get ready to SPAM Z!"
 
     show cory surprise at cory_npc
 
@@ -645,6 +655,7 @@ label mantis_start_duel:
 
     if not coal_tar_effective:
 
+        hide mc
         scene ch2_dialogue
 
         show mc dizzy at mc_npc
@@ -668,6 +679,7 @@ label mantis_start_duel:
             call mantis_win
             return
 
+    hide mc
     scene ch2_dialogue
 
     show mc dizzy at mc_npc
@@ -689,6 +701,7 @@ label mantis_start_duel:
 
 label mantis_win:
 
+    hide mc
     scene ch2_dialogue
 
     show mc excited at mc_npc

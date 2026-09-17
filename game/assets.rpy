@@ -1,3 +1,10 @@
+# MC is intentionally on its own layer above the dialogue screen.
+# Cory and all NPCs remain on the normal master layer, so they stay behind the textbox.
+init -2 python:
+    if "mc_front" not in config.layers:
+        config.layers.insert(config.layers.index("screens") + 1, "mc_front")
+    config.tag_layer["mc"] = "mc_front"
+
 # ============================================================
 # ASSETS.RPY
 # Friendly-name aliases used by the dialogue scripts (prologue.rpy,
@@ -174,12 +181,12 @@ image item_gold_idle = "images/items/chapter1/goldenrock_idle.png"
 image item_gold_hover = "images/items/chapter1/goldenrock_hover.png"
 image item_gold = "images/items/chapter1/goldenrock_idle.png"
 image item_gold_hover_legacy = "images/items/chapter1/goldenrock_hover.png"
-image item_ambalabu_idle = "images/items/chapter1/aambalabu_idle.png"
+image item_ambalabu_idle = "images/items/chapter1/ambalabu_idle.png"
 image item_ambalabu_hover = "images/items/chapter1/ambalabu_hover.png"
 image item_ambalabu = "images/items/chapter1/ambalabu_idle.png"
 image item_ambalabu_hover_legacy = "images/items/chapter1/ambalabu_hover.png"
-image item_tiny_krill = "images/items/chapter2/tiny_krill_idle.png"
-image item_tiny_krill_hover = "images/items/chapter2/tiny_krill_hover.png"
+image item_tiny_krill = "images/items/chapter2/krill_idle.png"
+image item_tiny_krill_hover = "images/items/chapter2/krill_hover.png"
 image item_coal = "images/items/chapter2/coal_idle.png"
 image item_coal_hover = "images/items/chapter2/coal_hover.png"
 image krill = "images/items/chapter2/krill_idle.png"
@@ -188,9 +195,11 @@ image krillangy = "images/items/chapter2/krill_idle.png"
 image prologue_day = "images/backgrounds/prologue/prologue_day.jpg"
 image ch1_day = "images/backgrounds/chapter1/bgday1.jpg"
 image ch1_night = "images/backgrounds/chapter1/bgnight1.jpg"
-image ch1_dark = "images/backgrounds/chapter1/bgdark1.jpg"
+image ch1_dark = "images/backgrounds/chapter1/bgdark1.png"
 image ch2_day = "images/backgrounds/chapter2/bgday2.jpg"
 image ch2_night = "images/backgrounds/chapter2/bgnight2.jpg"
+image ch1_dialogue = "images/backgrounds/chapter1/bgday1.jpg"
+image ch2_dialogue = "images/backgrounds/chapter2/bgnight2.jpg"
 image ch3_day = "images/backgrounds/chapter3/DAY/bg day3_bordered.jpg"
 image ch3_night = "images/backgrounds/chapter3/NIGHT/bg night3_bordered.jpg"
 
@@ -200,7 +209,6 @@ image cutpro3 = "images/cutscenes/prologue/3.png"
 image cutpro4 = "images/cutscenes/prologue/4.png"
 image cutpro5 = "images/cutscenes/prologue/5.png"
 image cutpro6 = "images/cutscenes/prologue/6.png"
-image cutpro7 = "images/cutscenes/prologue/7.png"
 image cutpro8 = "images/cutscenes/prologue/8.png"
 image cutpro9 = "images/cutscenes/prologue/9.png"
 image cutpro10 = "images/cutscenes/prologue/10.png"
@@ -213,13 +221,3 @@ image cutchap3 = "images/cutscenes/chapter1/3.png"
 image cutchap4 = "images/cutscenes/chapter1/4.png"
 image cutchap5 = "images/cutscenes/chapter1/5.png"
 
-image battle_bg = "images/battle/Background.png"
-image battle_background = "images/battle/Background.png"
-image mantis_battle = "images/battle/mantis/Idle.png"
-image mantis_battle_dmg = "images/battle/mantis/IdleDMG.png"
-image mantis_battle_damage = "images/battle/mantis/IdleDMG.png"
-image mantis_battle_low = "images/battle/mantis/LowHP.png"
-image mantis_battle_low_damage = "images/battle/mantis/LowHPDMG.png"
-image rps_rock = "images/battle/rps/Rock.png"
-image rps_paper = "images/battle/rps/Paper.png"
-image rps_scissor = "images/battle/rps/Scissor_.png"

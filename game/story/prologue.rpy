@@ -1,24 +1,28 @@
 label prologue:
 
+    hide mc
     scene prologue_day
     with fade
     play music ambianceprologue volume 1.0
 
     "{i}Ah, the rivershore.. A serene calming scene adorned by the rustling wind of leaves.{/i}" 
     "{i}Gentle applauses are carried by the trees of forest in celebration for yet another day of the sun's blessing.{/i}" 
+    hide mc
     scene cutpro1 with Dissolve(0.5)
-    play sound "bush_rustling.mp3" volume 0.25
+    play sound "audio/bush_rustling.mp3" volume 0.25
     stop music fadeout 1.0
     "An absolute perfect scene for{cps=0.5}...{/cps}"
 
+    hide mc
     scene cutpro2 with Dissolve(0.5)
     play music prologue_funny_underwater fadein 1.0 volume 0.5
     mc "Weee~! For practicing my flying fish jump of course! Haha!"
 
     "{i}I soared through the sky, my arms and legs held up by the encouraging carry of gravity.{/i}"
     "{i}It felt like I had finally achieved the true nature of those magical fishes.{/i}"
+    hide mc
     scene prologue_day
-    play sound "thump.mp3"
+    play sound "audio/thump.mp3"
     show mc dizzy:
         full
         right
@@ -59,25 +63,30 @@ label prologue:
     mc "Anyway! {bt}Goooood morning{/bt} citizen of riversnips kingdom!"
     $ focus()
 
+    hide mc
     scene cutpro3 with Dissolve(0.5)
     "{i}Levelling down with my friends on the ground, I have my best grin on display ready to greet them. They stay longer when I do that.{/i}" 
     "{i}My finger gently twirls creating a small friendly swirl against the riverwater. One by one, they all turned toward the middle of the river.{/i}"
     mc "Good precious morning mr carpado! Morning ms betta! Hello to silly eely billy! and..."
     
+    hide mc
     scene cutpro4 with Dissolve(0.5)
     stop music fadeout 5.0
     "{i}A majestic mysterious fish made its great entrance.{/i}"
     mc "Huh...?"
 
+    hide mc
     scene cutpro5 with Dissolve(0.5)
     play music mysterious_golden_looking fadein 1.0 volume 0.5
     mc "I don't think I've seen you before..."
     "{i}Its beauty was like nothing I've ever seen. Not even in my wildest dreams... or in the thickest fish encyclopedia with my favorite illustrator in charge.{/i}"
 
+    hide mc
     scene cutpro6 with Dissolve(0.5)
     "{i}Stuck in trance I now realize, that I can only picture its tail now.{/i}"
     mc "Ah! Wait up!!"
 
+    hide mc
     scene prologue_day 
     with vpunch
     "{i}Before I knew it my feet brought me up in a speed bolt. I ran along the river. Eyes locked onto the mysterious golden fish.{/i}"
@@ -89,6 +98,7 @@ label prologue:
     "{i}One step became two, and before I knew it..{/i}"
 
     
+    hide mc
     scene black
     stop music
     play sound splash
@@ -123,6 +133,7 @@ label prologue:
     "{i}It landed square in my palm. Warm. Impossibly warm for something that just came off a fish underwater.{/i}"
 
     stop music 
+    hide mc
     scene black
     play sound underwater_current
     "{i}I barely had time to look at it before the current dragged me under again.{/i}"

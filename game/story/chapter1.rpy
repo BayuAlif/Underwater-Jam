@@ -4,6 +4,7 @@ label chapter1_start:
     $ current_cycle = "day"
     $ current_area = "riverbed"
 
+    hide mc
     scene ch1_day with Dissolve(0.5)
     show mc shock:
         full
@@ -42,6 +43,7 @@ label chapter1_start:
     "{i}I slowly nodded in agreement.{/i}" 
 
     hide ch1_day
+    hide mc
     scene ch1_day with Dissolve(0.5)
     "{i}Before my mind could curiously wonder more to the depth of said cliff, I looked up to the source of voice.{/i}"
 
@@ -95,7 +97,7 @@ label chapter1_start:
         full 
         right
         vibrate
-    mc "{size=45}ARE YOU GETTING ME, MR FISH?? :D"
+    mc "{size=45}ARE YOU GETTING ME, MR FISH?? :D{/size}"
 
     show cory surprise:
         full
@@ -107,7 +109,7 @@ label chapter1_start:
         full 
         right
         vibrate
-    mc "{bt=10}{cps=45}{size=40}I'M HAVING A CONVERSATION WITH A FIIIISH!!{/cps}{/bt}"
+    mc "{bt=10}{cps=45}{size=40}I'M HAVING A CONVERSATION WITH A FIIIISH!!{/size}{/cps}{/bt}"
 
     "Struck with a thunder of explosive excitement a loud squeak pushed through me. At the same time my mouth is wide open-"
     show mc dizzy:
@@ -254,6 +256,7 @@ label chapter1_start:
 
 label chapter1_day_exploration:
 
+    hide mc
     scene ch1_day
 
     $ setup_exploration(
@@ -285,6 +288,9 @@ label chapter1_day_exploration:
 
     label .loop:
 
+        hide mc
+        scene ch1_day
+
         call screen exploration_screen
 
         $ result = _return
@@ -305,10 +311,9 @@ label chapter1_day_exploration:
 
         elif result == "item":
 
-            $ collect_exploration_item
+            $ collect_exploration_item()
 
-            $ add_item("gold_nugget")
-
+            hide mc
             scene ch1_day
             show goldenrock_hover:
                 center
@@ -416,8 +421,9 @@ label chapter1_day_exploration:
 
 label chapter1_night:
 
-    call start_night
+    $ current_cycle = "night"
 
+    hide mc
     scene ch1_dark
     stop music 
     play music chap_1_night
@@ -456,6 +462,7 @@ label chapter1_night:
     mc "But it's so dark! Is there no light around here..?"
     $ focus()
 
+    hide mc
     scene cutchap4 with Dissolve(0.5)
     "{i}Then suddenly the golden scale in my palm starts to emit a soft blue glow. Giving a small light to those around me{/i}"
     mc "Woah! It wasn't this bright before!"
@@ -469,6 +476,7 @@ label chapter1_night:
 
 label chapter1_night_exploration:
 
+    hide mc
     scene ch1_night
 
     $ setup_exploration(
@@ -500,6 +508,9 @@ label chapter1_night_exploration:
 
     label .loop:
 
+        hide mc
+        scene ch1_night
+
         call screen exploration_screen
 
         $ result = _return
@@ -520,8 +531,9 @@ label chapter1_night_exploration:
 
         elif result == "item":
 
-            $ collect_exploration_item
+            $ collect_exploration_item()
 
+            hide mc
             scene ch1_night
 
             $ focus()
@@ -563,6 +575,7 @@ label chapter1_night_exploration:
 
 label chapter1_dawn:
 
+    hide mc
     scene ch1_night
 
     $ focus()
@@ -584,7 +597,7 @@ label chapter1_dawn:
         right
     mc "They all said north!"
 
-    show cory smie:
+    show cory smile:
         ease 0.2
         full
         center
@@ -641,6 +654,7 @@ label chapter1_dawn:
     cory "Just don't make me save ya twice."
     $ focus()
 
+    hide mc
     scene black with dissolve
 
     "END OF CHAPTER 1"

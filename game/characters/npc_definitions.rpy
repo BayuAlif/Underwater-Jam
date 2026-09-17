@@ -4,7 +4,10 @@ define lele = Character("Lele", color="#ffffff")
 define gator = Character("Gator", color="#ffffff")
 
 define salmon = Character("Mrs. Salmon", color="#ffffff")
+define sal = salmon
 define arowana = Character("Mr. Wana", color="#ffffff")
+define aro = arowana
+define tinykrill = Character("Tiny Krill", color="#ffffff")
 define ghost = Character("Ghostfish", color="#ffffff")
 define shrimp = Character("Mantis Shrimp", color="#ffffff")
 

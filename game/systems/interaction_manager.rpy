@@ -1,7 +1,6 @@
 transform mc_two:
-    crop (0, 550, 600, 530)
     xanchor 0.5
-    xpos 0.20
+    xpos 0.88
     yanchor 1.0
     ypos 1.0
     zoom 0.82
@@ -14,23 +13,22 @@ transform cory_two:
     zoom 0.60
 
 transform mc_npc:
-    crop (0, 550, 600, 530)
     xanchor 0.5
-    xpos 0.15
+    xpos 0.90
     yanchor 1.0
-    ypos 1.0
-    zoom 0.82
+    ypos 1.02
+    zoom 0.98
 
 transform cory_npc:
-    xanchor 0.34
-    xpos 0.36
+    xanchor 0.5
+    xpos 0.34
     yanchor 1.0
     ypos 1.0
     zoom 0.60
 
 transform npc_right:
     xanchor 0.70
-    xpos 0.76
+    xpos 0.72
     yanchor 1.0
     ypos 1.0
     zoom 0.70
@@ -65,70 +63,71 @@ transform gator_right:
 
 transform salmon_right:
     xanchor 0.69
-    xpos 0.76
+    xpos 0.72
     yanchor 1.0
     ypos 1.0
     zoom 0.80
 
 transform arowana_right:
     xanchor 0.69
-    xpos 0.76
+    xpos 0.72
     yanchor 1.0
     ypos 1.0
     zoom 0.80
 
 transform ghost_right:
     xanchor 0.734
-    xpos 0.76
+    xpos 0.72
     yanchor 1.0
     ypos 1.0
     zoom 0.80
 
 transform shrimp_right:
     xanchor 0.66
-    xpos 0.76
+    xpos 0.74
     yanchor 1.0
     ypos 1.0
     zoom 0.65
 
 transform mc_left:
-    crop (0, 550, 600, 530)
     xanchor 0.5
-    xpos 0.15
+    xpos 0.90
     yanchor 1.0
-    ypos 1.0
-    zoom 0.82
+    ypos 1.02
+    zoom 0.98
 
 transform mc_center_left:
-    crop (0, 550, 600, 530)
     xanchor 0.5
-    xpos 0.15
+    xpos 0.90
     yanchor 1.0
-    ypos 1.0
-    zoom 0.82
+    ypos 1.02
+    zoom 0.98
 
 transform cory_left:
-    xanchor 0.34
-    xpos 0.55
+    xanchor 0.5
+    xpos 0.34
     yanchor 1.0
     ypos 1.0
     zoom 0.60
 
 transform cory_center_right:
-    xanchor 0.34
-    xpos 0.55
+    xanchor 0.5
+    xpos 0.34
     yanchor 1.0
     ypos 1.0
     zoom 0.60
 
 transform selector_mc:
-    crop (0, 550, 600, 530)
-    zoom 0.85
-    xalign 0.25
-    yalign 0.58
+    xanchor 0.5
+    yanchor 1.0
+    xpos 0.30
+    ypos 0.74
+    zoom 0.40
+
 
 transform selector_cory:
-    crop (718, 55, 589, 1022)
-    zoom 0.55
-    xalign 0.75
-    yalign 0.58
+    xanchor 0.5
+    yanchor 1.0
+    xpos 0.70
+    ypos 0.74
+    zoom 0.40

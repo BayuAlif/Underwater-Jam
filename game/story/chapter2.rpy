@@ -4,6 +4,7 @@ label chapter2_start:
     $ current_cycle = "day"
     $ current_area = "northern_current"
 
+    hide mc
     scene ch2_day with Dissolve(0.5)
 
     "The river flowed faster, slowly giving way to larger stones." 
@@ -134,12 +135,74 @@ label chapter2_start:
     cory "Heh, atta fish"
     $ focus()
 
+    call chapter2_day_exploration
+    call chapter2_night_start
+
+    return
+
 
 label chapter2_day_exploration:
 
     $ current_cycle = "day"
+    $ current_area = "northern_current"
 
-    call screen chapter2_exploration_day
+    hide mc
+    scene ch2_day
+
+    $ setup_exploration(
+        [
+            {
+                "id": "salmon",
+                "name": "Mrs. Salmon",
+                "idle": "salmon idle",
+                "hover": "salmon hover",
+                "x": 0.78,
+                "y": 0.54
+            },
+            {
+                "id": "arowana",
+                "name": "Mr. Wana",
+                "idle": "arowana idle",
+                "hover": "arowana hover",
+                "x": 0.20,
+                "y": 0.54
+            }
+        ],
+        {
+            "id": "tiny_krill",
+            "name": "Tiny Krill",
+            "idle": "item_tiny_krill",
+            "hover": "item_tiny_krill_hover"
+        }
+    )
+
+    label .loop:
+
+        hide mc
+        scene ch2_day
+
+        call screen exploration_screen
+
+        $ result = _return
+
+        if result == "salmon":
+            call salmon_interaction
+            $ mark_npc_explored("salmon")
+            jump .loop
+
+        elif result == "arowana":
+            call arowana_interaction
+            $ mark_npc_explored("arowana")
+            jump .loop
+
+        elif result == "item":
+            $ collect_exploration_item()
+            call chapter2_tiny_krill
+            jump .loop
+
+        elif result == "continue":
+            $ chapter2_day_done = True
+            return
 
 
 label chapter2_tiny_krill:
@@ -187,8 +250,6 @@ label chapter2_tiny_krill:
         vibrate
     tinykrill "Suffer in eternal torment both of you!"
 
-    $ add_item("tiny_krill")
-
     "{b}I obtained a tiny krill.{/b}"
     $ focus()
     return
@@ -196,6 +257,7 @@ label chapter2_tiny_krill:
 
 label chapter2_salmon:
 
+    hide mc
     scene bg northern_current_day
     with dissolve
 
@@ -309,7 +371,10 @@ label chapter2_salmon:
 
 label chapter2_salmon_questions:
 
+    hide mc
+    hide cory
     call screen character_question_select("Mrs. Salmon")
+    $ selected_questioner = _return
 
     if selected_questioner == "mc":
 
@@ -545,7 +610,10 @@ label chapter2_arowana:
 
 label chapter2_arowana_questions:
 
+    hide mc
+    hide cory
     call screen character_question_select("Mr. Wana")
+    $ selected_questioner = _return
 
     if selected_questioner == "mc":
 
@@ -761,11 +829,58 @@ label chapter2_arowana_questions:
 label chapter2_night_start:
 
     $ current_cycle = "night"
+    $ current_area = "northern_current"
 
-    scene bg northern_current_night
+    hide mc
+    scene ch2_night
     with fade
 
-    call screen chapter2_exploration_night
+    $ setup_exploration(
+        [],
+        {
+            "id": "coal_tar",
+            "name": "Coal Tar",
+            "idle": "item_coal",
+            "hover": "item_coal_hover"
+        }
+    )
+
+    label .loop:
+
+        hide mc
+        scene ch2_night
+
+        call screen exploration_screen
+
+        $ result = _return
+
+        if result == "ghostfish":
+            call chapter2_ghostfish
+            $ mark_npc_explored("ghostfish")
+            jump .loop
+
+        elif result == "item":
+            $ collect_exploration_item()
+            call chapter2_coal_tar
+            $ exploration_npcs.append({
+                "id": "ghostfish",
+                "name": "Ghostfish",
+                "idle": "ghost idle",
+                "hover": "ghost hover",
+                "x": 0.78,
+                "y": 0.54
+            })
+            $ mark_npc_explored("ghostfish")
+            jump .loop
+
+        elif result == "continue":
+            $ chapter2_night_done = True
+            call mantis_interaction
+
+            if chapter2_mantis_done:
+                jump chapter2_ending
+
+    return
 
 
 label chapter2_coal_tar:
@@ -875,7 +990,10 @@ label chapter2_ghostfish:
 
 label chapter2_ghostfish_questions:
 
+    hide mc
+    hide cory
     call screen character_question_select("Ghostfish")
+    $ selected_questioner = _return
 
     if selected_questioner == "mc":
 
@@ -1116,6 +1234,7 @@ label chapter2_ghostfish_questions:
 
 label chapter2_mantis:
 
+    hide mc
     scene bg northern_current_night
     with fade
 
@@ -1664,6 +1783,7 @@ label chapter2_ending:
     shrimp "Don't worry, my dizzy lieges! I'll carry the both of you until you regain your ground! Or.. your water!"
 
     $ focus()
+    hide mc
     scene black with dissolve
 
     "END OF CHAPTER 2"

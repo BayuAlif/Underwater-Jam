@@ -1,5 +1,6 @@
 label lele_interaction:
 
+    hide mc
     scene ch1_night
     $ focus()
     show mc default:
@@ -41,6 +42,8 @@ label lele_interaction:
 
     $ focus()
 
+    hide mc
+    hide cory
     call screen choose_interactor(
         "Choose who should ask Mr. Catfish!",
         "The answers may vary based on the character asking"

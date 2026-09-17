@@ -1,4 +1,5 @@
 label arowana_interaction:
+    hide mc
     scene ch2_day
     $ focus()
     show mc o:
@@ -75,6 +76,8 @@ label arowana_interaction:
     cory "Pfft.. language barriers ay?"
     $ focus()
 
+    hide mc
+    hide cory
     call screen choose_interactor(
         "Choose who should ask Mr. Wana!",
         "The answers may vary based on the character asking"
@@ -121,9 +124,9 @@ label arowana_as_mc:
         full
         center
         vibrate 
-    arowana "{sc}{size=45}NO SHRIMP!{/sc}{/size}"
-    arowana "{sc}{size=45}I AM HERE.{/sc}{/size}"
-    arowana "{sc}{size=45}Because of that stupid- egregious mantis shrimp!{/sc}{/size}"
+    arowana "{sc}{size=45}NO SHRIMP!{/size}{/sc}"
+    arowana "{sc}{size=45}I AM HERE.{/size}{/sc}"
+    arowana "{sc}{size=45}Because of that stupid- egregious mantis shrimp!{/size}{/sc}"
 
     show arowana default:
         ease 0.5
@@ -219,7 +222,7 @@ label arowana_as_mc:
                 full
                 center
                 vibrate
-            arowana "{sc}{size=40}HAH! Yes! How wonderful I should've just tried that!.{/sc}{/size}"
+            arowana "{sc}{size=40}HAH! Yes! How wonderful I should've just tried that!.{/size}{/sc}"
 
             show mc happy:
                 full

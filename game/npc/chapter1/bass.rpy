@@ -1,5 +1,6 @@
 label bass_interaction:
 
+    hide mc
     scene ch1_day
     $ focus()
     show mc default:

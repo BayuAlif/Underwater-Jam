@@ -1,48 +1,36 @@
-screen choose_interactor(title, subtitle):
+screen character_question_visual(title, subtitle):
 
     modal True
 
-    if current_chapter == 1:
-        add "ch1_dialogue"
-    else:
-        add "ch2_dialogue"
-
-    add Solid("#00000099")
-
+    add Solid("#000000B8")
 
     text title:
         xalign 0.5
-        yalign 0.09
+        yalign 0.08
         size 42
         bold True
-
 
     text subtitle:
         xalign 0.5
         yalign 0.15
         size 24
 
-
-    add "mc default" at selector_mc
-
-    add "cory talk" at selector_cory
-
-
-    textbutton "Ask as MC":
-        xalign 0.25
-        yalign 0.82
-
-        xsize 350
-        ysize 80
-
+    imagebutton:
+        idle "images/characters/rotasi/McIdle.png"
+        hover "images/characters/rotasi/McHover.png"
+        at selector_mc
         action Return("mc")
 
-
-    textbutton "Ask as Cory":
-        xalign 0.75
-        yalign 0.82
-
-        xsize 350
-        ysize 80
-
+    imagebutton:
+        idle "images/characters/rotasi/CoryIdle.png"
+        hover "images/characters/rotasi/CoryHover.png"
+        at selector_cory
         action Return("cory")
+
+
+screen choose_interactor(title, subtitle):
+    use character_question_visual(title, subtitle)
+
+
+screen character_question_select(title):
+    use character_question_visual(title, "Choose by character.")

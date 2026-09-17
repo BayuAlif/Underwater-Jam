@@ -1,4 +1,5 @@
 label ghostfish_interaction:
+    hide mc
     scene ch2_night
     $ focus()
     show ghost default:
@@ -45,6 +46,8 @@ label ghostfish_interaction:
 
     ghost "Heh.. how adorable...."
 
+    hide mc
+    hide cory
     call screen choose_interactor(
         "Choose who should ask Ghostfish!",
         "The answers may vary based on the character asking"

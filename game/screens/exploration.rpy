@@ -62,3 +62,10 @@ screen exploration_screen():
             yalign 0.94
 
             action Return("continue")
+
+# Chapter 2 uses the same point-and-click exploration data model as Chapter 1.
+screen chapter2_exploration_day():
+    use exploration_screen
+
+screen chapter2_exploration_night():
+    use exploration_screen

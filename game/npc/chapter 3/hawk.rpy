@@ -1,4 +1,5 @@
 label hawk_interaction:
+    hide mc
     scene ch3_day
     $ focus()
     show mc o:

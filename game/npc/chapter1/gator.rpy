@@ -1,5 +1,6 @@
 label gator_interaction:
 
+    hide mc
     scene ch1_night
 
     $ focus()
@@ -42,7 +43,7 @@ label gator_interaction:
     show gator annoyed:
         full 
         center
-    gator "Most thought that I'm a.. ugh, {b}{i}{size=25}a croc...{/i}{/b}"
+    gator "Most thought that I'm a.. ugh, {b}{i}{size=25}a croc...{/size}{/i}{/b}"
 
     show mc o:
         full
@@ -180,7 +181,10 @@ label gator_interaction:
         ease 0.1 medlong
     gator "YOUR FOUL TASTE IS THE ONLY THING STOPPING ME."
     
-    show cutchap5 with vibrate
+    hide mc
+    hide cory
+    hide gator
+    show cutchap5 with vpunch
     "I stare at both of them from the sidelines. Feeling a stiff electric tension swell between them as it goes on."
     $ focus()
 
@@ -246,7 +250,7 @@ label gator_interaction:
                 sink
             mc "ohh.. okay I'm not a motherfucker then :("
 
-            show cory side close:
+            show cory side_close:
                 full 
                 leftish
             cory "ya know what truce on that."

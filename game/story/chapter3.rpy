@@ -15,6 +15,7 @@ label chapter3_start:
     $ current_chapter = 3
     $ current_cycle = "day"
 
+    hide mc
     scene ch3_day
     with fade
 
@@ -39,6 +40,7 @@ label chapter3_start:
 
 label chapter3_reef_exploration:
 
+    hide mc
     scene ch3_dialogue
     with dissolve
 
