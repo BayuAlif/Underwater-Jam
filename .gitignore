@@ -1,0 +1,7 @@
+# Ren'Py generated files
+*.rpyc
+cache/
+
+# OS files
+.DS_Store
+Thumbs.db
