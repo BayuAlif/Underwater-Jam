@@ -1,12 +1,12 @@
 label chapter2_start:
-
+    
     $ current_chapter = 2
     $ current_cycle = "day"
     $ current_area = "northern_current"
 
     hide mc
     scene ch2_day with Dissolve(0.5)
-
+    play music chap_2_day volume 0.5
     "The river flowed faster, slowly giving way to larger stones." 
     "The sunlight above grew softer, hiding themself behind layers of drifting water plants as we continue to swim."
     $ focus()
@@ -834,6 +834,7 @@ label chapter2_night_start:
     hide mc
     scene ch2_night
     with fade
+    play music chap_2_night volume 0.5
 
     $ setup_exploration(
         [

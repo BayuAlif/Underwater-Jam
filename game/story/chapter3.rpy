@@ -21,6 +21,7 @@ label chapter3_start:
     hide mc
     scene ch3_day
     with fade
+    play music chap_3_day volume 0.5
 
     "The sea fills my line of sight with overwhelmingly bright pretty colors. My gaze erratically jumps from one color to another as we continue to swim further. From parrot fishes, sparkly elvis worms to rainbow open brain corals. There's way too many stuff to focus on!"
 
@@ -720,6 +721,7 @@ label ch3_bunny_done:
 
     scene ch3_night
     with fade
+    play music chap_3_night volume 0.5
 
     show mc tired at mc_left
     show cory side at cory_left

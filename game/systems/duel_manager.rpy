@@ -22,7 +22,7 @@ default dodge_result = False
 # always resolves as a win, so the existing post-duel story/flags still run
 # normally.
 # ---------------------------------------------------------------------------
-define MANTIS_DUEL_BYPASS = True
+define MANTIS_DUEL_BYPASS = False
 
 
 image mantis dodge rock = "images/jankenpon/Rock/RockDodge.png"
