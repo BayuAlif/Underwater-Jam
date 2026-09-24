@@ -435,7 +435,10 @@ label mantis_as_mc:
 
 label mantis_as_cory:
 
-    $ duel_fighter = "cory"
+    # Note: MC is always the one who physically duels first (see
+    # mantis_start_duel's shared dialogue, which is always addressed
+    # to "guppy"/MC). Cory only steps in to help if MC loses. Who
+    # talks to the shrimp beforehand doesn't change who fights.
 
     show mc default at mc_npc
     show cory smile_hu at cory_npc
@@ -556,6 +559,11 @@ label mantis_as_cory:
 
 label mantis_start_duel:
 
+    # MC always starts the duel (Cory only helps if MC loses). Reset
+    # this every time the label is entered, including on "Try again?",
+    # so a previous switch-over to Cory doesn't carry over.
+    $ duel_fighter = "mc"
+
     hide mc
     scene ch2_dialogue
 
@@ -647,7 +655,7 @@ label mantis_start_duel:
 
     call mantis_duel
 
-    if _return == "player_win":
+    if _return == "win":
 
         call mantis_win
 
@@ -675,7 +683,7 @@ label mantis_start_duel:
 
         call mantis_duel
 
-        if _return == "player_win":
+        if _return == "win":
             call mantis_win
             return
 

@@ -1,0 +1,87 @@
+D:\RenPy\Projects\game\game\images\jankenpon\Bg1.png
+D:\RenPy\Projects\game\game\images\jankenpon\Bg2.png
+D:\RenPy\Projects\game\game\images\jankenpon\Bg3.png
+D:\RenPy\Projects\game\game\images\jankenpon\Button Rock Paper Scissor
+D:\RenPy\Projects\game\game\images\jankenpon\file_list.txt
+D:\RenPy\Projects\game\game\images\jankenpon\ICON
+D:\RenPy\Projects\game\game\images\jankenpon\Idle1.png
+D:\RenPy\Projects\game\game\images\jankenpon\Idle2.png
+D:\RenPy\Projects\game\game\images\jankenpon\Idle3.png
+D:\RenPy\Projects\game\game\images\jankenpon\IdleDMG.png
+D:\RenPy\Projects\game\game\images\jankenpon\LowHP.png
+D:\RenPy\Projects\game\game\images\jankenpon\LowHP1.png
+D:\RenPy\Projects\game\game\images\jankenpon\LowHP2.png
+D:\RenPy\Projects\game\game\images\jankenpon\LowHP3.png
+D:\RenPy\Projects\game\game\images\jankenpon\LowHPDMG.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper
+D:\RenPy\Projects\game\game\images\jankenpon\Rock
+D:\RenPy\Projects\game\game\images\jankenpon\Scissor
+D:\RenPy\Projects\game\game\images\jankenpon\Win, Lose, Draw
+D:\RenPy\Projects\game\game\images\jankenpon\Button Rock Paper Scissor\1.png
+D:\RenPy\Projects\game\game\images\jankenpon\Button Rock Paper Scissor\2.png
+D:\RenPy\Projects\game\game\images\jankenpon\Button Rock Paper Scissor\3.png
+D:\RenPy\Projects\game\game\images\jankenpon\Button Rock Paper Scissor\CPaper.png
+D:\RenPy\Projects\game\game\images\jankenpon\Button Rock Paper Scissor\CRock.png
+D:\RenPy\Projects\game\game\images\jankenpon\Button Rock Paper Scissor\CScissor.png
+D:\RenPy\Projects\game\game\images\jankenpon\Button Rock Paper Scissor\MPaper.png
+D:\RenPy\Projects\game\game\images\jankenpon\Button Rock Paper Scissor\MRock.png
+D:\RenPy\Projects\game\game\images\jankenpon\Button Rock Paper Scissor\MScissor.png
+D:\RenPy\Projects\game\game\images\jankenpon\Button Rock Paper Scissor\Paper.png
+D:\RenPy\Projects\game\game\images\jankenpon\Button Rock Paper Scissor\Rock.png
+D:\RenPy\Projects\game\game\images\jankenpon\Button Rock Paper Scissor\Scissor_.png
+D:\RenPy\Projects\game\game\images\jankenpon\Button Rock Paper Scissor\SPaper.png
+D:\RenPy\Projects\game\game\images\jankenpon\Button Rock Paper Scissor\SRock.png
+D:\RenPy\Projects\game\game\images\jankenpon\Button Rock Paper Scissor\SScissor.png
+D:\RenPy\Projects\game\game\images\jankenpon\ICON\CoryDead.png
+D:\RenPy\Projects\game\game\images\jankenpon\ICON\CoryFull.png
+D:\RenPy\Projects\game\game\images\jankenpon\ICON\CoryHalf.png
+D:\RenPy\Projects\game\game\images\jankenpon\ICON\McDead.png
+D:\RenPy\Projects\game\game\images\jankenpon\ICON\McFull.png
+D:\RenPy\Projects\game\game\images\jankenpon\ICON\McHalf.png
+D:\RenPy\Projects\game\game\images\jankenpon\ICON\ScyDead.png
+D:\RenPy\Projects\game\game\images\jankenpon\ICON\ScyFull.png
+D:\RenPy\Projects\game\game\images\jankenpon\ICON\ScyHalf.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\0-PREVIEW.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\ArrowBlue.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\ArrowRed.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\KeyIdle.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\KeySmash.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\Paper.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\PaperDodge.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\PaperImpact1.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\PaperImpact2.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\PressBar
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\PressBar\Blue1.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\PressBar\Blue2.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\PressBar\Blue3.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\PressBar\Blue4.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\PressBar\Blue5.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\PressBar\Blue6.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\PressBar\BlueFull.png
+D:\RenPy\Projects\game\game\images\jankenpon\Paper\PressBar\RedFull.png
+D:\RenPy\Projects\game\game\images\jankenpon\Rock\0-PREVIEW.png
+D:\RenPy\Projects\game\game\images\jankenpon\Rock\PUNCHES
+D:\RenPy\Projects\game\game\images\jankenpon\Rock\Rock.png
+D:\RenPy\Projects\game\game\images\jankenpon\Rock\RockDodge.png
+D:\RenPy\Projects\game\game\images\jankenpon\Rock\RockImpact1.png
+D:\RenPy\Projects\game\game\images\jankenpon\Rock\RockImpact2.png
+D:\RenPy\Projects\game\game\images\jankenpon\Rock\PUNCHES\Punch1.png
+D:\RenPy\Projects\game\game\images\jankenpon\Rock\PUNCHES\Punch2.png
+D:\RenPy\Projects\game\game\images\jankenpon\Rock\PUNCHES\Punch3.png
+D:\RenPy\Projects\game\game\images\jankenpon\Rock\PUNCHES\Punch4.png
+D:\RenPy\Projects\game\game\images\jankenpon\Rock\PUNCHES\Punch5.png
+D:\RenPy\Projects\game\game\images\jankenpon\Rock\PUNCHES\Punch6.png
+D:\RenPy\Projects\game\game\images\jankenpon\Rock\PUNCHES\Punch7.png
+D:\RenPy\Projects\game\game\images\jankenpon\Scissor\0-PREVIEW.png
+D:\RenPy\Projects\game\game\images\jankenpon\Scissor\Scissor.png
+D:\RenPy\Projects\game\game\images\jankenpon\Scissor\ScissorBlueBar.png
+D:\RenPy\Projects\game\game\images\jankenpon\Scissor\ScissorDodge.png
+D:\RenPy\Projects\game\game\images\jankenpon\Scissor\ScissorGreenBar.png
+D:\RenPy\Projects\game\game\images\jankenpon\Scissor\ScissorGreenBar2.png
+D:\RenPy\Projects\game\game\images\jankenpon\Scissor\ScissorGreenBar3.png
+D:\RenPy\Projects\game\game\images\jankenpon\Scissor\ScissorImpact1.png
+D:\RenPy\Projects\game\game\images\jankenpon\Scissor\ScissorImpact2.png
+D:\RenPy\Projects\game\game\images\jankenpon\Scissor\ScissorRunningRed.png
+D:\RenPy\Projects\game\game\images\jankenpon\Win, Lose, Draw\Draw_.png
+D:\RenPy\Projects\game\game\images\jankenpon\Win, Lose, Draw\Lose.png
+D:\RenPy\Projects\game\game\images\jankenpon\Win, Lose, Draw\Win.png

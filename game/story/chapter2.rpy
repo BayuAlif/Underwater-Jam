@@ -836,12 +836,31 @@ label chapter2_night_start:
     with fade
 
     $ setup_exploration(
-        [],
+        [
+            {
+                "id": "ghostfish",
+                "name": "Ghostfish",
+                "idle": "ghost idle",
+                "hover": "ghost hover",
+                "x": 0.321,
+                "y": 0.127
+            },
+            {
+                "id": "mantis",
+                "name": "Mantis Shrimp",
+                "idle": "shrimp idle",
+                "hover": "shrimp hover",
+                "x": 0.803,
+                "y": 0.242
+            }
+        ],
         {
             "id": "coal_tar",
             "name": "Coal Tar",
             "idle": "item_coal",
-            "hover": "item_coal_hover"
+            "hover": "item_coal_hover",
+            "x": 0.631,
+            "y": 0.577
         }
     )
 
@@ -855,30 +874,30 @@ label chapter2_night_start:
         $ result = _return
 
         if result == "ghostfish":
-            call chapter2_ghostfish
+            call ghostfish_interaction
             $ mark_npc_explored("ghostfish")
             jump .loop
 
         elif result == "item":
             $ collect_exploration_item()
             call chapter2_coal_tar
-            $ exploration_npcs.append({
-                "id": "ghostfish",
-                "name": "Ghostfish",
-                "idle": "ghost idle",
-                "hover": "ghost hover",
-                "x": 0.78,
-                "y": 0.54
-            })
-            $ mark_npc_explored("ghostfish")
+            jump .loop
+
+        elif result == "mantis":
+            call mantis_interaction
+
+            if chapter2_mantis_done:
+                $ mark_npc_explored("mantis")
+
             jump .loop
 
         elif result == "continue":
             $ chapter2_night_done = True
-            call mantis_interaction
 
-            if chapter2_mantis_done:
+            if exploration_complete():
                 jump chapter2_ending
+
+            jump .loop
 
     return
 

@@ -132,6 +132,14 @@ image shrimp sepet = "images/npc/chapter2/Mantis/ScySepet.png"
 image shrimp shy = "images/npc/chapter2/Mantis/ScyShy.png"
 image shrimp smile = "images/npc/chapter2/Mantis/ScySmile.png"
 image shrimp surprise = "images/npc/chapter2/Mantis/ScySurprise_.png"
+image scy default = "images/npc/chapter2/Mantis/ScyDefault_.png"
+image scy default_om = "images/npc/chapter2/Mantis/ScyDefaultOM_.png"
+image scy laugh = "images/npc/chapter2/Mantis/ScyLaugh.png"
+image scy proud = "images/npc/chapter2/Mantis/ScyProud.png"
+image scy sepet = "images/npc/chapter2/Mantis/ScySepet.png"
+image scy shy = "images/npc/chapter2/Mantis/ScyShy.png"
+image scy smile = "images/npc/chapter2/Mantis/ScySmile.png"
+image scy surprise = "images/npc/chapter2/Mantis/ScySurprise_.png"
 
 # ---- Dunge / crab (chapter 3) ----
 image dunge idle = "images/npc/chapter3/dunge/crab_idle.png"
@@ -152,6 +160,12 @@ image hawk smile = "images/npc/chapter3/hawk/HawkSmile.png"
 # ---- Teto / goby (chapter 3) ----
 image teto idle = "images/npc/chapter3/gobypis/teto_idle.png"
 image teto hover = "images/npc/chapter3/gobypis/teto_hover.png"
+image teto default = "images/npc/chapter3/gobypis/TetoDefault.png"
+image teto gun_smirk = "images/npc/chapter3/gobypis/TetoGunSmirk.png"
+image teto gun_upset = "images/npc/chapter3/gobypis/TetoGunUpset.png"
+image teto laugh = "images/npc/chapter3/gobypis/TetoLaugh.png"
+image teto pout = "images/npc/chapter3/gobypis/TetoPout.png"
+image teto upset = "images/npc/chapter3/gobypis/TetoUpset.png"
 
 # ---- Sea Bunny (chapter 3) ----
 image bunny idle = "images/npc/chapter3/seabunny/seabunny_idle.png"
@@ -161,6 +175,9 @@ image bunny cry = "images/npc/chapter3/seabunny/BunnyCry.png"
 image bunny happy = "images/npc/chapter3/seabunny/BunnyHappy.png"
 image bunny sad = "images/npc/chapter3/seabunny/BunnySad.png"
 image bunny scared = "images/npc/chapter3/seabunny/BunnyScared.png"
+
+# ---- Empress Crustacean VIII (temporary placeholder) ----
+image empress placeholder = Solid("#8b2635")
 
 # ---- Legacy single-word aliases ----
 image cory_talk_neutral = "images/characters/cory/CoryTalkNetral_.png"
@@ -202,6 +219,10 @@ image ch1_dialogue = "images/backgrounds/chapter1/bgday1.jpg"
 image ch2_dialogue = "images/backgrounds/chapter2/bgnight2.jpg"
 image ch3_day = "images/backgrounds/chapter3/DAY/bg day3_bordered.jpg"
 image ch3_night = "images/backgrounds/chapter3/NIGHT/bg night3_bordered.jpg"
+image ch4_day = "images/backgrounds/chapter3/DAY/bg day3_bordered.jpg"
+image ch4_night = "images/backgrounds/chapter3/NIGHT/bg night3_bordered.jpg"
+image ch4_dialogue = "images/backgrounds/chapter3/DAY/bg day3_bordered.jpg"
+image ch4_dialogue_night = "images/backgrounds/chapter3/NIGHT/bg night3_bordered.jpg"
 
 image cutpro1 = "images/cutscenes/prologue/1.png"
 image cutpro2 = "images/cutscenes/prologue/2.png"

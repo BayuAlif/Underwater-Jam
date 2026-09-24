@@ -35,7 +35,7 @@ screen exploration_screen():
 
             text "✓":
                 xalign npc["x"]
-                yalign npc["y"] - 0.20
+                yalign max(0.0, npc["y"] - 0.20)
                 size 34
                 bold True
 
@@ -46,8 +46,8 @@ screen exploration_screen():
             idle exploration_item["idle"]
             hover exploration_item["hover"]
 
-            xalign 0.50
-            yalign 0.83
+            xalign exploration_item.get("x", 0.50)
+            yalign exploration_item.get("y", 0.83)
 
             focus_mask True
 
@@ -63,7 +63,6 @@ screen exploration_screen():
 
             action Return("continue")
 
-# Chapter 2 uses the same point-and-click exploration data model as Chapter 1.
 screen chapter2_exploration_day():
     use exploration_screen
 
