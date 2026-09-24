@@ -14,6 +14,16 @@ default duel_result = None
 default coal_tar_effective = False
 default dodge_result = False
 
+# ---------------------------------------------------------------------------
+# TEMPORARY DEV BYPASS - Mantis Shrimp boss fight (Chapter 2)
+# Set to False to restore the real minigame once it's ready to be worked on
+# again. While True, "label mantis_duel" below skips the whole RPS/dodge
+# minigame (and therefore the "Try again? / Return to Hub" lose-loop) and
+# always resolves as a win, so the existing post-duel story/flags still run
+# normally.
+# ---------------------------------------------------------------------------
+define MANTIS_DUEL_BYPASS = True
+
 
 image mantis dodge rock = "images/jankenpon/Rock/RockDodge.png"
 image mantis dodge paper = "images/jankenpon/Paper/PaperDodge.png"
@@ -209,6 +219,17 @@ screen mantis_dodge_screen(boss_choice):
 
 
 label mantis_duel:
+
+    if MANTIS_DUEL_BYPASS:
+
+        # Skip the entire RPS/dodge minigame. No screens are shown, no HP
+        # is lost, and there is no lose branch to loop back into - this
+        # label simply resolves as an immediate win, exactly like a normal
+        # successful duel would, so every caller downstream (mantis_win,
+        # chapter2_mantis_done, etc.) still runs untouched.
+        $ duel_result = "win"
+
+        return "win"
 
     hide mc
     hide cory
