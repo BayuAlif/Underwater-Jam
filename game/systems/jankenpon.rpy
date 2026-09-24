@@ -38,14 +38,17 @@ image jankenpon button scissors = "images/jankenpon/Button Rock Paper Scissor/Sc
 # Temporary Dunge placeholder icons
 image dunge icon full = "images/jankenpon/ICON/ScyFull.png"
 image dunge icon half = "images/jankenpon/ICON/ScyHalf.png"
+image dunge icon one  = "images/jankenpon/ICON/ScyOne.png"
 image dunge icon dead = "images/jankenpon/ICON/ScyDead.png"
 
 image mc icon full = "images/jankenpon/ICON/McFull.png"
 image mc icon half = "images/jankenpon/ICON/McHalf.png"
+image mc icon one  = "images/jankenpon/ICON/McOne.png"
 image mc icon dead = "images/jankenpon/ICON/McDead.png"
 
 image cory icon full = "images/jankenpon/ICON/CoryFull.png"
 image cory icon half = "images/jankenpon/ICON/CoryHalf.png"
+image cory icon one  = "images/jankenpon/ICON/CoryOne.png"
 image cory icon dead = "images/jankenpon/ICON/CoryDead.png"
 
 # --------------------------------------------------
@@ -278,20 +281,32 @@ screen dunge_round_reveal(player_move, boss_move, result):
 
         if player_move == "rock":
             add "draw rock":
-                xalign 0.5
-                yalign 0.68
+                xalign 0.28
+                yalign 0.5
+                zoom 0.65
+            add "boss rock":
+                xalign 0.72
+                yalign 0.5
                 zoom 0.65
 
         elif player_move == "paper":
             add "draw paper":
-                xalign 0.5
-                yalign 0.68
+                xalign 0.28
+                yalign 0.5
+                zoom 0.65
+            add "boss paper":
+                xalign 0.72
+                yalign 0.5
                 zoom 0.65
 
         else:
             add "draw scissors":
-                xalign 0.5
-                yalign 0.68
+                xalign 0.28
+                yalign 0.5
+                zoom 0.65
+            add "boss scissors":
+                xalign 0.72
+                yalign 0.5
                 zoom 0.65
 
     # Non-draws show C on the left and S on the right.

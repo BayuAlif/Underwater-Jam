@@ -13,6 +13,7 @@ default duel_z_target = 10
 default duel_result = None
 default coal_tar_effective = False
 default dodge_result = False
+default duel_is_dodging = False
 
 # ---------------------------------------------------------------------------
 # TEMPORARY DEV BYPASS - Mantis Shrimp boss fight (Chapter 2)
@@ -48,6 +49,26 @@ image mantis bar blue4 = "images/jankenpon/Paper/PressBar/Blue4.png"
 image mantis bar blue5 = "images/jankenpon/Paper/PressBar/Blue5.png"
 image mantis bar blue6 = "images/jankenpon/Paper/PressBar/Blue6.png"
 image mantis bar full = "images/jankenpon/Paper/PressBar/BlueFull.png"
+
+# Punch impact animation
+image mantis punch hit:
+    "images/jankenpon/Paper/PaperImpact1.png"
+    0.1
+    "images/jankenpon/Paper/PaperImpact2.png"
+    0.1
+    Null()
+
+screen mantis_punch_effect():
+    zorder 100
+    add "mantis punch hit"
+    timer 0.2 action Return()
+
+transform mantis_incoming_attack:
+    zoom 0.5 align (0.5, 0.5) alpha 0.0
+    parallel:
+        easein 2.2 zoom 1.0
+    parallel:
+        easein 0.2 alpha 1.0
 
 
 # ---------------------------------------------------------------------------
@@ -85,6 +106,30 @@ init python:
 
         return beats[favorite]
 
+    import math
+    def smooth_spark_transform(trans, st, at):
+        target_progress = min(1.0, float(store.duel_z_taps) / max(1.0, float(store.duel_z_target)))
+        target_offset = (target_progress * 1687.0) - 447.0
+        
+        if not hasattr(trans, 'current_offset'):
+            trans.current_offset = -447.0
+            trans.last_st = st
+            
+        dt = st - trans.last_st
+        trans.last_st = st
+        
+        if dt > 0.1:
+            dt = 0.1
+            
+        diff = target_offset - trans.current_offset
+        trans.current_offset += diff * (1.0 - math.exp(-15.0 * dt))
+        
+        trans.xoffset = int(trans.current_offset)
+        return 0.0
+
+transform smooth_spark:
+    function smooth_spark_transform
+
 
 # ---------------------------------------------------------------------------
 # BATTLE STAGE (HP display overlay — shown throughout the fight)
@@ -94,63 +139,81 @@ screen mantis_battle_stage():
 
     add "dunge battle bg"
 
-    if duel_shrimp_hp <= 1:
-        add "dunge damaged":
-            xalign 0.5
-            yalign 0.5
-    else:
-        add "dunge idle":
-            xalign 0.5
-            yalign 0.5
+    if not duel_is_dodging:
+        if duel_shrimp_hp <= 1:
+            add "dunge damaged":
+                xalign 0.5
+                yalign 0.5
+        else:
+            add "dunge idle":
+                xalign 0.5
+                yalign 0.5
 
-    if duel_fighter == "mc":
+    if not duel_is_dodging:
 
-        if duel_player_hp <= 0:
-            add "mc icon dead":
-                xalign 0.12
+        if duel_fighter == "mc":
+
+            if duel_player_hp <= 0:
+                add "mc icon dead":
+                    xalign 0.12
+                    yalign 0.12
+
+            elif duel_player_hp == 1:
+                add "mc icon one":
+                    xalign 0.12
+                    yalign 0.12
+
+            elif duel_player_hp == 2:
+                add "mc icon half":
+                    xalign 0.12
+                    yalign 0.12
+
+            else:
+                add "mc icon full":
+                    xalign 0.12
+                    yalign 0.12
+
+        else:
+
+            if duel_player_hp <= 0:
+                add "cory icon dead":
+                    xalign 0.12
+                    yalign 0.12
+
+            elif duel_player_hp == 1:
+                add "cory icon one":
+                    xalign 0.12
+                    yalign 0.12
+
+            elif duel_player_hp == 2:
+                add "cory icon half":
+                    xalign 0.12
+                    yalign 0.12
+
+            else:
+                add "cory icon full":
+                    xalign 0.12
+                    yalign 0.12
+
+        if duel_shrimp_hp <= 0:
+            add "dunge icon dead":
+                xalign 0.88
                 yalign 0.12
 
-        elif duel_player_hp == 1:
-            add "mc icon half":
-                xalign 0.12
+        elif duel_shrimp_hp == 1:
+            add "dunge icon one":
+                xalign 0.88
+                yalign 0.12
+
+        elif duel_shrimp_hp == 2:
+            add "dunge icon half":
+                xalign 0.88
                 yalign 0.12
 
         else:
-            add "mc icon full":
-                xalign 0.12
+            add "dunge icon full":
+                xalign 0.88
                 yalign 0.12
-
-    else:
-
-        if duel_player_hp <= 0:
-            add "cory icon dead":
-                xalign 0.12
-                yalign 0.12
-
-        elif duel_player_hp == 1:
-            add "cory icon half":
-                xalign 0.12
-                yalign 0.12
-
-        else:
-            add "cory icon full":
-                xalign 0.12
-                yalign 0.12
-
-    if duel_shrimp_hp <= 0:
-        add "dunge icon dead":
-            xalign 0.88
-            yalign 0.12
-
-    elif duel_shrimp_hp <= 1:
-        add "dunge icon half":
-            xalign 0.88
-            yalign 0.12
-
-    else:
-        add "dunge icon full":
-            xalign 0.88
-            yalign 0.12
 
 
 # ---------------------------------------------------------------------------
@@ -204,6 +267,9 @@ screen mantis_spamz_screen(player_choice):
     else:
         add "mantis dodge scissors"
 
+    # The incoming punch slowly scales up over the 2.2s timer!
+    add "images/jankenpon/Paper/Paper.png" at mantis_incoming_attack
+
     # Key animation (toggles on each tap)
     if duel_z_taps % 2 == 0:
         add "mantis key idle"
@@ -236,8 +302,8 @@ screen mantis_spamz_screen(player_choice):
         add "mantis bar red"
 
     # Arrows/spark — added last so they render in front of the bar
-    add "mantis arrow blue"
-    add "mantis arrow red"
+    add "mantis arrow blue" at smooth_spark
+    add "mantis arrow red" at smooth_spark
 
     # Progress label
     frame:
@@ -294,7 +360,6 @@ label mantis_duel:
 
     window hide
 
-    $ duel_fighter = "mc"
     $ duel_player_wins = 0
     $ duel_shrimp_wins = 0
 
@@ -349,30 +414,30 @@ label mantis_duel:
             duel_round_result
         )
 
-        # ── Step 5: Spam-Z minigame (always runs, same screen for all RPS) ──
-        $ duel_z_target = random.randint(9, 12)
-        $ duel_z_taps = 0
+        # ── Step 5: Spam-Z minigame (only on lose) ────────────────────────
+        if duel_round_result == "lose":
+            $ duel_z_target = random.randint(9, 12)
+            $ duel_z_taps = 0
 
-        call screen mantis_spamz_screen(duel_player_choice)
-        $ dodge_result = _return   # True = spam success, False = spam fail
+            $ duel_is_dodging = True
+            call screen mantis_spamz_screen(duel_player_choice)
+            $ dodge_result = _return   # True = spam success, False = spam fail
+            $ duel_is_dodging = False
 
         # ── Step 6: Apply outcome based on RPS result + spam result ─────────
         if duel_round_result == "win":
-
-            if dodge_result:
-                # Player won RPS and smashed Z → deal damage to Mantis
-                $ duel_player_wins += 1
-                $ duel_shrimp_hp = max(0, duel_shrimp_hp - 1)
-            # else: won RPS but failed spam → tie, no one takes damage
+            # Player won RPS → deal damage to Mantis automatically!
+            $ duel_player_wins += 1
+            $ duel_shrimp_hp = max(0, duel_shrimp_hp - 1)
 
         elif duel_round_result == "lose":
 
             if not dodge_result:
                 # Player lost RPS and failed spam → take damage
-                if coal_tar_effective:
-                    $ duel_player_hp = max(0, duel_player_hp - 1)
-                else:
-                    $ duel_player_hp = max(0, duel_player_hp - 2)
+                call screen mantis_punch_effect
+
+                # Player lost RPS and failed spam → take -1 HP
+                $ duel_player_hp = max(0, duel_player_hp - 1)
 
                 if duel_player_hp <= 0:
 
