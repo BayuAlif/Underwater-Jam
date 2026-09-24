@@ -17,7 +17,7 @@ default dodge_result = False
 # ---------------------------------------------------------------------------
 # TEMPORARY DEV BYPASS - Mantis Shrimp boss fight (Chapter 2)
 # Set to False to restore the real minigame once it's ready to be worked on
-# again. While True, "label mantis_duel" below skips the whole RPS/dodge
+# again. While True, "label mantis_duel" below skips the whole RPS/spam-Z
 # minigame (and therefore the "Try again? / Return to Hub" lose-loop) and
 # always resolves as a win, so the existing post-duel story/flags still run
 # normally.
@@ -25,6 +25,11 @@ default dodge_result = False
 define MANTIS_DUEL_BYPASS = False
 
 
+# ---------------------------------------------------------------------------
+# ASSETS
+# ---------------------------------------------------------------------------
+
+# Dodge/spam-Z background images (still used by mantis_spamz_screen below)
 image mantis dodge rock = "images/jankenpon/Rock/RockDodge.png"
 image mantis dodge paper = "images/jankenpon/Paper/PaperDodge.png"
 image mantis dodge scissors = "images/jankenpon/Scissor/ScissorDodge.png"
@@ -44,6 +49,10 @@ image mantis bar blue5 = "images/jankenpon/Paper/PressBar/Blue5.png"
 image mantis bar blue6 = "images/jankenpon/Paper/PressBar/Blue6.png"
 image mantis bar full = "images/jankenpon/Paper/PressBar/BlueFull.png"
 
+
+# ---------------------------------------------------------------------------
+# PYTHON HELPERS
+# ---------------------------------------------------------------------------
 
 init python:
 
@@ -76,6 +85,10 @@ init python:
 
         return beats[favorite]
 
+
+# ---------------------------------------------------------------------------
+# BATTLE STAGE (HP display overlay — shown throughout the fight)
+# ---------------------------------------------------------------------------
 
 screen mantis_battle_stage():
 
@@ -140,6 +153,10 @@ screen mantis_battle_stage():
             yalign 0.12
 
 
+# ---------------------------------------------------------------------------
+# RPS CHOICE SCREEN
+# ---------------------------------------------------------------------------
+
 screen mantis_rps_screen():
 
     modal True
@@ -166,27 +183,34 @@ screen mantis_rps_screen():
         action Return("paper")
 
 
-screen mantis_dodge_screen(boss_choice):
+# ---------------------------------------------------------------------------
+# SPAM-Z MINIGAME SCREEN
+# This is the ONE minigame used for every round, regardless of RPS choice.
+# It shows the relevant background art for whichever RPS option the player
+# picked, then waits for Z-key spam until the timer expires.
+#   Returns True  → player reached the target (spam success)
+#   Returns False → timer ran out before target reached (spam fail)
+# ---------------------------------------------------------------------------
+
+screen mantis_spamz_screen(player_choice):
 
     modal True
 
-    if boss_choice == "rock":
+    # Background art based on player's RPS choice — purely cosmetic.
+    if player_choice == "rock":
         add "mantis dodge rock"
-
-    elif boss_choice == "paper":
+    elif player_choice == "paper":
         add "mantis dodge paper"
-
     else:
         add "mantis dodge scissors"
 
+    # Key animation (toggles on each tap)
     if duel_z_taps % 2 == 0:
         add "mantis key idle"
     else:
         add "mantis key smash"
 
-    add "mantis arrow blue"
-    add "mantis arrow red"
-
+    # Progress bar (rendered before arrows so arrows appear on top)
     if duel_z_taps >= duel_z_target:
         add "mantis bar full"
 
@@ -211,19 +235,52 @@ screen mantis_dodge_screen(boss_choice):
     else:
         add "mantis bar red"
 
+    # Arrows/spark — added last so they render in front of the bar
+    add "mantis arrow blue"
+    add "mantis arrow red"
+
+    # Progress label
+    frame:
+        xalign 0.5
+        yalign 0.08
+        padding (20, 10)
+        text "SPAM Z!  [duel_z_taps] / [duel_z_target]" size 36
+
+    # Z key binding — only active while this screen is shown
     key "K_z" action Function(duel_press_z)
 
+    # Timer: 2.2 s — returns True if target reached, False otherwise
     timer 2.2 action Return(
         duel_z_taps >= duel_z_target
     )
 
 
+# ---------------------------------------------------------------------------
+# MANTIS DUEL LABEL
+# Active flow:
+#   mantis_start_duel → call mantis_duel
+#
+# Round structure:
+#   1. Player picks RPS
+#   2. Countdown
+#   3. Boss picks RPS
+#   4. RPS result revealed (who has advantage)
+#   5. SPAM-Z minigame (same screen for ALL RPS choices)
+#   6. Combine RPS result + spam result to determine round outcome:
+#      - RPS win  + spam success → deal 1 HP damage to Mantis
+#      - RPS win  + spam fail    → tie (no damage either way)
+#      - RPS tie  + spam success → tie
+#      - RPS tie  + spam fail    → tie
+#      - RPS lose + spam success → player blocks (no HP loss)
+#      - RPS lose + spam fail    → player takes damage (coal_tar halves it)
+# ---------------------------------------------------------------------------
+
 label mantis_duel:
 
     if MANTIS_DUEL_BYPASS:
 
-        # Skip the entire RPS/dodge minigame. No screens are shown, no HP
-        # is lost, and there is no lose branch to loop back into - this
+        # Skip the entire RPS/spam-Z minigame. No screens are shown, no HP
+        # is lost, and there is no lose branch to loop back into — this
         # label simply resolves as an immediate win, exactly like a normal
         # successful duel would, so every caller downstream (mantis_win,
         # chapter2_mantis_done, etc.) still runs untouched.
@@ -266,17 +323,21 @@ label mantis_duel:
         and duel_shrimp_hp > 0
     ):
 
+        # ── Step 1: Player picks RPS ────────────────────────────────────────
         call screen mantis_rps_screen
         $ duel_player_choice = _return
 
         $ duel_player_history.append(duel_player_choice)
 
+        # ── Step 2: Countdown ───────────────────────────────────────────────
         call screen dunge_countdown_screen(3)
         call screen dunge_countdown_screen(2)
         call screen dunge_countdown_screen(1)
 
+        # ── Step 3: Boss picks ──────────────────────────────────────────────
         $ duel_shrimp_choice = mantis_ai_pick(duel_player_history)
 
+        # ── Step 4: RPS result reveal ───────────────────────────────────────
         $ duel_round_result = dunge_jankenpon_result(
             duel_player_choice,
             duel_shrimp_choice
@@ -288,46 +349,46 @@ label mantis_duel:
             duel_round_result
         )
 
+        # ── Step 5: Spam-Z minigame (always runs, same screen for all RPS) ──
+        $ duel_z_target = random.randint(9, 12)
+        $ duel_z_taps = 0
+
+        call screen mantis_spamz_screen(duel_player_choice)
+        $ dodge_result = _return   # True = spam success, False = spam fail
+
+        # ── Step 6: Apply outcome based on RPS result + spam result ─────────
         if duel_round_result == "win":
 
-            $ duel_player_wins += 1
-            $ duel_shrimp_hp = max(0, duel_shrimp_hp - 1)
-            $ duel_round += 1
-
-        elif duel_round_result == "tie":
-
-            $ duel_round += 1
+            if dodge_result:
+                # Player won RPS and smashed Z → deal damage to Mantis
+                $ duel_player_wins += 1
+                $ duel_shrimp_hp = max(0, duel_shrimp_hp - 1)
+            # else: won RPS but failed spam → tie, no one takes damage
 
         elif duel_round_result == "lose":
 
-            $ duel_shrimp_wins += 1
-
-            $ duel_z_target = random.randint(9, 12)
-            $ duel_z_taps = 0
-
-            call screen mantis_dodge_screen(duel_shrimp_choice)
-            $ dodge_result = _return
-
             if not dodge_result:
-
+                # Player lost RPS and failed spam → take damage
                 if coal_tar_effective:
                     $ duel_player_hp = max(0, duel_player_hp - 1)
-
                 else:
                     $ duel_player_hp = max(0, duel_player_hp - 2)
 
-            if duel_player_hp <= 0:
+                if duel_player_hp <= 0:
 
-                if duel_fighter == "mc":
+                    if duel_fighter == "mc":
+                        $ duel_fighter = "cory"
+                        $ duel_player_hp = 3
+                    else:
+                        $ duel_round = 4   # force loop exit
 
-                    $ duel_fighter = "cory"
-                    $ duel_player_hp = 3
+            else:
+                # Player lost RPS but succeeded spam → blocked the attack
+                $ duel_shrimp_wins += 1   # cost: Mantis still gets the round point
 
-                else:
+        # tie: no effect either way
 
-                    $ duel_round = 4
-
-            $ duel_round += 1
+        $ duel_round += 1
 
     hide screen mantis_battle_stage
 
