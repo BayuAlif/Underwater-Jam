@@ -258,7 +258,7 @@ label chapter2_tiny_krill:
 label chapter2_salmon:
 
     hide mc
-    scene bg northern_current_day
+    scene ch2_day
     with dissolve
 
     show salmon pien at npc_right
@@ -1254,7 +1254,7 @@ label chapter2_ghostfish_questions:
 label chapter2_mantis:
 
     hide mc
-    scene bg northern_current_night
+    scene ch2_night
     with fade
 
     "The night settles in heavy, and so does the overbearing crowd dying to just quiet murmurs of protests."

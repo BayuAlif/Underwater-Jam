@@ -93,7 +93,7 @@ label chapter3_start:
 label chapter3_reef_exploration:
 
     hide mc
-    scene ch3_dialogue
+    scene ch3_day
     with dissolve
 
     show dunge default at npc_right
