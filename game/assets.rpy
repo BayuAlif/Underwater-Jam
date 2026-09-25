@@ -115,6 +115,13 @@ image dunge mad = "images/npc/chapter3/dunge/DunMad.png"
 image dunge smile = "images/npc/chapter3/dunge/DunSmile.png"
 image dunge yeesh = "images/npc/chapter3/dunge/DunYeesh.png"
 
+image crab idle = "images/backgrounds/chapter3/NIGHT/crab_idle.png"
+image crab hover = "images/backgrounds/chapter3/NIGHT/crab_hover.png"
+image seaweed idle = "images/backgrounds/chapter3/NIGHT/seaweed_idle.png"
+image seaweed hover = "images/backgrounds/chapter3/NIGHT/seaweed_hover.png"
+image bg night3 = "images/backgrounds/chapter3/NIGHT/bg night3.jpg"
+image bg night3_bordered = "images/backgrounds/chapter3/NIGHT/bg night3_bordered.jpg"
+
 image hawk idle = "images/npc/chapter3/hawk/turtle_idle.png"
 image hawk hover = "images/npc/chapter3/hawk/turtle_hover.png"
 image hawk default = "images/placeholder/hawk_default.png"

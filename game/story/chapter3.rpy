@@ -1098,6 +1098,121 @@ label ch3_night_explore:
     show mc default at mc_left
     mc "ahh so it's like breathing.. :o"
 
+    show scy smile at npc_right
+    scyllarus "Look ahead, my comrades! We have reached the perimeter of the royal reef!"
+
+    show cory talk at cory_left
+    cory "The water feels different here... heavy, red, and quiet."
+
+    show mc o at mc_left
+    mc "Look, there are figures stationed near the coral formations! Let's explore before we step inside!"
+
+    $ current_chapter = 3
+    $ current_cycle = "night"
+
+    $ setup_exploration(
+        [
+            {
+                "id": "dunge",
+                "name": "Dunge Crab",
+                "idle": "crab idle",
+                "hover": "crab hover",
+                "xpos": 456,
+                "ypos": 762,
+                "check_xpos": 690,
+                "check_ypos": 730,
+                "x": 0.35,
+                "y": 0.75,
+                "check_y": 0.68
+            },
+            {
+                "id": "teto",
+                "name": "Teto",
+                "idle": "teto idle",
+                "hover": "teto hover",
+                "xpos": 860,
+                "ypos": 374,
+                "check_xpos": 1089,
+                "check_ypos": 350,
+                "x": 0.55,
+                "y": 0.40,
+                "check_y": 0.33
+            }
+        ],
+        {
+            "id": "red_seaweed",
+            "name": "Red Seaweed",
+            "idle": "seaweed idle",
+            "hover": "seaweed hover",
+            "xpos": 862,
+            "ypos": 598,
+            "x": 0.48,
+            "y": 0.58
+        }
+    )
+
+    label .loop:
+        hide mc
+        hide cory
+        hide scy
+        hide dun
+        hide teto
+        scene ch3_night
+
+        python:
+            for _n in exploration_npcs:
+                if _n["id"] in ("dunge", "crab"):
+                    _n["idle"] = "crab idle"
+                    _n["hover"] = "crab hover"
+                    _n["xpos"] = 456
+                    _n["ypos"] = 762
+                    _n["check_xpos"] = 690
+                    _n["check_ypos"] = 730
+                elif _n["id"] in ("teto", "goby"):
+                    _n["idle"] = "teto idle"
+                    _n["hover"] = "teto hover"
+                    _n["xpos"] = 860
+                    _n["ypos"] = 374
+                    _n["check_xpos"] = 1089
+                    _n["check_ypos"] = 350
+            if exploration_item:
+                exploration_item["idle"] = "seaweed idle"
+                exploration_item["hover"] = "seaweed hover"
+                exploration_item["xpos"] = 862
+                exploration_item["ypos"] = 598
+
+        call screen exploration_screen
+
+        $ result = _return
+
+        if result in ("dunge", "crab"):
+            $ mark_npc_explored("dunge")
+            if not item_collected or "teto" not in explored_npcs:
+                "The large dungeness crab is blocking the entrance ahead. If we approach him now, we might get into a confrontation."
+                menu:
+                    "Approach Mr. Crab":
+                        jump ch3_crab_encounter
+                    "Look around the reef first":
+                        jump .loop
+            else:
+                jump ch3_crab_encounter
+
+        elif result in ("teto", "goby"):
+            $ mark_npc_explored("teto")
+            call ch3_teto_encounter
+            jump .loop
+
+        elif result == "item":
+            $ collect_exploration_item()
+            call ch3_item_red_seaweed
+            jump .loop
+
+        elif result == "continue":
+            jump ch3_crab_encounter
+
+        jump .loop
+
+label ch3_item_red_seaweed:
     show mc excited at mc_left
     mc "wao!! This seaweed is so red!"
     mc "Is it where the color red came from?"
@@ -1124,10 +1239,42 @@ label ch3_night_explore:
     mc "one more for mama because she likes red…"
 
     $ has_red_seaweed = True
+    return
 
-    jump ch3_crab_encounter
+label ch3_teto_encounter:
+    show teto default at center
+    show mc o at mc_left
+    show cory talk at cory_left
+    show scy default at npc_right
+
+    if not getattr(store, "ch3_teto_visited", False):
+        $ ch3_teto_visited = True
+        teto "Halt! Who dares lurk around the royal threshold of Her Majesty's lair?"
+
+        show scy smile at npc_right
+        scyllarus "Greetings, royal sentinels! It is I, Scyllarus! We have journeyed far to present ourselves before Her Majesty!"
+
+        show teto gun_smirk at center
+        teto "Hah! Present yourselves? With freshwater strays tagging behind your tail?"
+        teto "Nobody enters this cavern without going through proper protocol—and Big Dunge is guarding the outer perimeter down there!"
+
+        show cory side at cory_left
+        cory "Is that a goby riding shotgun on a pistol shrimp? And why are they looking at us like they're itching to pull a trigger?"
+
+        show teto gun_upset at center
+        teto "Keep your whiskers to yourself, catfish! Talk to Dunge down there first if you want any hope of passing through!"
+
+        show mc o at mc_left
+        mc "They look very fierce... We should probably speak to Mr. Crab first!"
+    else:
+        show teto gun_smirk at center
+        teto "I told you already! Go speak to Dunge down there! The Empress doesn't entertain unannounced wanderers!"
+
+    return
 
 label ch3_crab_encounter:
+    $ mark_npc_explored("dunge")
+    $ has_red_seaweed = True
     show mc o at mc_left
     show dun smile at npc_right
 

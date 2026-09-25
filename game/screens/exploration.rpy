@@ -47,6 +47,21 @@ screen exploration_screen():
                 $ n_ypos = 592
                 $ n_chk_x = 1411
                 $ n_chk_y = 550
+        elif current_chapter >= 3 and current_cycle == "night":
+            if npc["id"] in ("dunge", "crab"):
+                $ n_idle = "crab idle"
+                $ n_hover = "crab hover"
+                $ n_xpos = 456
+                $ n_ypos = 762
+                $ n_chk_x = 690
+                $ n_chk_y = 730
+            elif npc["id"] in ("teto", "goby"):
+                $ n_idle = "teto idle"
+                $ n_hover = "teto hover"
+                $ n_xpos = 860
+                $ n_ypos = 374
+                $ n_chk_x = 1089
+                $ n_chk_y = 350
 
         imagebutton:
             idle n_idle
@@ -80,14 +95,21 @@ screen exploration_screen():
 
         $ itm_xpos = exploration_item.get("xpos")
         $ itm_ypos = exploration_item.get("ypos")
+        $ itm_idle = exploration_item.get("idle", "seaweed idle")
+        $ itm_hover = exploration_item.get("hover", "seaweed hover")
 
         if current_chapter >= 3 and current_cycle == "day":
             $ itm_xpos = 809
             $ itm_ypos = 807
+        elif current_chapter >= 3 and current_cycle == "night":
+            $ itm_xpos = 862
+            $ itm_ypos = 598
+            $ itm_idle = "seaweed idle"
+            $ itm_hover = "seaweed hover"
 
         imagebutton:
-            idle exploration_item["idle"]
-            hover exploration_item["hover"]
+            idle itm_idle
+            hover itm_hover
 
             if itm_xpos is not None:
                 pos (itm_xpos, itm_ypos)
