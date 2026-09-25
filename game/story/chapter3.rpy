@@ -1,5 +1,5 @@
 init python:
-    mc = Character("MC", color="#ffffff", image="mc")
+    # mc is dynamically defined in characters/mc.rpy using player_name
     cory = Character("Cory", color="#ffffff", image="cory")
     scyllarus = Character("Scyllarus", color="#ffffff", image="scy") # Often intentionally miscalled "Larus" or "Clarus"
     seabunny = Character("Sea Bunny", color="#ffffff", image="bunny") # TODO: Name unfinalized (candidates: Paruva, Runa, Joru)
@@ -11,7 +11,7 @@ init python:
 
     crustaceans = Character("Crustaceans", color="#ffffff")
     crowd = Character("Crowd", color="#ffffff")
-    emp_mc = Character("Empress & MC", color="#ffffff")
+    emp_mc = Character("Empress & [player_name]", color="#ffffff")
     unknown_speaker = Character("???", color="#ffffff")
 
 transform npc_left:

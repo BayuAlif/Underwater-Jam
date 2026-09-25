@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 
 init offset = -1
 
@@ -134,6 +134,7 @@ screen input(prompt):
             xpos gui.dialogue_xpos
             xsize gui.dialogue_width
             ypos gui.dialogue_ypos
+            spacing 10
 
             text prompt style "input_prompt"
             input id "input"

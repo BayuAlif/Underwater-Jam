@@ -215,3 +215,11 @@ image cutchap2 = "images/cutscenes/chapter1/2.png"
 image cutchap3 = "images/cutscenes/chapter1/3.png"
 image cutchap4 = "images/cutscenes/chapter1/4.png"
 image cutchap5 = "images/cutscenes/chapter1/5.png"
+
+# Name Input Screen Assets
+image bg name_input = "images/BackgroundNama.png"
+image mc_name_input = "images/SpriteMCgede.png"
+
+transform mc_name_pos:
+    xalign 0.5
+    yalign 1.0

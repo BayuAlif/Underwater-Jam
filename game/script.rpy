@@ -1,6 +1,6 @@
 label start:
 
-    jump prologue
+    jump name_input_start
 
     return
 
