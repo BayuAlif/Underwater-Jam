@@ -1,8 +1,15 @@
-﻿## This file contains options that can be changed to customize your game.
+## This file contains options that can be changed to customize your game.
 
-define config.name = _("00underwaterreal")
+define config.name = _("One with the Sea")
 
-define gui.show_name = True
+
+## Determines if the title given above is shown on the main menu screen. Set
+## this to False to hide the title.
+
+define gui.show_name = False
+
+
+## The version of the game.
 
 define config.version = "1.0"
 
@@ -14,6 +21,27 @@ define build.name = "00underwaterreal"
 define config.has_sound = True
 define config.has_music = True
 define config.has_voice = True
+
+
+## To allow the user to play a test sound on the sound or voice channel,
+## uncomment a line below and use it to set a sample sound to play.
+
+# define config.sample_sound = "sample-sound.ogg"
+# define config.sample_voice = "sample-voice.ogg"
+
+
+## Audio file played at the main menu.
+define config.main_menu_music = "audio/ambianceprologue.mp3"
+
+
+
+## Transitions #################################################################
+##
+## These variables set transitions that are used when certain events occur.
+## Each variable should be set to a transition, or None to indicate that no
+## transition should be used.
+
+## Entering or exiting the game menu.
 
 define config.enter_transition = dissolve
 define config.exit_transition = dissolve

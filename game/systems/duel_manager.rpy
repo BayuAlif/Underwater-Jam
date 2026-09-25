@@ -225,6 +225,23 @@ init python:
             "ai_counter_chance": 0.25,
             "ai_counter_accuracy": 0.60,
             "has_full_assets": False,
+        },
+        "banished": {
+            "name": "The Banished One",
+            "bg": "duel_bg_mantis",
+            "hp": 3,
+            "low_hp_threshold": 1,
+            "idle_normal": "boss_mantis_idle_normal",
+            "dmg_normal": "boss_mantis_dmg_normal",
+            "idle_low": "boss_mantis_idle_low",
+            "dmg_low": "boss_mantis_dmg_low",
+            "weights_normal": {"rock": 0.35, "paper": 0.35, "scissors": 0.30},
+            "weights_enraged": {"rock": 0.40, "paper": 0.35, "scissors": 0.25},
+            "dodge_target_range": (7, 9),
+            "dodge_tar_range": (5, 7),
+            "ai_counter_chance": 0.30,
+            "ai_counter_accuracy": 0.65,
+            "has_full_assets": True,
         }
     }
 
@@ -530,6 +547,10 @@ label empress_duel:
 
 label dunge_duel:
     call run_duel("dunge")
+    return _return
+
+label banished_duel:
+    call run_duel("banished")
     return _return
 
 label run_duel(boss_target="mantis", custom_hp=None, custom_threshold=None):

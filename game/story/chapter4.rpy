@@ -2311,6 +2311,4 @@ label ch4_climax:
 
     $ ch4_chapter_complete = True
 
-    "To be continued in Chapter 5..."
-
-    return
+    jump chapter5_start

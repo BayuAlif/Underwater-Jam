@@ -18,3 +18,10 @@ default mantis_weakened = False
 default mantis_trust = False
 
 default golden_fish_clue = False
+
+default chapter5_done = False
+default ch5_scy_explored = False
+default ch5_cory_explored = False
+default ch5_leo_explored = False
+default ch5_companion_focus = "leo"
+default ch5_ending_choice = None

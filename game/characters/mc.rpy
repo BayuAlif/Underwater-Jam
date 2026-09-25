@@ -1,1 +1,3 @@
-define mc = Character("Mc", color="#ffffff", image="mc")
+default player_name = "Mc"
+
+define mc = Character("[player_name]", color="#ffffff", image="mc")

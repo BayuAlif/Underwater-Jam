@@ -154,6 +154,31 @@ image bunny scared = "images/npc/chapter3/seabunny/BunnyScared.png"
 
 image empress placeholder = Solid("#8b2635")
 
+image leo default = "images/characters/rotasi/LeoIdle.png"
+image leo smile = "images/characters/rotasi/LeoHover.png"
+image leo proud = "images/characters/rotasi/LeoHover.png"
+image leo surprise = "images/characters/rotasi/LeoHover.png"
+image leo talk = "images/characters/rotasi/LeoIdle.png"
+
+image scy_mirage:
+    "images/npc/chapter2/Mantis/ScyDefault_.png"
+    matrixcolor TintMatrix("#70d6ff") * BrightnessMatrix(-0.15)
+    alpha 0.85
+
+image cory_mirage:
+    "images/characters/cory/CoryTalkNetral_.png"
+    matrixcolor TintMatrix("#ffd166") * BrightnessMatrix(-0.15)
+    alpha 0.85
+
+image leo_mirage:
+    "images/characters/rotasi/LeoIdle.png"
+    matrixcolor TintMatrix("#ff70a6") * BrightnessMatrix(-0.15)
+    alpha 0.85
+
+image bg abyss_depths = "images/backgrounds/chapter1/bgdark1.png"
+image bg bedroom_dream = "images/backgrounds/chapter2/bgday2.jpg"
+image bg tsunami_approaching = "images/backgrounds/chapter1/bgnight1.jpg"
+
 image cory_talk_neutral = "images/characters/cory/CoryTalkNetral_.png"
 image cory_side_legacy = "images/characters/cory/CorySide_.png"
 image cory_surprise_legacy = "images/characters/cory/CorySurprise.png"
@@ -221,3 +246,10 @@ image cutchap2 = "images/cutscenes/chapter1/2.png"
 image cutchap3 = "images/cutscenes/chapter1/3.png"
 image cutchap4 = "images/cutscenes/chapter1/4.png"
 image cutchap5 = "images/cutscenes/chapter1/5.png"
+
+image bg name_input = "images/BackgroundNama.png"
+image mc_name_input = "images/SpriteMCgede.png"
+
+transform mc_name_pos:
+    xalign 0.5
+    yalign 1.0

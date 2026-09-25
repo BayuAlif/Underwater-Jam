@@ -7,8 +7,8 @@ label chapter2_start:
     hide mc
     scene ch2_day with Dissolve(0.5)
     play music chap_2_day volume 0.5
-    "The river flowed faster, slowly giving way to larger stones." 
-    "The sunlight above grew softer, hiding themself behind layers of drifting water plants as we continue to swim."
+    "The river flowed faster, slowly giving way to larger stones."
+    "The sunlight above grew softer, hiding themself behind layers of drifting water plants."
     $ focus()
     show mc o:
         offscreenright
@@ -36,7 +36,7 @@ label chapter2_start:
     cory "Sea? Nah that's waaay past my territory"
     cory "Nearest I've been at is meters before saltwater and freshwater collides"
 
-    show cory smile:
+    show cory smile_hu:
         full
         center
         walkloop
@@ -78,7 +78,7 @@ label chapter2_start:
 
     "Several tens of fishes crowd at what looks like a border built out of tall reefs, a small cave sits in the middle where a speckle of colorful creature stands firm guarding the entrance."
 
-    show cory talk:
+    show cory talk_hu:
         full
         center
     cory "That's the border of salt fresh.."
@@ -99,7 +99,11 @@ label chapter2_start:
             jumpmc
             pause 1
             repeat
-    mc "Oh oh! That's a mantis shrimp!! He looks really tough!"
+    mc "Oh oh! That's a mantis shrimp!! He looks really though!"
+
+    show mc excited:
+        full
+        right
     mc "Mr cory can we give it a handshake? :D"
 
     show cory unimpressed2:
@@ -113,9 +117,6 @@ label chapter2_start:
     cory "But eh, that mantis shrimp.. He had been around for a good while"
     cory "He's quite friendly, it's hard to believe if the fuss is his doing."
 
-    show mc serious_hu:
-        full
-        right
     mc "really?! You know him?"
 
     show cory talk_hu:
@@ -234,14 +235,14 @@ label chapter2_tiny_krill:
     show cory disrespect:
         full
         center
-    cory "Heh.. you could say it's.. one in a krillion"
+    cory "Heh.. you could say it's.. One in a krillion"
 
     show krill:
         full
         left
         medium
         surprise
-    tinykrill "Your joke sucks ass!"
+    tinykrill "{size=20}Your joke sucks ass!{/size}"
 
     show cory unimpressed:
         full
@@ -249,7 +250,7 @@ label chapter2_tiny_krill:
     cory "...."
     cory "... I say we feed that thing to a fish, guppy"
 
-    show mc sad_hu:
+    show mc shock:
         full
         right
         sink
@@ -262,575 +263,9 @@ label chapter2_tiny_krill:
         vibrate
     tinykrill "Suffer in eternal torment both of you!"
 
-    "{b}I obtained a tiny krill.{/b}"
+    $ add_item("tiny_krill")
+    "I obtained a tiny krill"
     $ focus()
-    return
-
-label chapter2_salmon:
-
-    hide mc
-    scene ch2_day
-    with dissolve
-
-    show salmon pien at npc_right
-    sal "Hic hic…"
-    sal "Sniff….."
-    sal "....oouuugh…."
-
-    show mc shock at mc_left
-    mc "... Ma'am? Why are you crying :("
-
-    show salmon default at npc_right
-    sal "....? huh??"
-
-    show salmon pien at npc_right
-    sal "........."
-    sal "I want to go get down to the sea…"
-    sal "but i bloody well can't..."
-
-    show salmon pout at npc_right
-    sal "It's all… because… of that God awful….."
-
-    show salmon pien at npc_right
-    sal "UEEEEHHH………."
-
-    show mc shock_hu at mc_left
-    mc "!! waouh-? Don't cry, Mrs Salmon!"
-    mc "(hugs the salmon)"
-
-    show salmon pien at npc_right
-    sal "......!!!"
-
-    show mc happy at mc_left
-    mc "There, there."
-    mc "If the mama is sad, the baby gets sad, too."
-
-    show salmon default at npc_right
-    sal "...... how on ocean does a tiny you know that, love?"
-
-    show mc actually at mc_left
-    mc "I watched salmon migration on YouTube!!"
-    mc "Mama salmon swims really far to lay their eggs, right?"
-
-    show salmon happy at npc_right
-    sal "Oh my…. Hahaha."
-    sal "You're a very lovely little thing, aren't you?"
-
-    show salmon default at npc_right
-    sal "Though i haven't a clue what this “YouTube” is…."
-    sal "Must be a helpful source of information.."
-
-    show salmon happy at npc_right
-    sal "Tell me love, are there any sort of.. Pregnancy tips in there?"
-    sal "Or what a salmon parent must prepare to leave their young…"
-
-    show mc happy at mc_left
-    mc "I think so! YouTube's got everything you'd want to see!"
-    sal "Oh that sounds about perfect!"
-
-    show salmon default at npc_right
-    "Mrs. Salmon looks at Cory."
-
-    sal "Go back to your father now. He must be worried for you"
-
-    show mc shock at mc_left
-    mc "Ah, he's not my father!"
-
-    show mc happy at mc_left
-    mc "I only met him yesterday!"
-
-    show salmon pout at npc_right
-    sal "..........??"
-
-    "Salmon glares at Cory suspiciously."
-
-    show cory side at cory_left
-    cory "Ay.. no need to look at me like that ma'am.."
-    cory "I'm a trusted adult!"
-
-    "Salmon squints her eyes at him in suspicion, not believing a thing."
-
-    sal "...."
-
-    show cory side_close at cory_left
-    cory "glup…."
-
-    call chapter2_salmon_questions
-
-    show salmon pien at npc_right
-    sal "I think i will have to take a detour-"
-    sal "-even it'll take me aeons."
-
-    show cory talk_hu at cory_left
-    cory "A detour…. whaddya think, guppy?"
-
-    show mc pout at mc_left
-    mc "NOOO i dont wanna take a detour…!!"
-    mc "The golden fish will be gone farther by then :("
-
-    show salmon default at npc_right
-    sal "Haven't a clue about any other way, unfortunately."
-
-    show salmon happy at npc_right
-    sal "I can only wish you the best of luck."
-    sal "I bid you farewell guppy"
-
-    $ add_clue("The only way to go to the sea is blocked by a mantis shrimp.")
-
-    return
-
-label chapter2_salmon_questions:
-
-    hide mc
-    hide cory
-    call screen character_question_select("Mrs. Salmon")
-    $ selected_questioner = _return
-
-    if selected_questioner == "mc":
-
-        show mc o at mc_left
-        show salmon default at npc_right
-
-        menu:
-            "What's stopping you from going down there, ma'am?":
-
-                sal "There's only one path down to the sea from here, innit,"
-                show salmon pout at npc_right
-                sal "But a bloody mantis shrimp's blocking the way,"
-                sal "So I can't get past, love."
-                mc "But… why does the mantis shrimp block the way???"
-                show salmon default at npc_right
-                sal "I haven't the foggiest idea, love."
-
-            "Can't you just push past the river, ma'am?":
-
-                show mc o at mc_left
-                show salmon default at npc_right
-                sal "Push past it??"
-                sal "Oh, perish that thought, love.."
-                sal "... that path is guarded… by a mantis shrimp."
-                sal "Whacking great claws and all."
-                show salmon pout at npc_right
-                sal "I reckon he's a bloody MMA (Marine Martial Arts) fighter."
-                sal "Tried to ask nicely, but he shooed me right off…"
-
-                show mc shock_hu at mc_left
-                mc "Oh no that's terrible.."
-                mc "but why would mr mantis do that?"
-
-                show salmon default at npc_right
-                sal "I haven't a clue dear, he looks like he lost his mind"
-                sal "Only way to walk pass him is to win in a duel"
-
-            "I found a tiny krill!":
-
-                show mc happy at mc_left
-                show salmon happy at npc_right
-                sal "Oh how lovely! For me, sweet guppy?"
-                mc "Mhm! It can be your tiny companion to keep you safe or-"
-
-                "Mrs. Salmon starts eating the krill with a delighted face."
-
-                show mc shock at mc_left
-                sal "Mm! Scrumptious krill"
-                mc "Ah.. Salmon does eat krills huh.."
-
-                $ remove_item("tiny_krill")
-
-                "Mrs. Salmon pulls me into a sudden hug. I can faintly hear the tiny eggs shuffling under her scales."
-
-                sal "Thank you, thank you.. I can't remember the last time I had a meal.."
-
-                "Her voice trembles in sincere gratitude, so soft it's enough to lull me to sleep. It was akin to mama's voice when she sings. But it's not the same.."
-
-                "It's not her…"
-
-                show mc pout at mc_left
-                mc "mn..*sniff*"
-                mc "Mama..."
-
-                show salmon default at npc_right
-                sal "...!"
-
-                show salmon happy at npc_right
-                "I feel a faint tap on my glass head. Even when I couldn't directly feel it, I could picture how it would land on my head, a gentle caress that would wipe all my worries and sadness away."
-
-                sal "mhm, I'm here for you.."
-                sal "It's alright my sweet little guppy… you're okay.."
-
-    else:
-
-        show salmon pout at npc_right
-        sal "What on ocean are you doing with that guppy?"
-
-        show cory talk_hu at cory_left
-        cory "Ay, easy, ma'am…"
-        cory "I'm just protecting the little guppy, alright?"
-
-        menu:
-            "D'you mind us asking why you can't get down to the sea?":
-
-                show cory talk_hu at cory_left
-                show salmon pout at npc_right
-                sal "......."
-                sal "I won't be answering your queries young man!"
-                sal "not until you tell the truth about the little one."
-
-                show cory side at cory_left
-                "Mr. Cory approached Mrs. Salmon with a sigh, lowering his voice to a whisper. Though I can still make out the words quite clear."
-
-                cory "I haven't got a full picture of the guppy's story but..."
-                cory "To me, it looks like their parents somewhat abandoned 'em."
-
-                show salmon default at npc_right
-                sal "......!"
-
-                show salmon pout at npc_right
-                sal "Then just turn around and go back."
-                sal "You'd know how bloody dangerous the sea can be for a fry…"
-
-                show cory talk at cory_left
-                cory "I'm well aware ma'am.."
-                cory "they almost fell a deep river hole where I first found em.."
-
-                show cory side_close at cory_left
-                cory "But withholding a guppy's dream from coming true?"
-                cory "I'd be too evil for that"
-
-            "Maam, why can't you go down to the sea?":
-
-                show salmon pout at npc_right
-                show cory side_close at cory_left
-
-                "Mrs.Salmon ignores Cory completely."
-
-                sal "... are you sure he's not up to anything dodgy, dear?"
-
-                show mc default at mc_left
-                mc "Mm-hmm! Mr Cory is super nice!"
-
-                show mc happy at mc_left
-                mc "He's been helping me lots!"
-
-                show salmon default at npc_right
-                sal "Hm, if you say so then…"
-
-                show salmon pout at npc_right
-                sal "But! you watch your back around him anyway, love."
-
-                show cory upset at cory_left
-                cory "I'm trustworthy, swear on my gills!"
-
-            "May I offer you some food, ma'am?":
-
-                show cory smile_hu at cory_left
-                show salmon default at npc_right
-
-                "Cory offers a krill to Mrs. Salmon."
-
-                if has_item("tiny_krill"):
-                    sal "...!"
-                    show salmon pout at npc_right
-                    sal "... Hmph"
-
-                    show cory side_close at cory_left
-                    cory "I'll just... leave it here for you ma'am."
-
-                    show salmon default at npc_right
-                    sal "Wait!"
-
-                    show cory talk_hu at cory_left
-                    cory "... hm? What is it ma'am?"
-
-                    show salmon default at npc_right
-                    sal "I should be thanking you bloke properly.."
-                    sal "That was rude of me, My deepest apologies.."
-
-                    show cory smile_hu at cory_left
-                    cory "Nay ma'am it's chill I'm used to it.."
-                    cory "Besides, a carrying mother needs to have their guard up yeah?"
-
-                    sal "Fair enough.. I can't help it"
-                    sal "You better take a dainty great care of the little fry, okay?"
-                    sal "I'm bloody worried for them.."
-
-                    cory "Don't worry ma'am i had a little sibling just their age"
-                    cory "I know what I'm doing alright!"
-
-                    $ remove_item("tiny_krill")
-                    $ salmon_trust = True
-
-                else:
-                    cory "Oh…"
-                    cory "Looks like we don't have anything to offer."
-
-    return
-
-label chapter2_arowana:
-
-    show arowana mad at npc_right
-    "A silver arowana kicks big rocks with a loud grumble. I wonder what it's mad about.."
-
-    show mc happy at mc_left
-    mc "Good morning si-"
-
-    show arowana mad at npc_right
-    aro "SHHHRGGHHHJHNGHHRRAHH!!"
-    aro "MYBOSSISGOINTOKILLMEIMGOINGTOGETPUBLICLYEXECUTED"
-
-    "Mr Cory takes a step forward, shielding me behind his taller frame."
-
-    show cory talk_hu at cory_left
-    cory "Woah chill the eel out my guy!"
-
-    cory "Those rocks can hurt a ton"
-
-    show arowana squint at npc_right
-    aro "Oh. A fish."
-
-    show arowana default at npc_right
-    show arowana default at npc_right
-    aro "My apologies, sir. I failed to notice you"
-
-    show cory surprise_hu at cory_left
-    cory "Huh.. what a turn.."
-    cory "Wait! You a silver arowana right?"
-    cory "From Amazon?"
-
-    show arowana smile at npc_right
-    aro "...!"
-    aro "Eel yeah I am! From which side are you on brother?"
-
-    show cory smile at cory_left
-    cory "Nay, I ain't exactly from there, it's maranhao for me"
-
-    aro "Ouuu shii that's where vovo at!"
-
-    show arowana default at npc_right
-    aro "I mean! How fortunate. My grandma.. also lives in that. State."
-
-    show cory smile_hu at cory_left
-    cory "Pfft.. language barriers ay?"
-
-    call chapter2_arowana_questions
-
-    return
-
-label chapter2_arowana_questions:
-
-    hide mc
-    hide cory
-    call screen character_question_select("Mr. Wana")
-    $ selected_questioner = _return
-
-    if selected_questioner == "mc":
-
-        show mc o at mc_left
-
-        menu:
-            "Do you know why the shrimp's blocking?":
-
-                show arowana default at npc_right
-                aro "Unfortunately I do not."
-
-                show mc o at mc_left
-                mc "Not a thing?"
-
-                show arowana squint at npc_right
-                aro "I'm sorry but don't think I want to entertain a child right now.."
-
-                show mc pout at mc_left
-                mc "Awww…"
-
-            "Tell him to just swim there.":
-
-                show mc o at mc_left
-                mc "Mr Wana, if work is so important"
-                mc "Why don't you just leap up through the cave?"
-
-                show arowana default at npc_right
-                aro "..."
-
-                show mc excited at mc_left
-                mc "Just like how a flying fish would!"
-
-                show arowana squint at npc_right
-                aro "..."
-
-                show arowana mad at npc_right
-                aro "HAH! Yes! How wonderful I should've just tried that!."
-
-                show mc happy at mc_left
-                mc "Right?! So you can just go!"
-
-                show arowana default at npc_right
-                aro "..."
-
-                show arowana squint at npc_right
-                aro "... Young fish."
-
-                show mc default at mc_left
-                mc "Yes? Do you need a push? Me and Mr Cory can help!"
-
-                show arowana default at npc_right
-                aro "I have a meeting. I have a boss. I have a career."
-
-                show arowana squint at npc_right
-                aro "And now I have a headache."
-
-                show mc shock at mc_left
-                mc "Huh? But why…"
-
-                aro "Please don't give me career advice again."
-
-                show cory side at cory_left
-                cory "Guppy."
-
-                cory "Maybe let's leave the poor guy alone."
-
-                show mc pout at mc_left
-                mc "But I wanna help!!"
-
-                show cory side_close at cory_left
-                "Mr Cory sighed and proceeds to escort me away"
-
-                show arowana smile at npc_right
-                aro "I admire your patience in tending to the young one, Corydoras."
-
-                show cory fond at cory_left
-                cory "Heh, I'm starting to get the hang of it"
-
-                show mc pout at mc_left
-                mc "hnnrhhgh!!"
-
-    else:
-
-        show cory smile_hu at cory_left
-        cory "Ay mano, care to tell us what's up?"
-        cory "We needa cross the border too."
-
-        show arowana smile at npc_right
-        aro "Ay cara, of course I'll tell you everything"
-        aro "I need him sober asap."
-
-        show arowana squint at npc_right
-        aro "Can't risk getting fired now"
-
-        menu:
-            "Got an idea why shrimp's gatekeepin?":
-
-                show cory talk_hu at cory_left
-                show arowana default at npc_right
-                aro "Not a clue, unfortunately"
-                aro "All i know is, you have to win in some kind of duel against him."
-
-                show arowana squint at npc_right
-                aro "And another thing that I know is that I'm not a fighter."
-
-                show cory smile at cory_left
-                cory "Heh, you look tough though, why not give it a try?"
-
-                aro "Can't risk having my ass beat."
-                aro "When it's going to be absolutely clapped by the end of the day"
-
-                show arowana default at npc_right
-                aro "As in, from the amount of work my boss gave me."
-
-                show cory disrespect at cory_left
-                cory "Pfft, ya boss sure love yer hardworking ass huh"
-
-                show arowana squint at npc_right
-                aro "I'm going to pretend I didn't hear that."
-
-                $ add_clue("You have to win in a duel to pass the shrimp.")
-
-            "You know what's up with his bizarre act?":
-
-                show cory talk at cory_left
-                show arowana default at npc_right
-                aro "No, He's usually not this strict"
-                aro "I pass him on the daily. He knew of my face by now i'm sure"
-                aro "Though he's been muttering weird stuff…"
-                aro "I mustn't repeat what i did is what i caught most clear.."
-
-                show cory talk_hu at cory_left
-                cory "Huh.. something must've happened to him then"
-
-                show arowana mad at npc_right
-                aro "How unprofessional of him! He shouldn't be letting personal matters fiddle his work!"
-
-                show arowana squint at npc_right
-                aro "Ugh, this path is the only way I commute to work in the sea.. What should i do now"
-
-                show cory surprise at cory_left
-                cory "Wait, you work at the sea? How are ya doing that?!"
-
-                show arowana default at npc_right
-                aro "Doing what exactly?"
-
-                show cory talk_hu at cory_left
-                cory "Ya know! We're the freshwater kind.. how do ya brave the sea?"
-
-                "The silver arowana opens his briefcase."
-
-                "The inside is filled with an absurd amount of expensive-looking equipments."
-
-                show cory smile at cory_left
-                cory "*whistle* sweet stuffs ya got!"
-
-                show arowana default at npc_right
-                aro "This device allows me to survive in saltwater."
-
-                show arowana squint at npc_right
-                aro "It cost me more money than I'm comfortable admitting."
-
-                cory "How much are we talking?"
-
-                aro "I would rather not expose the numbers."
-                aro "But let's say it cost me my nine lives."
-
-                show mc o at mc_left
-                mc "But you're not a cat, you're a fish!"
-
-                show arowana default at npc_right
-                aro "Precisely. This device was handed down eight generations before me."
-
-                show mc pout at mc_left
-                mc "Aww.. If only we could buy it from you…"
-
-                show cory upset at cory_left
-                cory "Buy?! With whose clams are we talking buy?!"
-
-                show mc happy at mc_left
-                mc "Hehe"
-
-                show cory unimpressed at cory_left
-                cory "ay guppy clam's tight on me too.."
-
-                show arowana default at npc_right
-                aro "Tell you what."
-
-                aro "If you're really planning to confront that shrimp…"
-
-                show arowana smile at npc_right
-                aro "You might as well take it."
-                aro "Here, have a spare."
-
-                show cory surprise at cory_left
-                cory "For reals yo?!"
-
-                aro "Of course. But it's broken. Only 50% effective..."
-                aro "Take it or leave"
-
-                show cory smile_hu at cory_left
-                cory "I'll gladly take it! Appreciate it mano!"
-
-                show arowana smile at npc_right
-                aro "You put some sense into the guy for me in exchange alright?"
-
-                $ add_item("saltwater_survival_device")
-                $ add_clue("The Mantis Shrimp is blocking the only path to the ocean.")
-
     return
 
 label chapter2_night_start:
@@ -893,18 +328,16 @@ label chapter2_night_start:
 
         elif result == "mantis":
             call mantis_interaction
-
             if chapter2_mantis_done:
                 $ mark_npc_explored("mantis")
-
+                if exploration_complete():
+                    jump chapter2_ending
             jump .loop
 
         elif result == "continue":
             $ chapter2_night_done = True
-
             if exploration_complete():
                 jump chapter2_ending
-
             jump .loop
 
     return
@@ -931,16 +364,15 @@ label chapter2_coal_tar:
     cory "Finally, Some self preservation in ya!"
 
     show mc o at mc_left
-    mc "That.. wasn't me…"
+    mc "That.. wasn’t me…"
 
     "The water around us suddenly grows eerily still."
-
     "Faint glow pair of eyes emerges from the darkness."
 
     show cory surprise at cory_left
     cory "GYAAAAAAA—"
 
-    "Mr Cory jumped and immediate cower behind my back with a loud screech."
+    "Mr Cory jumped and immediate cower behind my back with a loud screech"
 
     show mc o at mc_left
     mc ":o"
@@ -954,7 +386,7 @@ label chapter2_coal_tar:
     show mc pout at mc_left
     mc "I can see that."
 
-    ghost "Then you needn't know more."
+    ghost "Then you needn’t know more."
 
     show mc o at mc_left
     mc "Why are you here… fish?"
@@ -979,692 +411,8 @@ label chapter2_coal_tar:
 
     $ focus()
     $ add_item("coal_tar")
-
-    "I obtained: a mysterious stinky black lump."
-
-    call chapter2_ghostfish
-
-label chapter2_ghostfish:
-
-    show mc happy at mc_left
-    mc "fish!! We meet again!"
-
-    show ghost default at npc_right
-    ghost "Greetings. Adventurers."
-    ghost "Alas fate has brought us together once more."
-
-    show ghost deadpan at npc_right
-    ghost "Is your friend not very fond of ghosts?"
-
-    show cory proud at cory_left
-    cory "W-WHO ME?! HAH! GHOSTS ARENT REAL! WHY SHOULD I BE AFRAID??"
-
-    show mc pout at mc_left
-    mc "That's not very nice Mr Cory! Ms Ghost fish is very much real!"
-
-    show cory side_close at cory_left
-    cory "W-Well! I'm going to pretend she's not!"
-
-    show ghost mweheh at npc_right
-    ghost "Heh.. how adorable…."
-
-    call chapter2_ghostfish_questions
-
+    "I obtained: a mysterious stinky black lump"
     return
-
-label chapter2_ghostfish_questions:
-
-    hide mc
-    hide cory
-    call screen character_question_select("Ghostfish")
-    $ selected_questioner = _return
-
-    if selected_questioner == "mc":
-
-        show mc o at mc_left
-        mc "Are you a ghost fish or a fish ghost?"
-
-        show ghost default at npc_right
-        ghost "Brave little one…"
-
-        show ghost deadpan at npc_right
-        ghost "I believe you have far better questions to ask…"
-
-        show ghost side at npc_right
-        ghost "Perhaps of.. the golden fish.."
-        ghost "You haven't asked that for a while.."
-
-        show mc shock at mc_left
-        mc "ahh! You're right. but.. how did you know that?!"
-
-        show ghost close at npc_right
-        ghost "I am a fish who listens.."
-
-        menu:
-            "Do you know why mr shrimp is blocking the path?":
-
-                show mc o at mc_left
-                show ghost default at npc_right
-                ghost "The mantis shrimp is but a lost cause…"
-
-                show mc shock at mc_left
-                mc "Huh?? What do you mean..?"
-
-                show ghost close at npc_right
-                ghost "Everyone mistakes anger for strength."
-                ghost "Do not mistake an obstacle for an enemy."
-
-                show mc excited at mc_left
-                mc "So he's a friend?! A potential friend!"
-                mc "We don't have to fight it then!"
-
-                show ghost side at npc_right
-                ghost "...I think you should know what you're fighting first."
-
-                show ghost default at npc_right
-                ghost "Perhaps a coal tar would help seek your answer"
-
-                show mc o at mc_left
-                mc "Whuh? But what's a coal tar… I don't think I've heard of it"
-
-                show ghost close at npc_right
-                ghost "A strong smelling black lump"
-                ghost "Mix it with something of hardened shell and it will weaken the shrimp"
-
-                show mc o at mc_left
-                mc "But.. you just told us not to fight the shrimp..? Why do we need to weaken it?"
-
-                show ghost deadpan at npc_right
-                ghost "I never said so.. It is you who claimed that conclusion"
-
-                show mc default at mc_left
-                mc "Oh.. right! So we still need to fight it then?"
-
-                show ghost side at npc_right
-                ghost "Perhaps so…"
-
-                $ add_clue("The Mantis Shrimp may not need to be defeated. Find out what he wants.")
-                $ add_clue("Coal Tar may be useful against the Mantis Shrimp.")
-
-            "Ms fish ghost, have you seen a super sparkly golden fish?":
-
-                show ghost side at npc_right
-                ghost "Yes I have…. It went in the direction of the sea…"
-
-                show ghost default at npc_right
-                ghost "Tell me, why do you choose to pursue the sacred cursed fish?"
-
-                show mc default at mc_left
-                mc "Because it's shiny! and not in the way.. most goldfishes shine"
-                mc "The shape is weird too like it's from another universe"
-
-                show ghost deadpan at npc_right
-                ghost "....and?"
-
-                show mc happy at mc_left
-                mc "Ah I also have one of its scales, it gave me the power to speak to fishes! And to breathe underwater for a little longer!"
-
-                show ghost default at npc_right
-                ghost "Hm. And your presence… it's the same as ours, despite being human."
-                ghost "Remarkable… that you can withstand its power at all."
-
-                show mc excited at mc_left
-                mc "So it really is a magic fish that gives you superpowers?!"
-
-                show ghost side at npc_right
-                ghost "…The fish you pursue is no ordinary creature."
-                ghost "It only surfaces when the sea is dying, when the waters are closest to ruin."
-
-                show ghost close at npc_right
-                ghost "A final gift from the Goddess of sea, left behind after her retirement… so the sea could still right itself, even without her."
-
-                show ghost default at npc_right
-                ghost "But that gift was meant for one of us. A creature of the sea. Not a visitor to it."
-
-                show mc shock at mc_left
-                mc "Ah… but what if it fall into the wrong hands?"
-
-                show ghost close at npc_right
-                ghost "That is something only fate can answer."
-                ghost "If it must be that way, then we can only watch as it happens."
-
-                show ghost deadpan at npc_right
-                ghost "The sea knows what it deserves."
-
-                menu:
-                    "If it's so powerful why not every fish in the sea chase it?":
-
-                        show mc o at mc_left
-                        show ghost close at npc_right
-                        ghost "Few even know this fish exists… fewer still know what it can do."
-                        ghost "It doesn't announce itself. It doesn't wait to be found."
-
-                        show ghost side at npc_right
-                        ghost "The sea decides who's worthy long before they ever see it."
-
-                        show mc happy at mc_left
-                        mc "You know so much of it! You must be suuuper worthy of having it no?"
-
-                        show ghost close at npc_right
-                        ghost "I'm but a messenger, brave one…"
-
-                    "Do you think I'm worthy of its power?":
-
-                        show ghost side at npc_right
-                        ghost "...."
-
-                        show ghost deadpan at npc_right
-                        ghost "I believe only your heart can answer that question."
-
-                        mc "I.. don't know…"
-                        mc "All i want is to be a fish…"
-
-                        ghost "... Then maybe that's all the sea needs.."
-
-    else:
-
-        show cory surprise at cory_left
-        cory "M-me?! Why does it have to be me?!"
-
-        show ghost side at npc_right
-        ghost "you have a thousand questions running around in your head.."
-
-        show ghost deadpan at npc_right
-        ghost "yet your fear.. stops you from asking."
-        ghost "Like shadows fleeing a light that follows without moving."
-
-        show cory unimpressed2 at cory_left
-        cory "w-what that mean yo…"
-
-        show ghost mweheh at npc_right
-        ghost "ask away, I promise I don't bite. much"
-
-        show cory upset at cory_left
-        cory "WHADDYA MEAN MUCH?!"
-
-        menu:
-            "do ya know why.. the shrimp is… stopping everyone from passing?":
-
-                show cory talk_hu at cory_left
-                show ghost close at npc_right
-                ghost "perhaps I do."
-
-                show ghost side at npc_right
-                ghost "but why should I tell you"
-
-                show cory side at cory_left
-                cory "because! We-we needa know!"
-
-                show ghost deadpan at npc_right
-                ghost "not an enough reason…"
-
-                show cory side_close at cory_left
-                cory "because- we.. because the guppy needs to get to the- the golden fish!"
-
-                show ghost side at npc_right
-                ghost "hmm.."
-
-                show ghost close at npc_right
-                ghost "rejected."
-
-                show cory upset at cory_left
-                cory "what more do ya want from me mane?!"
-
-                show ghost deadpan at npc_right
-                ghost "look behind you"
-
-                show cory side_close at cory_left
-                cory "NUH UH I'M NOT FALLING FOR THAT!"
-
-                show ghost deadpan at npc_right
-                ghost "..."
-
-                show ghost mweheh at npc_right
-                ghost "boo…"
-
-                show cory surprise at cory_left
-                cory "GYAAAAH!!"
-
-                "Mr Cory bolts away with a high pitch loud scream."
-
-                show mc shock at mc_left
-                mc "ah! Mr Cory waaaaait!!"
-
-                show ghost mweheh at npc_right
-                ghost "heh heh…"
-                ghost "is that all you want to know..?"
-                ghost "You're not as chatty with other fishes…"
-
-                cory "YOU BEEN LISTENIN??"
-                cory "AND WHY DO YA SOUND JEALOUS?!"
-
-    show ghost default at npc_right
-    ghost "I wish you the best of luck in your pursue, little brave one.."
-
-    show mc o at mc_left
-    mc "Will we meet again?"
-
-    show ghost side at npc_right
-    ghost "Perhaps, if fate allows…"
-
-    show ghost close at npc_right
-    ghost "May the sea be with you…"
-
-    show mc happy at mc_left
-    mc "Thank you Ms fish ghost!! I won't let you down!"
-
-    return
-
-label chapter2_mantis:
-
-    hide mc
-    scene ch2_night
-    with fade
-
-    "The night settles in heavy, and so does the overbearing crowd dying to just quiet murmurs of protests."
-
-    "Two pairs of eyes peek from behind a flock of corals. Analyzing the situation at hand carefully."
-
-    show cory talk at cory_left
-    cory "This is our best chance, guppy.."
-
-    show mc default at mc_left
-    mc "mm! We strike now!"
-
-    "With a deep inhale I jumped out the coral while Mr.Cory trails behind slowly."
-
-    "We walked over to where the shrimp still stood its ground as straight as he was in the morning."
-
-    show mc happy at mc_left
-    mc "Good evening.. Mr shrimp!"
-
-    show shrimp surprise at npc_right
-    shrimp "Huh?! A little kid?!"
-
-    show shrimp default at npc_right
-    shrimp "Go back to your parents!"
-    shrimp "Using a young guppy won't make me go soft on you!"
-
-    show shrimp default at npc_right
-    shrimp "I will still punch you if you lose!"
-
-    show cory talk at cory_left
-    cory "oooh.. That's not very nice… you can't be saying young fish…"
-
-    show shrimp surprise at npc_right
-    shrimp "and who are you!!"
-
-    show cory smile at cory_left
-    cory "I'm the young guppy's guardian…"
-
-    show shrimp sepet at npc_right
-    shrimp "I'm still not letting an elderly and a young guppy pass!"
-    shrimp "Especially the elder…. Squints"
-
-    show shrimp default at npc_right
-    shrimp "You have to prove yourself worthy through a duel!"
-    shrimp "Only then I shall let you pass!"
-
-    call chapter2_mantis_mc_route
-
-    return
-
-label chapter2_mantis_mc_route:
-
-    menu:
-        "Ask why he’s guarding the gate":
-
-            show mc o at mc_left
-            show shrimp default at npc_right
-            mc "mm.. say mr shrimp.. why do you guard the gate so strictly…?"
-
-            shrimp "Because I was told to!"
-
-            show mc o at mc_left
-            mc "told to..? By who?"
-
-            show shrimp proud at npc_right
-            shrimp "The great empress I owe my life to!"
-            shrimp "She saved me in my lowest moment in life.."
-
-            show shrimp laugh at npc_right
-            shrimp "And in exchange I devote my life to her compelling regime!"
-
-            show mc dizzy at mc_left
-            mc "regime..? What's a regime :o"
-
-            show shrimp default at npc_right
-            shrimp "a regime is some sort of propaganda! Maybe!"
-
-            show shrimp shy at npc_right
-            shrimp "I'm not too good with politics either so I wouldn't know!"
-
-            show mc pout at mc_left
-            mc "blehh you're right politics suck.. All the grown ups are so invested in it"
-            mc "Is it so hard for everyone to just be friends, hold hands and help each other? :("
-
-            show shrimp sepet at npc_right
-            shrimp "hmm! Maybe you're right!"
-
-            show shrimp default at npc_right
-            shrimp "but it's hard to hold hands when you've got big claws this strong!"
-            shrimp "It'd always hurt someone that's a different species!"
-            show shrimp shy at npc_right
-            shrimp "No matter how hard you try to be gentle."
-
-            show mc o at mc_left
-            mc "..."
-
-            menu:
-                "Ask to touch his arm":
-
-                    show mc o at mc_left
-                    mc "mr shrimp.."
-
-                    show mc excited at mc_left
-                    mc "what if i were to hypothetically ask to…"
-                    mc "touch your claws..?"
-
-                    show shrimp surprise at npc_right
-                    shrimp "No!"
-
-                    show mc pout at mc_left
-                    mc "huh? Why not..?"
-
-                    show shrimp default at npc_right
-                    shrimp "Because it will hurt your tiny hands!"
-
-                    show mc pout at mc_left
-                    mc "but you said you won't hesitate to punch me in a duel.."
-                    mc "why are you worried now Mr.shrimp?"
-
-                    show shrimp default at npc_right
-                    shrimp "... that’s different! This is a no duel context!"
-                    shrimp "I would minimize as much damage as possible!"
-
-                    show mc happy at mc_left
-                    mc "But it's okay Mr.shrimp, I don't mind pain!"
-
-                    show shrimp surprise at npc_right
-                    shrimp "huh…?"
-
-                    show mc default at mc_left
-                    mc "Some pain is worth it for the sake of knowledge."
-                    mc "And also for the sake of easing other people's pain.."
-
-                    shrimp "You're saying you'd hurt yourself just to feel my claws?!"
-
-                    show mc excited at mc_left
-                    mc "I've never met a mantis shrimp before!"
-                    mc "So it made me suuuper curious on how your claws work!"
-
-                    show shrimp sepet at npc_right
-                    shrimp "... hmph. Fine then touch you shall!"
-
-                    show shrimp default at npc_right
-                    shrimp "But don't come crying if you scrape yourself!"
-
-                    show mc pout at mc_left
-                    mc "im a good guppy! Good guppies don't cry!"
-
-                    "Quenching curiosity, I started with poking its left claw with a finger repeatedly, assessing."
-
-                    show mc excited at mc_left
-                    mc "ooo..! So THIS is what a 150-kilo punch feels like..!"
-
-                    show shrimp proud at npc_right
-                    shrimp "How's it?! Fastest moving claws in all of animal kingdom!"
-
-                    show shrimp laugh at npc_right
-                    shrimp "Grace upon the excellent anatomy of a mantis shrimp! kakaka!"
-
-                    "Mr. shrimp puffs up like a peacock the more I shower it with giddy attention."
-
-                    "Soon enough he would break into all kinds of different poses to showboat his cool anatomy more."
-
-                    "His flexed sturdy shells sparkle under the dim scale's light."
-
-                    "I can only squeak in delight as this happens."
-
-                "Ask for a duel":
-
-                    pass
-
-        "oh no, I'm not here for a duel!":
-
-            show mc happy at mc_left
-            mc "I'm here to offer you snacks.. You seem veeery tired.."
-
-            show shrimp surprise at npc_right
-            shrimp "Huh…!"
-            shrimp "Wait me? TIRED? Tiredness can't affect a warrior!"
-
-            show shrimp proud at npc_right
-            shrimp "But I won't say no to delicious looking delicacies"
-
-            "Without second guessing, Mr.shrimp took about three clams, breaking the shell with his punch before stuffing it into his mouth enthusiastically."
-
-            "I watched the interesting process with rapt attention.. I've never seen a mantis shrimp eat before…"
-
-            show shrimp default at npc_right
-            shrimp "mm? What is it! Why are you staring!"
-
-            show shrimp default at npc_right
-            shrimp "Staring won't make me share a thing with you!"
-
-            show mc default at mc_left
-            mc "ah nonono am not hungry… *stomach growls*"
-
-            show shrimp surprise at npc_right
-            shrimp "...."
-
-            show shrimp sepet at npc_right
-            shrimp "Let's hypothetically say, I shared one clam!"
-
-            show shrimp shy at npc_right
-            shrimp "Would you eat it?!"
-
-            show mc o at mc_left
-            mc "...!"
-
-            show mc happy at mc_left
-            mc "hehe don't worry you can have all of it, mr shrimp"
-            mc "you look like you need it more"
-
-            show shrimp surprise at npc_right
-            shrimp "I never said that I WOULD share it with you!"
-            show shrimp default at npc_right
-            shrimp "That was a merely hypothetical!"
-
-            show shrimp shy at npc_right
-            shrimp "Don't get too into yourself now!"
-
-            if has_item("coal_tar"):
-                "Mr. Shrimp ate enough coal tar for it to take effect."
-            else:
-                "There is no coal tar to give the shrimp."
-
-    jump chapter2_mantis_cory_route
-
-label chapter2_mantis_cory_route:
-
-    show shrimp default at npc_right
-    shrimp "You've bothered me enough!"
-    shrimp "It is time for us to duel if you're so insistent on passing through!"
-
-    show cory side at cory_left
-    cory "Guess we got no other choice huh.."
-
-    show cory talk at cory_left
-    cory "prepare yerself to fight guppy…"
-
-    show shrimp default at npc_right
-    shrimp "We shall now start a sacred duel of… ROCK PAPER SCISSORS!"
-
-    show cory surprise at cory_left
-    cory "whuh?"
-
-    show mc shock at mc_left
-    mc "eh?"
-
-    show cory upset at cory_left
-    cory "mane all that trouble just for some guppy games?!"
-    cory "Why don't everyfish just play and pass then?!"
-
-    show shrimp default at npc_right
-    shrimp "The moment i mention a duel they all cower in fear and retreat!"
-    shrimp "You're the second bravest soul to duel with me today!"
-
-    show mc o at mc_left
-    mc "Did the first fish pass?"
-
-    show shrimp default at npc_right
-    shrimp "No! They died under the weight of my mighty punch!"
-
-    show cory unimpressed at cory_left
-    cory "glup…"
-
-    show mc excited at mc_left
-    mc "oh…!"
-
-    show shrimp default at npc_right
-    shrimp "The rules are easy!"
-    shrimp "Each of you, have three rounds to go against me!"
-    shrimp "And each round, whoever wins gets to attack the loser!"
-    shrimp "Winning condition! Best two out of three wins!"
-
-    show shrimp sepet at npc_right
-    shrimp "Or if one of us is dead!"
-
-    show shrimp proud at npc_right
-    shrimp "Since you came in a pair, and I'm a generous mantis shrimp!"
-    shrimp "One of you wins, and you both get through the gate!"
-
-    show mc o at mc_left
-    mc "question! Are we allowed to dodge the attack?"
-
-    show shrimp default at npc_right
-    shrimp "yes, dodge you shall!"
-
-    show shrimp proud at npc_right
-    shrimp "hmph! But can you really dodge my fast punches?!"
-
-    show mc happy at mc_left
-    mc "hehe we'll see about that"
-
-    show cory talk_hu at cory_left
-    cory "you ready to start, guppy?"
-
-    menu:
-        "Sir yes sir mr. cory!":
-            pass
-
-    call mantis_duel
-
-    if duel_result == "win":
-
-        show mc excited at mc_left
-        mc "We did it!! We won mr.Cory!!"
-
-        show cory proud at cory_left
-        cory "EEEL YEAHH THAT'S WHAT I'M TALKING ABOUT GUPPY!!"
-
-        show shrimp default at npc_right
-        shrimp "Hmph! Very well!"
-        shrimp "You have proven yourself worthy of the sea's grace!"
-
-        "Mr shrimp moves aside to reveal the cave's entrance and its long tunnel."
-
-        "But we couldn't just go yet.."
-
-        mc "mr shrimp.. Why don't you come along with us?"
-
-        show shrimp surprise at npc_right
-        shrimp "WHAT?!"
-
-        show cory surprise at cory_left
-        cory "HUH?!"
-        cory "Guppy did you see how deadly those punches are?!"
-
-        mc "I know! But it was part of the duel.."
-        mc "He didn't even once hurt us before it started…"
-
-        show cory side at cory_left
-        cory "... can't argue with that."
-
-        show shrimp surprise at npc_right
-        shrimp "... But why the sudden preposterous preposition?!"
-        shrimp "I'm the guardian of the sacred sea-salt gate!"
-        shrimp "I mustn't leave my post! I mustn't let the unworthy pass!"
-
-        mc "but you can't keep doing this mr shrimp.."
-        mc "there are fishes that reeaaally need to pass the gate.."
-
-        cory "They're right.."
-        cory "There's a pregnant fish.. And some fish gone mad because of this carp"
-        cory "Before this, You were actively helpin out fishes in need"
-        cory "Those who couldn't pay the prices of this gate, you'd help them pass.."
-        cory "You've changed, what's up with that? Really."
-
-        show shrimp shy at npc_right
-        shrimp "...."
-        shrimp "I was..!"
-
-        show shrimp sepet at npc_right
-        shrimp "What I did was a moment of weakness! One that I wouldn't repeat!"
-        shrimp "And the cost of it was.. something irreversible…"
-        shrimp "The one moment I let my guard down.."
-
-        show shrimp surprise at npc_right
-        shrimp "a sudden golden burst of incredible power dashed past me!"
-
-        show mc o at mc_left
-        mc "the golden fish…!"
-
-        show shrimp default at npc_right
-        shrimp "It's thousand suns way stronger than what my claws, my whole body can endure!"
-        shrimp "I have never felt more powerless in my life than that moment!"
-        shrimp "and it was I that let such a dangerous powerful entity into the sea…"
-        shrimp "One that doesn't bend down to rules… not even negotiation"
-
-        shrimp "Since that moment, the empress has tightened security at every gate that leads to the sea."
-
-        show shrimp shy at npc_right
-        shrimp "And even when the empress had known of my crimes of letting fishes that didn't qualify pass through…"
-
-        show shrimp smile at npc_right
-        shrimp "She still forgave me!"
-
-        show shrimp default at npc_right
-        shrimp "I swore to her that I won't repeat the same mistake!"
-
-        mc "But mr shrimp.. It wasn't your fault that the golden fish pass through!"
-        mc "it wasn't something you can stop.. Nor something you can expect"
-        mc "and me and mr cory are heading to sea in search of the golden fish!"
-        mc "We can search for it together! To prevent it from doing more harm"
-
-        show shrimp surprise at npc_right
-        shrimp "YOU ARE?!"
-
-        show shrimp shy at npc_right
-        shrimp "But.. who will guard the gates.. If not me?"
-
-        cory "Naaah i don't think it needs guarding."
-        cory "That shrimp empress's regime.. Is total bullshrimp"
-
-        mc "the sea is big enough for everyone! And the sea can defend itself.."
-
-        cory "There are fishes who just want to survive and meet their family.."
-        cory "They don't mean no harm to the sea i guarantee.."
-
-        show shrimp default at npc_right
-        shrimp ".... Fine! I'll go! But only if we talk it out first with the shrimp empress!"
-
-        show shrimp shy at npc_right
-        shrimp "I can't just abandon my post without notice"
-        shrimp "That would be betrayal of the highest order!"
-
-        jump chapter2_ending
 
 label chapter2_ending:
     $ focus()
@@ -1682,6 +430,8 @@ label chapter2_ending:
 
     show cory fond at cory_left
     cory "imp.. I leave the guppy's safety to ya alright?"
+
+    show cory smile_hu at cory_left
     cory "Shrimps have better resistance in freshwater don't they?"
 
     if has_item("saltwater_survival_device"):
@@ -1700,10 +450,10 @@ label chapter2_ending:
     cory "guppy.."
 
     show mc pout at mc_left
-    mc "no no no! I'm not going anywhere without Mr. Cory!!"
+    mc "no no no! I’m not going anywhere without Mr. Cory!!"
 
     show cory talk at cory_left
-    cory "guppy, I'd dry the sea to come along but-"
+    cory "guppy, I’d dry the sea to come along but-"
 
     show mc pout at mc_left
     mc "mr shrimp cant you protect him? With your punches!"
@@ -1725,20 +475,16 @@ label chapter2_ending:
 
     show cory side_close at cory_left
     cory "....."
-    cory "I'm.. God terribly. sorry guppy.."
+    cory "I’m.. God terribly. sorry guppy.."
     cory "I didn't think far enough that it'd reach the sea.."
 
     show cory side at cory_left
-    cory "...I'm afraid that I'm a fraud..."
+    cory "...I’m afraid that I’m a fraud..."
 
     show shrimp smile at npc_right
     shrimp "that makes a good rhyme!"
 
-    "The fish scale in my bag suddenly glows into a blinding sparkly light for one second."
-
-    "Painting the three of us in gold, before it dims once more."
-
-    "But something felt different."
+    "The fish scale in my bag suddenly glows into a blinding sparkly light for one second. Painting the three of us in gold, before it dims once more. But something felt different"
 
     show mc o at mc_left
     mc "mm?"
@@ -1766,7 +512,7 @@ label chapter2_ending:
     show mc shock at mc_left
     mc "d-does it hurt-"
 
-    "Before I can finish my line I was swept into a spinning hug."
+    "Before I can finish my line I was swept into a spinning hug"
 
     show cory proud at cory_left
     cory "I CAN'T BELIEVE IT!! I'M IN SALTWATER GUPPY!!"
@@ -1774,13 +520,13 @@ label chapter2_ending:
     show mc excited at mc_left
     mc "YAAAAAY"
 
-    "Mr shrimp then lifts the both of us with its strong claws spinning us all into a dizzying spiral."
+    "Mr shrimp then lifts the both of us with its strong claws spinning us all into a dizzying spiral"
 
     show shrimp laugh at npc_right
     shrimp "KAKAKA! WAHOO!"
 
     show cory upset at cory_left
-    cory "THAT'S WAY TOO FAAAUUUAASHHTT SHRIMP PUT US DOOOOWN"
+    cory "THAT’S WAY TOO FAAAUUUAASHHTT SHRIMP PUT US DOOOOWN"
 
     show mc excited at mc_left
     mc "YIPEEEEE FAAASTEEER!!"
@@ -1788,7 +534,7 @@ label chapter2_ending:
     show shrimp surprise at npc_right
     shrimp "Ah! My apologies, comrades! And congratulations to Mr. Cory!"
 
-    "Mr shrimp then carefully puts us down."
+    "Mr shimp then carefully puf us down"
 
     show shrimp laugh at npc_right
     shrimp "With this, we can now safely travel amongst the seas! KAKAKA!"
@@ -1800,7 +546,7 @@ label chapter2_ending:
     mc "oaooaooouhh yaaaah lets meef the… crustashan empeees.."
 
     show shrimp smile at npc_right
-    shrimp "Don't worry, my dizzy lieges! I'll carry the both of you until you regain your ground! Or.. your water!"
+    shrimp "Don’t worry, my dizzy lieges! I’ll carry the both of you until you regain your ground! Or.. your water!"
 
     $ focus()
     hide mc
@@ -1808,9 +554,4 @@ label chapter2_ending:
 
     "END OF CHAPTER 2"
 
-    menu:
-        "Continue to Chapter 3":
-            jump chapter3_start
-
-        "End":
-            return
+    jump chapter3_start
