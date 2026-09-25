@@ -2,9 +2,21 @@
 errors listed below, and try again.
 
 
-File "game/systems/duel_manager.rpy", line 142: 'zoom' is not a keyword argument or valid child of the imagebutton statement.
-    zoom 0.75
-        ^
+File "game/screens.rpy", line 351: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    easein_sine 3.2 yoffset -10
+                    ^
+
+File "game/screens.rpy", line 358: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    easein_sine 2.0 yoffset -14
+                    ^
+
+File "game/screens.rpy", line 368: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    easein_sine 2.5 yoffset -6
+                    ^
+
+File "game/screens.rpy", line 375: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    easein_sine 1.8 yoffset -8
+                    ^
 
 Ren'Py Version: Ren'Py 8.5.3.26051504
-Tue Sep 22 21:00:01 2026
+Sat Sep 26 01:28:38 2026

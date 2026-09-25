@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 ## Initialization
 ################################################################################
 
@@ -151,6 +151,7 @@ style say_label:
     properties gui.text_properties("name", accent=True)
     xalign gui.name_xalign
     yalign 0.5
+    outlines [ (2, "#000000", 0, 0) ]
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
@@ -160,6 +161,8 @@ style say_dialogue:
     ypos gui.dialogue_ypos
 
     adjust_spacing False
+    outlines [ (2, "#000000", 0, 0) ]
+
 
 ## Input screen ################################################################
 ##
@@ -228,6 +231,8 @@ style choice_button is default:
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
+    outlines [ (2, "#000000", 0, 0) ]
+
 
 
 ## Quick Menu screen ###########################################################
@@ -344,66 +349,146 @@ style navigation_button_text:
     properties gui.text_properties("navigation_button")
 
 
+## Main Menu Transforms #######################################################
+
+transform mm_title_wave:
+    easein 2.5 yoffset -5
+    easeout 2.5 yoffset 5
+    repeat
+
+transform mm_fish_swim:
+    parallel:
+        easein 1.6 yoffset -8
+        easeout 1.6 yoffset 8
+        repeat
+    parallel:
+        easein 2.2 xoffset 6
+        easeout 2.2 xoffset -6
+        repeat
+
+
 ## Main Menu screen ############################################################
 ##
-## Used to display the main menu when Ren'Py starts.
+## Custom Main Menu matching the 'One with the Sea' sketch design
 ##
-## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
 screen main_menu():
 
-    ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background
+    ## Clean background (siap diisi ilustrasi/BG final nanti)
+    add Solid("#122333")
 
-    ## This empty frame darkens the main menu.
-    frame:
-        style "main_menu_frame"
+    ## Left Side: Title & Menu Navigation (sesuai sketsa konsep)
+    vbox:
+        xpos 140
+        ypos 100
+        spacing 28
 
-    ## The use statement includes another screen inside this one. The actual
-    ## contents of the main menu are in the navigation screen.
-    use navigation
-
-    if gui.show_name:
-
+        ## Title Block ("One with the Sea" + Fish doodle)
         vbox:
-            style "main_menu_vbox"
+            spacing 2
+            at mm_title_wave
 
-            text "[config.name!t]":
-                style "main_menu_title"
+            text "One":
+                font "fonts/ItalianTempesta-Italic.ttf"
+                size 86
+                color "#e0f7fa"
+                outlines [ (3, "#0077b6", 0, 0), (6, "#03045e", 0, 0), (1, "#90e0ef", 0, 0) ]
 
-            text "[config.version]":
-                style "main_menu_version"
+            hbox:
+                spacing 16
+                yalign 0.5
+
+                text "with the":
+                    font "fonts/ItalianTempesta-Italic.ttf"
+                    size 52
+                    color "#90e0ef"
+                    outlines [ (2, "#0077b6", 0, 0), (4, "#03045e", 0, 0) ]
+                    yoffset 12
+
+                text "Sea":
+                    font "fonts/ItalianTempesta-Italic.ttf"
+                    size 108
+                    color "#ffffff"
+                    outlines [ (4, "#0096c7", 0, 0), (7, "#023e8a", 0, 0), (1, "#caf0f8", 0, 0) ]
+
+                # Doodle Ikan kecil seperti di sketsa
+                text "><(((('>":
+                    size 34
+                    bold True
+                    color "#48cae4"
+                    outlines [ (2, "#0077b6", 0, 0) ]
+                    yoffset -18
+                    at mm_fish_swim
+
+        ## Navigation Buttons (Posisi di bawah judul sesuai sketsa)
+        vbox:
+            spacing 10
+
+            vbox:
+                spacing -6
+                textbutton _("Start"):
+                    action Start()
+                    style "sea_nav_button"
+                    hover_sound "audio/pixel_ui_1.mp3"
+                    activate_sound "audio/pixel_ui_2.mp3"
+                # Garis bergelombang di bawah Start seperti sketsa
+                text "  ~~~~~~~~~~":
+                    size 30
+                    bold True
+                    color "#48cae4"
+                    outlines [ (2, "#0077b6", 0, 0) ]
+
+            textbutton _("Load"):
+                action ShowMenu("load")
+                style "sea_nav_button"
+                hover_sound "audio/pixel_ui_1.mp3"
+                activate_sound "audio/pixel_ui_2.mp3"
+
+            if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+                textbutton _("Help"):
+                    action ShowMenu("help")
+                    style "sea_nav_button"
+                    hover_sound "audio/pixel_ui_1.mp3"
+                    activate_sound "audio/pixel_ui_2.mp3"
+
+            if renpy.variant("pc"):
+                textbutton _("Quit"):
+                    action Quit(confirm=False)
+                    style "sea_nav_button"
+                    hover_sound "audio/pixel_ui_1.mp3"
+                    activate_sound "audio/pixel_ui_2.mp3"
+
+    ## Version text di pojok kanan bawah
+    text "[config.name] v[config.version]":
+        xalign 0.98
+        yalign 0.98
+        size 18
+        color "#90e0efaa"
+        outlines [ (1, "#03045e", 0, 0) ]
 
 
-style main_menu_frame is empty
-style main_menu_vbox is vbox
-style main_menu_text is gui_text
-style main_menu_title is main_menu_text
-style main_menu_version is main_menu_text
+## Custom Styles for Sea Main Menu Buttons
+style sea_nav_button is button:
+    xoffset 0
+    hover_xoffset 20
+    ypadding 2
+    xpadding 4
+    background None
+    hover_background None
 
-style main_menu_frame:
-    xsize 420
-    yfill True
+style sea_nav_button_text is gui_text:
+    font "fonts/ItalianTempesta-Italic.ttf"
+    size 68
+    idle_color "#d4f1f9"
+    hover_color "#48cae4"
+    selected_color "#ffffff"
+    outlines [ (2, "#005f73", 0, 0), (5, "#001219", 0, 0) ]
+    hover_outlines [ (2, "#00b4d8", 0, 0), (6, "#0077b6", 0, 0), (1, "#caf0f8", 0, 0) ]
 
-    background "gui/overlay/main_menu.png"
 
-style main_menu_vbox:
-    xalign 1.0
-    xoffset -30
-    xmaximum 1200
-    yalign 1.0
-    yoffset -30
 
-style main_menu_text:
-    properties gui.text_properties("main_menu", accent=True)
-
-style main_menu_title:
-    properties gui.text_properties("title")
-
-style main_menu_version:
-    properties gui.text_properties("version")
 
 
 ## Game Menu screen ############################################################
