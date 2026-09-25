@@ -169,9 +169,11 @@ label salmon_interaction:
     $ selected_questioner = _return
 
     if selected_questioner == "mc":
-        jump salmon_as_mc
+        call salmon_as_mc
+    else:
+        call salmon_as_cory
 
-    jump salmon_as_cory
+    return
 
 label salmon_as_mc:
     hide cory side
