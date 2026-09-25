@@ -154,7 +154,6 @@ image leo proud = "images/characters/rotasi/LeoHover.png"
 image leo surprise = "images/characters/rotasi/LeoHover.png"
 image leo talk = "images/characters/rotasi/LeoIdle.png"
 
-# Chapter 5 Abyss & Mirage Sprites
 image scy_mirage:
     "images/npc/chapter2/Mantis/ScyDefault_.png"
     matrixcolor TintMatrix("#70d6ff") * BrightnessMatrix(-0.15)

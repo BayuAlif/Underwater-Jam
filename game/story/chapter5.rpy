@@ -1,15 +1,9 @@
-# ==============================================================================
-# CHAPTER 5: THE ABYSSAL WHISPERS & THE FINAL WISH
-# ==============================================================================
-
 screen ch5_anomaly_exploration():
     modal True
 
-    # Dark Abyssal Background with ambient depth
     add "bg abyss_depths"
     add Solid("#020813B8")
 
-    # Header Title
     vbox:
         xalign 0.5
         ypos 45
@@ -28,7 +22,6 @@ screen ch5_anomaly_exploration():
             color "#90e0ef"
             outlines [(1, "#03045e", 0, 0)]
 
-    # Objective Tracker
     $ _ch5_explored_count = (1 if ch5_scy_explored else 0) + (1 if ch5_cory_explored else 0) + (1 if ch5_leo_explored else 0)
     frame:
         xalign 0.5
@@ -51,7 +44,6 @@ screen ch5_anomaly_exploration():
                     color "#52b788"
                     bold True
 
-    # Companion Focus / Rotation Bar
     frame:
         xalign 0.5
         ypos 205
@@ -86,8 +78,6 @@ screen ch5_anomaly_exploration():
                 text_idle_color ("#ffd166" if ch5_companion_focus == "leo" else "#adb5bd")
                 action SetVariable("ch5_companion_focus", "leo")
 
-    # 3 Interactive Exploration Nodes (Mirages)
-    # Node 1: Scyllarus Anomaly (Left)
     vbox:
         xpos 180
         ypos 330
@@ -127,7 +117,6 @@ screen ch5_anomaly_exploration():
                         hover_sound "audio/pixel_ui_1.mp3"
                         activate_sound "audio/pixel_ui_2.mp3"
 
-    # Node 2: Cory Anomaly (Center)
     vbox:
         xalign 0.5
         ypos 450
@@ -167,7 +156,6 @@ screen ch5_anomaly_exploration():
                         hover_sound "audio/pixel_ui_1.mp3"
                         activate_sound "audio/pixel_ui_2.mp3"
 
-    # Node 3: Leo Anomaly (Right)
     vbox:
         xpos 1320
         ypos 330
@@ -207,7 +195,6 @@ screen ch5_anomaly_exploration():
                         hover_sound "audio/pixel_ui_1.mp3"
                         activate_sound "audio/pixel_ui_2.mp3"
 
-    # Continue Button when ready
     if ch5_scy_explored and ch5_cory_explored and ch5_leo_explored:
         textbutton _("Chase the Real Golden Fish with Miss Leo >>"):
             xalign 0.5
@@ -220,10 +207,6 @@ screen ch5_anomaly_exploration():
             hover_sound "audio/pixel_ui_1.mp3"
             activate_sound "audio/pixel_ui_2.mp3"
             action Return("proceed")
-
-# ==============================================================================
-# MAIN CHAPTER 5 SCRIPT FLOW
-# ==============================================================================
 
 label chapter5_start:
 
@@ -278,16 +261,11 @@ label chapter5_start:
 
     jump ch5_exploration_hub
 
-# ==============================================================================
-# EXPLORATION HUB
-# ==============================================================================
-
 label ch5_exploration_hub:
 
     scene bg abyss_depths
     with dissolve
 
-    # If all three have been explored, directly lead to chasing the true golden fish
     if ch5_scy_explored and ch5_cory_explored and ch5_leo_explored:
         jump ch5_chase_real_gold
 
@@ -302,10 +280,6 @@ label ch5_exploration_hub:
         jump ch5_leo_sequence
     else:
         jump ch5_chase_real_gold
-
-# ==============================================================================
-# SCYLLARUS MIRAGE SEQUENCE
-# ==============================================================================
 
 label ch5_scy_sequence:
 
@@ -453,7 +427,6 @@ label ch5_scy_sequence:
             "He dropped to his knees, covering his ears to try and block out the voices."
             scy "Please"
 
-    # After Option
     hide scy_mirage
     with dissolve
 
@@ -475,10 +448,6 @@ label ch5_scy_sequence:
     with dissolve
 
     jump ch5_exploration_hub
-
-# ==============================================================================
-# CORY MIRAGE SEQUENCE
-# ==============================================================================
 
 label ch5_cory_sequence:
 
@@ -587,7 +556,6 @@ label ch5_cory_sequence:
             cory_fake "Come on, Cory. How many more times are ya gonna choose someone else before you finally choose your own familia?"
             cory_fake "Leave the damn Guppy behind.."
 
-    # After Option
     hide cory_mirage
     with dissolve
 
@@ -602,10 +570,6 @@ label ch5_cory_sequence:
     with dissolve
 
     jump ch5_exploration_hub
-
-# ==============================================================================
-# LEO MIRAGE SEQUENCE
-# ==============================================================================
 
 label ch5_leo_sequence:
 
@@ -714,10 +678,6 @@ label ch5_leo_sequence:
 
     jump ch5_exploration_hub
 
-# ==============================================================================
-# CHASE THE REAL GOLDEN FISH & THE BANISHED ONE
-# ==============================================================================
-
 label ch5_chase_real_gold:
 
     scene bg abyss_depths
@@ -810,11 +770,9 @@ label ch5_chase_real_gold:
     "Enormous shadowy tentacles rise like colossi from the seabed."
     leo "Brace yourself, Guppy! We have to fight our way through!"
 
-    # Boss Battle Duel Against The Banished One
     play music "audio/a_battle.wav" volume 0.85
     call banished_duel
 
-    # Post-Duel Transition
     stop music fadeout 1.5
     scene bg abyss_depths
     with vpunch
@@ -827,10 +785,6 @@ label ch5_chase_real_gold:
     ban "Then I shalt walketh thee to thy deepest nightmare.."
 
     jump ch5_nightmare_bedroom
-
-# ==============================================================================
-# THE SURREAL NIGHTMARE: MAMA & LEO ILLUSION
-# ==============================================================================
 
 label ch5_nightmare_bedroom:
 
@@ -974,10 +928,6 @@ label ch5_nightmare_bedroom:
 
     jump ch5_the_final_choice
 
-# ==============================================================================
-# THE FINAL CLIMAX & THE 3 ENDINGS
-# ==============================================================================
-
 label ch5_the_final_choice:
 
     play sound "audio/unsettling_moment.wav"
@@ -1009,10 +959,6 @@ label ch5_the_final_choice:
         "“I wish to finally become one with the sea!”":
             $ ch5_ending_choice = "feral"
             jump ch5_ending_feral
-
-# ==============================================================================
-# ENDING 1: BAD ENDING (THE RISING TSUNAMI)
-# ==============================================================================
 
 label ch5_ending_bad:
 
@@ -1089,10 +1035,6 @@ label ch5_ending_bad:
     "{size=+8}{color=#e63946}{b}BAD ENDING: THE RISING TIDE{/b}{/color}{/size}"
 
     return
-
-# ==============================================================================
-# ENDING 2: TRUE ENDING (ONE WITH THE SEA)
-# ==============================================================================
 
 label ch5_ending_true:
 
@@ -1187,10 +1129,6 @@ label ch5_ending_true:
     "{size=+8}{color=#06d6a0}{b}TRUE ENDING: ONE WITH THE SEA{/b}{/color}{/size}"
 
     return
-
-# ==============================================================================
-# ENDING 3: FERAL / BECOME FISH ENDING (LEOPARD SEAL)
-# ==============================================================================
 
 label ch5_ending_feral:
 

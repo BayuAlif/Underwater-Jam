@@ -27,7 +27,6 @@ define planktons = Character("Planktons", color="#ffffff")
 define fish1 = Character("Cheering Fish", color="#ffffff")
 define fish2 = Character("Excited Fish", color="#ffffff")
 
-# Chapter 5 Characters
 define scy_fake = Character("Mr. Larus???", color="#90e0ef")
 define cory_fake = Character("Mr. Cory???", color="#ffd166")
 define leo_fake = Character("Miss Leo???", color="#ffb4a2")
