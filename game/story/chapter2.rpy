@@ -554,9 +554,4 @@ label chapter2_ending:
 
     "END OF CHAPTER 2"
 
-    menu:
-        "Continue to Chapter 3":
-            jump chapter3_start
-
-        "End":
-            return
+    jump chapter3_start

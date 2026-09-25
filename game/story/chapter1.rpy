@@ -639,9 +639,4 @@ label chapter1_dawn:
 
     "END OF CHAPTER 1"
 
-    menu:
-        "Continue to Chapter 2":
-            jump chapter2_start
-
-        "End":
-            return
+    jump chapter2_start

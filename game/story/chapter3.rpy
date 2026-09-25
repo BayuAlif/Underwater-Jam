@@ -2355,8 +2355,4 @@ label ch3_ending:
     scene black with fade
     "END OF CHAPTER 3"
 
-    menu:
-        "Proceed to Chapter 4":
-            jump chapter4_start
-        "Return to Title":
-            return
+    jump chapter4_start
