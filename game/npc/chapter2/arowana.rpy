@@ -26,7 +26,6 @@ label arowana_interaction:
     cory "Those rocks can hurt a ton!"
 
     show arowana squint:
-        ease 0.5
         full
         rightish
     arowana "Oh. A fish."
@@ -90,7 +89,6 @@ label arowana_interaction:
 
     jump arowana_as_cory
 
-
 label arowana_as_mc:
     $ focus()
     show mc o:
@@ -129,7 +127,6 @@ label arowana_as_mc:
     arowana "{sc}{size=45}Because of that stupid- egregious mantis shrimp!{/size}{/sc}"
 
     show arowana default:
-        ease 0.5
         full
         center
     arowana "My apologies that was unprofessional of me."
@@ -147,7 +144,6 @@ label arowana_as_mc:
     cory "So he's been blocking all day now?"
 
     show arowana default:
-        ease 0.5
         full
         rightish
     with move
@@ -165,7 +161,7 @@ label arowana_as_mc:
                 full
                 center
             arowana "Unfortunately I do not."
-            
+
             show mc o:
                 full
                 right
@@ -183,7 +179,6 @@ label arowana_as_mc:
                 right
             mc "Awww... hmph!"
             $ focus()
-
 
         "Tell him to just swim there.":
             $ focus()
@@ -271,7 +266,7 @@ label arowana_as_mc:
                 full
                 rightish
             with move
-            
+
             show cory side:
                 full
                 centerleft
@@ -300,7 +295,6 @@ label arowana_as_mc:
                 centerleft
             cory "Heh, I'm starting to get the hang of it"
             $ focus()
-
 
 label arowana_as_cory:
     $ focus()
@@ -373,7 +367,6 @@ label arowana_as_cory:
 
             $ focus()
             $ add_clue("You have to win in a duel to pass the shrimp.")
-
 
         "You know what's up with his bizarre act?":
             $ focus()

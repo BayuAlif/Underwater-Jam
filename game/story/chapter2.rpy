@@ -1,5 +1,5 @@
 label chapter2_start:
-    
+
     $ current_chapter = 2
     $ current_cycle = "day"
     $ current_area = "northern_current"
@@ -140,7 +140,6 @@ label chapter2_start:
 
     return
 
-
 label chapter2_day_exploration:
 
     $ current_cycle = "day"
@@ -156,23 +155,37 @@ label chapter2_day_exploration:
                 "name": "Mrs. Salmon",
                 "idle": "salmon idle",
                 "hover": "salmon hover",
-                "x": 0.78,
-                "y": 0.54
+                "xpos": 1220,
+                "ypos": 210,
+                "check_xpos": 1445,
+                "check_ypos": 160,
+                "x": 0.83,
+                "y": 0.28,
+                "check_y": 0.15
             },
             {
                 "id": "arowana",
                 "name": "Mr. Wana",
                 "idle": "arowana idle",
                 "hover": "arowana hover",
-                "x": 0.20,
-                "y": 0.54
+                "xpos": 220,
+                "ypos": 240,
+                "check_xpos": 472,
+                "check_ypos": 180,
+                "x": 0.16,
+                "y": 0.35,
+                "check_y": 0.18
             }
         ],
         {
             "id": "tiny_krill",
             "name": "Tiny Krill",
             "idle": "item_tiny_krill",
-            "hover": "item_tiny_krill_hover"
+            "hover": "item_tiny_krill_hover",
+            "xpos": 815,
+            "ypos": 740,
+            "x": 0.48,
+            "y": 0.75
         }
     )
 
@@ -203,7 +216,6 @@ label chapter2_day_exploration:
         elif result == "continue":
             $ chapter2_day_done = True
             return
-
 
 label chapter2_tiny_krill:
     $ focus()
@@ -253,7 +265,6 @@ label chapter2_tiny_krill:
     "{b}I obtained a tiny krill.{/b}"
     $ focus()
     return
-
 
 label chapter2_salmon:
 
@@ -367,7 +378,6 @@ label chapter2_salmon:
     $ add_clue("The only way to go to the sea is blocked by a mantis shrimp.")
 
     return
-
 
 label chapter2_salmon_questions:
 
@@ -556,7 +566,6 @@ label chapter2_salmon_questions:
 
     return
 
-
 label chapter2_arowana:
 
     show arowana mad at npc_right
@@ -606,7 +615,6 @@ label chapter2_arowana:
     call chapter2_arowana_questions
 
     return
-
 
 label chapter2_arowana_questions:
 
@@ -825,7 +833,6 @@ label chapter2_arowana_questions:
 
     return
 
-
 label chapter2_night_start:
 
     $ current_cycle = "night"
@@ -902,7 +909,6 @@ label chapter2_night_start:
 
     return
 
-
 label chapter2_coal_tar:
     $ focus()
     show mc o at mc_center_left
@@ -978,7 +984,6 @@ label chapter2_coal_tar:
 
     call chapter2_ghostfish
 
-
 label chapter2_ghostfish:
 
     show mc happy at mc_left
@@ -1006,7 +1011,6 @@ label chapter2_ghostfish:
     call chapter2_ghostfish_questions
 
     return
-
 
 label chapter2_ghostfish_questions:
 
@@ -1251,7 +1255,6 @@ label chapter2_ghostfish_questions:
 
     return
 
-
 label chapter2_mantis:
 
     hide mc
@@ -1306,7 +1309,6 @@ label chapter2_mantis:
 
     return
 
-
 label chapter2_mantis_mc_route:
 
     menu:
@@ -1333,7 +1335,7 @@ label chapter2_mantis_mc_route:
 
             show shrimp default at npc_right
             shrimp "a regime is some sort of propaganda! Maybe!"
-            
+
             show shrimp shy at npc_right
             shrimp "I'm not too good with politics either so I wouldn't know!"
 
@@ -1483,7 +1485,6 @@ label chapter2_mantis_mc_route:
                 "There is no coal tar to give the shrimp."
 
     jump chapter2_mantis_cory_route
-
 
 label chapter2_mantis_cory_route:
 
@@ -1664,7 +1665,6 @@ label chapter2_mantis_cory_route:
         shrimp "That would be betrayal of the highest order!"
 
         jump chapter2_ending
-
 
 label chapter2_ending:
     $ focus()

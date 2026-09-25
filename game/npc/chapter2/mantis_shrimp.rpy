@@ -86,7 +86,6 @@ label mantis_interaction:
 
     jump mantis_as_cory
 
-
 label mantis_as_mc:
 
     $ duel_fighter = "mc"
@@ -223,7 +222,6 @@ label mantis_as_mc:
 
                     shrimp "Grace upon the excellent anatomy of a mantis shrimp! kakaka!"
 
-
                 "Ask for a duel":
 
                     show mc shock at mc_npc
@@ -246,7 +244,6 @@ label mantis_as_mc:
                     show shrimp laugh at shrimp_right
 
                     shrimp "Kakaka! That's the spirit"
-
 
         "I'm here to offer you snacks.. You seem veeery tired.." if has_item("coal_tar"):
 
@@ -406,7 +403,6 @@ label mantis_as_mc:
 
                     shrimp "Please bring me more of it..."
 
-
                 "Ask for a duel":
 
                     show mc shock at mc_npc
@@ -432,13 +428,7 @@ label mantis_as_mc:
 
     jump mantis_start_duel
 
-
 label mantis_as_cory:
-
-    # Note: MC is always the one who physically duels first (see
-    # mantis_start_duel's shared dialogue, which is always addressed
-    # to "guppy"/MC). Cory only steps in to help if MC loses. Who
-    # talks to the shrimp beforehand doesn't change who fights.
 
     show mc default at mc_npc
     show cory smile_hu at cory_npc
@@ -519,7 +509,6 @@ label mantis_as_cory:
 
             shrimp "....!"
 
-
         "May I interest you in some snack young fish.." if has_item("coal_tar"):
 
             cory "may I interest you in some snack young fish..?"
@@ -556,12 +545,8 @@ label mantis_as_cory:
 
     jump mantis_start_duel
 
-
 label mantis_start_duel:
 
-    # MC always starts the duel (Cory only helps if MC loses). Reset
-    # this every time the label is entered, including on "Try again?",
-    # so a previous switch-over to Cory doesn't carry over.
     $ duel_fighter = "mc"
 
     hide mc
@@ -661,31 +646,29 @@ label mantis_start_duel:
 
         return
 
-    if not coal_tar_effective:
+    hide mc
+    scene ch2_dialogue
 
-        hide mc
-        scene ch2_dialogue
+    show mc dizzy at mc_npc
+    mc "nnguuh-!"
 
-        show mc dizzy at mc_npc
-        mc "nnguuh-!"
+    show cory surprise at cory_npc
+    cory "GUPPY!"
 
-        show cory surprise at cory_npc
-        cory "GUPPY!"
+    show cory upset at cory_npc
+    cory "ghhrr I'll avenge you guppy!"
 
-        show cory upset at cory_npc
-        cory "ghhrr I'll avenge you guppy!"
+    show shrimp default at shrimp_right
+    shrimp "Hah! Bring it On!"
 
-        show shrimp default at shrimp_right
-        shrimp "Hah! Bring it On!"
+    $ duel_fighter = "cory"
+    $ coal_tar_effective = False
 
-        $ duel_fighter = "cory"
-        $ coal_tar_effective = False
+    call mantis_duel
 
-        call mantis_duel
-
-        if _return == "win":
-            call mantis_win
-            return
+    if _return == "win":
+        call mantis_win
+        return
 
     hide mc
     scene ch2_dialogue
@@ -705,7 +688,6 @@ label mantis_start_duel:
         "Return to Hub":
 
             return
-
 
 label mantis_win:
 

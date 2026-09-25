@@ -56,7 +56,6 @@ label lele_interaction:
 
     jump lele_as_cory
 
-
 label lele_as_mc:
     show mc o:
         full
@@ -97,7 +96,7 @@ label lele_as_mc:
                 right
                 surprise
             mc "Ah! I was going to give it nicely.."
-            
+
             show lele default:
                 full
                 center
@@ -127,8 +126,6 @@ label lele_as_mc:
             mc "gokil pro max!! :D"
 
             show lele depan:
-                ease 3.0
-                medlong
                 full
                 center
             lele "The sacred golden fish wields power enough to dry out all the water on this planet."
@@ -155,7 +152,6 @@ label lele_as_mc:
             lele "mreow.. :3"
 
             $ focus()
-
 
         "What does that mean?":
             show mc o:
@@ -195,7 +191,6 @@ label lele_as_mc:
             $ focus()
             $ add_clue("The fish headed north.")
 
-
         "How do I even say that...":
             $ focus()
             show mc shock:
@@ -232,7 +227,6 @@ label lele_as_mc:
             $ focus()
 
     return
-
 
 label lele_as_cory:
     show cory smile:
@@ -346,7 +340,6 @@ label lele_as_cory:
             $ focus()
             $ add_clue("The fish headed north.")
 
-
         "Give Ambalabu" if has_item("ambalabu"):
 
             $ remove_item("ambalabu")
@@ -377,8 +370,6 @@ label lele_as_cory:
             cory "super mega gokil pro max"
 
             show lele depan:
-                ease 3.0
-                medlong
                 full
                 centerright
             lele "The sacred golden fish wields power enough to dry out all the water on this planet."

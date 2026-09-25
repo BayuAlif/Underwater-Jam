@@ -81,7 +81,6 @@ label uceng_interaction:
             $ focus()
             $ add_clue("The golden fish can cure the incurable and make the impossible possible.")
 
-
         "The circle looks a little asymmetrical :o":
             $ focus()
             show mc o:
@@ -119,7 +118,6 @@ label uceng_interaction:
                 center
             uceng "hmph."
             $ focus()
-
 
         "It actually looks pretty nice! :D":
             $ focus()

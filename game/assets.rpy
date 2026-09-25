@@ -1,32 +1,8 @@
-# MC is intentionally on its own layer above the dialogue screen.
-# Cory and all NPCs remain on the normal master layer, so they stay behind the textbox.
 init -2 python:
     if "mc_front" not in config.layers:
         config.layers.insert(config.layers.index("screens") + 1, "mc_front")
     config.tag_layer["mc"] = "mc_front"
 
-# ============================================================
-# ASSETS.RPY
-# Friendly-name aliases used by the dialogue scripts (prologue.rpy,
-# story/chapter1.rpy, story/chapter2.rpy, npc/chapter1/*.rpy, npc/chapter2/*.rpy).
-#
-# The REAL sprite declarations (one per original PNG file, cropped to their
-# drawn content, positioned back with Composite) now live in
-# game/sprites_declare.rpy. This file just points every old "show mc shock" /
-# "show bass default" style tag at the matching new tag, so none of the
-# existing story scripts need to be rewritten.
-#
-# This also fixes a few paths that were pointing at the wrong folder / wrong
-# filename in the original file (bass, salmon, arowana, ghost & shrimp
-# idle/hover, and the ghost/shrimp expression files that were missing their
-# trailing underscore) — those were dead references before.
-# ============================================================
-
-# ============================================================
-# assets.rpy — direct sprite declarations (plain file paths)
-# ============================================================
-
-# ---- Mc ----
 image mc default = "images/characters/mc/McDefault_.png"
 image mc o = "images/characters/mc/McO.png"
 image mc shock = "images/characters/mc/McShock_.png"
@@ -44,7 +20,6 @@ image mc serious = "images/characters/mc/McSerious.png"
 image mc serious_hu = "images/characters/mc/McSeriousHU.png"
 image mc dance = "images/characters/mc/McDance.png"
 
-# ---- Cory ----
 image cory talk = "images/characters/cory/CoryTalkNetral_.png"
 image cory smile = "images/characters/cory/CoryTalkSmile.png"
 image cory surprise = "images/characters/cory/CorySurprise.png"
@@ -64,21 +39,18 @@ image cory smile_hu = "images/characters/cory/CoryTalkSmileHU.png"
 image cory dizzy = "images/characters/cory/CoryUpset_.png"
 image cory anon = "images/characters/cory/CoryAnon.png"
 
-# ---- Bass (chapter 1) ----
 image bass idle = "images/npc/chapter1/bass/largemouth_idle.png"
 image bass hover = "images/npc/chapter1/bass/largemouth_hover.png"
 image bass default = "images/npc/chapter1/bass/BassDefault.png"
 image bass thinking = "images/npc/chapter1/bass/BassBerpikir.png"
 image bass oh = "images/npc/chapter1/bass/BassOh!.png"
 
-# ---- Uceng (chapter 1) ----
 image uceng idle = "images/npc/chapter1/uceng/uceng_idle.png"
 image uceng hover = "images/npc/chapter1/uceng/uceng_hover.png"
 image uceng default = "images/npc/chapter1/uceng/UcengDefault_.png"
 image uceng annoyed = "images/npc/chapter1/uceng/UcengAnnoyed_.png"
 image uceng upset = "images/npc/chapter1/uceng/UcengUpset_.png"
 
-# ---- Lele / catfish (chapter 1) ----
 image lele idle = "images/npc/chapter1/catfish/catfish_idle.png"
 image lele hover = "images/npc/chapter1/catfish/catfish_hover.png"
 image lele default = "images/npc/chapter1/catfish/LeleDefault_.png"
@@ -86,7 +58,6 @@ image lele curiga = "images/npc/chapter1/catfish/LeleCuriga_.png"
 image lele depan = "images/npc/chapter1/catfish/LeleDepan.png"
 image lele tidur = "images/npc/chapter1/catfish/LelePuraPuraTidur_.png"
 
-# ---- Gator (chapter 1) ----
 image gator idle = "images/npc/chapter1/aligator/aligator_idle.png"
 image gator hover = "images/npc/chapter1/aligator/aligator_hover.png"
 image gator default = "images/npc/chapter1/aligator/GatorDefault.png"
@@ -95,7 +66,6 @@ image gator smile = "images/npc/chapter1/aligator/GatorSmile.png"
 image gator surprised = "images/npc/chapter1/aligator/GatorSuprise.png"
 image gator upset = "images/npc/chapter1/aligator/GatorUpset_.png"
 
-# ---- Salmon (chapter 2) ----
 image salmon idle = "images/npc/chapter2/Salmon/salmon_idle.png"
 image salmon hover = "images/npc/chapter2/Salmon/salmon_hover.png"
 image salmon default = "images/npc/chapter2/Salmon/SalDefault.png"
@@ -104,7 +74,6 @@ image salmon pien = "images/npc/chapter2/Salmon/SalPien.png"
 image salmon pout = "images/npc/chapter2/Salmon/SalPout.png"
 image salmon hug = "images/npc/chapter2/Salmon/SalHug.png"
 
-# ---- Arowana (chapter 2) ----
 image arowana idle = "images/npc/chapter2/Arowana/arowana_idle.png"
 image arowana hover = "images/npc/chapter2/Arowana/arowana_hover.png"
 image arowana default = "images/npc/chapter2/Arowana/AroDefault.png"
@@ -112,7 +81,6 @@ image arowana mad = "images/npc/chapter2/Arowana/AroMad.png"
 image arowana smile = "images/npc/chapter2/Arowana/AroSmile.png"
 image arowana squint = "images/npc/chapter2/Arowana/AroSquint.png"
 
-# ---- Ghostfish (chapter 2) ----
 image ghost idle = "images/npc/chapter2/Ghost/ghost_idle.png"
 image ghost hover = "images/npc/chapter2/Ghost/ghost_hover.png"
 image ghost default = "images/npc/chapter2/Ghost/GhostDefault_.png"
@@ -121,7 +89,6 @@ image ghost deadpan = "images/npc/chapter2/Ghost/GhostDeadpan_.png"
 image ghost side = "images/npc/chapter2/Ghost/GhostSide_.png"
 image ghost mweheh = "images/npc/chapter2/Ghost/GhostMweheh_.png"
 
-# ---- Mantis Shrimp (chapter 2) ----
 image shrimp idle = "images/npc/chapter2/Mantis/mantis_idle.png"
 image shrimp hover = "images/npc/chapter2/Mantis/mantis_hover.png"
 image shrimp default = "images/npc/chapter2/Mantis/ScyDefault_.png"
@@ -141,7 +108,6 @@ image scy shy = "images/npc/chapter2/Mantis/ScyShy.png"
 image scy smile = "images/npc/chapter2/Mantis/ScySmile.png"
 image scy surprise = "images/npc/chapter2/Mantis/ScySurprise_.png"
 
-# ---- Dunge / crab (chapter 3) ----
 image dunge idle = "images/npc/chapter3/dunge/crab_idle.png"
 image dunge hover = "images/npc/chapter3/dunge/crab_hover.png"
 image dunge default = "images/npc/chapter3/dunge/DunDefault.png"
@@ -149,15 +115,13 @@ image dunge mad = "images/npc/chapter3/dunge/DunMad.png"
 image dunge smile = "images/npc/chapter3/dunge/DunSmile.png"
 image dunge yeesh = "images/npc/chapter3/dunge/DunYeesh.png"
 
-# ---- Hawk / hawksbill turtle (chapter 3) ----
 image hawk idle = "images/npc/chapter3/hawk/turtle_idle.png"
 image hawk hover = "images/npc/chapter3/hawk/turtle_hover.png"
-image hawk default = "images/npc/chapter3/hawk/HawkDefault.png"
-image hawk laugh = "images/npc/chapter3/hawk/HawkLaugh.png"
-image hawk sigh = "images/npc/chapter3/hawk/HawkSigh.png"
-image hawk smile = "images/npc/chapter3/hawk/HawkSmile.png"
+image hawk default = "images/placeholder/hawk_default.png"
+image hawk laugh = "images/placeholder/hawk_laugh.png"
+image hawk sigh = "images/placeholder/hawk_sigh.png"
+image hawk smile = "images/placeholder/hawk_smile.png"
 
-# ---- Teto / goby (chapter 3) ----
 image teto idle = "images/npc/chapter3/gobypis/teto_idle.png"
 image teto hover = "images/npc/chapter3/gobypis/teto_hover.png"
 image teto default = "images/npc/chapter3/gobypis/TetoDefault.png"
@@ -167,19 +131,16 @@ image teto laugh = "images/npc/chapter3/gobypis/TetoLaugh.png"
 image teto pout = "images/npc/chapter3/gobypis/TetoPout.png"
 image teto upset = "images/npc/chapter3/gobypis/TetoUpset.png"
 
-# ---- Sea Bunny (chapter 3) ----
 image bunny idle = "images/npc/chapter3/seabunny/seabunny_idle.png"
 image bunny hover = "images/npc/chapter3/seabunny/seabunny_hover.png"
-image bunny default = "images/npc/chapter3/seabunny/BunnyDefault.png"
-image bunny cry = "images/npc/chapter3/seabunny/BunnyCry.png"
-image bunny happy = "images/npc/chapter3/seabunny/BunnyHappy.png"
-image bunny sad = "images/npc/chapter3/seabunny/BunnySad.png"
-image bunny scared = "images/npc/chapter3/seabunny/BunnyScared.png"
+image bunny default = "images/placeholder/seabunny_default.png"
+image bunny cry = "images/placeholder/seabunny_cry.png"
+image bunny happy = "images/placeholder/seabunny_happy.png"
+image bunny sad = "images/placeholder/seabunny_sad.png"
+image bunny scared = "images/placeholder/seabunny_scared.png"
 
-# ---- Empress Crustacean VIII (temporary placeholder) ----
 image empress placeholder = Solid("#8b2635")
 
-# ---- Legacy single-word aliases ----
 image cory_talk_neutral = "images/characters/cory/CoryTalkNetral_.png"
 image cory_side_legacy = "images/characters/cory/CorySide_.png"
 image cory_surprise_legacy = "images/characters/cory/CorySurprise.png"
@@ -189,10 +150,6 @@ image mc_o_legacy = "images/characters/mc/McO.png"
 image mc_excited_legacy = "images/characters/mc/McExcited_.png"
 image mc_dizzy_legacy = "images/characters/mc/McDizzy.png"
 image mc_actually_legacy = "images/characters/mc/McActually_.png"
-
-# ============================================================
-# Items, backgrounds & battle art (unchanged / not part of the sprite crop)
-# ============================================================
 
 image item_gold_idle = "images/items/chapter1/goldenrock_idle.png"
 image item_gold_hover = "images/items/chapter1/goldenrock_hover.png"
@@ -208,6 +165,16 @@ image item_coal = "images/items/chapter2/coal_idle.png"
 image item_coal_hover = "images/items/chapter2/coal_hover.png"
 image krill = "images/items/chapter2/krill_idle.png"
 image krillangy = "images/items/chapter2/krill_idle.png"
+image item_algae_idle = "images/items/chapter3/algae_idle.png"
+image item_algae_hover = "images/items/chapter3/algae_hover.png"
+image item_algae = "images/items/chapter3/algae_idle.png"
+image item_seaweed_idle = "images/items/chapter3/seaweed_idle.png"
+image item_seaweed_hover = "images/items/chapter3/seaweed_hover.png"
+image item_seaweed = "images/items/chapter3/seaweed_idle.png"
+image turtle idle = "images/npc/chapter3/hawk/turtle_idle.png"
+image turtle hover = "images/npc/chapter3/hawk/turtle_hover.png"
+image seabunny idle = "images/npc/chapter3/seabunny/seabunny_idle.png"
+image seabunny hover = "images/npc/chapter3/seabunny/seabunny_hover.png"
 
 image prologue_day = "images/backgrounds/prologue/prologue_day.jpg"
 image ch1_day = "images/backgrounds/chapter1/bgday1.jpg"
@@ -217,12 +184,12 @@ image ch2_day = "images/backgrounds/chapter2/bgday2.jpg"
 image ch2_night = "images/backgrounds/chapter2/bgnight2.jpg"
 image ch1_dialogue = "images/backgrounds/chapter1/bgday1.jpg"
 image ch2_dialogue = "images/backgrounds/chapter2/bgnight2.jpg"
-image ch3_day = "images/backgrounds/chapter3/DAY/bg day3_bordered.jpg"
-image ch3_night = "images/backgrounds/chapter3/NIGHT/bg night3_bordered.jpg"
-image ch4_day = "images/backgrounds/chapter3/DAY/bg day3_bordered.jpg"
-image ch4_night = "images/backgrounds/chapter3/NIGHT/bg night3_bordered.jpg"
-image ch4_dialogue = "images/backgrounds/chapter3/DAY/bg day3_bordered.jpg"
-image ch4_dialogue_night = "images/backgrounds/chapter3/NIGHT/bg night3_bordered.jpg"
+image ch3_day = "images/backgrounds/chapter3/bgday3.jpg"
+image ch3_night = "images/backgrounds/chapter3/bgnight3.jpg"
+image ch4_day = "images/backgrounds/chapter3/bgday3.jpg"
+image ch4_night = "images/backgrounds/chapter3/bgnight3.jpg"
+image ch4_dialogue = "images/backgrounds/chapter3/bgday3.jpg"
+image ch4_dialogue_night = "images/backgrounds/chapter3/bgnight3.jpg"
 
 image cutpro1 = "images/cutscenes/prologue/1.png"
 image cutpro2 = "images/cutscenes/prologue/2.png"
@@ -241,4 +208,3 @@ image cutchap2 = "images/cutscenes/chapter1/2.png"
 image cutchap3 = "images/cutscenes/chapter1/3.png"
 image cutchap4 = "images/cutscenes/chapter1/4.png"
 image cutchap5 = "images/cutscenes/chapter1/5.png"
-

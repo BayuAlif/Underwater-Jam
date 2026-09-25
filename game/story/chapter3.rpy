@@ -1,20 +1,84 @@
-default ch3_rainbow_algae = 1
-default ch3_red_seaweed = 0
-default ch3_bunny_family_lead = False
-default ch3_bunny_trusts_mc = False
-default ch3_bunny_trusts_cory = False
-default ch3_bunny_received_algae = False
-default ch3_bunny_shrimp_apologized = False
-default ch3_empress_battle_result = None
-default ch3_dunge_result = None
+init python:
+    mc = Character("MC", color="#ffffff", image="mc")
+    cory = Character("Cory", color="#ffffff", image="cory")
+    scyllarus = Character("Scyllarus", color="#ffffff", image="scy") # Often intentionally miscalled "Larus" or "Clarus"
+    seabunny = Character("Sea Bunny", color="#ffffff", image="bunny") # TODO: Name unfinalized (candidates: Paruva, Runa, Joru)
+    hawk = Character("Gran Hawk", color="#ffffff", image="hawk")
+    dun = Character("Dunge", color="#ffffff", image="dunge")
+    emp = Character("Crustacean Empress VIII", color="#ffffff", image="teto") # TODO: Empress real name unconfirmed ("aduh apaya teto…")
+    gob = Character("Goby", color="#ffffff") # TODO: Name unfinalized ("migu gob.. Gobgy migi")
+    gator = Character("Gator", color="#ffffff", image="gator")
+
+    crustaceans = Character("Crustaceans", color="#ffffff")
+    crowd = Character("Crowd", color="#ffffff")
+    emp_mc = Character("Empress & MC", color="#ffffff")
+    unknown_speaker = Character("???", color="#ffffff")
+
+transform npc_left:
+    xanchor 0.30
+    xpos 0.28
+    yanchor 1.0
+    ypos 1.0
+    zoom 0.70
+
+default F1 = cory
+default F2 = scyllarus
+default F3 = seabunny
+
+default has_rainbow_algae = False
+default gave_algae_to_seabunny = False
+default has_red_seaweed = False
+default clue_golden_scale = False
+default clue_empress_weakness = False
+default ch3_seabunny_helped = False
+default ch3_visited_seabunny = False
+default ch3_visited_turtle = False
+default ch3_dunge_defeated = False
 default ch3_empress_defeated = False
-default ch3_scyl_proposal = None
-default ch3_golden_scale_found = False
-default ch3_bunny_path_opened = False
 default ch3_chapter_complete = False
 
-label chapter3_start:
+init python:
+    renpy.image(("cory", "talk_smile_hu"), "images/characters/cory/CoryTalkSmileHU.png")
+    renpy.image(("cory", "fond_smile"), "images/characters/cory/CoryFondSmile_.png")
+    renpy.image(("cory", "side_close"), "images/characters/cory/CorySideClose_.png")
+    renpy.image(("cory", "unimpressed1"), "images/characters/cory/CoryOhiounimpressed1_.png")
+    renpy.image(("cory", "talk_netral"), "images/characters/cory/CoryTalkNetral_.png")
+    renpy.image(("cory", "talk_netral_hu"), "images/characters/cory/CoryTalkNetralHU.png")
+    renpy.image(("cory", "hurt"), "images/characters/cory/CoryUpsetHU.png")
 
+    renpy.image(("scy", "default_om"), "images/npc/chapter2/Mantis/ScyDefaultOM_.png")
+    renpy.image(("scy", "pout"), "images/npc/chapter2/Mantis/ScySepet.png")
+    renpy.image(("scy", "excited"), "images/npc/chapter2/Mantis/ScyLaugh.png")
+
+    renpy.image(("dun", "default"), "images/npc/chapter3/dunge/DunDefault.png")
+    renpy.image(("dun", "mad"), "images/npc/chapter3/dunge/DunMad.png")
+    renpy.image(("dun", "smile"), "images/npc/chapter3/dunge/DunSmile.png")
+    renpy.image(("dun", "yeesh"), "images/npc/chapter3/dunge/DunYeesh.png")
+
+    renpy.image(("gob", "default"), "images/npc/chapter3/gobypis/TetoGunSmirk.png")
+    renpy.image(("item_algae",), "images/items/chapter3/algae_idle.png")
+    renpy.image(("item_algae_hover",), "images/items/chapter3/algae_hover.png")
+    renpy.image(("item_seaweed",), "images/items/chapter3/seaweed_idle.png")
+    renpy.image(("item_seaweed_hover",), "images/items/chapter3/seaweed_hover.png")
+
+    renpy.image(("bunny", "cry"), "images/placeholder/seabunny_cry.png")
+    renpy.image(("bunny", "scared"), "images/placeholder/seabunny_scared.png")
+    renpy.image(("bunny", "sad"), "images/placeholder/seabunny_sad.png")
+    renpy.image(("bunny", "default"), "images/placeholder/seabunny_default.png")
+    renpy.image(("bunny", "happy"), "images/placeholder/seabunny_happy.png")
+
+    renpy.image(("hawk", "default"), "images/placeholder/hawk_default.png")
+    renpy.image(("hawk", "sigh"), "images/placeholder/hawk_sigh.png")
+    renpy.image(("hawk", "smile"), "images/placeholder/hawk_smile.png")
+    renpy.image(("hawk", "laugh"), "images/placeholder/hawk_laugh.png")
+
+screen ch3_boss_negotiation_timer(timeout=8.0):
+    timer timeout action Jump("ch3_boss_negotiate_mc_timeout")
+
+label chapter3_start:
+    jump ch3_start
+
+label ch3_start:
     $ current_chapter = 3
     $ current_cycle = "day"
 
@@ -25,63 +89,63 @@ label chapter3_start:
 
     "The sea fills my line of sight with overwhelmingly bright pretty colors. My gaze erratically jumps from one color to another as we continue to swim further. From parrot fishes, sparkly elvis worms to rainbow open brain corals. There's way too many stuff to focus on!"
 
-    show mc excited at mc_left
-    show cory side at cory_left
-
+    show cory smile_hu at cory_left
     cory "heh.. Yer eyes been flying everywhere since we got here"
     cory "Don't ya get dizzy?"
 
+    show mc excited at mc_left
     mc "ohmigosh!! Is that coral dancing?! Did you see that, Mr Cory?! I think that's the Spanish dancer!"
 
     show cory fond at cory_left
     cory "So excited, can't even hear me huh.."
 
-    show cory side at cory_left
+    show cory smile_hu at cory_left
     cory "Though I must admit that this is some otherworldly beaut going on"
 
-    show shrimp proud at npc_right
-    shrimp "Right?! Feast your eyes upon the neverending beauty that is sea!"
+    show scy proud at npc_right
+    scyllarus "Right?! Feast your eyes upon the neverending beauty that is sea!"
 
     show cory side at cory_left
-    cory "To think your empress’ been gatekeepin all this.. kinda messed up to think about"
+    cory "To think your empress' been gatekeepin all this.. kinda messed up to think about"
 
-    show shrimp sepet at npc_right
-    shrimp "But she's not entirely wrong either! Most fish criminals are freshwater types!"
+    show scy sepet at npc_right
+    scyllarus "But she's not entirely wrong either! Most fish criminals are freshwater types!"
 
-    show cory side at cory_left
+    show cory side_close at cory_left
     cory "Ay.. Sure, being careful is one thing.."
     cory "But pushing that stereotype into every freshwater is a whole different thing"
 
-    show shrimp default 
-    shrimp "Mm.. well! It's the daughter that just got promoted into empress!"
-    shrimp "The former queen that saved my life had dethroned herself not long ago"
-    shrimp "So she's still trying out new rules that feel fitting!"
+    show scy default_om at npc_right
+    scyllarus "Mm.. well! It's the daughter that just got promoted into empress!"
+    scyllarus "The former queen that saved my life had dethroned herself not long ago"
+    scyllarus "So she's still trying out new rules that feel fitting!"
 
-    show cory side at cory_left
+    show cory unimpressed at cory_left
     cory "New ruler's a kid? That checks out.."
 
+    show cory talk at cory_left
     cory "About time somefish teaches em a lesson then"
-        
-    show shrimp surprise
-    shrimp "....!"
-    shrimp "Wait! Why are you crying comrade?!"
 
-    show cory side at cory_left
+    show scy surprise at npc_right
+    scyllarus "....!"
+    scyllarus "Wait! Why are you crying comrade?!"
+
+    show cory surprise at cory_left
     cory "Huh? I ain't crying! Are you guppy?"
 
-    show mc o at mc_left
+    show mc shock at mc_left
     mc "Me? Why would I be?"
 
-    show shrimp surprise
-    shrimp "But I feel the vibration of someone crying!"
+    show scy surprise at npc_right
+    scyllarus "But I feel the vibration of someone crying!"
 
-    "nngueeeh.."
+    unknown_speaker "nngueeeh.."
 
-    show cory side at cory_left
+    show cory surprise at cory_left
     cory "Wait, I hear it too..!"
 
-    show shrimp default 
-    shrimp "What if it's another one of golden fish's unfortunate victims?!"
+    show scy default_om at npc_right
+    scyllarus "What if it's another one of golden fish's unfortunate victims?!"
 
     show mc o at mc_left
     mc "oh no! We have to find them!"
@@ -89,144 +153,442 @@ label chapter3_start:
     show cory side at cory_left
     cory "Everybody's been gloomy lately huh"
 
-    jump chapter3_reef_exploration
+    jump ch3_day_explore
 
-label chapter3_reef_exploration:
+label ch3_day_explore:
+    $ current_chapter = 3
+    $ current_cycle = "day"
 
+    $ setup_exploration(
+        [
+            {
+                "id": "hawk",
+                "name": "Gran Hawk",
+                "idle": "turtle idle",
+                "hover": "turtle hover",
+                "xpos": 307,
+                "ypos": 162,
+                "check_xpos": 518,
+                "check_ypos": 120,
+                "x": 0.20,
+                "y": 0.20,
+                "check_y": 0.12
+            },
+            {
+                "id": "bunny",
+                "name": "Sea Bunny",
+                "idle": "seabunny idle",
+                "hover": "seabunny hover",
+                "xpos": 1370,
+                "ypos": 592,
+                "check_xpos": 1411,
+                "check_ypos": 550,
+                "x": 0.72,
+                "y": 0.58,
+                "check_y": 0.52
+            }
+        ],
+        {
+            "id": "rainbow_algae",
+            "name": "Rainbow Algae",
+            "idle": "item_algae_idle",
+            "hover": "item_algae_hover",
+            "xpos": 809,
+            "ypos": 807,
+            "x": 0.44,
+            "y": 0.77
+        }
+    )
+
+    label .loop:
+        hide mc
+        hide cory
+        hide scy
+        hide bunny
+        hide hawk
+        scene ch3_day
+
+        python:
+            for _n in exploration_npcs:
+                if _n["id"] in ("hawk", "turtle"):
+                    _n["idle"] = "turtle idle"
+                    _n["hover"] = "turtle hover"
+                    _n["xpos"] = 307
+                    _n["ypos"] = 162
+                    _n["check_xpos"] = 518
+                    _n["check_ypos"] = 120
+                elif _n["id"] in ("bunny", "seabunny"):
+                    _n["idle"] = "seabunny idle"
+                    _n["hover"] = "seabunny hover"
+                    _n["xpos"] = 1370
+                    _n["ypos"] = 592
+                    _n["check_xpos"] = 1411
+                    _n["check_ypos"] = 550
+            if exploration_item:
+                exploration_item["xpos"] = 809
+                exploration_item["ypos"] = 807
+
+        call screen exploration_screen
+
+        $ result = _return
+
+        if result in ("bunny", "seabunny"):
+            $ mark_npc_explored("bunny")
+            call ch3_seabunny_encounter
+            jump .loop
+
+        elif result in ("hawk", "turtle"):
+            $ mark_npc_explored("hawk")
+            call ch3_turtle_encounter
+            jump .loop
+
+        elif result == "item":
+            $ collect_exploration_item()
+            call ch3_item_rainbow_algae
+            jump .loop
+
+        elif result == "continue":
+            jump ch3_night_explore
+
+        jump .loop
+
+label ch3_item_rainbow_algae:
+    show mc excited at mc_left
+    mc "woah! Rainbow algaes"
+
+    show cory talk_hu at cory_left
+    cory "Wait guppy, are those safe? Colors suggest me not.."
+
+    show scy laugh at npc_right
+    scyllarus "Don't fret my friend! These are harmless!"
+
+    show mc happy at mc_left
+    mc "yipee I'll take some with us then!"
+
+    show scy default_om at npc_right
+    scyllarus "Do take a considerable amount!"
+    scyllarus "I will not tolerate algae hoarding!"
+
+    show mc default at mc_left
+    mc "yes yes I know!"
+
+    show mc o at mc_left
+    mc "Can i taaaake.. Mm 30?"
+
+    show scy surprise at npc_right
+    scyllarus "Absolutely not! That's more than the crown allows!"
+
+    show scy default_om at npc_right
+    scyllarus "You can only take no more than 5lbs!"
+
+    show mc pout at mc_left
+    mc "But I seen fishermen take a huuuuuge big bucket of algaes and not get yelled at!"
+    mc "30 is far from filling a huge big bucket!"
+
+    show scy default_om at npc_right
+    scyllarus "No! Here in sea, we have strict rules over what we take"
+    scyllarus "Especially now! The waters have been thinning for moons now…"
+
+    show scy sepet at npc_right
+    scyllarus "algae, fish, even the coral's gone quiet!"
+
+    show mc shock at mc_left
+    mc "Wait, so… it's actually bad right now?"
+
+    show scy default_om at npc_right
+    scyllarus "Bad enough that the crown had to cut the limit twice this season alone!"
+    scyllarus "So no. Not 30. Not even close, guppy!"
+
+    show mc pout at mc_left
+    mc "mmn okay I understand…"
+
+    show mc o at mc_left
+    mc "mr cory whats 5 lbs in kilograms..?"
+
+    show cory side at cory_left
+    cory "I uhh.."
+
+    show cory side_close at cory_left
+    cory "ay let's just take 2 and go guppy"
+
+    $ has_rainbow_algae = True
+    $ add_item("rainbow_algae")
+    return
+
+label ch3_day_explore_continue:
+    if ch3_visited_seabunny:
+        $ mark_npc_explored("bunny")
+    if ch3_visited_turtle:
+        $ mark_npc_explored("hawk")
+    jump ch3_day_explore.loop
+
+label ch3_seabunny_encounter:
     hide mc
+    hide cory
+    hide scy
     scene ch3_day
     with dissolve
 
-    show dunge default at npc_right
-    dunge "Well, well. Ain't seen a river guppy 'round these parts before."
+    "A seabunny is found crying behind luscious corals. I wonder what made it cry that loud?"
 
-    show mc excited at mc_left
-    mc "Whoa, a crab that talks!"
+    show bunny cry at npc_right
+    seabunny "nghuuuu.. ueeeh… ueeh!!!!"
 
-    show dunge smile at npc_right
-    dunge "Heh. Everything talks down here, kid. You'll get used to that too."
-
-    show hawk default at npc_right
-    hawk "Oi, quit hoggin' the current, Dunge."
-
-    show dunge yeesh at npc_right
-    dunge "Yeesh, alright, alright."
-
-    show cory fond at cory_left
-    cory "...Seems like this place has its fair share of characters."
-
-    show bunny default at npc_right
-
-    bunny "Oh! New faces! Welcome, welcome!"
-
-    show mc happy at mc_left
-
-    mc "Hello! I'm glad to meet you!"
-
-    show bunny sad at npc_right
-
-    bunny "I'm happy to see new faces too..."
-
-    mc "Hm? Is something wrong?"
-
-    # --- SEA BUNNY INTERACTION ---
-    show bunny sad 
-    bunny "nghuuuu.. ueeeh… ueeh!!!!"
-
-    show mc shock 
+    show mc shock at mc_left
     mc "huh..? What's wrong?"
 
-    show bunny sad 
-    bunny "uuu.. shiku shiku.. My family.. They took them!!"
+    show bunny cry at npc_right
+    seabunny "uuu.. shiku shiku.. My family.. They took them!!"
 
-    show shrimp default_om 
-    shrimp "And who exactly is this 'they'?!"
+    show scy default_om at center
+    scyllarus "And who exactly is this \"they\"?!"
 
-    show bunny scared 
-    bunny "GYAAA IT'S THEM IT'S THEM!!"
+    show bunny scared at npc_right
+    seabunny "GYAAA IT'S THEM IT'S THEM!!"
 
-    "The bunny-shaped slug lets out a high-pitched scream."
-    "Mr. Shrimp's presence sends her scurrying away to curl and hide behind a coral."
+    "The bunny shaped slug lets out a high pitched scream. Mr. Shrimp's presence sending her scurrying away to curl and hide behind a coral as it cowers in fear."
 
-    show shrimp surprise 
-    shrimp "Huh…?!"
+    show scy surprise at center
+    scyllarus "Huh…?!"
 
-    show mc o
+    show mc o at mc_left
     mc "Can you specify who or what took your family?"
 
-    show bunny scared 
-    "The sea bunny seems to refuse to answer anything with Mr. Shrimp nearby."
+    show bunny scared at npc_right
+    "The sea bunny seems to refuse to answer anything with Mr Shrimp nearby"
 
-    menu:
-        "Who should ask the sea bunny?"
+    hide mc
+    hide cory
+    hide scy
+    hide bunny
+    call screen choose_interactor(
+        "Choose who should ask Sea Bunny!",
+        "The answers may vary based on the character asking"
+    )
 
-        "Ask her as MC":
-            jump ch3_bunny_as_mc
+    $ selected_questioner = _return
 
-        "Ask her as Cory":
-            jump ch3_bunny_as_cory
+    if selected_questioner == "mc":
+        jump ch3_seabunny_as_mc
+    elif selected_questioner == "cory":
+        jump ch3_seabunny_as_cory
+    else:
+        jump ch3_seabunny_as_scyllarus
 
-        "Ask her as Scyllarus":
-            jump ch3_bunny_as_shrimp
-
-
-
-label ch3_bunny_as_mc:
-
-    show mc happy
+label ch3_seabunny_as_mc:
+    show mc happy at mc_left
     mc "Don't be scared, sea bunny!"
+    mc "Mr shrimp is far away now!"
 
-    mc "Mr. Shrimp is far away now!"
+    show bunny scared at npc_right
+    seabunny "He's.. still around though.."
 
-    show bunny scared
-    bunny "He's.. still around though.."
+    mc "It's okay I won't let him get near you!"
 
-    show mc happy
-    mc "It's okay! I won't let him get near you!"
-
-    show bunny sad
-    bunny "nguu.. okay I trust you…"
-    $ ch3_bunny_trusts_mc = True
+    show bunny sad at npc_right
+    seabunny "nguu.. okay I trust you…"
 
     menu:
-        "What do you want to ask her?"
-
         "What happened to your family?":
-            jump ch3_bunny_family
+            jump ch3_bunny_mc_opt1
 
-        "Why are you scared of Mr. Shrimp?":
-            jump ch3_bunny_shrimp
+        "Why are you scared of Mr Shrimp?":
+            jump ch3_bunny_mc_opt2
 
-        "Do you need a hug? (Give rainbow algae)" if ch3_rainbow_algae > 0:
-            jump ch3_bunny_hug
+        "Do you need a hug? (Give rainbow algae)" if has_rainbow_algae:
+            jump ch3_bunny_mc_opt3
 
-label ch3_bunny_as_cory:
+label ch3_bunny_mc_opt1:
+    show bunny sad at npc_right
+    seabunny "They were taken away.. by a big brute crab.."
+    seabunny "He claimed to be.. doing that under the crustacean empress 'command.."
+    seabunny "Said that my.. kind is a threat to the sea…"
 
-    show bunny scared
-    bunny "He's.. still around though.."
+    show mc pout at mc_left
+    mc "What!! That's awful!"
+    mc "Everyone gets a chance to live at the sea no matter how dangerous!"
+    mc "Without what they claim as threats.. The sea would be in a bigger danger!"
+
+    show bunny default at npc_right
+    seabunny "Eh..? Is that so..?"
+
+    show mc default at mc_left
+    mc "mhm!"
+    mc "Mhm! Even the scary stuff has a job!"
+
+    show mc actually at mc_left
+    mc "If you take it away, whatever it used to hunt just grows and grows until that's the problem instead!"
+    mc "It's like a big circle predator, prey, little guys, big guys"
+    mc "snap one part off and the whole thing tips over!"
+    mc "So whoever's calling your kind a 'threat'? They just don't get it!"
+
+    show bunny happy at npc_right
+    seabunny "Ahh I see! Mmn! That makes perfect sense!"
+
+    show bunny sad at npc_right
+    seabunny "If only they would understand…"
+
+    show mc happy at mc_left
+    mc "Don't worry we'll make them understand!!"
+    $ ch3_visited_seabunny = True
+    jump ch3_day_explore_continue
+
+label ch3_bunny_mc_opt2:
+    show mc o at mc_left
+    show bunny scared at npc_right
+    seabunny "He's a crustacean!!"
+    seabunny "They're the kind who took my family away!"
+
+    show bunny sad at npc_right
+    seabunny "And crustaceans they.. they all work under the crustacean empress right?"
+
+    show mc pout at mc_left
+    mc "Mm he does but.. He's different!"
+    mc "He realized that what the empress' pushing is wrong!"
+    mc "And now we're here to talk to the empress about it!"
+
+    show bunny default at npc_right
+    seabunny "But will the empress hear you out…?"
+    seabunny "She's very ruthless and stubborn…"
+
+    show bunny sad at npc_right
+    seabunny "She's not afraid to kill those who defy her…"
+
+    show mc happy at mc_left
+    mc "mmm.. Then we'll just fight her!"
+
+    show bunny scared at npc_right
+    seabunny "dowawa?! Fight her..?!"
+
+    show mc excited at mc_left
+    mc "Yeah! Mr Cory will tank all her attacks!"
+
+    show bunny happy at npc_right
+    seabunny "That's so very cool!! You need your own shounen series!"
+
+    show mc shock at mc_left
+    mc "shounen? Ah!! Like Chainsaw Man?"
+
+    show bunny happy at npc_right
+    seabunny "Yes!! Ah finally someone that gets it!!"
+    $ ch3_visited_seabunny = True
+    jump ch3_day_explore_continue
+
+label ch3_bunny_mc_opt3:
+    show bunny scared at npc_right
+    seabunny "i..!"
+
+    show bunny sad at npc_right
+    seabunny "As much as I'd very much like one…right now"
+
+    show bunny cry at npc_right
+    seabunny "nnghh shiku shiku *sniffle* you can't hug me..!!"
+
+    show mc happy at mc_left
+    mc "It's fine! I know sea bunnies contain this weird toxin in their bodies but.."
+
+    show mc actually at mc_left
+    mc "Try eating this.. I read that what makes seabunny toxic is what they eat!"
+
+    show bunny default at npc_right
+    seabunny "mn.. huh? Rainbow algae.."
+    seabunny "Even when it's true.. The sponges that we eat are still crucial for our survival.."
+
+    show mc happy at mc_left
+    mc "mm then I'll still hug you!"
+
+    show bunny scared at npc_right
+    seabunny "huh?"
+
+    show mc excited at mc_left
+    mc "I don't mind a little itch! You look very fluffy to touch!"
+
+    show bunny scared at npc_right
+    seabunny "B-but..!"
+
+    "Without letting those words finish, I pulled it into a tight hug. Burying my face into its fluffy looking appendages."
+
+    show bunny cry at npc_right
+    seabunny "uu.. UEHHHH"
+
+    show mc happy at mc_left
+    mc "it's okay.. Let it all out"
+
+    show bunny cry at npc_right
+    seabunny "UHNNG I MISS MY FAAAMILY.. I MISS THEM!!"
+    seabunny "ITS ALL MY FAAAULT UEEEEH…!!!!"
+
+    show mc pout at mc_left
+    mc "no no it's not!!"
+
+    show mc default at mc_left
+    mc "it's a good thing that you're still here with us…"
+
+    show mc happy at mc_left
+    mc "don't worry sea bunny we'll get your family back!!"
+
+    show bunny sad at npc_right
+    seabunny "promise…?"
+
+    mc "mhm! Pinky promise!!"
+    $ gave_algae_to_seabunny = True
+    $ has_rainbow_algae = False
+    $ ch3_seabunny_helped = True
+    $ ch3_visited_seabunny = True
+    jump ch3_day_explore_continue
+
+label ch3_seabunny_as_cory:
+    show cory smile_hu at cory_left
+    cory "Ay, easy now slug.."
+    cory "I've driven the shrimp away for a bit, you're safe"
+
+    show bunny default at npc_right
+    seabunny "Thank you.. You have my gratitude…"
+
+    "Sea bunny bows down in expression of gratitude"
+
+    show bunny sad at npc_right
+    seabunny "Also.. please don't refer to me with that.. S word.."
+
+    cory "S word…?"
+
+    seabunny "And ends with a g.."
 
     show cory side at cory_left
-    cory "Aw, don't worry. I'll keep my distance."
+    cory "Oh right! My bad.."
 
-    show bunny sad
-    bunny "nguu.. okay..."
-    $ ch3_bunny_trusts_cory = True
+    show cory smile at cory_left
+    cory "What would you like to be called then?"
+
+    show bunny default at npc_right
+    seabunny "Sea bunny or nudibranch is fine.."
 
     menu:
-        "What do you want to ask her?"
+        "Mind telling us what happened?":
+            jump ch3_bunny_cory_opt1
 
-        "What happened to your family?":
-            jump ch3_bunny_cory_family
+        "I'm sorry to hear about your family.. must be tough on ya.. (Give rainbow algae)" if has_rainbow_algae:
+            jump ch3_bunny_cory_opt2
 
-        "I'm sorry to hear about your family.. must be tough on ya..":
-            jump ch3_bunny_cory_comfort
+label ch3_bunny_cory_opt1:
+    show cory talk_hu at cory_left
+    show bunny default at npc_right
+    seabunny "Me and my family were just having a nice sunny picnic.. under the pink acropora coral…"
 
+    show bunny happy at npc_right
+    seabunny "Laughter all around.. As we feed each other sponges.."
+    seabunny "I was going out a little to pick more sponges for us.."
 
-label ch3_bunny_cory_family:
-    $ ch3_bunny_family_lead = True
+    show bunny scared at npc_right
+    seabunny "Until.. A big brute crab suddenly came through"
 
-    show bunny sad
-    bunny "He ate.. My baby sibling..!!"
+    show bunny sad at npc_right
+    seabunny "So I hid behind a coral.."
+    seabunny "He said he was hungry.. So my mom tried to offer him a sponge but..!"
+    seabunny "He tried it.. He spat it out.. Then he moves over to.. My- and he-!"
+
+    show bunny scared at npc_right
+    seabunny "He..! He ate.. My baby sibling..?!"
 
     show cory surprise at cory_left
     cory "Oh shrimp.. That's real messed up…"
@@ -234,22 +596,18 @@ label ch3_bunny_cory_family:
     show cory side at cory_left
     cory "I'm so very sorry…"
 
-    show bunny default
-    bunny "But we sea bunnies.. have toxins in our bodies.."
+    show bunny default at npc_right
+    seabunny "But we sea bunnies.. have toxins in our bodies.."
+    seabunny "When the crab took a bite.. The toxins start eating him out from inside"
+    seabunny "Angered.. He then took the rest of my family away claiming us as a danger to the sea.."
 
-    bunny "When the crab took a bite.. The toxins start eating him out from inside"
+    show bunny sad at npc_right
+    seabunny "At least.. my sibling fought until the very end.."
+    seabunny "I still couldn't forgive myself for letting that crab get away…"
+    seabunny "And for letting it all.. happen… It's my fault.."
 
-    bunny "Angered.. He then took the rest of my family away claiming us as a danger to the sea.."
-
-    show bunny sad
-    bunny "At least.. my sibling fought until the very end.."
-
-    bunny "I still couldn't forgive myself for letting that crab get away…"
-
-    bunny "And for letting it all.. happen… It's my fault.."
-
-    show bunny cry
-    bunny "UEEEEHH SHIKU SHIKU"
+    show bunny cry at npc_right
+    seabunny "UEEEEHH SHIKU SHIKU"
 
     show cory upset at cory_left
     cory "Hey, hey don't blame yourself now!"
@@ -257,1093 +615,1113 @@ label ch3_bunny_cory_family:
     show cory talk at cory_left
     cory "What could ya possibly do anyway? If you jump out you'll get kidnapped too!"
 
-    show cory talk at cory_left
+    show cory talk_hu at cory_left
     cory "What you did was the best choice, so now you can save your family"
 
-    show bunny cry
-    bunny "uuu…"
+    show bunny cry at npc_right
+    seabunny "uuu…"
 
-    show cory talk at cory_left
+    show cory talk_hu at cory_left
     cory "Don't worry we'll get him"
-
     cory "We're planning to overthrow this whole crustacean dictator bullshrimp"
-    jump ch3_bunny_done
+    $ ch3_visited_seabunny = True
+    jump ch3_day_explore_continue
 
-
-label ch3_bunny_cory_comfort:
-
+label ch3_bunny_cory_opt2:
     show cory side at cory_left
-    show bunny sad
-    bunny "Mm.."
+    show bunny sad at npc_right
+    seabunny "Mm.."
 
     show cory talk at cory_left
     cory "I had a little sister too.."
 
-    show cory smile at cory_left
+    show cory smile_hu at cory_left
     cory "Real ball of sunshine.."
 
-    show cory talk at cory_left
+    show cory talk_hu at cory_left
     cory "But she got some kind of weird sickness going on.. that eventually separates us…"
 
-    show cory side at cory_left
+    show cory side_close at cory_left
     cory "guh sorry for the sudden vent.. I'll stop now"
 
-    show bunny default
-    bunny "No! It's fine.. She must've been really dear to you.. I'm sorry.."
+    show bunny default at npc_right
+    seabunny "No! It's fine.. She must've been really dear to you.. I'm sorry.."
 
     show cory side at cory_left
     cory "She's still alive though.. Somewhere in this vast sea.."
 
-    if ch3_rainbow_algae > 0:
-        $ ch3_rainbow_algae -= 1
-        $ ch3_bunny_received_algae = True
-
-    show cory smile at cory_left
+    show cory smile_hu at cory_left
     cory "Ah, Have you eaten anything? I've got some algae for ya.."
-
     cory "And it's rainbow algae!"
 
-    show bunny happy
-    bunny "Rainbow algae..? so pretty! kirakira"
+    show bunny happy at npc_right
+    seabunny "Rainbow algae..? so pretty! kirakira"
+    seabunny "Thank you!"
 
-    bunny "Thank you!"
+    show bunny sad at npc_right
+    seabunny "But I.. I don't think I can.. eat after what I had to witness…"
 
-    show bunny sad
-    bunny "But I.. I don't think I can.. eat after what I had to witness…"
-
-    show cory talk at cory_left
+    show cory talk_hu at cory_left
     cory "You can't be like that… your family wouldn't want ya to skip meals would they?"
 
-    bunny "..."
+    seabunny "..."
 
-    show cory smile at cory_left
+    show cory smile_hu at cory_left
     cory "Eat up sea bunny.."
 
-    show cory smile at cory_left
+    show cory fond at cory_left
     cory "So you've got the strength to look at them in the eyes when ya meet them again"
 
-    show bunny default
-    bunny "You're right.. Thank you.."
+    show bunny default at npc_right
+    seabunny "You're right.. Thank you.."
+    $ gave_algae_to_seabunny = True
+    $ has_rainbow_algae = False
+    $ ch3_seabunny_helped = True
+    $ ch3_visited_seabunny = True
+    jump ch3_day_explore_continue
 
-    jump ch3_bunny_done
+label ch3_seabunny_as_scyllarus:
+    "The sea bunny stands at a reasonably far distance"
 
-label ch3_bunny_as_shrimp:
+    show bunny scared at npc_right
+    seabunny "Your red shelled kind! the one who does all of this evil baka stuff!"
 
-    "The sea bunny stands at a reasonably far distance."
+    show bunny sad at npc_right
+    seabunny "My family.. Is detained for simply living…"
 
-    show bunny scared 
-    bunny "Your red shelled kind! the one who does all of this evil baka stuff!"
-
-    show bunny sad 
-    bunny "My family.. Is detained for simply living…"
-
-    show shrimp default_om 
-    shrimp "Oh! It's probably one of the crustaceans doing!"
+    show scy default_om at npc_left
+    scyllarus "Oh! It's probably one of the crustaceans doing!"
 
     menu:
-        "How should Mr. Shrimp apologize?"
-
         "Apologize in advance":
-            jump ch3_bunny_shrimp_apologize
+            jump ch3_bunny_scy_opt1
 
-        "Please accept this algae as a token of apology!":
-            jump ch3_bunny_shrimp_algae
+        "Please accept this algae as a token of apology!" if has_rainbow_algae:
+            jump ch3_bunny_scy_opt2
 
-
-label ch3_bunny_shrimp_apologize:
-    $ ch3_bunny_shrimp_apologized = True
+label ch3_bunny_scy_opt1:
     "Mr Shrimp took a few steps forward to properly bow down in an apologetical manner"
 
-    show shrimp default_om 
-    shrimp "I apologize for the inconvenience that my kind has inflicted upon your family!"
+    show scy default_om at npc_left
+    scyllarus "I apologize for the inconvenience that my kind has inflicted upon your family!"
 
-    show bunny scared 
-    bunny "EEEK-!"
+    show bunny scared at npc_right
+    seabunny "EEEK-!"
 
     "The sea bunny curls up in fear"
 
-    bunny "I.. kindly.. ask you to stay away.. Please…!"
+    seabunny "I.. kindly.. ask you to stay away.. Please…!"
 
-    show shrimp default 
-    shrimp "...! Understood!"
-
-    shrimp "Then I shall stand at a safe, reasonable distance!"
+    show scy default at npc_left
+    scyllarus "...! Understood!"
+    scyllarus "Then I shall stand at a safe, reasonable distance!"
 
     "Mr Shrimp took exactly one step away from the sea bunny"
 
-    show bunny scared 
-    bunny "T-that’s not enough distance!"
+    show bunny scared at npc_right
+    seabunny "T-that's not enough distance!"
+    $ ch3_visited_seabunny = True
+    jump ch3_day_explore_continue
 
-    jump ch3_bunny_done
+label ch3_bunny_scy_opt2:
+    show scy shy at npc_left
+    scyllarus "I was informed that algae counts as one of your diet!"
 
+    show bunny scared at npc_right
+    seabunny "...?!"
+    seabunny "I.. I read this in mangas before!"
+    seabunny "It's probably poisoned right?! Or.."
+    seabunny "Or you make it super delicious.."
+    seabunny "And when I'm busy eating your gift.. piri piri..."
+    seabunny "BAAN!! You kidnap me!"
 
-label ch3_bunny_shrimp_algae:
-    if ch3_rainbow_algae <= 0:
-        "Mr. Shrimp has no algae left to offer."
-        jump ch3_bunny_done
+    show scy surprise at npc_left
+    scyllarus "WHAT! Preposterous! I wouldn't do such dirty tactics!"
 
-    $ ch3_rainbow_algae -= 1
+    show bunny sad at npc_right
+    seabunny "Guuu..!You'll never know! Must keep guard up! kuyo kuyo…"
 
-    show shrimp shy
-    shrimp "I was informed that algae counts as one of your diet!"
+    show scy sepet at npc_left
+    scyllarus "And manga.. Is that some kind of.. new type of algaes?!"
 
-    show bunny scared
-    bunny "...?!"
-
-    bunny "I.. I read this in mangas before!"
-
-    bunny "It's probably poisoned right?! Or.."
-
-    bunny "Or you make it super delicious.."
-
-    bunny "And when I'm busy eating your gift.. piri piri..."
-
-    bunny "BAAN!! You kidnap me!"
-
-    show shrimp surprise at npc_right
-    shrimp "WHAT! Preposterous! I wouldn't do such dirty tactics!"
-
-    show bunny sad 
-    bunny "Guuu..!You'll never know! Must keep guard up! kuyo kuyo…"
-
-    show shrimp sepet at npc_right
-    shrimp "And manga.. Is that some kind of.. new type of algaes?!"
-
-    show shrimp default_om at npc_right
-    shrimp "I'll search for one if it makes you forgive us!"
+    show scy default_om at npc_left
+    scyllarus "I'll search for one if it makes you forgive us!"
 
     "The sea bunny refuses to take the sea algae"
+    $ ch3_visited_seabunny = True
+    jump ch3_day_explore_continue
 
-    jump ch3_bunny_done
+label ch3_turtle_encounter:
+    hide mc
+    hide cory
+    hide scy
+    hide bunny
+    scene ch3_day
+    with dissolve
 
-label ch3_bunny_family:
-    $ ch3_bunny_family_lead = True
+    "A seaturtle sways haphazardly above us. It suddenly throws a rock at mr.shrimp"
 
-    show bunny sad 
-    bunny "They were taken away.. by a big brute crab.."
+    show scy surprise at npc_left
+    scyllarus "whuh?! What's that about!"
 
-    bunny "He claimed to be.. doing that under the crustacean empress' command.."
+    show hawk default at npc_right
+    hawk "get lost ya red shell!"
+    hawk "we've got enough of ya bullshrimp"
 
-    bunny "Said that my.. kind is a threat to the sea…"
-
-    show mc pout
-    mc "What!! That's awful!"
-
-    mc "Everyone gets a chance to live at the sea no matter how dangerous!"
-
-    mc "Without what they claim as threats.. the sea would be in a bigger danger!"
-
-    show bunny default
-    bunny "Eh..? Is that so..?"
-
-    show mc default
-    mc "Mhm! Even the scary stuff has a job!"
-
-    show mc actually
-    mc "If you take it away, whatever it used to hunt just grows and grows until that's the problem instead!"
-
-    mc "It's like a big circle: predator, prey, little guys, big guys."
-
-    mc "Snap one part off and the whole thing tips over!"
-
-    mc "So whoever's calling your kind a 'threat'? They just don't get it!"
-
-    show bunny happy
-    bunny "Ahh I see! Mmn! That makes perfect sense!"
-
-    show bunny sad
-    bunny "If only they would understand…"
-
-    show mc happy
-    mc "Don't worry, we'll make them understand!!"
-
-    show bunny sad
-    bunny "I just want my family back…"
-
-    show mc happy
-    mc "We'll do what we can to help."
-
-    jump ch3_bunny_done
-
-
-label ch3_bunny_shrimp:
+    show cory smile_hu at center
+    cory "everyone's got a problem with your kind huh?"
 
     show mc o at mc_left
-    show bunny scared
+    mc "mmm it seems like the problem delve deeper than a simple hate…"
+    mc "let's try asking her out!"
 
-    bunny "He's a crustacean!!"
+    hide mc
+    hide cory
+    hide scy
+    hide hawk
+    call screen choose_interactor(
+        "Choose who should ask Gran Hawk!",
+        "The answers may vary based on the character asking"
+    )
 
-    bunny "They're the kind who took my family away!"
+    $ selected_questioner = _return
 
-    show bunny sad
-    bunny "And crustaceans they.. they all work under the crustacean empress, right?"
+    if selected_questioner == "mc":
+        jump ch3_turtle_as_mc
+    elif selected_questioner == "cory":
+        jump ch3_turtle_as_cory
+    else:
+        jump ch3_turtle_as_scyllarus
 
-    show mc pout
-    mc "Mm, he does, but.. he's different!"
-
-    mc "He realized that what the empress is pushing is wrong!"
-
-    mc "And now we're here to talk to the empress about it!"
-
-    show bunny default
-    bunny "But will the empress hear you out…?"
-
-    bunny "She's very ruthless and stubborn…"
-
-    show bunny sad
-    bunny "She's not afraid to kill those who defy her…"
-
-    show mc happy
-    mc "Mmm.. then we'll just fight her!"
-
-    show bunny scared
-    bunny "Dowawa?! Fight her..?!"
-
-    show mc excited at mc_left
-    mc "Yeah! Mr. Cory will tank all her attacks!"
-
-    show bunny happy
-    bunny "That's so very cool!! You need your own shounen series!"
-
-    show mc shock
-    mc "Shounen? Ah!! Like Chainsaw Man?"
-
-    show bunny happy
-    bunny "Yes!! Ah finally someone that gets it!!"
-
-    show mc happy
-    mc "Hehe! We'll get your family back, sea bunny!"
-
-    jump ch3_bunny_done
-
-
-label ch3_bunny_hug:
-    if ch3_rainbow_algae <= 0:
-        "I don't have any rainbow algae left."
-        jump ch3_bunny_done
-
-    $ ch3_rainbow_algae -= 1
-    $ ch3_bunny_received_algae = True
-
-    show bunny scared
-    bunny "I..!"
-
-    show bunny sad
-    bunny "As much as I'd very much like one… right now"
-
-    show bunny cry
-    bunny "Nnghh shiku shiku *sniffle* you can't hug me..!!"
-
-    show mc happy
-    mc "It's fine! I have some rainbow algae!"
-
-    show bunny sad
-    bunny "Rainbow algae..?"
-
-    show mc happy
-    mc "It might help you feel a little better."
-
-    show bunny happy
-    bunny "It's so pretty…"
-
-    show bunny sad
-    bunny "But I.. I don't think I can.. eat after what I had to witness…"
-
-    show mc happy
-    mc "You don't have to eat it right now."
-
-    mc "Just keep it with you, okay?"
-
-    show bunny default
-    bunny "…Thank you."
-
-    show mc happy
-    mc "You're welcome! We'll help you find your family."
-
-    jump ch3_bunny_done
-
-
-label ch3_bunny_done:
-
-    # Shared transition after the selected Sea Bunny route.
-    # Route-specific emotional endings happen before arriving here.
-
-    hide bunny cry
-    hide bunny sad
-    hide bunny scared
-    hide bunny happy
-    hide bunny default
-
-    # GRAN HAWK
+label ch3_turtle_as_mc:
+label ch3_hawk_as_mc:
     show hawk default at npc_right
-    hawk "You! You're a freshwater, aren't ya?"
-    hawk "What on ocean are you doin' with that red shell?"
-
-    show cory talk at cory_left
-    cory "Ay, calm down, ma'am."
-    cory "I ain't exactly a fan of the crustacean's idealism."
-
-    show cory fond at cory_left
-    cory "But my man, this shrimp ain't like the others."
-
-    show hawk default at npc_right
-    hawk "Hmph. And what makes ya so sure of that?"
-
-    show cory side at cory_left
-    cory "He's already lettin' the fishes pass now."
-    cory "We're tryin' to talk it out with the empress!"
-
-    show hawk sigh at npc_right
-    hawk "Crikey. Good luck with that."
+    hawk "Get away from that red freak guppy.."
+    hawk "they can't be trusted with"
 
     menu:
+        "Why do you hate mr. shrimp so much?":
+            jump ch3_hawk_mc_opt1
+
         "What have the crustaceans done?":
-            show mc o at mc_left
-            mc "What happened here?"
+            jump ch3_hawk_mc_opt2
 
-            show hawk default at npc_right
-            hawk "Whole sea's changed, guppy. Not for the better."
-
-            show mc o at mc_left
-            mc "Mm? How so?"
-
-            show hawk sigh at npc_right
-            hawk "The crustaceans used to mind their own business..."
-
-            hawk "Until the former empress passed the crown to her young."
-
-            hawk "It all became a mess from there on."
-
-            hawk "Now there's checkpoints. Papers. 'Loyalty tests'."
-
-            show hawk default at npc_right
-            hawk "Ain't about danger. It's about control."
-
-            show mc o at mc_left
-            mc "Mmn... So the real problem lies with the empress!"
-
-            show hawk sigh at npc_right
-            hawk "Yeah. Most red shells are natural-born bullies."
-
-            hawk "And her regime greenlit all their bad habits across the sea."
-
-            show mc o at mc_left
-            mc "Hmm... Why don't we all go and complain to the empress?"
-
-            show hawk smile at npc_right
-            hawk "Hah! We've tried."
-
-            show hawk default at npc_right
-            hawk "Most got killed for it. It's like a war goin' on."
-
-            show hawk laugh at npc_right
-            hawk "But I've eaten heaps of 'em for brekkie!"
-
-            show mc happy at mc_left
-            mc "Oh! Right, crustaceans are part of a sea turtle's diet!"
-
-            show hawk laugh at npc_right
-            hawk "Hah! Right! They don't call me Gran Hawk for nothin'!"
-
-            show hawk default at npc_right
-            hawk "Can't bring an empress down alone, though."
-
-        "We're trying to talk it out with the empress!":
-            show hawk sigh at npc_right
-            hawk "Crikey, good luck with that."
-
-            show cory side at cory_left
-            cory "You don't sound too hopeful, ma'am."
-
-            show hawk default at npc_right
-            hawk "I've seen what happens to folks who try."
-
-            hawk "Most don't get the chance to try again."
-
-
-    # HAWK QUESTIONS CORY ABOUT shrimp LLARUS
+label ch3_hawk_mc_opt1:
     show hawk default at npc_right
-    hawk "I remember faces. That shrimp's the one who guarded the gate!"
+    hawk "I remember faces, that shrimp's gate guarding one!"
+    hawk "He didn't get my grandturts a passing!"
 
-    show cory side at cory_left
-    cory "I understand how ya feel, but..."
+    show mc pout at mc_left
+    mc "But he's not like that anymore!"
 
-    cory "He's already lettin' all the fishes pass now."
-    cory "Your grandturts should be safe."
-
-    show cory smile at cory_left
-    cory "I know he's got a good heart. Just a little lost cause."
+    show mc default at mc_left
+    mc "He's let everyone pass now you should be able to meet your grand turtles!"
 
     show hawk sigh at npc_right
-    hawk "And how could ya be so sure of that?"
+    hawk "I know, don't worry I met them, they're safe now"
+    hawk "But eh, my blood gets boiling at the sight of them now"
 
-    show cory talk at cory_left
-    cory "He's abandoned his post just to shout a protest at the empress."
+    show mc pout at mc_left
+    mc "well! Fair point but targeting your anger at every crustaceans is bad too.."
+    mc "Maybe some of them didn't want to do it.."
 
-    show hawk default at npc_right
-    hawk "And have ya actually met the empress?"
+    show mc o at mc_left
+    mc "won't it make you just like them..?"
 
-    show cory side at cory_left
-    cory "Not yet, but we're on our way, ma'am."
+    show hawk laugh at npc_right
+    hawk "Hah, s'pose you got a point there."
 
     show hawk smile at npc_right
-    hawk "Have ya thought long enough to think that..."
+    hawk "My neighbor's a shrimp. Marchin protests with us too."
 
-    hawk "All of this might be a trap?"
+    show hawk default at npc_right
+    hawk "Not all are bad, but some that stay silent is as bad, which means they agree with whatever going on"
+
+    show mc happy at mc_left
+    mc "Mr shrimp is good I know! We're trying to talk it out with the empress!"
+
+    show hawk sigh at npc_right
+    hawk "Crikey, good luck with that"
+    $ ch3_visited_turtle = True
+    jump ch3_day_explore_continue
+
+label ch3_hawk_mc_opt2:
+    show mc o at mc_left
+    show hawk default at npc_right
+    hawk "Whole sea's changed, guppy. Not for the better."
+
+    mc "mm? how so?"
+
+    hawk "The crustaceans they used to mind their own business.."
+
+    show hawk sigh at npc_right
+    hawk "Until the former empress pass the crown to her young"
+    hawk "It all became a mess from there on"
+    hawk "Now there's checkpoints. Papers. 'Loyalty tests'."
+
+    show hawk default at npc_right
+    hawk "Ain't about danger. It's about control."
+
+    show mc default at mc_left
+    mc "Mmn.. So the real problem lies on the empress!"
+
+    show hawk sigh at npc_right
+    hawk "Yeah, most red shells are natural born bullies"
+    hawk "And her regime greenlit all their bad habits to all of sea"
+
+    show mc o at mc_left
+    mc "hmmm.. Why don't we all go and complain to the empress?"
+
+    show hawk smile at npc_right
+    hawk "hah! We've tried"
+    hawk "Most got killed for it. It's like a war going on"
+    hawk "But I've eaten heaps of em for brekkie!"
+
+    show mc happy at mc_left
+    mc "oh! Right crustaceans are a part of a sea turtle's diet"
+
+    show hawk laugh at npc_right
+    hawk "Hah right! They don't call me gran hawk for none!"
+    hawk "Can't bring an empress down alone though"
+    $ ch3_visited_turtle = True
+    jump ch3_day_explore_continue
+
+label ch3_turtle_as_cory:
+label ch3_hawk_as_cory:
+    show hawk default at npc_right
+    hawk "You! You're a freshwater aren't ya?"
+    hawk "What on ocean are you doing with that red shell?"
 
     show cory side at cory_left
-    cory "Huh?"
+    cory "Ay, calm down ma'am.."
+    cory "I ain't exactly a fan of the crustacean's idealism"
+
+    show cory talk_hu at cory_left
+    cory "But my man, tis shrimp is ain't like others"
+
+    menu:
+        "What ya got going with the shrimp?":
+            jump ch3_hawk_cory_opt1
+
+        "Is it because of the crustacean empress?":
+            jump ch3_hawk_cory_opt2
+
+label ch3_hawk_cory_opt1:
+    hawk "I remember faces, that shrimp's gate guarding one!"
+
+    show cory talk_hu at cory_left
+    show hawk default at npc_right
+    hawk "He didn't get my grandturts a passing!"
+
+    show cory talk_hu at cory_left
+    cory "I understand your feeling but.."
+    cory "He's already lettin all the fishes pass now, your grandturts should be safe"
+
+    show cory smile at cory_left
+    cory "I know he's got a good heart. Just a little lost cause"
+
+    show hawk sigh at npc_right
+    hawk "and how could you be so sure of that?"
+
+    show cory smile_hu at cory_left
+    cory "He's abandoned his post just to shout a protest to the empress"
+
+    show hawk default at npc_right
+    hawk "and have you actually met the empress?"
 
     show cory talk at cory_left
+    cory "Not yet, but we're on our way ma'am"
+
+    show hawk smile at npc_right
+    hawk "Have you thought long enough to think that…"
+    hawk "All of this might be a trap?"
+
+    show cory talk at cory_left
+    cory "huh?"
+
+    show cory talk_hu at cory_left
     cory "What do ya mean by that, ma'am?"
 
     show hawk default at npc_right
-    hawk "That mantis shrimp's leadin' y'all to her lair..."
-
-    hawk "What if it's just a facade?"
+    hawk "That mantis shrimp's leading yall to her lair.."
+    hawk "what if it's just a facade?"
 
     show hawk sigh at npc_right
-    hawk "You're divin' into the anglerfish's light, mate."
+    hawk "You're diving into the anglerfish's light, mate"
+
+    show cory side_close at cory_left
+    cory "guh, I didn't think that far…."
 
     show cory side at cory_left
-    cory "Guh... I didn't think that far..."
+    cory "A huge part of my heart believes in him though"
 
-    # TRANSITION TO THE NEXT TRAVEL BEAT
-    "Gran Hawk's warning lingered in my mind as we continued our journey."
+    show hawk laugh at npc_right
+    hawk "hah you a better fish than I am then"
+    hawk "Just stay vigilant alright?"
+    $ ch3_visited_turtle = True
+    jump ch3_day_explore_continue
 
-    hide hawk
-    hide bunny
-    hide dunge
-    hide mc
-    hide cory
+label ch3_hawk_cory_opt2:
+    show cory talk_hu at cory_left
+    show hawk default at npc_right
+    hawk "Be real careful of that empress alright"
+    hawk "It's two peas in a pod situation"
 
+    show cory talk_hu at cory_left
+    cory "Two peas in a pod? She got backup?"
+
+    hawk "nay she's got a fatal weakness"
+
+    show hawk default at npc_right
+    hawk "a goby fish while she a pistol shrimp"
+    hawk "Ever heard of that tale?"
+
+    show cory side at cory_left
+    cory "I'm a freshwater folk don't think I'm familiar with that"
+
+    show hawk default at npc_right
+    hawk "Pistol shrimp's near blind, see. Digs the burrow, keeps it tidy."
+    hawk "So the goby does the watching. Sits right by the entrance, eyes peeled."
+    hawk "Shrimp keeps a feeler on 'em at all times."
+
+    show hawk sigh at npc_right
+    hawk "Big threat? Goby'll block the whole entrance with its own body."
+    hawk "They move as one. Can't have one without the other, really."
+
+    show hawk default at npc_right
+    hawk "You gotta aim for the goby first"
+    hawk "or, take them both down at the same time"
+
+    show cory surprise at cory_left
+    cory "*whistle* Interesting mechanism they got going on"
+
+    show cory talk_hu at cory_left
+    cory "We plan on taking this the diplomatic route though ma'am."
+    cory "But if it does get to that point.."
+
+    show cory smile_hu at cory_left
+    cory "I owe you for that one, ma'am thank you!"
+
+    show hawk laugh at npc_right
+    hawk "Anything to bring her down"
+    $ clue_empress_weakness = True
+    $ ch3_visited_turtle = True
+    jump ch3_day_explore_continue
+
+label ch3_turtle_as_scyllarus:
+label ch3_hawk_as_scyllarus:
+    show hawk default at npc_right
+    hawk "Get ya stank dirty claws outta here red shell!"
+
+    show scy default at npc_left
+    scyllarus "I wipe my claws hourly! I can assure you that I'm not dirty!"
+
+    menu:
+        "I apologize in advance":
+            jump ch3_hawk_scy_opt1
+
+label ch3_hawk_scy_opt1:
+    show scy default at npc_left
+    show hawk default at npc_right
+    hawk "hawk tuah! fugu off with that apology of yours!"
+    hawk "I'm not the only one that needs your pointless apologies!"
+
+    show hawk sigh at npc_right
+    hawk "ya have wronged the whole sea, red shell"
+
+    show scy default at npc_left
+    scyllarus "...!"
+
+    show scy default_om at npc_left
+    scyllarus "Then please allow me…"
+
+    "Mr Shrimp takes a firm step back and swivel around facing the vast sea, before he took a long deep breath."
+
+    show scy laugh at npc_left
+    scyllarus "I APOLOGIIIIIZEE FOR THEE INCONVEEENIIEEEEENNNCEEAAAHHH!!!!"
+
+    show hawk smile at npc_right
+    hawk "pfft-!"
+
+    show hawk laugh at npc_right
+    hawk "hahahah!"
+    hawk "Hate to admit it! But you pass the vibe check"
+    hawk "Still ain't forgiving you though"
+    $ ch3_visited_turtle = True
+    jump ch3_day_explore_continue
+
+label ch3_night_explore:
     $ current_cycle = "night"
 
+    hide mc
+    hide cory
+    hide scy
+    hide hawk
     scene ch3_night
     with fade
     play music chap_3_night volume 0.5
 
-    show mc tired at mc_left
-    show cory side at cory_left
+    show scy smile at npc_right
+    scyllarus "This way everyone! We'll arrive at the lair soon!"
 
-    "The journey went on, and the light around us slowly faded."
-
-    mc "Mr. Cory... How much longer do we have to swim?"
-
-    show cory fond at cory_left
-    cory "We've been at it for more than half a day, guppy."
-
-    mc "My fins are getting tired..."
-
-    show cory smile at cory_left
-    cory "Aw, c'mere. I can hold ya for a bit."
-
-    "I moved closer to Mr. Cory, letting him carry me as we swam onward."
-
-    $ ch3_red_seaweed = 0
-    # RED SEAWEED
-    show mc excited at mc_left
-    mc "Wao!! This seaweed is so red!"
-    mc "Is it where the color red came from?"
-
-    show shrimp default_om 
-    shrimp "Mm! It is a firmly believed theory that it's where crustaceans get their color from!"
-
-    shrimp "Crustacean mothers often told their young to feed on red seaweed to get a brighter red pigment!"
-
-    show shrimp default 
-    shrimp "The redder you are the fiercer you look!"
-
-    show cory side at cory_left
-    cory "Sounds like a plot to get your young to eat their veggies..."
-
-    show mc o at mc_left
-    mc "Ooo, I see..."
+    show cory talk at cory_left
+    cory "Guh.. and how soon exactly is soon?"
 
     show cory upset at cory_left
-    cory "Ay, you're only allowed to take 2, guppy!"
+    cory "We've been swimmin for more than half a day now!"
+
+    show mc shock at mc_left
+    mc "nnguuh.. I can't feel my legs anymore…"
+
+    show cory smile_hu at cory_left
+    cory "Here, let me hold onto ya guppy"
+
+    "Mr Cory gently wraps his fins around my tummy in a loose hold horizontally, the rest is carried by the water's current and light buoyancy. I held my arms wide like an airplane"
+    "I feel like a remora fish latching onto a shark's under."
+
+    show mc happy at mc_left
+    mc "Thank you.. Mr Cory.."
+
+    show mc o at mc_left
+    mc "mnn do fishes ever get tired of swimming..?"
+
+    show cory talk at cory_left
+    cory "Nah we don't"
+
+    show scy default at npc_right
+    scyllarus "Yes we do!"
+
+    show cory smile_hu at cory_left
+    cory "Can't speak for a crustacean but.. how these fins moving? They're automatic!"
+    cory "You don't ever get tired of breathing do ya?"
+
+    show mc default at mc_left
+    mc "ahh so it's like breathing.. :o"
+
+    show mc excited at mc_left
+    mc "wao!! This seaweed is so red!"
+    mc "Is it where the color red came from?"
+
+    show scy default_om at npc_right
+    scyllarus "Mm! It is a firmly believed theory that it's where crustaceans get their color from!"
+    scyllarus "Crustacean mothers often told their young to feed on red seaweed to get a brighter red pigment!"
+
+    show scy default at npc_right
+    scyllarus "The redder you are the fiercer you look!"
+
+    show mc o at mc_left
+    mc "ooo i see.."
+
+    show cory side at cory_left
+    cory "Sounds like a plot to get your young to eat their veggies.."
+
+    show cory upset at cory_left
+    cory "Ay, you're only allowed to take 2 guppy!"
     cory "Don't think I ain't noticing you counting how much you can take in your little arms!"
 
     show mc pout at mc_left
-    mc "Aw... okay :("
-    mc "One more for mama because she likes red..."
-    $ ch3_red_seaweed = 2
+    mc "aw.. okay :("
+    mc "one more for mama because she likes red…"
 
-    # DUNGE ENCOUNTER
+    $ has_red_seaweed = True
+
+    jump ch3_crab_encounter
+
+label ch3_crab_encounter:
+    show mc o at mc_left
+    show dun smile at npc_right
+
     "We spotted another crustacean."
+    "It's a grown-sized dungeness crab. He seems like a laid back crustacean."
 
-    "It's a grown-sized Dungeness crab. He seems like a laid-back crustacean."
+    show scy smile at center
+    "Mr shrimp advanced towards him like seeing an old friend."
 
-    show dunge smile at npc_right
-    show cory fond at cory_left
+    scyllarus "My comrade in arms Dunge!"
 
-    "Mr. Shrimp advances towards him like he's seeing an old friend."
-
-    cory "My comrade in arms, Dunge!"
-
-    dunge "Well, butter my tail and call me a biscuit!"
-
-    dunge "Larus! How's it hangin', you ol' bottom-feeder?"
+    show dun smile at npc_right
+    dun "Well butter my tail and call me a biscuit!"
+    dun "Larus! Hows it hangin', you ol' bottom-feeder?"
 
     show mc o at mc_left
-    mc "Larus...? Is that Mr. Shrimp's real name?"
+    mc "Larus..? Is that Mr Shrimp's real name?"
 
-    "The crab's expression subtly changes when he notices me and Mr. Cory."
+    show dun default at npc_right
+    "The crab's expression subtly changed at my unfamiliar voice, it was close to that of disdain."
+    "When he noticed me and Mr. Cory's presence."
 
-    show dunge default at npc_right
-    dunge "...Hold your seahorses. What the hell are you doin' here?"
+    show dun mad at npc_right
+    dun "... Hold your seahorses. What the hell are you doin' here?"
+    dun "Your tail is supposed to be guardin' the salt-fresh border!"
 
-    dunge "Your tail is supposed to be guardin' the salt-fresh border!"
+    show cory talk_hu at cory_left
+    cory "Chill out mane…"
 
-    show cory talk at cory_left
-    cory "Chill out, mane..."
+    show dun default at npc_right
+    dun "!!! And what's this junk you bought with ya?"
 
-    show dunge default at npc_right
-    dunge "!!! And what's this junk you brought with ya?"
+    show dun yeesh at npc_right
+    dun "Dont tell me you're rollin' with these filthy freshies??"
+    dun "A guppy… and and!"
 
-    show dunge yeesh at npc_right
-    dunge "Don't tell me you're rollin' with these filthy freshies??"
-
-    dunge "A guppy... and..."
-
-
-    # MC'S CONVERSATION WITH DUNGE
-    menu:
-        "Mr. Crab, can you help us talk to the Empress?":
-
-            show mc o at mc_left
-            show dunge default at npc_right
-
-            "Mr. Crab gives me a humbling look..."
-
-            dunge "Help you? What are you even supposed to be?"
-
-            dunge "Some kinda half-breed?"
-
-            dunge "Do your parents even have the green corals?"
-
-            show mc o at mc_left
-            mc "Green corals? :0"
-
-            show dunge yeesh at npc_right
-            dunge "Yeah, green corals. The damn corals you need to legally live around here."
-
-            dunge "You must've had some relative from the saltwater side hand 'em over to ya."
-
-            show mc shock at mc_left
-            mc "I uhhhhhh..."
-
-            show dunge default at npc_right
-            dunge "...You don't got 'em?"
-
-            show mc shock at mc_left
-            mc "Um, we don't have one..."
-
-            mc "Is it alright, Mr. Shrimp?"
-
-            show shrimp default 
-            shrimp "They're my company, Dunge! From the freshwater."
-            shrimp "They're just passing through the reefs, not taking up residence!"
-
-            show shrimp default_om 
-            shrimp "Also the green coral policy is still up for debate!"
-
-            show dunge mad at npc_right
-            dunge "The Empress firmly stated not to let any threats in."
-
-            dunge "This is a clear violation of the rules, Larus!"
-
-        "Do you hate freshwater creatures? :0":
-
-            show mc o at mc_left
-            show dunge default at npc_right
-
-            dunge "Freshwater tadpoles are makin' our ocean colder just by breathin' up all the warm currents!"
-
-            show mc default at mc_left
-            mc "Uhm, actually, Mr. Crab, according to marine biology..."
-
-            show mc actually at mc_left
-            mc "...water temperature is regulated by thermohaline currents and depth, not fish respiration."
-
-            mc "So freshwater species don't actually alter the ocean's temperature like that! :D"
-
-            show dunge yeesh at npc_right
-            dunge "...What a load of carp!"
-
-            show dunge default at npc_right
-            dunge "Haven't heard of such nonsense in all my years clawin' this reef!"
-
-            dunge "That's prolly just fake propaganda, lil' guppy."
-
-            dunge "Theories created by... by..."
-
-            "Mr. Crab pauses, searching for words."
-
-            show dunge yeesh at npc_right
-            dunge "...Those fancy university intellectuals..."
-
-            dunge "...Who don't know a damn thing about real ocean livin'!"
-            # Both MC questions lead into the same confrontation.
-
-    # CONFRONTATION
-    "Neither of my questions seems to change Dunge's mind."
-
-    show cory side at cory_left
-    cory "..."
-
-    show dunge default at npc_right
-    dunge "..."
-
-    "The atmosphere suddenly feels a lot less friendly."
-
-    show mc o at mc_left
-    mc "Mr. Cory...?"
-
-    show cory talk at cory_left
-    cory "Stay close, guppy."
-
-    # SEA BUNNY FAMILY THREAD
-
-    if ch3_bunny_family_lead:
-        show cory upset at cory_left
-        cory "Dunge... We heard what happened to the Sea Bunny's family."
-
-        show dunge default at npc_right
-        dunge "..."
-
-        show cory talk at cory_left
-        cory "You can't just take a whole family away."
-
-        show dunge mad at npc_right
-        dunge "They're a threat to the sea."
-
-    # CORY ROUTE: CONFRONT DUNGE
-    menu:
-        "Ask Dunge to help us talk to the Empress":
-            show mc o at mc_left
-
-            mc "Mr. Dunge, can you help us talk to the Empress?"
-
-            show dunge yeesh at npc_right
-
-            dunge "Help ya? After you waltz in here without green corals?"
-
-            show cory talk at cory_left
-
-            cory "We're not here to cause trouble, mane."
-
-            show dunge default at npc_right
-
-            dunge "Then you picked a mighty strange way of showin' it."
-
-        "Ask Dunge about the Sea Bunny's family":
-            show mc pout at mc_left
-
-            mc "Mr. Dunge... did you take a Sea Bunny's family?"
-
-            show dunge default at npc_right
-
-            dunge "..."
-
-            show mc o at mc_left
-
-            mc "They said a big crab took them away."
-
-            show dunge yeesh at npc_right
-
-            dunge "Those creatures are a threat to the sea!"
-
-            show mc pout at mc_left
-
-            mc "But they have a family too..."
-
-    # CONFRONTATION
-    show cory side at cory_left
-
-    cory "That's enough, Dunge."
-
-    show dunge default at npc_right
-
-    dunge "Oh? And what are you gonna do about it, Larus?"
-
-    show cory talk at cory_left
-
-    cory "We're gettin' through to the Empress."
-
-    cory "And you ain't gonna stop us."
-
-    show dunge mad at npc_right
-
-    dunge "Then I guess you'll have to get past me first."
-
-    show mc shock at mc_left
-
-    mc "Mr. Cory...!"
-
-    show cory side at cory_left
-    cory "Stay behind me, guppy."
-
-    hide mc
-    $ dunge_battle_encounter = "dunge"
-    call dunge_battle_start
-
-    if dunge_battle_result == "victory":
-        jump ch3_dunge_aftermath
-    else:
-        jump ch3_battle_defeat
-
-label ch3_dunge_aftermath:
-
-    $ ch3_dunge_result = dunge_battle_result
-
-    if ch3_dunge_result == "victory":
-
-        show dunge yeesh at npc_right
-
-        dunge "Gah...! Alright, alright!"
-
-        show cory side at cory_left
-
-        cory "That's enough, Dunge."
-
-        show dunge default at npc_right
-
-        dunge "..."
-
-        dunge "Guess I can't stop ya now, Larus."
-
-        show cory talk at cory_left
-
-        cory "Then let us through."
-
-        show dunge yeesh at npc_right
-
-        dunge "Don't go thinkin' this means I agree with ya."
-
-        dunge "I'm just... lettin' ya pass."
-
-        show cory side at cory_left
-
-        cory "That's a start."
-
-        show mc o at mc_left
-
-        mc "Mr. Dunge..."
-
-        mc "What about the Sea Bunny's family?"
-
-        show dunge default at npc_right
-
-        dunge "..."
-
-        dunge "I ain't got 'em here."
-
-        dunge "The ones I took were sent off under the Empress' orders."
-
-        show mc shock at mc_left
-
-        mc "They're still alive?!"
-
-        show dunge yeesh at npc_right
-
-        dunge "Didn't say that, kid."
-
-        dunge "I don't know what happened to 'em after."
-
-        show cory upset at cory_left
-
-        cory "Dunge..."
-
-        dunge "I did what I was ordered to do."
-
-        dunge "That's all I'm sayin'."
-
-        show mc pout at mc_left
-
-        mc "Then we'll find them."
-
-        show cory talk at cory_left
-
-        cory "We'll ask the Empress what she did with them."
-
-        show dunge default at npc_right
-
-        dunge "You're really gonna keep pushin' this, huh?"
-
-        show cory side at cory_left
-
-        cory "You know me."
-
-        dunge "Heh..."
-
-        dunge "Yeah. I do."
-
-        "Dunge moves aside, leaving the way forward open."
-
-        # TODO:
-        # Confirm whether Dunge directly knows where the Sea Bunny
-        # family was taken, or whether this information should remain
-        # unknown until a later scene.
-
-        $ ch3_bunny_path_opened = True
-
-        jump ch3_empress_arrival
-
-    else:
-
-        jump ch3_battle_defeat
-
-
-label ch3_battle_defeat:
+    "Choose who should ask Mr. Crab! The answers it gives may varied based on its relationship with the character"
 
     hide mc
     hide cory
-    hide dunge
+    hide scy
+    hide dun
+    call screen choose_interactor(
+        "Choose who should ask Mr. Crab!",
+        "The answers may vary based on the character asking"
+    )
 
-    "The fight has become too much for us."
+    $ selected_questioner = _return
 
-    "We have no choice but to retreat."
+    if selected_questioner == "mc":
+        jump ch3_crab_as_mc
+    elif selected_questioner == "cory":
+        jump ch3_crab_as_cory
+    else:
+        jump ch3_crab_as_scyllarus
 
-    # TODO:
-    # Decide whether defeat should:
-    # - return the player to the encounter,
-    # - trigger a unique story scene,
-    # - or end the chapter.
-    #
-    # For now, the battle system's own retry menu handles retries.
-    # This label only handles the story flow if the player does not
-    # return to the fight.
+label ch3_crab_as_mc:
+    menu:
+        "Mr. Crab can you help us talk to the Empress?":
+            jump ch3_crab_mc_opt1
 
-    return
+        "Do you hate freshwater creatures? :0":
+            jump ch3_crab_mc_opt2
 
-label ch3_empress_battle_start:
-    $ ch3_empress_battle_result = None
+label ch3_crab_mc_opt1:
+    show mc o at mc_left
+    show dun default at npc_right
+    "Mr crab gives me a humbling look…"
 
-    # TEMPORARY: Reuses the Dunge battle system.
-    # Encounter-specific HP and party setup are not implemented yet.
+    dun "Help you? what are you even supposed to be?"
+    dun "Some kinda a half-breed?"
+    dun "Do your parents even have the green corals?"
+
+    show mc o at mc_left
+    mc "Green corals? :0"
+
+    show dun yeesh at npc_right
+    dun "Yeah green corals. The damn corals you need to legally live around here."
+    dun "You must've had some relative from the saltwater side hand 'em over to ya."
+
+    show mc shock at mc_left
+    mc "I uhhhhhhh...."
+
+    show dun default at npc_right
+    dun ".... You dont got 'em?"
+
+    show mc shock_hu at mc_left
+    mc "Um we dont have one….. is it alright, mr shrimp?"
+
+    show scy default at center
+    scyllarus "They're my company, Dunge! From the freshwater."
+    scyllarus "They're just passing through the reefs, not taking up residence!"
+
+    show scy default_om at center
+    scyllarus "Also the green coral policy is still up for debate!"
+
+    show dun mad at npc_right
+    dun "The empress firmly stated to not let any threats in."
+    dun "This is a clear violation of rules, Larus!"
+
+    "No clue added."
+    jump ch3_boss_intro
+
+label ch3_crab_mc_opt2:
+    show mc o at mc_left
+    show dun default at npc_right
+    dun "Freshwater tadpoles are makin' our ocean colder just by breathin' up all the warm currents!"
+
+    show mc default at mc_left
+    mc "Uhm actually, mr.crab, according to marine biology…"
+
+    show mc actually at mc_left
+    mc "... water temperature is regulated by thermohaline currents and depth, not fish respiration."
+    mc "So the freshwater species don't actually alter the ocean's temperature like that :D"
+
+    show dun yeesh at npc_right
+    dun "... What a load of carp!"
+
+    show dun default at npc_right
+    dun "Haven't heard of such nonsense in all my years clawin' this reef!"
+    dun "That's prolly just a fake propaganda, lil' guppy."
+    dun "Theories created by… by.."
+
+    "Mr crab pauses, searching for words."
+
+    show dun yeesh at npc_right
+    dun "... by those fancy university intellectuals…"
+    dun "... who doesn't know a damn thing about the real ocean livin'!"
+
+    "No clue added."
+    jump ch3_boss_intro
+
+label ch3_crab_as_cory:
+    menu:
+        "Can you help us talk to the empress?":
+            jump ch3_crab_cory_opt1
+
+        "Hold on, did you kidnap the sea bunny's family?":
+            jump ch3_crab_cory_opt2
+
+label ch3_crab_cory_opt1:
+    show dun default at npc_right
+    show cory talk_hu at cory_left
+    "The crab squints his eyes, slamming one claw into the sand with an irritated click."
+
+    dun "Who the fugu are you supposed to be?"
+
+    show cory surprise at cory_left
+    cory "Ay no hate, amigo! Lower the claws a bit, yeah?"
+
+    show cory talk at cory_left
+    cory "Look, we ain't enemies."
+    cory "I actually got a lot of respect for saltwater culture."
+
+    show cory talk_hu at cory_left
+    cory "My primos back home are huge fan of Frank Ocean."
+
+    show dun yeesh at npc_right
+    dun "The eel does a singer's name got to do with it!"
+    dun "You freshies are completely useless to this ocean, anyway."
+
+    show cory talk_hu at cory_left
+    cory "Ay, that's not true!"
+    cory "We wash down all the good minerals from upstream to keep your corals bloomin'"
+
+    show dun mad at npc_right
+    dun "Frankly, my dear, I don't give a damn!"
+    dun "My job is to block anyone tryin' to set claws or fins in here."
+
+    call dunge_duel
+    $ ch3_dunge_defeated = True
+    jump ch3_boss_intro
+
+label ch3_crab_cory_opt2:
+    show cory unimpressed at cory_left
+    cory "A brute Crustacean.. Big claws…"
+    cory "Did you lock up the sea bunny's whole family in there?"
+
+    show dun yeesh at npc_right
+    dun "Sea bunny family? Beats me!"
+    dun "So many pest trynna start a rebellion around here, I lost count."
+
+    show cory talk_hu at cory_left
+    cory "The sea bunny family, cara."
+    cory "The ones who were having a picnic under the acropora coral."
+
+    show dun smile at npc_right
+    dun "... oh, them. I ain' t kidnappin' nobody."
+    dun "I'm holding those lethal biohazards in quarantine."
+
+    show cory surprise at cory_left
+    cory "Biolethal hazard… what are you even talkin about-"
+
+    show cory upset at cory_left
+    cory "Ya literally ate their baby and got a massive stomach ache.."
+    cory "..because of their natural toxins."
+    cory "No wonder they namin you Dunce."
+
+    show dun mad at npc_right
+    dun "Shut your darn mouth, you freshie."
+
+    show dun yeesh at npc_right
+    dun "It's DUNGE! D-U-N-G-I!"
+
+    show cory disrespect at cory_left
+    cory "My mane can't even spell his own name"
+
+    show dun default at npc_right
+    dun "NGHHRR SHUT IT!!"
+
+    show dun mad at npc_right
+    dun "That counted as assassination attempt of the officer of the reef!"
+
+    show cory side at cory_left
+    cory "....! mane you're outta your mind."
+
+    show dun default at npc_right
+    dun "..... dont tell me youre plottin' to overthrow the empress too?"
+
+    show dun mad at npc_right
+    dun "Bless your heart, Larus, but I gotta fight anyone who threatens to take down the regime!"
+
+    call dunge_duel
+    $ ch3_dunge_defeated = True
+    jump ch3_boss_intro
+
+label ch3_crab_as_scyllarus:
+    menu:
+        "Did you kidnap the seabunny's family?":
+            jump ch3_crab_scy_opt1
+
+        "We need to stop the empress!":
+            jump ch3_crab_scy_opt2
+
+label ch3_crab_scy_opt1:
+    show scy default_om at center
+    scyllarus "I'm going to have to ask you to release them, Dunge!"
+
+    show dun default at npc_right
+    dun "Nuh uh! I ain't got a reason to!"
+    dun "You're acting super weird Larus"
+
+    show scy default at center
+    scyllarus "Imagine it's your family.. who's getting beheaded!"
+
+    show scy default_om at center
+    scyllarus "Remember your Billy!"
+
+    "Dunge's claws slam against the sea floor, kicking up a cloud of sand."
+
+    show dun mad at npc_right
+    dun "DON'T YOU DARE TALK ABOUT HIM!"
+    dun "..... do not talk about my son…"
+
+    show dun default at npc_right
+    dun "That's.. thats exactly why… i aint letting any immigrant pass.."
+
+    dun "Larus, you forgot what happened at the Old Canal Junction!?"
+    dun "When those freshwater folks broke the damn barriers!!"
+    dun "Then a sudden toxic flood destroyed our home.."
+    dun "And the debris!! crushed Billy's claw before he could swim away!"
+
+    scyllarus "That was a tragedy, Dunge!"
+    scyllarus "But blaming an entire kind for the negligence of a rogue group is unfair!"
+    scyllarus "Villainy is defined by actions, not by which side the border one is born!"
+    scyllarus "We've been wrong, Dunce!"
+
+    dun "......."
+
+    scyllarus "this is our chance to atone!"
+    scyllarus "I assure you, my friends here can make a change!"
+
+    dun ".......... fine."
+    dun "Imma… release the seabunny family…"
+
+    scyllarus "Thank you, my dear comrade in claws!"
+    scyllarus "Tell us.. Is there anything you know regarding the Empress' weakness?"
+
+    dun "She holds a powerful golden scale."
+
+    "...! the golden scale??"
+
+    dun "Aint really sure if she'll even listen if you want to negotiate. But you can try it."
+    dun "But the worst case-and it's most likely to happen- you gonna fight her."
+    dun "That aint gonna be easy."
+
+    scyllarus "I am forever grateful for your aid, Dunge!"
+
+    dun ".... "
+    "Dunge just nods."
+
+    $ clue_golden_scale = True
+    "Clue added: empress had the golden scale too."
+    jump ch3_boss_intro
+
+label ch3_crab_scy_opt2:
+    show dun default at npc_right
+    dun "Whaddya mean 'stop the empress'??"
+    dun "She's makin' the sea GREAT AGAIN!!"
+
+    show scy default at center
+    scyllarus "I know but..!"
+    scyllarus "I start to think that we've been wrong all this time!"
+    scyllarus "My new friends here opened my eyes."
+    scyllarus "Right, guppy, Cory? kakakaka!"
+
+    dun "...you shell brained shrimp!"
+    dun "What kind of radical leftist freshwater ideology did they feed into your brain?"
+
+    scyllarus "This isnt about politics, Dunge!"
+
+    dun "it IS about politics!"
+    dun "Freshies be stealin our krills and tresspassin' our private reef property."
+    dun "A few dead freshies is just the price of peace."
+
+    scyllarus "I helped you cut em down, Dunge!"
+    scyllarus "The.. Dead bodies…!"
+    scyllarus "It haunts you, too, right?"
+
+    dun "......."
+    dun "........................"
+    dun "Don't you go playing saint with me now."
+    dun "… I aint gonna join your little party,"
+    dun "........"
+    dun "But if y'all wanna challenge her,"
+    dun "You shoulda know that she holds a powerful golden scale."
+
+    "...! the golden scale?"
+
+    dun "Aint got a clue if she'll even entertain your sweet talk if you try negotiatin."
+    dun "But yall can try."
+    dun "Now get off before I change my mind!"
+
+    scyllarus "We deeply appreciate it, Dunge!"
+
+    $ clue_golden_scale = True
+    "Clue added: empress had the golden scale too."
+    jump ch3_boss_intro
+
+label ch3_boss_intro:
     hide mc
-    $ dunge_battle_encounter = "empress"
-    call dunge_battle_start(cory_start_hp=2)
+    hide cory
+    hide scy
+    hide dun
+    scene ch3_night
+    with dissolve
 
-    $ ch3_empress_battle_result = dunge_battle_result
+    show scy laugh at npc_right
+    scyllarus "Welcome my friends to the humble abode of crustacean empress the VIII!"
 
-    return
+    show mc excited at mc_left
+    mc "Woah!! It's so.. Red!"
 
-label ch3_empress_arrival:
+    show scy smile at npc_right
+    scyllarus "Yes! Red is her favored color after all!"
 
-    # Temporary visual until the Empress sprite is ready.
+    mc "But how can she know colors..? Aren't pistol shrimps blind?"
 
-    show empress placeholder at npc_right
-    show teto default 
+    scyllarus "They're almost blind, actually! And she's just told that her color is red, and it immediately become her favorite!"
 
-    "Abruptly..."
+    show cory smile_hu at cory_left
+    cory "And the eighth you say..? She gon rule for 36 years?" # ref to Henry VIII
 
-    teto "Fall to your knees and tremble before Her Majestic Majesty, the one and only!"
+    "Abruptly—"
 
-    teto "Her Majesty Empress Crustacean the VIII!"
+    show teto default at center
+    gob "Fall to your knees and tremble before Her Majestic Majesty, the one and only!"
+    gob "Her Majesty Empress Crustacean the VIII!"
 
     emp "Ah, a visitor?"
-
     emp "Kekeke! That's me, that's me! I'm Crustacean Empress VIII!"
 
-    teto "Mhm, the best empress on the crustacean line~!"
+    gob "Mhm, the best empress on the crustacean line~!"
 
-    emp "Oh, you humble me so, my right hand!"
+    emp "Oh you humble me so, my right hand!"
 
-    teto "Ah, but your greatness must be known across the seven seas~!"
+    gob "Ah but your greatness must be known across the seven seas~!"
 
-    emp "Across seven seas, you say?!"
+    emp "Across seven seas you say?!"
 
-    teto "I am merely speaking truth, your Majesty!"
+    gob "I am merely speaking truth, your Majesty!"
 
     show cory unimpressed at cory_left
-
-    cory "Are all crustaceans like this...?"
+    cory "Are all crustaceans like this…?"
 
     emp "WHAT?! You dare question the might of an empress?!"
 
-    teto "They seem to have a death wish, your majesty..."
+    gob "They seem to have a death wish, your majesty.."
 
     emp "Then fulfill your wish I shall! Wouldn't the majestic I be the fairest?!"
 
+    play sound "audio/attack_2.mp3" # Placeholder SFX: Gun click / reload
+    $ renpy.pause(0.2)
+    play sound "audio/attack_1.mp3" # Placeholder SFX: Gunshot
+
     show cory surprise at cory_left
+    cory "WOAH WOAH-! CHILL OUT YOUR CRUSTACEAN MAJESTY! PUT THE GUN DOWN"
 
-    cory "WOAH WOAH-! CHILL OUT YOUR CRUSTACEAN MAJESTY! PUT THE GUN DOWN!"
+    show scy default_om at npc_right
+    scyllarus "Wait, don't!! I beg for mercy on every one of my ten legs, your majesty!"
 
-    show shrimp default_om 
-
-    shrimp "Wait, don't!! I beg for mercy on every one of my ten legs, your majesty!"
-
-    emp "Ah, if it's not my strongest soldier Scyllarus..."
-
+    emp "Ah, If it's not my strongest soldier Scyllarus…"
     emp "What petty excuse do you have in defense?"
 
-    teto "I don't think there was ever an excuse to bring in dirtwater..."
+    gob "I don't think there was ever an excuse to bring in dirtwater.."
 
-    show shrimp default_om 
-
-    shrimp "I beg of Your Majesty and your highly regarded right hand!"
+    show scy default_om at npc_right
+    scyllarus "I beg of Your Majesty and your highly regarded right hand!"
 
     emp "Oh oh! Are you here to spread marvelous news?! Have you found and fetched me the great golden fish?!"
 
-    shrimp "I-! No... not yet, your majesty... I still have yet to acquire the golden fish... but!"
+    scyllarus "I-! No.. not yet your majesty.. I still have yet to acquire the golden fish.. but!"
+    scyllarus "My dear comrades here have a proposition that'll make it worthwhile!"
 
-    shrimp "My dear comrades here have a proposition that'll make it worthwhile!"
+    emp "Proposition..? Bleehh my ears are made to hear only the best of things not the boring ones.."
 
-    emp "Proposition...? Bleehh, my ears are made to hear only the best of things, not the boring ones..."
-
-    teto "Their filthy words are not for your ears, your majesty."
-
-    teto "Let me decide if it is worthwhile... As you say it."
+    gob "Their filthy words are not for your ears your majesty"
+    gob "Let me decide if it is worthwhile.. As you say it"
 
     emp "Hah! You be my filter, my highly regarded right hand."
-
     emp "I shall busy myself with my new golden toy!"
-    jump ch3_empress_negotiation
 
-label ch3_empress_negotiation:
+    jump ch3_boss_negotiation
 
-    menu:
+label ch3_boss_negotiation:
+    hide mc
+    hide cory
+    hide scy
+    hide teto
+    call screen choose_interactor(
+        "Choose who should negotiate with the Empress!",
+        "Each character will present their own proposal"
+    )
 
-        "Speak to General Goby as MC":
-            jump ch3_empress_as_mc
+    $ selected_questioner = _return
 
-        "Let Cory speak":
-            jump ch3_empress_as_cory
+    if selected_questioner == "mc":
+        jump ch3_boss_negotiate_as_mc
+    elif selected_questioner == "cory":
+        jump ch3_boss_negotiate_as_cory
+    else:
+        jump ch3_boss_negotiate_as_scyllarus
 
-        "Let Scyllarus make the proposal":
-            jump ch3_empress_as_scyllarus
-
-label ch3_empress_as_mc:
-
-    # Keep your existing MC timed negotiation here.
-    # Start with:
+label ch3_boss_negotiate_as_mc:
     show mc happy at mc_left
-
     mc "Hi!! Your highness goby fish!"
 
-    show teto gun_upset
-
-    teto "You have 10 seconds to speak your lies."
-    teto "Before my spear goes through you."
+    gob "You have 10 seconds to speak your lies"
+    gob "Before my spear goes through you."
 
     show mc shock_hu at mc_left
+    mc "ah only t-ten seconds?! oh no! oh no!"
 
-    mc "Ah, only t-ten seconds?! Oh no! Oh no!"
+    gob "There goes your two seconds."
 
-    teto "There goes your two seconds."
+    show screen ch3_boss_negotiation_timer(8.0)
 
-    $ negotiation_choice = renpy.call_screen("negotiation_timer")
+    menu:
+        "\"I propose crustaceans and every creature in the sea hold hands until the end of time!\"":
+            hide screen ch3_boss_negotiation_timer
+            jump ch3_boss_negotiate_mc_opt1
 
-    if negotiation_choice == "timeout":
+        "\"I propose that the crustaceans apologize to everyone in sea!\"":
+            hide screen ch3_boss_negotiation_timer
+            jump ch3_boss_negotiate_mc_opt2
 
-        show mc shock at mc_left
-        mc "I-I...!"
+        "\"I think this might be a great addition to your red collection!\" (Give red seaweed)" if has_red_seaweed:
+            hide screen ch3_boss_negotiation_timer
+            jump ch3_boss_negotiate_mc_opt3
 
-        teto "Time's up."
+label ch3_boss_negotiate_mc_timeout:
+    hide screen ch3_boss_negotiation_timer
+    gob "Time's up! You hesitated, dirtwater!"
+    mc "W-wait! I have an answer! Don't poke me with the spear!"
+    jump ch3_boss_negotiate_mc_opt1
 
-    elif negotiation_choice == "hands":
+label ch3_boss_negotiate_mc_opt1:
+    show mc default at mc_left
+    gob "..."
+    gob "Unlike a defect breed like you.."
+    gob "We have no hands you speak of"
+    gob "All we have are chelipeds"
 
-        show mc default at mc_left
-        show teto default
+    show mc o at mc_left
+    mc "But you're not even a crustacean! What you have are fins!"
 
-        teto "..."
-        teto "Unlike a defect breed like you..."
-        teto "We have no hands you speak of."
-        teto "All we have are chelipeds."
+    gob "...!"
 
-        show mc o at mc_left
-        mc "But you're not even a crustacean! What you have are fins!"
+    show mc o at mc_left
+    mc "If you can command an army of crustaceans"
+    mc "If you can hold the empress' great chelipeds.."
 
-        teto "..."
+    show mc pout at mc_left
+    mc "What makes you stop at holding other fishes' fins..?"
 
-        show mc o at mc_left
-        mc "If you can command an army of crustaceans..."
-        mc "If you can hold the empress' great chelipeds..."
+    show mc default at mc_left
+    mc "Besides.. Goby fishes have relatives in freshwater!"
 
-        show mc pout at mc_left
-        mc "What makes you stop at holding other fishes' fins...?"
+    gob "I'm not a part of that filthy kind."
+    gob "You think you're so smart because you've read a few books?"
+    gob "Save those futile fun facts for afterlife"
+    jump ch3_boss_negotiate_mc_after
 
-        show mc default at mc_left
-        mc "Besides... Goby fishes have relatives in freshwater!"
+label ch3_boss_negotiate_mc_opt2:
+    show mc o at mc_left
+    mc "Everyone we met seemed really sad because of what the crustaceans did.."
+    mc "Some lost their families. Some are scared to even leave their homes."
 
-        teto "I'm not a part of that filthy kind."
-        teto "You think you're so smart because you've read a few books?"
-        teto "Save those futile fun facts for afterlife."
+    show mc happy at mc_left
+    mc "Therefore, saying sorry would be a good start?"
+    mc "Maybe then they all would be kind and respect you too"
 
-    elif negotiation_choice == "apology":
+    gob "The audacity!"
+    gob "You demand an apology from the rulers of the sea?"
 
-        show mc o at mc_left
-        mc "Everyone we met seemed really sad because of what the crustaceans did..."
-        mc "Some lost their families. Some are scared to even leave their homes."
+    show mc pout at mc_left
+    mc "But order isn't supposed to make everyone scared!"
 
-        show mc happy at mc_left
-        mc "Therefore, saying sorry would be a good start?"
-        mc "Maybe then they all would be kind and respect you too."
+    gob "What the sea thinks is never worth our concern!"
+    jump ch3_boss_negotiate_mc_after
 
-        teto "The audacity!"
-        teto "You demand an apology from the rulers of the sea?"
+label ch3_boss_negotiate_mc_opt3:
+    show mc happy at mc_left
+    gob "...!"
+    gob "That's.. The great empress' favorite!"
 
-        show mc pout at mc_left
-        mc "But order isn't supposed to make everyone scared!"
+    emp "DID SOMEONE SAY RED SEAWEED?!"
 
-        teto "What the sea thinks is never worth our concern!"
+    show mc default at mc_left
+    mc "Mhm! I picked it up on the way here! As a peace offering!"
 
-    elif negotiation_choice == "seaweed":
+    emp "How thoughtful! Gimme it!"
 
-        if ch3_red_seaweed > 0:
-            $ ch3_red_seaweed -= 1
+    play sound "audio/attack_1.mp3" # Placeholder SFX: Gunshot / discreet bang!
+    "At the blink of an eye with a discreet bang! The seaweed vanished.. Now already a crushed victim under the shrimp's eager munch teeth"
 
-        show mc happy at mc_left
-        teto "..."
+    gob "Your Majesty, please remember that they are here to negotiate."
 
-        emp "DID SOMEONE SAY RED SEAWEED?!"
+    emp "I know! I can eat and listen at the same time."
+    emp "munch munch munch…"
 
-        show mc default at mc_left
-        mc "Mhm! I picked it up on the way here! As a peace offering!"
+    show mc shock at mc_left
+    "Did she use her pistol to steal the seaweed from my hand without injuring me?"
 
-        emp "How thoughtful! Gimme it!"
+    show mc o at mc_left
+    "Whatever it was, I need to see it again! Maybe I should provoke her more?"
 
-        "At the blink of an eye, with a discreet bang, the seaweed vanished... now already a crushed victim under the shrimp's eager munch teeth."
+    gob "Ah your majesty- there's a seaweed on your cheek"
 
-        teto "Your Majesty, please remember that they are here to negotiate."
+    emp "Really?! Help me get rid of it my Gobby!"
 
-        emp "I know! I can eat and listen at the same time."
-        emp "Munch munch munch..."
+    gob "Affirmative.."
 
-        show mc shock at mc_left
-        "Did she use her pistol to steal the seaweed from my hand without injuring me?"
+    show mc happy at mc_left
+    mc "Yaaay true love wins!"
 
-        show mc o at mc_left
-        "Whatever it was, I need to see it again! Maybe I should provoke her more?"
+    show mc excited at mc_left
+    mc "Which means Freshwater and Saltwater can live together in peace now!!"
 
-        teto "Ah, your majesty... there's seaweed on your cheek."
-        emp "Really?! Help me get rid of it, my Gobby!"
+    gob "T-true love-?!"
+    jump ch3_boss_negotiate_mc_after
 
-        teto "Affirmative.."
+label ch3_boss_negotiate_mc_after:
+    gob "We have to obliterate these scums at once, Your Majesty"
 
-        show mc happy at mc_left
-        mc "Yaaay true love wins!"
+    emp "Hah! Count me in on the fun! I've got to test my new found!"
 
-        show mc excited at mc_left
-        mc "Which means Freshwater and Saltwater can live together in peace now!!"
+    gob "My empress, I'm afraid these filth isn't worth your power…"
 
-        teto "T-true love-?!"
+    emp "Hmph! But I wanna use my brand new golden toy!"
 
-    jump ch3_empress_shared_hostility
+    "Ms Empress Shrimp pulls out what it seems a golden scale from under her robe. Its shimmer glistens in rainbows under the light."
 
-label ch3_empress_as_cory:
+    show mc shock at mc_left
+    mc "The golden scale.. she really has it"
 
-    teto "You got exactly 1.8 seconds."
+    gob "Then unleash nightmares that follows them to hell, Your Majestic Majesty"
+
+    show cory side_close at cory_left
+    cory "Looks like we have no choice but to fight fins and gills, ay?"
+
+    jump ch3_boss_battle
+
+label ch3_boss_negotiate_as_cory:
+    gob "You got exactly 1.8 seconds."
 
     show cory surprise at cory_left
     cory "...!"
-    cory "Might as well say fugu off with your bullcarp shrimp regime, ya redshell-!"
+    cory "Might as well say fugu off with your bullcarp shrimp regime-!"
 
-    teto "Enough! That was 3 seconds!"
+    gob "Enough! That was more than 3 seconds!"
 
-    "My eyes widen into saucers as it registers a flash of red. The goby's spear grazes past Mr. Cory, tearing through flesh but missing anything vital. A warning, and nothing more."
+    play sound "audio/attack_3.mp3" # Placeholder SFX: Spear thrust
+    "My eyes widen into saucers as it registers a flash of red. The goby's spear grazes past Mr.Cory, tearing through flesh but missing anything vital. A warning, and nothing more."
 
     show cory hurt at cory_left
     cory "Guh-!"
@@ -1356,742 +1734,412 @@ label ch3_empress_as_cory:
     emp "Kekeke! That bravery of yours, I quite like it!"
     emp "It'll make your screams echo all the sweeter."
 
-    teto "Now face agonizing torture, worth three lifetimes over, dirtwater."
+    gob "Now face agonizing torture, worth three lifetimes over, dirtwater."
 
-    show shrimp sepet
-    shrimp "Frankly! I don't think I can defend you on this one, my questionable friend!"
+    show scy sepet at npc_right
+    scyllarus "Frankly! I don't think I can defend you on this one, my questionable friend!"
 
-    # PLACEHOLDER: Cory's battle reuses the Dunge battle.
-    # Cory should begin this battle at 2 HP.
-    # TODO: Set Cory's HP to 2 using the actual combat-system variable.
-    jump ch3_empress_shared_hostility
+    jump ch3_boss_battle
 
-label ch3_empress_as_scyllarus:
+label ch3_boss_negotiate_as_scyllarus:
+    gob "Make it count, Scyllarus."
+    gob "I'm only hearing you out because you're our precious strongest personnel"
+    gob "Having you against us will be disadvantageous for both of us."
 
-    teto "Make it count, Scyllarus."
-    teto "I'm only hearing you out because you're our precious strongest personnel."
-    teto "Having you against us will be disadvantageous for both of us."
-
-    show shrimp default_om
-    shrimp "I'll make it justifiable!"
+    show scy default_om at center
+    scyllarus "I'll make it justifiable!"
 
     menu:
-        "What should Scyllarus propose?"
+        "\"We propose a future where freshwater creatures are no longer detained simply for existing in the sea\"":
+            jump ch3_boss_scy_opt1
 
-        "A future where freshwater creatures are no longer detained simply for existing in the sea":
-            jump ch3_scyllarus_freshwater_rights
+        "\"We propose that the crustaceans rule with honor again, not fear!\"":
+            jump ch3_boss_scy_opt2
 
-        "The crustaceans should rule with honor again, not fear":
-            jump ch3_scyllarus_honor
+        "\"Calm yourself down first your highness!\" (Give red seaweed)" if has_red_seaweed:
+            jump ch3_boss_scy_opt3
 
-        "Calm the Empress with red seaweed":
-            jump ch3_scyllarus_seaweed
+label ch3_boss_scy_opt1:
+    gob "Oh? You'd bring numbers to a fight, Scyllarus?"
 
-label ch3_scyllarus_freshwater_rights:
-    $ ch3_scyl_proposal = "freshwater_rights"
+    scyllarus "By statistics! Seafolks' crime rates are still higher than the freshwater immigrants!"
+    scyllarus "With that data in mind.. we shouldn't have detained freshwaters for simply setting fins into sea!"
+    scyllarus "And to keep punishing an entire species for the sins of a few is neither just, nor even strategic!"
 
-    teto "Oh? You'd bring numbers to a fight, Scyllarus?"
+    gob "Even when those are facts.."
+    gob "You can't dismiss that incident.."
+    gob "In which disaster were caused by those filthy freshwaters?"
+    gob "Fishes, mollusks, our own kind — all of them paid for what happened at the Old Canal Junction."
+    gob "What we're doing are simply precautions"
+    gob "So tragedy doesn't repeat itself…"
 
-    shrimp "By statistics! Seafolks' crime rates are still higher than the freshwater immigrants!"
-    shrimp "With that data in mind.. we shouldn't have detained freshwaters for simply setting fins into sea!"
-    shrimp "And to keep punishing an entire species for the sins of a few is neither just, nor even strategic!"
+    scyllarus "But that was 10 years ago, general!"
+    scyllarus "Longer than both you and the empress' ages combined!"
+    scyllarus "I was there when it happened…"
+    scyllarus "And it was also a freshwater that helped me through that time…"
+    scyllarus "So don't tell me they're all the villains in this story!"
+    scyllarus "I refuse to believe that anymore!"
+    jump ch3_boss_negotiate_scy_after
 
-    teto "Even when those are facts.."
-    teto "You can't dismiss that incident.."
-    teto "In which disaster were caused by those filthy freshwaters?"
-    teto "Fishes, mollusks, our own kind — all of them paid for what happened at the Old Canal Junction."
-    teto "What we're doing are simply precautions."
-    teto "So tragedy doesn't repeat itself…"
+label ch3_boss_scy_opt2:
+    scyllarus "It truly pains me to say this but…!"
+    scyllarus "We were once honored, loved. Well mannered."
+    scyllarus "Crustaceans are of the supportive, enthusiastically kind!"
+    scyllarus "Our way of showing it might come off as rough but..!"
+    scyllarus "It is necessary to fight for the things we care for!"
+    scyllarus "Now all I've seen from seafolks are that of disdain and fear of us.."
+    scyllarus "Is that really what our kind wants to be known as..?"
+    scyllarus "A ruthless, impudent dictatorship that easily tramples the life of others..!"
 
-    shrimp "But that was 10 years ago, general!"
-    shrimp "Longer than both you and the empress' ages combined!"
-    shrimp "I was there when it happened…"
-    shrimp "And it was also a freshwater that helped me through that time…"
-    shrimp "So don't tell me they're all the villains in this story!"
-    shrimp "I refuse to believe that anymore!"
+    gob "You talk all high and mighty.."
+    gob "Yet how many died pleading at your own claws, Scyllarus?"
 
-    jump ch3_scyllarus_shared_response
+    scyllarus "....!"
+    scyllarus "That's why I…!!"
 
-label ch3_scyllarus_honor:
-    $ ch3_scyl_proposal = "honor"
-    shrimp "It truly pains me to say this but…!"
-    shrimp "We were once honored, loved. Well mannered."
-    shrimp "Crustaceans are of the supportive, compassionate kind!"
-    shrimp "Now all I've seen from seafolks are that of disdain and fear of us.."
-    shrimp "Is that really what our kind wants to be known as..?"
-    shrimp "A ruthless, impudent dictatorship that easily tramples the life of others..!"
+    gob "Your fierce claws.. are not made for compassion is it?"
+    gob "You're a killing machine."
+    gob "One that would swipe through anything in its path, crustacean or not, if ordered to.."
+    gob "You're not one to propose for harmony."
 
-    teto "You talk all high and mighty.."
-    teto "Yet how many died pleading at your own claws, Scyllarus?"
+    scyllarus "..."
 
-    shrimp "....!"
-    shrimp "That's why I…!!"
-
-    teto "Your fierce claws.. are not made for compassion is it?"
-    teto "You're a killing machine."
-    teto "One that would swipe through anything in its path, crustacean or not, if ordered to.."
-    teto "You're not one to propose for harmony."
-
-    shrimp "..."
-
+    show mc pout at mc_left
     mc "YOU'RE WRONG!!"
 
-    teto "Oh..?"
+    gob "oh..?"
 
     mc "Mr. shrimp- Mr.. Mr Sc... Cy.. Clarus has never once hurt me!"
+
+    show cory talk at cory_left
     cory "It's Scyllarus guppy…"
 
+    show mc happy at mc_left
     mc "He always touches me super carefully! I've never got any scratches see!"
 
     "I extended both arms outwards, showing off every unscratched, unbruised inch of them."
 
+    show mc default at mc_left
     mc "He's.. he's … always trying his best to not hurt anyone…"
 
-    shrimp "....guppy"
+    scyllarus "....guppy"
 
+    show cory talk at cory_left
     cory "What they said!"
     cory "Our big ol friend here is not what you claim a killin machine!"
     cory "He's just stuck under a regime he can't escape from.."
     cory "He's not killin for fun, it was yous who put the weapon in his claws in the first place!"
 
-    shrimp "Cory…!"
+    scyllarus "Cory…!"
 
-    teto "Foolish dirtwaters! You just haven't witnessed his true side yet!"
+    gob "Foolish dirtwaters! You just haven't witnessed his true side yet!"
 
+    show mc happy at mc_left
     mc "Maybe so! But.. I trust the side of him I have seen!"
+    jump ch3_boss_negotiate_scy_after
 
-    jump ch3_scyllarus_shared_response
-
-label ch3_scyllarus_seaweed:
-    $ ch3_scyl_proposal = "red_seaweed"
-
-    shrimp "My friend here picked out the brightest, freshest red seaweed for you to feast!"
+label ch3_boss_scy_opt3:
+    scyllarus "My friend here picked out the brightest, freshest red seaweed for you to feast!"
 
     emp "Oh ho ho don't mind if I do~!!"
     emp "Mmmn.. this is why you're the best Scyllarus..!"
 
-    teto "He's the best…? But your highness you told me that I'm-"
-    teto "Sigh.. please don't play favorites in front of the enemy, your majesty."
+    gob "He's the best…? But your highness you told me that I'm-"
+    gob "sigh.. please don't play favorites in front of the enemy, your majesty."
 
-    emp "Shh what does he have to say! Speak my esteemed soldier Scyllarus!"
+    emp "shh what does he have to say! Speak my esteemed soldier Scyllarus!"
 
-    shrimp "Right now.. we are at a compromised position, your majesty.."
-    shrimp "The seafolks hates and fear us, the freshwaters no longer trust us either.."
-    shrimp "And the golden fish's power is stirring up more chaos than we can hope to contain.."
-    shrimp "This isn't a war we can win by claws and fear alone!"
-    shrimp "So with that in mind.. I propose that.."
-    shrimp "We go back to Her Majesty the VII's system.."
-    shrimp "We earn the sea's trust instead of demanding its fear!"
+    scyllarus "Right now.. we are at a compromised position, your majesty.."
+    scyllarus "The seafolks hates and fear us, the freshwaters no longer trust us either.."
+    scyllarus "This isn't a war we can win by claws and fear alone!"
+    scyllarus "So with that in mind.. I propose that.."
+    scyllarus "We go back to Her Majesty the VII's system.."
+    scyllarus "We earn the sea's trust instead of demanding its fear!"
 
     emp "My.. mother?!"
     emp "YOU FOOLISH SAND-FILLED BRAIN LUDICROUS IMBECILE!!"
     emp "I'm sick of it! My mother's softness cost us everything, and you want me to make that same mistake?!"
     emp "CRUSTACEANS!! Detain them at once!"
+    jump ch3_boss_negotiate_scy_after
 
-    jump ch3_scyllarus_shared_response
+label ch3_boss_negotiate_scy_after:
+    gob "This is exactly why you were never fit to be a general."
+    gob "Sand for brains, One sob story from a guppy and you fold like a cheap net."
+    gob "That's not honor, Scyllarus. That's just being easy to manipulate."
 
-label ch3_empress_shared_hostility:
-
-    # MC and Cory's negotiation paths escalate into the same shared battle.
-    jump ch3_scyllarus_shared_response
-
-
-label ch3_scyllarus_shared_response:
-
-    show teto default
-
-    teto "This is exactly why you were never fit to be a general."
-
-    teto "Sand for brains. One sob story from a guppy and you fold like a cheap net."
-
-    show shrimp default
-
-    shrimp "I'd rather be wrong for believing in people than right for fearing them!"
-
-    show empress placeholder at npc_right
+    show scy default at center
+    scyllarus "I'd rather be wrong for believing in people than right for fearing them!"
 
     emp "Heh! Time to answer the most asked question then!"
-
-    emp "The ultimate showdown...!!"
+    emp "The ultimate showdown…!!"
 
     show mc excited at mc_left
-
     mc "Oh my oh my!"
 
-    emp "PISTOL SHRIMP VS MANTIS SHRIMP!! YOU WON'T BELIEVE WHO WINS?? (GONE WRONG)"
+    emp_mc "PISTOL SHRIMP VS MANTIS SHRIMP!! YOU WON'T BELIEVE WHO WINS?? (GONE WRONG)"
 
     emp "KEKEKEKE!! Oh how I adore you! Too bad I gotta kill you now!"
 
     show cory upset at cory_left
+    cory "Aye! This is no play guppy! Get your ass ready for a fight!"
 
-    cory "Aye! This is no play, guppy! Get your ass ready for a fight!"
+    jump ch3_boss_battle
 
-    # PLACEHOLDER: Reuse the Dunge battle for now.
-    # Scyllarus should NOT join the party for this fight.
-    # TODO: Configure the battle party to exclude Scyllarus.
-    # TODO: Set Cory's HP to 2 for this encounter.
-    # TODO: Confirm the correct party and HP variable names.
-    hide mc
-    $ ch3_empress_battle_result = None
+label ch3_boss_battle:
+    show cory talk at cory_left
+    cory "Hah that means nothing, we got one ourself too! Show em guppy!"
 
-    $ dunge_battle_encounter = "empress"
-    call dunge_battle_start(cory_start_hp=2)
+    emp "Oh-ho! Well that makes it the more interesting…!"
+    emp "May the best gold bearer wins! Spoiler: it is I, most obviously!"
 
-    $ ch3_empress_battle_result = dunge_battle_result
-
-    if ch3_empress_battle_result == "victory":
-        jump ch3_empress_battle_victory
-    else:
-        jump ch3_empress_battle_defeat
-
-label ch3_empress_battle_victory:
+    call empress_duel
 
     $ ch3_empress_defeated = True
+    jump ch3_ending
 
-    # EMPRESS DEFEATED
-
+label ch3_ending:
     hide mc
     hide cory
+    hide scy
+    scene ch3_night
+    with dissolve
 
-    show empress placeholder at npc_right
-    show teto default
+    gob "Your majesty!!"
 
-    emp "May the best gold bearer wins!"
+    emp "gooobyyy…"
 
-    emp "Spoiler: it is I, most obviously!"
+    gob "Hark! We must flee at once!"
 
-    "The clash between the two crustaceans shakes the surrounding water."
+    emp "FLEE?? that's bullshriiimp!! that's what a coward does we're no cowards gobyyy! Waaah!"
 
-    "For a moment, it feels as though the entire sea has stopped to watch."
+    gob "My apologies your majesty, but your survival is my priority."
+    gob "You have won, Scyllarus.. fair and square."
+    gob "I might be a right hand of a tyrant.. but I still have dignity left in me."
 
-    # The battle system has already determined the result.
-    # The following scene begins after the Empress has lost.
-
-    show empress placeholder at npc_right
-
-    emp "KEKEKE~! This golden..."
-
-    "The Empress' laughter cuts short."
-
-    show teto surprise
-
-    teto "Your Majesty!!"
-
-    emp "Gooobyyy..."
-
-    teto "Your Majesty, we must retreat!"
-
-    emp "Retreat?!"
-
-    emp "How undignified!"
-
-    teto "Your survival takes priority, Your Majesty!"
-
-    teto "Scyllarus has won this battle fair and square."
-
-    emp "I am not some undignified tyrant who runs away!"
-
-    emp "Besides, I still have the golden scale!"
-
-    show cory side_close at cory_left
-
-    cory "Heh."
-
-    cory "You mean this thing?"
-
-    show mc shock at mc_left
-
-    "Mr. Cory holds up the golden scale."
-
-    emp "WHAT?!"
-
-    emp "You filthy freshwater thief!"
-
-    "The Empress lunges forward, but a fin gently shuts her mouth."
-
-    teto "Your Majesty, please."
-
-    teto "We must go."
-
-    emp "Mmph!!"
-
-    teto "My apologies."
-
-    teto "If fate allows us to cross paths again..."
-
-    teto "I hope we may settle this with a fitting revenge."
-
-    "Goby hauls the Empress away, leaving the battlefield behind."
-
-    hide empress
-    hide teto
-
-    # THE CROWD
-
-    "For a moment, the sea remains silent."
-
-    "Then, cheers begin to rise from every direction."
-
-    "The surrounding sea folk celebrate the end of the battle."
-
-    show mc excited at mc_left
-
-    mc "We did it!!"
-
-    show cory side at cory_left
-
-    cory "Heh. We sure did, guppy."
-
-    show shrimp surprise at npc_right
-
-    mc "But Mr. Scyllarus was the one who fought her!"
-
-    show shrimp default_om at npc_right
-
-    shrimp "I..."
-
-    "Scyllarus looks around at the cheering crowd."
-
-    show cory talk at cory_left
-
-    cory "You stood up to her, even when it meant defyin' your own kind."
-
-    cory "You showed us the way here."
-
-    cory "And you've been protectin' us this whole time."
-
-    show shrimp default at npc_right
-
-    shrimp "Cory..."
-
-    cory "You ain't a weapon, mate."
-
-    cory "You're our friend."
-
-    "The crowd continues to cheer."
-
-    "Some of the sea folk approach Scyllarus, thanking him for standing up to the Empress."
-
-    "One of them even jokes about naming a guppy after him."
-
-    show shrimp shy at npc_right
-
-    shrimp "I..."
-
-    shrimp "Thank you, everyone."
-
-    shrimp "I have never felt so powerful..."
-
-    # DUNGE AND THE CRUSTACEAN ARMY
-
-    "A familiar red shell emerges from the crowd."
-
-    show dunge default at npc_right
-
-    dunge "Scyllarus!"
-
-    "Dunge approaches, followed by a group of crustaceans."
-
-    "He kneels before Scyllarus."
-
-    show dunge default at npc_right
-
-    dunge "The crown should belong to the strongest soldier."
-
-    dunge "You've earned it."
-
-    "The crustaceans behind him bow as well."
-
-    "Their voices echo through the water."
-
-    "Long live the new Emperor!"
-
-    show shrimp surprise at npc_right
-
-    shrimp "W-Wait!"
-
-    shrimp "I refuse!"
-
-    "The crowd falls silent."
-
-    shrimp "I don't want to become an emperor."
-
-    shrimp "I want the old rule to die."
-
-    # SCYLLARUS REFUSES THE THRONE
-
-    show shrimp default_om at npc_right
-
-    shrimp "Her Majesty the VII once told me..."
-
-    shrimp "The sea belongs to no one."
-
-    shrimp "It belongs to everyone."
-
-    shrimp "We were never given the right to rule over it."
-
-    shrimp "Only the responsibility to help it thrive."
-
-    shrimp "Her dethroning was her own choice."
-
-    shrimp "And her daughter took that chance to rule."
-
-    shrimp "But I won't accept a throne built upon someone else's exile."
-
-    shrimp "Let the sea be a No Man's Land."
-
-    show dunge default at npc_right
-
-    dunge "..."
-
-    dunge "Then I guess I ain't got any orders left to follow."
-
-    "Dunge rises."
-
-    dunge "I'm steppin' down too."
-
-    dunge "No more green corals."
-
-    dunge "No more borders."
-
-    "The crustaceans exchange uncertain glances."
-
-    "Then, one by one, they lower their claws."
-
-    # A NEW RESPONSIBILITY
-
-    show shrimp default_om at npc_right
-
-    shrimp "All sea folk..."
-
-    shrimp "Those with fins, chelipeds, claws, flippers, and spikes..."
-
-    shrimp "We must help one another."
-
-    shrimp "We must make this sea a place where everyone can feel comfortable and safe."
-
-    "The crowd listens."
-
-    "Some nod. Others look at one another, unsure of what comes next."
-
-    "But for the first time, no one is ordering them to bow."
-
-    # SCYLLARUS THANKS MC AND CORY
-
-    show shrimp shy at npc_right
-
-    shrimp "Cory..."
-
-    shrimp "Thank you for calling me your mate."
-
-    shrimp "And for seeing me as a friend, rather than a weapon."
-
-    show cory fond at cory_left
-
-    cory "Heh. That's what mates are for."
-
-    show shrimp default_om at npc_right
-
-    shrimp "And you, little guppy..."
-
-    shrimp "You defended me before the general."
-
-    shrimp "You helped me find the part of myself I lost beneath all that armor."
-
-    show mc happy at mc_left
-
-    mc "Hehe! Of course, Mr. Scyllarus!"
-
-    shrimp "From now on..."
-
-    shrimp "I vow to remain under your command."
-
-    show mc shock at mc_left
-
-    mc "Huh?!"
-
-    mc "Under our command?"
-
-    show cory side at cory_left
-
-    cory "Hold on a second, mane."
-
-    cory "I'm not gonna command ya around."
-
-    cory "You're not ours to command."
-
-    cory "You're our mate."
-
-    show shrimp surprise at npc_right
-
-    shrimp "MATE?!"
-
-    shrimp "Mate! You say...!"
-
-    shrimp "Hmm..."
-
-    shrimp "And you say 'our'..."
-
-    shrimp "Which includes the guppy..."
-
-    # THE PARTY'S NEXT STEPS
-
-    show mc excited at mc_left
-
-    mc "Mhm!"
-
-    mc "Then, as your mate..."
-
-    mc "Could you help us get 30 rainbow algae, 40 red seaweeds, and 35 clams?"
-
-    show cory surprise at cory_left
-
-    cory "Guppy!"
-
-    cory "That's not what I meant!"
-
-    show shrimp shy at npc_right
-
-    shrimp "Thirty rainbow algae..."
-
-    shrimp "Forty red seaweeds..."
-
-    shrimp "And thirty-five clams..."
-
-    shrimp "I shall remember these requests!"
-
-    show cory side at cory_left
-
-    cory "Aw, don't take her seriously, mate."
-
-    # MC'S TRANSFORMATION PROGRESS
-
-    show cory side at cory_left
-
-    cory "Feel anythin different?"
-
-    show mc excited at mc_left
-
-    mc "Woah..! I.. I can hear your voices clearer and and!"
-
-    mc "And.. my skin feels.. less pruny now!"
-
-    mc "It's as if I'm becoming more and more of a fish! :D"
-
-    show shrimp smile at npc_right
-
-    shrimp "KAKAKA! Good for you!"
-
-    show mc o at mc_left
-
-    mc "Mnn.. I wanna try something"
-
-    "I took off the weighing glass on my head."
-
-    mc "..."
-
-    show cory side at cory_left
-
-    cory "Don't push yourself too hard, alright?"
-
-    show mc shock at mc_left
-
-    mc "... nguhk..!"
-
-    show mc excited at mc_left
-
-    mc "It's.. the waterbreathing time!"
-
-    mc "It was only 15 minutes-ish before!"
-
-    mc "Now it's 30! yaay!"
-
-    # GATHA REAPPEARS
-
-    show gator default at npc_right
-
-    gator "Ouuu shiiii.."
-
-    gator "You all look nasty... need help?"
-
-    show mc excited at mc_left
-
-    mc "Ms. Gator!! We meet again!"
-
-    show gator default at npc_right
-
-    gator "Mm yep."
-
-    gator "What I say about catching that golden fish before you do?"
-
-    gator "But frankly? I just.. lost motivation midway..."
-
-    gator "Waaay too much of a hassle..."
-
-    show cory side at cory_left
-
-    cory "Gatha..."
-
-    show gator default at npc_right
-
-    gator "But I did get this..."
-
-    gator "As a proof that I did get to it, hmph!"
-
-    gator "You can't be saying shrimp like I was too slow or anythin' now."
-
-    show mc shock at mc_left
-
-    mc "Wait! Where did you get this and when?"
-
-    mc "We haven't seen the fish lately..."
-
-    gator "It's just riiiight there."
-
-    # TODO:
-    # The source draft stops before explaining exactly what Gatha
-    # is pointing at or showing.
-    # Confirm what she obtained and how it relates to the golden fish.
-
-    gator "I don't get why you're so adamant on getting it, guppy..."
-
-    gator "But best of luck to ya, alright?"
-
-
-    # THE GOLDEN SCALE
-
-    "The cheering gradually settles."
-
-    "Mr. Cory looks down at the golden scale in his possession."
-
-    show mc o at mc_left
-
-    mc "Mr. Cory..."
-
-    mc "That golden scale..."
-
-    mc "The Empress had one too."
-
-    show cory side_close at cory_left
-
-    cory "Yeah."
-
-    cory "And she was usin' it to make herself even more powerful."
-
-    show shrimp default at npc_right
-
-    shrimp "The golden scale..."
-
-    shrimp "So the Empress was also chosen?"
-
-    mc "I don't know..."
-
-    "I look at the golden scale."
-
-    "If the Empress had been able to gather more power from it..."
-
-    "What would have happened if she had found the golden fish?"
-
-    "Would she have used that power to rule over the entire sea?"
-
-    "The thought makes my fins feel a little colder."
-
-    # SEA BUNNY FAMILY THREAD
-
-    show mc pout at mc_left
-
-    mc "But..."
-
-    mc "What about the Sea Bunny's family?"
-
-    "The celebration quiets around us."
-
-    show cory upset at cory_left
-
-    cory "We still don't know where they are."
-
-    show shrimp default at npc_right
-
-    shrimp "..."
-
-    "Scyllarus looks toward the path the Empress and Goby took."
-
-    shrimp "Then we must find out."
-
-    shrimp "We cannot leave them behind."
-
-    # THE GOLDEN FISH REMAINS THE OBJECTIVE
-
-    "I look beyond the crowd, toward the vast sea stretching around us."
-
-    "The golden fish is still out there."
-
-    "And now, I know that the Empress was not the only one searching for it."
-
-    "The golden scale in Mr. Cory's possession glimmers faintly."
-
-    show mc default at mc_left
-
-    mc "We still have to find the golden fish, don't we?"
-
-    show cory side at cory_left
-
-    cory "Yeah, guppy."
-
-    cory "But we ain't leavin' anyone behind on the way."
-
-    show shrimp default_om at npc_right
-
-    shrimp "Then I shall accompany you."
-
-    shrimp "Not as your weapon..."
-
-    shrimp "But as your mate."
+    emp "OI!! ARE YA CALLING ME UNDIGNIFIED??! A TYRANT TOO?!"
+    emp "I'LL GET YOUR PETTY ASS SCYLLARUUUUS!!! I STILL HAVE THE GOLD SCALE WITH ME-!"
 
     show cory smile at cory_left
+    cory "Heh, you mean this thing?"
 
-    cory "Heh. That's more like it."
+    emp "WHA-! WHEN DID YOU-! GHRRRR STUPID FRESHWATER THIEF!! ROT IN THE DEEPEST PIT OF DEEP FUGGING SEA- MMPH-?!"
+
+    "A fin gently pressed the former empress' mouth shut"
+
+    gob "Please excuse us.. If fate allows, we'll cross path once more"
+    gob "And when that time comes.. We'll have our fitting revenge"
+
+    "Miss General Goby flashes a rueful smile at us, before hauling her still-sputtering empress off into the deep, a trail of bubbles marking their retreat."
+
+    show cory talk at cory_left
+    cory "Heh.. didn't thought gob's still have some sense like that"
+
+    show scy proud at npc_right
+    scyllarus "Hm! I always knew General had a sense of justice in her!"
+
+    show scy sepet at npc_right
+    scyllarus "But her devotion for the empress weighs heavier…"
+
+    show scy smile at npc_right
+    scyllarus "Hah! Now that's over all there is to make a statement of apology to the seafolks and…"
+
+    show mc excited at mc_left
+    mc "Mr Shrimp look!! Woah, so many people gathered at the front!"
+
+    show scy surprise at npc_right
+    scyllarus "Hm..?!"
+
+    crowd "Thank you weird looking guppy!"
+    crowd "We love you!!"
+    crowd "Yeah! You're our hero!"
 
     show mc happy at mc_left
+    mc "We.. couldn't at all do this without Mr. Shrim- Mr. Cyllarus' help!"
+    mc "So I'd like.. for all of you to thank him too!"
 
-    mc "Then let's go!"
+    show cory talk at cory_left
+    cory "What they said! Turnin' around over for betrayal was never an easy task!"
+    cory "He's the one that showed us the path, protected us, and defy the empress' ruthless ruling!"
 
-    hide mc
-    scene black with dissolve
+    show scy surprise at npc_right
+    scyllarus "B-Betrayal?! Outrageous! What I did was what was right!"
 
+    crowd "Thank you Scyllarus!!"
+    crowd "WE LOVE YOU LARUUUS!!"
+    crowd "I'M GOING TO NAME MY GUPPY AFTER YOU SCYLLARUUUS!!"
+    crowd "PLEASE PLEASE PLEASE PLEASE HAVE MY FIRST NEWBORN SCYLLARUS!!"
+    crowd "Thank you mr big shiiiimp!"
+
+    show scy proud at npc_right
+    scyllarus "W-WOAH! I've never received this much love from a crowd!"
+    scyllarus "Thank you everyone! It is my greatest honor to be aid of the sea!!"
+    scyllarus "Seeing smiles that bloom from the actions of my own claws.."
+    scyllarus "I've never felt so powerful! KAKAKA!"
+
+    show dun default at center
+    dun "Larus!"
+
+    scyllarus "Ah, my comrade Dunge, crustaceans! I-!"
+
+    "Mr Clarus' words were abruptly cut upon spotting the crab's lowered head, claws tucked close in a way Mr Shrimp had never seen before."
+    "An entire army of crustaceans follow through crabs, mantis shrimps, lobsters, hermits still dragging borrowed shells kneel in perfect unison before him, chelipeds pressed flat against the sand"
+
+    dun "We're sorry for all the troubles we caused..!"
+    dun "And now that Her Majesty's fallen.. it's only right the crown goes to the strongest soldier left standin'."
+
+    crustaceans "Your Majesty Scyllarus!!"
+    crustaceans "All hail the new empire!"
+
+    show scy default_om at npc_right
+    scyllarus "...."
+    scyllarus "Everyone, please, stand up, and listen clear!"
+    scyllarus "I'm no emperor, and I have no interest in being crowned one!"
+
+    dun "But Larus.. you beat her fair and square. That's how it's always worked 'round here."
+    dun "Strongest claw makes the rules."
+
+    show scy sepet at npc_right
+    scyllarus "Then let today be the day that rule dies with her."
+
+    "The crowd murmurs, uncertain, still bowed."
+
+    show mc o at mc_left
+    mc "Ohh! Does that mean Mr. Shrimp is king now?!"
+
+    show scy pout at npc_right
+    scyllarus "It's Scyllarus, and no, guppy!"
+    scyllarus "Crustacean Empress the VII.."
+    scyllarus "She told me once, that the sea belongs to no one and everyone at once.."
+    scyllarus "That we, as merely one of its many inhabitants, were never given the right to rule it.."
+    scyllarus "Only the responsibility to help it thrive."
+    scyllarus "and her dethrone was.. that of her own choice.."
+    scyllarus "But her daughter took the chance for a ruling instead!"
+
+    show mc default at mc_left
+    mc "You'd make a great king though mr Clarus.."
+
+    scyllarus "It's Scyllarus!! And even if I would.. I have no interest in a throne built on someone else's exile."
+    scyllarus "Now, I shall honor her wishes! And let the sea be an free safe space!"
+
+    "Slowly, claw by claw, the army rises. Uncertain, murmuring amongst themselves, but no longer kneeling."
+
+    dun "...No Man's Land, huh."
+    dun "Guess that means I got no orders left to follow."
+    dun "I'm steppin' down too, then. No more green corals. No more borders. Not on my claws, not anymore."
+
+    show scy smile at npc_right
+    scyllarus "That's exactly what it means! From today onward, Seafolks, whether it's fins, chelipeds, claws, flippers, spikes..! Whatever your appendages are!"
+    scyllarus "We must all help each other! Make the sea a comfortable, safe living space for all!"
+    scyllarus "And to my beloved comrades… who's helped me realize.."
+
+    "Mr Shrimp turns to face us, his usual boastful grin softened into something quieter."
+
+    scyllarus "Cory.. you called me your mate before you ever called me an ally."
+    scyllarus "You saw a friend where everyone else only saw a weapon."
+    scyllarus "I don't think I've properly thanked you for that."
+
+    show scy default_om at npc_right
+    scyllarus "And guppy.."
+    scyllarus "The two of you gave me back a version of myself I thought I'd lost the day I put on this armor."
+
+    show scy excited at npc_right
+    scyllarus "So! From now on, I.. vow to be under your command!"
+
+    show mc excited at mc_left
+    mc "REALLY?! mm theeen…"
+    mc "Can I take 30 rainbow algaes and 40 red seaweeds?!"
+    mc "oh oh maybe.. 35 clams too…"
+
+    show cory upset at cory_left
+    cory "WHAT-?! Don't listen to them larus!"
+    cory "You're not ours to command! you're our mate!"
+    cory "And mates don't tell each other what to do!"
+
+    show scy surprise at npc_right
+    scyllarus "MATE?! Mate! You say….!"
+    scyllarus "Hmm.. and you say \"our\" which includes the guppy.."
+    scyllarus "I'm sorry but I must decline! I'm not one to be interested in young guppies!"
+    scyllarus "But my dear comrade Cory however, If you are committed enough…!"
+    scyllarus "I.. might as well give us a try!"
+
+    show cory surprise at cory_left
+    cory "....??!"
+    cory "NAY AY AY AY YOU'VE GOT THE WRONG IDEA CARA!"
+    cory "I MEANT COMRADES!! AIN'T NO INTIMACY PARTNER!!"
+
+    show scy laugh at npc_right
+    scyllarus "OH..!!"
+    scyllarus "KAKAKA! Very well a comrade I should be!"
+    scyllarus "And as for the guppy…!"
+    scyllarus "My apologies but I'm still not letting you exploit the sea in whatever shape or form!"
+
+    show mc pout at mc_left
+    mc "ueeeeh.. :("
+
+    show cory talk at cory_left
+    cory "But now we got two of these huh.."
+
+    show mc happy at mc_left
+    mc "I wanna keep it!"
+
+    show cory talk at cory_left
+    cory "feel anythin different?"
+
+    show mc excited at mc_left
+    mc "woah..! I.. I can hear your voices clearer and and!"
+    mc "and.. my skin feels.. Less pruny now!"
+    mc "It's as if I'm becoming more and more of a fish! :D"
+
+    show scy laugh at npc_right
+    scyllarus "KAKAKA! Good for you!"
+
+    show mc o at mc_left
+    mc "mnn.. I wanna try something"
+
+    "I took off the weighing glass on my head"
+
+    show cory talk at cory_left
+    cory "Don't push yourself too hard alright?"
+
+    show mc shock at mc_left
+    mc "... nguhk..!"
+    mc "it's.. the waterbreathing time! It was only for a few minutes before"
+    mc "now I can breathe just fine!"
+
+    show gator smile at center
+    gator "ouuu shiiii.."
+    gator "you all look nasty… need help?"
+
+    show mc excited at mc_left
+    mc "Ms. Gator!! We meet again!"
+
+    gator "mm yep what I say about catching that golden fish before you do"
+    gator "but frankly? I just.. lost motivation midway.."
+    gator "waaaay too much of a hassle.."
+
+    show cory side at cory_left
+    cory "Gatha.."
+
+    gator "But I did get this.."
+    gator "As a proof that I did get to it hmph!"
+    gator "you can't be saying shrimp like I was too slow or anythin now"
+
+    show mc o at mc_left
+    mc "wait! Where did you get this and when?"
+    mc "We haven't seen the fish lately.."
+
+    gator "it's just riiiight there"
+
+    gator "I don't get why you're so adamant on getting it guppy.."
+    gator "But best of luck to ya alright"
+
+    $ ch3_chapter_complete = True
+
+    scene black with fade
     "END OF CHAPTER 3"
 
     menu:
-        "Continue to Chapter 4":
+        "Proceed to Chapter 4":
             jump chapter4_start
-
-        "End":
+        "Return to Title":
             return
-
-
-label ch3_empress_battle_defeat:
-
-    hide mc
-    hide cory
-
-    show shrimp upset at npc_right
-
-    "The fight has become too much for us."
-
-    "We retreat, leaving the Empress and her army behind."
-
-    show cory hurt at cory_left
-    cory "Guh...!"
-
-    show mc shock at mc_left
-    mc "Mr. Cory...!"
-
-    shrimp "..."
-
-    "We have no choice but to fall back."
-
-    # The battle system should handle retries or game-over behavior.
-    # This story label only handles a non-victory result.
-    return
-    # The existing source does not yet provide the next scene.
-    return

@@ -32,7 +32,6 @@ label prologue:
     mc "{bt}Woahwoah WOAH-!{/bt}"
     $ focus()
     show mc excited:
-        ease 0.5
         full
         right
         block:
@@ -49,14 +48,12 @@ label prologue:
         sink
     mc "Mmm... but a true flying fish should be able to jump at least 6m high... That was only 10 cm higher and my best was 1 meter before..."
     show mc default:
-        ease 0.5
         full
         right 
         jumpmc 
     mc "Eh, oh well, I'll get there sooner or later..."
 
     show mc happy:
-        ease 0.5
         full
         right
         jumpmc 
@@ -68,7 +65,7 @@ label prologue:
     "{i}Levelling down with my friends on the ground, I have my best grin on display ready to greet them. They stay longer when I do that.{/i}" 
     "{i}My finger gently twirls creating a small friendly swirl against the riverwater. One by one, they all turned toward the middle of the river.{/i}"
     mc "Good precious morning mr carpado! Morning ms betta! Hello to silly eely billy! and..."
-    
+
     hide mc
     scene cutpro4 with Dissolve(0.5)
     stop music fadeout 5.0
@@ -97,7 +94,6 @@ label prologue:
     "{i}I couldn't let it escape.{/i}"
     "{i}One step became two, and before I knew it..{/i}"
 
-    
     hide mc
     scene black
     stop music

@@ -107,7 +107,6 @@ label bass_interaction:
 
             $ add_clue("The Golden fish was seen swimming north.")
 
-
         "Ms Bass can you sing us a song? :o":
             $ focus()
             show mc o:

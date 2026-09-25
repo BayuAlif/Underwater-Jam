@@ -24,13 +24,11 @@ label salmon_interaction:
     mc "... Ma'am? Why are you crying :("
 
     show salmon default:
-        ease 0.5
         full
         center
     salmon "....? huh??"
 
     show salmon pien:
-        ease 0.5
         full
         center
         vibrate
@@ -44,7 +42,6 @@ label salmon_interaction:
     salmon "It's all... because... of that God awful selfish wank-....."
 
     show salmon pien:
-        ease 0.5
         full
         center
         vibrate
@@ -58,7 +55,6 @@ label salmon_interaction:
     "I wrapped my arms around mrs salmon in an attempt to calm her down."
 
     show salmon pien:
-        ease 0.5
         full
         center
         jumpmc
@@ -71,7 +67,6 @@ label salmon_interaction:
     mc "If the mama is sad, the baby gets sad, too."
 
     show salmon default:
-        ease 0.5
         full
         center
     salmon "...... how on ocean does a tiny you know that, love?"
@@ -91,14 +86,12 @@ label salmon_interaction:
     salmon "You're a very lovely little thing, aren't you?"
 
     show salmon default:
-        ease 0.5
         full
         center
     salmon "Though i haven't a clue what this \"YouTube\" is...."
     salmon "Must be a helpful source of information.."
 
     show salmon happy:
-        ease 0.5
         full
         center
     salmon "Tell me love, are there any sort of.. Pregnancy tips in there?"
@@ -111,7 +104,6 @@ label salmon_interaction:
     mc "I think so! YouTube's got everything you'd want to see!"
 
     show salmon happy:
-        ease 0.5
         full
         center
         surprise
@@ -161,7 +153,7 @@ label salmon_interaction:
         leftish
         sink
     cory "glup...."
-    
+
     $ focus()
     hide mc
     hide cory
@@ -176,7 +168,6 @@ label salmon_interaction:
         jump salmon_as_mc
 
     jump salmon_as_cory
-
 
 label salmon_as_mc:
     hide cory side
@@ -209,7 +200,6 @@ label salmon_as_mc:
                 full
                 center
             salmon "I haven't the foggiest idea, love."
-
 
         "Can't you just push past the river, ma'am?":
             $ focus()
@@ -244,7 +234,6 @@ label salmon_as_mc:
             salmon "I haven't a clue dear, he looks like he lost his mind"
             salmon "Only way to walk pass him is to win in a duel"
 
-
         "I found a tiny krill!" if has_item("tiny_krill"):
             show mc happy:
                 full
@@ -254,7 +243,7 @@ label salmon_as_mc:
                 center
                 surprise
             salmon "Oh how lovely! For me, sweet guppy?"
-            
+
             show mc happy:
                 full
                 right
@@ -269,7 +258,7 @@ label salmon_as_mc:
 
             mc "Ah.. Salmon does eat krills huh.."
             "Mrs. Salmon pulls me into a sudden hug. I can faintly hear the tiny eggs shuffling under her scales."
-            
+
             show salmon happy:
                 full
                 center
@@ -278,8 +267,7 @@ label salmon_as_mc:
             show salmon hug:
                 full
                 center
-                #with shake ntar
-        
+
             salmon "Thank you, thank you.. I can't remember the last time I had a meal.."
             show mc shock:
                 full
@@ -314,7 +302,6 @@ label salmon_as_mc:
             $ remove_item("tiny_krill")
 
     show salmon pien:
-        ease 0.5
         full
         centerright
     with move
@@ -350,7 +337,6 @@ label salmon_as_mc:
     $ focus()
 
     return
-
 
 label salmon_as_cory:
     $ focus()
@@ -414,7 +400,6 @@ label salmon_as_cory:
             cory "I'd be too evil for that"
             $ focus()
 
-
         "Maam, why can't you go down to the sea?":
             $ focus()
             show salmon pout:
@@ -447,7 +432,6 @@ label salmon_as_cory:
                 surprise
             cory "I'm trustworthy, swear on my gills!"
             $ focus()
-
 
         "May I offer you some food, ma'am?" if has_item("tiny_krill"):
             $ focus()

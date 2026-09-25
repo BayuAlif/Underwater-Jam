@@ -60,7 +60,6 @@ label ghostfish_interaction:
 
     jump ghost_as_cory
 
-
 label ghost_as_mc:
 
     show mc o at mc_npc
@@ -148,7 +147,6 @@ label ghost_as_mc:
             $ add_clue("The Mantis Shrimp may not need to be defeated. Find out what he wants.")
             $ add_clue("Coal Tar may be useful against the Mantis Shrimp.")
 
-
         "Ms fish ghost, have you seen a super sparkly golden fish?":
 
             show ghost side at ghost_right
@@ -228,7 +226,6 @@ label ghost_as_mc:
 
                     ghost "I'm but a messenger, brave one..."
 
-
                 "Do you think I'm worthy of its power?":
 
                     show ghost side at ghost_right
@@ -245,7 +242,6 @@ label ghost_as_mc:
                     mc "All i want is to be a fish..."
 
                     ghost "... Then maybe that's all the sea needs.."
-
 
     show ghost default at ghost_right
 
@@ -268,7 +264,6 @@ label ghost_as_mc:
     mc "Thank you Ms fish ghost!! I won't let you down!"
 
     return
-
 
 label ghost_as_cory:
 

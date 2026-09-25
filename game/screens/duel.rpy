@@ -25,4 +25,4 @@ screen rps_screen():
         idle rps_scissor
         xpos 1150
         ypos 620
-        action Return("scissor")
+        action Return("scissors")

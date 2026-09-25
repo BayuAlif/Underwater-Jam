@@ -120,14 +120,34 @@ transform cory_center_right:
 transform selector_mc:
     xanchor 0.5
     yanchor 1.0
-    xpos 0.30
-    ypos 0.74
-    zoom 0.40
-
+    xpos 0.32
+    ypos 0.86
+    zoom 0.58
 
 transform selector_cory:
     xanchor 0.5
     yanchor 1.0
-    xpos 0.70
-    ypos 0.74
-    zoom 0.40
+    xpos 0.68
+    ypos 0.86
+    zoom 0.58
+
+transform selector_3_mc:
+    xanchor 0.5
+    yanchor 1.0
+    xpos 0.20
+    ypos 0.86
+    zoom 0.55
+
+transform selector_3_cory:
+    xanchor 0.5
+    yanchor 1.0
+    xpos 0.50
+    ypos 0.86
+    zoom 0.55
+
+transform selector_3_clarus:
+    xanchor 0.5
+    yanchor 1.0
+    xpos 0.80
+    ypos 0.86
+    zoom 0.55

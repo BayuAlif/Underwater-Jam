@@ -8,7 +8,7 @@ label dunge_interaction:
     show dunge default:
         full
         center
-    
+
     mc "waooo big craaab"
     dunge "whatahellafreakirklicious!!"
 
@@ -25,5 +25,3 @@ label dunge_interaction:
     dunge "we mihgt have to share a.. pixel huh"
 
     $ focus()
-
-
