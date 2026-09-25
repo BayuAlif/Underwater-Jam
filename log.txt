@@ -1,658 +1,118 @@
-2026-09-25 19:11:17 UTC
+2026-09-24 16:56:58 UTC
 Windows-11-10.0.26200-SP0
-Ren'Py 8.5.3.26051504
+Ren'Py 8.5.2.26010301
 
-Early init took 30 ms
-Loading error handling took 23 ms
-Loading script took 578 ms
-Loading save slot metadata took 19 ms
+Early init took 119 ms
+Loading error handling took 75 ms
+Loading script took 2635 ms
+Loading save slot metadata took 82 ms
 Loading persistent took 0 ms
-Running init code took 49 ms
-Loading analysis data took 5 ms
-Analyze and compile ATL took 11 ms
-Reloading save slot metadata took 6 ms
-Dump and make backups took 22 ms
-Cleaning cache took 0 ms
-Making clean stores took 1 ms
-Initial gc took 22 ms
-DPI scale factor: 1.250000
+Running init code took 215 ms
+Loading analysis data took 17 ms
+Analyze and compile ATL took 49 ms
+Reloading save slot metadata took 37 ms
+Dump and make backups took 101 ms
+Cleaning cache took 1 ms
+Making clean stores took 0 ms
+Initial gc took 92 ms
+DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 117 ms
-Init translation took 0 ms
-Cleaning stores took 0 ms
-Load screen analysis took 13 ms
-Analyze screens took 0 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 0 ms
-Save bytecode took 22 ms
-Running _start took 0 ms
-Interface start took 130 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 7 ms
-Loading error handling took 5 ms
-Loading script took 119 ms
-Loading save slot metadata took 13 ms
-Loading persistent took 0 ms
-Running init code took 25 ms
-Loading analysis data took 5 ms
-Analyze and compile ATL took 12 ms
-Reloading save slot metadata took 7 ms
-Dump and make backups took 28 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 32 ms
-DPI scale factor: 1.250000
-Creating interface object took 0 ms
-Init translation took 0 ms
-Cleaning stores took 1 ms
-Load screen analysis took 10 ms
-Analyze screens took 1 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 0 ms
-Save bytecode took 2 ms
-Running _start took 0 ms
-Interface start took 127 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 8 ms
-Loading error handling took 5 ms
-Loading script took 117 ms
-Loading save slot metadata took 16 ms
-Loading persistent took 0 ms
-Running init code took 29 ms
-Loading analysis data took 5 ms
-Analyze and compile ATL took 12 ms
-Reloading save slot metadata took 6 ms
-Dump and make backups took 24 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 35 ms
-DPI scale factor: 1.250000
-Creating interface object took 0 ms
-Init translation took 0 ms
-Cleaning stores took 0 ms
-Load screen analysis took 11 ms
-Analyze screens took 1 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 0 ms
-Save bytecode took 0 ms
-Running _start took 0 ms
-Interface start took 139 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 6 ms
-Loading error handling took 5 ms
-Loading script took 117 ms
-Loading save slot metadata took 14 ms
-Loading persistent took 0 ms
-Running init code took 24 ms
-Loading analysis data took 5 ms
-Analyze and compile ATL took 11 ms
-Reloading save slot metadata took 7 ms
-Dump and make backups took 24 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 36 ms
-DPI scale factor: 1.250000
-Creating interface object took 0 ms
-Init translation took 0 ms
-Cleaning stores took 0 ms
-Load screen analysis took 12 ms
-Analyze screens took 1 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 0 ms
-Save bytecode took 0 ms
-Running _start took 0 ms
-Interface start took 127 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 8 ms
-Loading error handling took 5 ms
-Loading script took 119 ms
-Loading save slot metadata took 14 ms
-Loading persistent took 0 ms
-Running init code took 27 ms
-Loading analysis data took 5 ms
-Analyze and compile ATL took 11 ms
-Reloading save slot metadata took 8 ms
-Dump and make backups took 25 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 33 ms
-DPI scale factor: 1.250000
-Creating interface object took 1 ms
-Init translation took 0 ms
-Cleaning stores took 0 ms
-Load screen analysis took 11 ms
-Analyze screens took 0 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 0 ms
-Save bytecode took 0 ms
-Running _start took 2 ms
-Interface start took 137 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 8 ms
-Loading error handling took 4 ms
-Loading script took 110 ms
-Loading save slot metadata took 14 ms
-Loading persistent took 0 ms
-Running init code took 24 ms
-Loading analysis data took 5 ms
-Analyze and compile ATL took 10 ms
-Reloading save slot metadata took 7 ms
-Dump and make backups took 23 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 37 ms
-DPI scale factor: 1.250000
-Creating interface object took 0 ms
-Init translation took 0 ms
-Cleaning stores took 0 ms
-Load screen analysis took 12 ms
-Analyze screens took 1 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 0 ms
-Save bytecode took 0 ms
-Running _start took 0 ms
-Interface start took 129 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 7 ms
-Loading error handling took 6 ms
-Loading script took 113 ms
-Loading save slot metadata took 13 ms
-Loading persistent took 0 ms
-Running init code took 25 ms
-Loading analysis data took 5 ms
-Analyze and compile ATL took 10 ms
-Reloading save slot metadata took 7 ms
-Dump and make backups took 24 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 39 ms
-DPI scale factor: 1.250000
-Creating interface object took 0 ms
-Init translation took 0 ms
-Cleaning stores took 0 ms
-Load screen analysis took 12 ms
-Analyze screens took 0 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 0 ms
-Save bytecode took 0 ms
-Running _start took 0 ms
-Interface start took 145 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 7 ms
-Loading error handling took 4 ms
-Loading script took 125 ms
-Loading save slot metadata took 14 ms
-Loading persistent took 0 ms
-Running init code took 25 ms
-Loading analysis data took 4 ms
-Analyze and compile ATL took 11 ms
-Reloading save slot metadata took 7 ms
-Dump and make backups took 23 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 41 ms
-DPI scale factor: 1.250000
-Creating interface object took 0 ms
-Init translation took 0 ms
-Cleaning stores took 0 ms
-Load screen analysis took 11 ms
-Analyze screens took 2 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 0 ms
-Save bytecode took 0 ms
-Running _start took 1 ms
-Interface start took 135 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 8 ms
-Loading error handling took 5 ms
-Loading script took 119 ms
-Loading save slot metadata took 16 ms
-Loading persistent took 0 ms
-Running init code took 27 ms
-Loading analysis data took 5 ms
-Analyze and compile ATL took 11 ms
-Reloading save slot metadata took 7 ms
-Dump and make backups took 26 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 41 ms
-DPI scale factor: 1.250000
-Creating interface object took 1 ms
-Init translation took 0 ms
-Cleaning stores took 0 ms
-Load screen analysis took 12 ms
-Analyze screens took 0 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 0 ms
-Save bytecode took 0 ms
-Running _start took 1 ms
-Interface start took 140 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 9 ms
-Loading error handling took 6 ms
-Loading script took 118 ms
-Loading save slot metadata took 14 ms
-Loading persistent took 1 ms
-Running init code took 26 ms
-Loading analysis data took 4 ms
-Analyze and compile ATL took 11 ms
-Reloading save slot metadata took 7 ms
-Dump and make backups took 23 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 39 ms
-DPI scale factor: 1.250000
-Creating interface object took 0 ms
-Init translation took 0 ms
-Cleaning stores took 0 ms
-Load screen analysis took 11 ms
-Analyze screens took 2 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 0 ms
-Save bytecode took 0 ms
-Running _start took 0 ms
-Interface start took 136 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-eForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 6 ms
-Loading error handling took 5 ms
-Loading script took 118 ms
-Loading save slot metadata took 14 ms
-Loading persistent took 0 ms
-Running init code took 28 ms
-Loading analysis data took 5 ms
-Analyze and compile ATL took 12 ms
-Reloading save slot metadata took 7 ms
-Dump and make backups took 24 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 44 ms
-DPI scale factor: 1.250000
-Creating interface object took 0 ms
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object took 8 ms
 Init translation took 1 ms
 Cleaning stores took 0 ms
-Load screen analysis took 12 ms
-Analyze screens took 0 ms
+Load screen analysis took 41 ms
+Analyze screens took 3 ms
 Save screen analysis took 0 ms
 Save pyanalysis took 0 ms
-Save bytecode took 0 ms
+Save bytecode took 51 ms
 Running _start took 1 ms
-Interface start took 151 ms
+Interface start took 573 ms
 
 Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
+primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
+Vendor: 'ATI Technologies Inc.'
+Renderer: 'AMD RadeonT 610M'
+Version: '4.6.0 Compatibility Profile Context 26.8.1.260806'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1739, 978) drawable=(1739, 978)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 7 ms
-Loading error handling took 5 ms
-Loading script took 114 ms
-Loading save slot metadata took 14 ms
-Loading persistent took 0 ms
-Running init code took 26 ms
-Loading analysis data took 4 ms
-Analyze and compile ATL took 11 ms
-Reloading save slot metadata took 7 ms
-Dump and make backups took 23 ms
-Cleaning cache took 0 ms
-Making clean stores took 2 ms
-Initial gc took 38 ms
-DPI scale factor: 1.250000
-Creating interface object took 0 ms
-Init translation took 2 ms
-Cleaning stores took 0 ms
-Load screen analysis took 10 ms
-Analyze screens took 1 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 1 ms
-Save bytecode took 0 ms
-Running _start took 0 ms
-Interface start took 145 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 7 ms
-Loading error handling took 5 ms
-Loading script took 120 ms
-Loading save slot metadata took 15 ms
-Loading persistent took 0 ms
-Running init code took 25 ms
-Loading analysis data took 6 ms
-Analyze and compile ATL took 10 ms
-Reloading save slot metadata took 7 ms
-Dump and make backups took 26 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 43 ms
-DPI scale factor: 1.250000
-Creating interface object took 0 ms
-Init translation took 0 ms
-Cleaning stores took 0 ms
-Load screen analysis took 12 ms
-Analyze screens took 1 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 0 ms
-Save bytecode took 0 ms
-Running _start took 1 ms
-Interface start took 155 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 8 ms
-Loading error handling took 4 ms
-Loading script took 125 ms
-Loading save slot metadata took 13 ms
+Early init took 30 ms
+Loading error handling took 41 ms
+Loading script took 637 ms
+Loading save slot metadata took 72 ms
 Loading persistent took 1 ms
-Running init code took 27 ms
-Loading analysis data took 5 ms
-Analyze and compile ATL took 12 ms
-Reloading save slot metadata took 7 ms
-Dump and make backups took 24 ms
+Running init code took 99 ms
+Loading analysis data took 30 ms
+Analyze and compile ATL took 40 ms
+Reloading save slot metadata took 44 ms
+Backing up script files to 'C:\\Users\\LENOVO\\AppData\\Roaming/RenPy/backups\\Underwater-Jam':
+Dump and make backups took 107 ms
 Cleaning cache took 0 ms
 Making clean stores took 1 ms
-Initial gc took 47 ms
-DPI scale factor: 1.250000
+Initial gc took 119 ms
+DPI scale factor: 1.000000
 Creating interface object took 1 ms
 Init translation took 0 ms
 Cleaning stores took 0 ms
-Load screen analysis took 11 ms
-Analyze screens took 1 ms
-Save screen analysis took 0 ms
+Load screen analysis took 3 ms
+Analyze screens took 20 ms
+Save screen analysis took 26 ms
 Save pyanalysis took 0 ms
-Save bytecode took 0 ms
-Running _start took 0 ms
-Interface start took 157 ms
+Save bytecode took 1 ms
+Running _start took 2 ms
+Interface start took 533 ms
 
 Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
+primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
+Vendor: 'ATI Technologies Inc.'
+Renderer: 'AMD RadeonT 610M'
+Version: '4.6.0 Compatibility Profile Context 26.8.1.260806'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1739, 978) drawable=(1739, 978)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 7 ms
-Loading error handling took 4 ms
-Loading script took 127 ms
-Loading save slot metadata took 15 ms
-Loading persistent took 0 ms
-Running init code took 25 ms
-Loading analysis data took 4 ms
-Analyze and compile ATL took 15 ms
-Reloading save slot metadata took 6 ms
-Dump and make backups took 24 ms
+Early init took 29 ms
+Loading error handling took 20 ms
+Loading script took 458 ms
+Loading save slot metadata took 56 ms
+Loading persistent took 1 ms
+Running init code took 105 ms
+Loading analysis data took 20 ms
+Analyze and compile ATL took 46 ms
+Reloading save slot metadata took 30 ms
+Dump and make backups took 110 ms
 Cleaning cache took 0 ms
 Making clean stores took 0 ms
-Initial gc took 47 ms
-DPI scale factor: 1.250000
-Creating interface object took 2 ms
+Initial gc took 141 ms
+DPI scale factor: 1.000000
+Creating interface object took 1 ms
 Init translation took 0 ms
-Cleaning stores took 0 ms
-Load screen analysis took 12 ms
-Analyze screens took 1 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 0 ms
-Save bytecode took 0 ms
-Running _start took 0 ms
-Interface start took 156 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 7 ms
-Loading error handling took 5 ms
-Loading script took 124 ms
-Loading save slot metadata took 16 ms
-Loading persistent took 0 ms
-Running init code took 28 ms
-Loading analysis data took 6 ms
-Analyze and compile ATL took 12 ms
-Reloading save slot metadata took 7 ms
-Dump and make backups took 26 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 47 ms
-DPI scale factor: 1.250000
-Creating interface object took 0 ms
-Init translation took 0 ms
-Cleaning stores took 0 ms
-Load screen analysis took 12 ms
-Analyze screens took 1 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 0 ms
-Save bytecode took 0 ms
-Running _start took 0 ms
-Interface start took 156 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 8 ms
-Loading error handling took 6 ms
-Loading script took 131 ms
-Loading save slot metadata took 15 ms
-Loading persistent took 0 ms
-Running init code took 28 ms
-Loading analysis data took 6 ms
-Analyze and compile ATL took 12 ms
-Reloading save slot metadata took 7 ms
-Dump and make backups took 25 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 50 ms
-DPI scale factor: 1.250000
-Creating interface object took 0 ms
-Init translation took 0 ms
-Cleaning stores took 0 ms
-Load screen analysis took 14 ms
+Cleaning stores took 1 ms
+Load screen analysis took 40 ms
 Analyze screens took 2 ms
 Save screen analysis took 0 ms
 Save pyanalysis took 0 ms
 Save bytecode took 0 ms
-Running _start took 0 ms
-Interface start took 165 ms
+Running _start took 1 ms
+Interface start took 533 ms
 
 Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
+primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 5070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 616.92'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 2560, 'current_h': 1440, 'refresh_rate': 180, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
+Vendor: 'ATI Technologies Inc.'
+Renderer: 'AMD RadeonT 610M'
+Version: '4.6.0 Compatibility Profile Context 26.8.1.260806'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1739, 978) drawable=(1739, 978)
 Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2560, 1351) drawable=(2560, 1351)
-Maximum texture size: 4096x4096
+Cleaning stores took 0 ms
+Load screen analysis took 100 ms
+Analyze screens took 0 ms
+Running _start took 12 ms

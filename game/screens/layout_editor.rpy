@@ -3,7 +3,6 @@ default layout_editor_x = 0.25
 default layout_editor_y = 0.85
 default layout_editor_zoom = 0.70
 
-
 init python:
 
     layout_editor_data = {
@@ -56,7 +55,6 @@ init python:
         }
     }
 
-
     def layout_editor_select(target):
 
         data = layout_editor_data[target]
@@ -65,7 +63,6 @@ init python:
         store.layout_editor_x = data["x"]
         store.layout_editor_y = data["y"]
         store.layout_editor_zoom = data["zoom"]
-
 
     def layout_editor_dragged(drags, drop):
 
@@ -87,7 +84,6 @@ init python:
 
         renpy.restart_interaction()
 
-
     def layout_editor_change_zoom(amount):
 
         zoom = store.layout_editor_zoom + amount
@@ -102,7 +98,6 @@ init python:
 
         renpy.restart_interaction()
 
-
     def layout_editor_set_zoom(value):
 
         store.layout_editor_zoom = value
@@ -112,7 +107,6 @@ init python:
         ]["zoom"] = value
 
         renpy.restart_interaction()
-
 
     def layout_editor_code():
 
@@ -139,13 +133,11 @@ init python:
             data["zoom"]
         )
 
-
 screen layout_editor():
 
     modal True
 
     add "ch1_dialogue"
-
 
     frame:
         xalign 0.5
@@ -156,7 +148,6 @@ screen layout_editor():
         text "LAYOUT EDITOR":
             size 28
             bold True
-
 
     frame:
 
@@ -194,7 +185,6 @@ screen layout_editor():
             textbutton "Gator":
                 action Function(layout_editor_select, "gator")
 
-
     drag:
 
         drag_name "character"
@@ -215,7 +205,6 @@ screen layout_editor():
             zoom layout_editor_zoom
 
         dragged layout_editor_dragged
-
 
     frame:
 
@@ -269,18 +258,14 @@ screen layout_editor():
                 textbutton "+":
                     action Function(layout_editor_change_zoom, 0.05)
 
-
             text "− / + untuk ukuran":
                 size 16
 
-
             null height 20
-
 
             text "TRANSFORM CODE":
                 size 20
                 bold True
-
 
             frame:
 
@@ -290,7 +275,6 @@ screen layout_editor():
 
                 text layout_editor_code():
                     size 13
-
 
             null height 20
 

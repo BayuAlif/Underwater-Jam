@@ -8,7 +8,7 @@ label seabunny_interaction:
     show bunny default:
         full
         center
-    
+
     mc "fluffy"
     bunny "hiiii im toy bonnie :3"
 

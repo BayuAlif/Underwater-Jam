@@ -17,7 +17,6 @@ define teto = Character("Teto", color="#ffffff")
 define bunny = Character("Sea Bunny", color="#ffffff")
 define emp = Character("Empress Crustacean VIII")
 
-# Chapter 4 characters
 define scy = Character("Scyllarus", color="#ffffff")
 define rin = Character("Chief Rin", color="#ffffff")
 define leo = Character("Leo Drurga", color="#ffffff")

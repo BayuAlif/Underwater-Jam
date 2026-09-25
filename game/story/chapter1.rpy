@@ -31,11 +31,10 @@ label chapter1_start:
     anon "...And you'd be a goner."
     "{i}The image of the darkness beyond is burned crisp into my mind.{/i}"
     "{i}The current below twisted slowly as if alive, taunting those who stare long enough.{/i}"
-    
+
     stop sound fadeout 0.5
     $ focus()
     anon "Not exactly the kinda place ya wanna stumble into.."
-
 
     show mc o:
         full
@@ -72,12 +71,10 @@ label chapter1_start:
     "{i}I start to wiggle my body in an interpretative dance of gratitude.{/i}"
 
     show cory unimpressed:
-        ease 0.2
         full 
         center
     cory "{cps=10}...{/cps}"
     show cory unimpressed2:
-        ease 0.2
         full 
         center
     cory "Mane just what the {b}fugu{/b} is you doing..?!"
@@ -172,7 +169,6 @@ label chapter1_start:
         surprise
     mc "Mr kind fish did you see a shiny golden fish that passed by?"
     show cory smile_hu:
-        ease 0.2
         full
         center
     cory "Golden fish? I ain't see no gold, what I saw was straight DIAMOND."
@@ -244,7 +240,6 @@ label chapter1_start:
 
     $ focus()
 
-
     call chapter1_day_exploration
 
     call chapter1_night
@@ -252,7 +247,6 @@ label chapter1_start:
     call chapter1_dawn
 
     return
-
 
 label chapter1_day_exploration:
 
@@ -266,23 +260,27 @@ label chapter1_day_exploration:
                 "name": "Ms. Bass",
                 "idle": "bass idle",
                 "hover": "bass hover",
-                "x": 0.20,
-                "y": 0.52
+                "x": 0.24,
+                "y": 0.46,
+                "check_y": 0.20
             },
             {
                 "id": "uceng",
                 "name": "Uceng",
                 "idle": "uceng idle",
                 "hover": "uceng hover",
-                "x": 0.78,
-                "y": 0.54
+                "x": 0.76,
+                "y": 0.52,
+                "check_y": 0.40
             }
         ],
         {
             "id": "gold_nugget",
             "name": "Golden Rock",
             "idle": "item_gold",
-            "hover": "item_gold_hover"
+            "hover": "item_gold_hover",
+            "x": 0.50,
+            "y": 0.82
         }
     )
 
@@ -319,6 +317,7 @@ label chapter1_day_exploration:
                 center
             with moveintop
             "{b}I got a golden rock!{/b}"
+            hide goldenrock_hover
 
             $ focus()
             show mc default:
@@ -341,7 +340,6 @@ label chapter1_day_exploration:
             mc "Oh! Hi Mr kind fish.. :D"
 
             show mc o:
-                ease 0.2
                 full
                 right
             "I peek through my bag."
@@ -350,7 +348,6 @@ label chapter1_day_exploration:
             mc "...But I found lots of cool stuff!"
 
             show cory talk:
-                ease 0.2
                 full
                 center
             "Mr kind fish also takes a peek at my inventory."
@@ -358,13 +355,11 @@ label chapter1_day_exploration:
             mc "...?"
 
             show cory unimpressed:
-                ease 0.2
                 full
                 center
             cory "Those are literally rocks."
 
             show mc happy:
-                ease 0.2
                 full
                 right
                 surprise
@@ -372,40 +367,34 @@ label chapter1_day_exploration:
             cory "...Half of that's traaa..."
 
             show mc o:
-                ease 0.2
                 full
                 right
             mc "traaa?...treasure?"
 
             show cory side:
-                ease 0.2
                 full
                 center
 
             cory "...Sure..."
             show mc happy:
-                ease 0.2
                 full
                 right
                 surprise
             mc "ya! One of a kind treasure indeed mr kind fish :D"
 
             show cory proud:
-                ease 0.2
                 full
                 center
                 surprise
             cory "also save the adjective would ya? call me cory the great now, guppy!"
 
             show mc happy:
-                ease 0.2
                 full
                 right
                 surprise
             mc "okay! Mr cory the great now guppy!"
 
             show cory side:
-                ease 0.2
                 full
                 center
             cory "ya know what? Cory's fine.."
@@ -417,7 +406,6 @@ label chapter1_day_exploration:
 
             $ chapter1_day_done = True
             return
-
 
 label chapter1_night:
 
@@ -436,7 +424,6 @@ label chapter1_night:
 
     $ focus()
     show mc o:
-        ease 0.2
         full
         right
     mc "..."
@@ -444,19 +431,16 @@ label chapter1_night:
     mc "Its getting dark.. is it night already?"
 
     show cory smile:
-        ease 0.2
         full
         center
     cory "Time flies when yer busy picking up rocks."
     show cory talk:
-        ease 0.2
         full
         center
     cory "Don't wander too far."
     cory "Night's a little different around here."
 
     show mc dizzy:
-        ease 0.2
         full
         right
     mc "But it's so dark! Is there no light around here..?"
@@ -473,7 +457,6 @@ label chapter1_night:
 
     return
 
-
 label chapter1_night_exploration:
 
     hide mc
@@ -486,23 +469,37 @@ label chapter1_night_exploration:
                 "name": "Lele",
                 "idle": "lele idle",
                 "hover": "lele hover",
-                "x": 0.20,
-                "y": 0.54
+                "xpos": 175,
+                "ypos": 315,
+                "check_xpos": 480,
+                "check_ypos": 265,
+                "x": 0.14,
+                "y": 0.50,
+                "check_y": 0.24
             },
             {
                 "id": "gator",
                 "name": "Gator",
                 "idle": "gator idle",
                 "hover": "gator hover",
-                "x": 0.78,
-                "y": 0.54
+                "xpos": 855,
+                "ypos": 275,
+                "check_xpos": 1100,
+                "check_ypos": 210,
+                "x": 1.08,
+                "y": 0.46,
+                "check_y": 0.22
             }
         ],
         {
             "id": "ambalabu",
             "name": "Ambalabu",
             "idle": "item_ambalabu",
-            "hover": "item_ambalabu_hover"
+            "hover": "item_ambalabu_hover",
+            "xpos": 630,
+            "ypos": 715,
+            "x": 0.42,
+            "y": 0.94
         }
     )
 
@@ -538,12 +535,10 @@ label chapter1_night_exploration:
 
             $ focus()
             show cory surprise:
-                ease 0.2
                 full
                 center
 
             show mc o:
-                ease 0.2
                 full
                 right
 
@@ -553,13 +548,11 @@ label chapter1_night_exploration:
             mc "what is it mr cory?"
 
             show cory disrespect:
-                ease 0.2
                 full
                 center
             cory "eh, just a toy.. A very popular one"
 
             show cory smile_hu:
-                ease 0.2
                 full
                 center
             cory "I might know who might like this... hah!"
@@ -572,7 +565,6 @@ label chapter1_night_exploration:
             $ chapter1_night_done = True
             return
 
-
 label chapter1_dawn:
 
     hide mc
@@ -580,25 +572,21 @@ label chapter1_dawn:
 
     $ focus()
     show cory talk:
-        ease 0.2
         full
         center
     cory "So, what've we got from allat?"
 
     show mc default:
-        ease 0.2
         full
         right
     mc "North!"
 
     show mc happy:
-        ease 0.2
         full
         right
     mc "They all said north!"
 
     show cory smile:
-        ease 0.2
         full
         center
     cory "north eh? The direction where the river ends.."
@@ -606,49 +594,41 @@ label chapter1_dawn:
     "{i}I looked toward the distant current. The water there flowed faster. The sunlight barely reached it.{/i}"
 
     show cory talk:
-        ease 0.2
         full
         center
     cory "but uhh guppy.. ain't your parents worried..?"
     cory "it's been a full day since we got here.. ya don't wanna go back for a bit?"
 
     show mc serious_hu:
-        ease 0.2
         full
         right
     mc "mm? No it's fine! My parents allow me to come back home whenever I want!"
     mc "I don't think I'm coming back before I see that fish again.."
 
     show mc happy:
-        ease 0.2
         full
         right
     mc "aren't they just the kindest? To give freewill at my age!"
 
     show cory side:
-        ease 0.2
         full
         center
     cory "free will ay..? Sounds worrying to me."
     show cory talk:
-        ease 0.2
         full
         center
     cory "but you're right about one thing, guppy"
     show cory smile_hu:
-        ease 0.2
         full
         center
     cory "we ain't going back until we catch that damn fish together!"
 
     show mc excited:
-        ease 0.2
         full
         right
     mc "Let's go!"
 
     show cory fond:
-        ease 0.2
         full
         center
     cory "Just don't make me save ya twice."

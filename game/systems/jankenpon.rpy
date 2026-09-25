@@ -1,56 +1,42 @@
-
-# DUNGE BATTLE - COMPLETE TEMPORARY IMPLEMENTATION
-
-# --------------------------------------------------
-# IMAGE DEFINITIONS
-# --------------------------------------------------
-
 image dunge battle bg = "images/jankenpon/Bg1.png"
 
 image dunge idle = "images/jankenpon/Idle1.png"
 image dunge damaged = "images/jankenpon/IdleDMG.png"
 
-# Countdown
 image jankenpon countdown 3 = "images/jankenpon/Button Rock Paper Scissor/3.png"
 image jankenpon countdown 2 = "images/jankenpon/Button Rock Paper Scissor/2.png"
 image jankenpon countdown 1 = "images/jankenpon/Button Rock Paper Scissor/1.png"
 
-# Player moves
 image player rock = "images/jankenpon/Button Rock Paper Scissor/CRock.png"
 image player paper = "images/jankenpon/Button Rock Paper Scissor/CPaper.png"
 image player scissors = "images/jankenpon/Button Rock Paper Scissor/CScissor.png"
 
-# Boss moves
 image boss rock = "images/jankenpon/Button Rock Paper Scissor/SRock.png"
 image boss paper = "images/jankenpon/Button Rock Paper Scissor/SPaper.png"
 image boss scissors = "images/jankenpon/Button Rock Paper Scissor/SScissor.png"
 
-# Draw moves
 image draw rock = "images/jankenpon/Button Rock Paper Scissor/MRock.png"
 image draw paper = "images/jankenpon/Button Rock Paper Scissor/MPaper.png"
 image draw scissors = "images/jankenpon/Button Rock Paper Scissor/MScissor.png"
 
-# Selection buttons
 image jankenpon button rock = "images/jankenpon/Button Rock Paper Scissor/Rock.png"
 image jankenpon button paper = "images/jankenpon/Button Rock Paper Scissor/Paper.png"
 image jankenpon button scissors = "images/jankenpon/Button Rock Paper Scissor/Scissor_.png"
 
-# Temporary Dunge placeholder icons
 image dunge icon full = "images/jankenpon/ICON/ScyFull.png"
 image dunge icon half = "images/jankenpon/ICON/ScyHalf.png"
+image dunge icon one  = "images/jankenpon/ICON/ScyOne.png"
 image dunge icon dead = "images/jankenpon/ICON/ScyDead.png"
 
 image mc icon full = "images/jankenpon/ICON/McFull.png"
 image mc icon half = "images/jankenpon/ICON/McHalf.png"
+image mc icon one  = "images/jankenpon/ICON/McOne.png"
 image mc icon dead = "images/jankenpon/ICON/McDead.png"
 
 image cory icon full = "images/jankenpon/ICON/CoryFull.png"
 image cory icon half = "images/jankenpon/ICON/CoryHalf.png"
+image cory icon one  = "images/jankenpon/ICON/CoryOne.png"
 image cory icon dead = "images/jankenpon/ICON/CoryDead.png"
-
-# --------------------------------------------------
-# BATTLE VARIABLES
-# --------------------------------------------------
 
 default dunge_cory_start_hp = 3
 default dunge_boss_hp = 5
@@ -72,26 +58,26 @@ default dunge_laststand_success = False
 default dunge_battle_encounter = "dunge"
 default dunge_battle_result = None
 
-# --------------------------------------------------
-# BATTLE FUNCTIONS
-# --------------------------------------------------
-
 init python:
 
     import random
 
     def dunge_boss_pick():
+        if "duel_ai_pick" in globals():
+            return duel_ai_pick(getattr(store, "player_choice_history", []), getattr(store, "duel_boss", "dunge"))
         return random.choice(["rock", "paper", "scissors"])
 
     def dunge_jankenpon_result(player, boss):
+        p = "scissors" if player in ("scissor", "scissors") else str(player).lower()
+        b = "scissors" if boss in ("scissor", "scissors") else str(boss).lower()
 
-        if player == boss:
+        if p == b:
             return "tie"
 
         if (
-            (player == "rock" and boss == "scissors")
-            or (player == "paper" and boss == "rock")
-            or (player == "scissors" and boss == "paper")
+            (p == "rock" and b == "scissors")
+            or (p == "paper" and b == "rock")
+            or (p == "scissors" and b == "paper")
         ):
             return "win"
 
@@ -101,15 +87,10 @@ init python:
         if store.dunge_laststand_taps < store.dunge_laststand_target:
             store.dunge_laststand_taps += 1
 
-# --------------------------------------------------
-# BATTLE STAGE
-# --------------------------------------------------
-
 screen dunge_battle_stage():
 
     add "dunge battle bg"
 
-    # Dunge's central artwork
     if dunge_boss_hp <= 2:
         add "dunge damaged":
             xalign 0.5
@@ -119,10 +100,8 @@ screen dunge_battle_stage():
             xalign 0.5
             yalign 0.5
 
-    # MC and Cory's icon area
     if dunge_mc_losses >= 2:
 
-        # Cory takes over
         if dunge_cory_losses >= 2:
             add "cory icon dead":
                 xalign 0.12
@@ -136,7 +115,6 @@ screen dunge_battle_stage():
                 xalign 0.12
                 yalign 0.12
 
-        # MC remains visible, smaller and knocked out
         add "mc icon dead":
             xalign 0.25
             yalign 0.16
@@ -157,7 +135,6 @@ screen dunge_battle_stage():
                 xalign 0.12
                 yalign 0.12
 
-    # Dunge's icon
     if dunge_boss_hp <= 0:
         add "dunge icon dead":
             xalign 0.88
@@ -171,7 +148,6 @@ screen dunge_battle_stage():
             xalign 0.88
             yalign 0.12
 
-    # Battle information
     frame:
         xalign 0.5
         yalign 0.04
@@ -187,13 +163,9 @@ screen dunge_battle_stage():
             else:
                 text "MC's turn" size 20
 
-# --------------------------------------------------
-# MOVE SELECTION
-# --------------------------------------------------
 screen dunge_jankenpon_screen():
     modal True
 
-    # Left third: Rock
     button:
         xalign 0.0
         yalign 0.0
@@ -203,7 +175,6 @@ screen dunge_jankenpon_screen():
         hover_background None
         action Return("rock")
 
-    # Middle third: Scissors
     button:
         xalign 0.5
         yalign 0.0
@@ -214,7 +185,6 @@ screen dunge_jankenpon_screen():
         hover_background None
         action Return("scissors")
 
-    # Right third: Paper
     button:
         xalign 1.0
         yalign 0.0
@@ -225,7 +195,6 @@ screen dunge_jankenpon_screen():
         hover_background None
         action Return("paper")
 
-    # Keep the visible icons in their original positions.
     add "jankenpon button rock":
         xalign 0.20
         yalign 0.90
@@ -240,11 +209,8 @@ screen dunge_jankenpon_screen():
         xalign 0.80
         yalign 0.90
         zoom 0.75
-# --------------------------------------------------
-# COUNTDOWN
-# --------------------------------------------------
 
-screen dunge_countdown_screen(number):
+screen dunge_countdown_screen(number, count_delay=0.6):
 
     modal True
 
@@ -263,38 +229,44 @@ screen dunge_countdown_screen(number):
             xalign 0.5
             yalign 0.5
 
-    timer 1.0 action Return()
-
-# --------------------------------------------------
-# MOVE REVEAL AND ROUND RESULT
-# --------------------------------------------------
+    timer count_delay action Return()
 
 screen dunge_round_reveal(player_move, boss_move, result):
 
     modal True
 
-    # A draw uses only the M image in the middle.
     if result == "tie":
 
         if player_move == "rock":
             add "draw rock":
-                xalign 0.5
-                yalign 0.68
+                xalign 0.28
+                yalign 0.5
+                zoom 0.65
+            add "boss rock":
+                xalign 0.72
+                yalign 0.5
                 zoom 0.65
 
         elif player_move == "paper":
             add "draw paper":
-                xalign 0.5
-                yalign 0.68
+                xalign 0.28
+                yalign 0.5
+                zoom 0.65
+            add "boss paper":
+                xalign 0.72
+                yalign 0.5
                 zoom 0.65
 
         else:
             add "draw scissors":
-                xalign 0.5
-                yalign 0.68
+                xalign 0.28
+                yalign 0.5
+                zoom 0.65
+            add "boss scissors":
+                xalign 0.72
+                yalign 0.5
                 zoom 0.65
 
-    # Non-draws show C on the left and S on the right.
     else:
 
         if player_move == "rock":
@@ -333,7 +305,6 @@ screen dunge_round_reveal(player_move, boss_move, result):
                 yalign 0.68
                 zoom 0.65
 
-    # Match result above the move images
     if result == "win":
         add "images/jankenpon/Win, Lose, Draw/Win.png":
             xalign 0.5
@@ -352,11 +323,13 @@ screen dunge_round_reveal(player_move, boss_move, result):
             yalign 0.38
             zoom 0.8
 
-    timer 2.5 action Return()
+    button:
+        xfill True
+        yfill True
+        background None
+        action Return()
 
-# --------------------------------------------------
-# LAST STAND
-# --------------------------------------------------
+    timer 1.2 action Return()
 
 screen dunge_laststand_screen():
 
@@ -390,10 +363,6 @@ screen dunge_laststand_screen():
         dunge_laststand_taps >= dunge_laststand_target
     )
 
-# --------------------------------------------------
-# DEFEAT MENU
-# --------------------------------------------------
-
 screen dunge_defeat_screen():
 
     modal True
@@ -416,36 +385,27 @@ screen dunge_defeat_screen():
             textbutton "Return to Main Menu":
                 action MainMenu(confirm=False)
 
-# --------------------------------------------------
-# ONE ROUND OF BATTLE
-# --------------------------------------------------
-
 label dunge_play_round:
 
-    # Player selects their move.
     call screen dunge_jankenpon_screen
     $ dunge_player_choice = _return
 
-    # Countdown before the boss reveals its move.
     call screen dunge_countdown_screen(3)
     call screen dunge_countdown_screen(2)
     call screen dunge_countdown_screen(1)
 
-    # Boss chooses, then resolve the round.
     $ dunge_boss_choice = dunge_boss_pick()
     $ dunge_round_result = dunge_jankenpon_result(
         dunge_player_choice,
         dunge_boss_choice
     )
 
-    # Show the moves and result for 2.5 seconds.
     call screen dunge_round_reveal(
         dunge_player_choice,
         dunge_boss_choice,
         dunge_round_result
     )
 
-    # Apply the result after the reveal.
     if dunge_round_result == "win":
 
         $ dunge_boss_hp -= 1
@@ -465,109 +425,12 @@ label dunge_play_round:
 
     return
 
-# --------------------------------------------------
-# BATTLE START
-# --------------------------------------------------
-
 label dunge_battle_start(cory_start_hp=3):
-    $ dunge_cory_start_hp = cory_start_hp
-
-    # Reset battle state
-    $ dunge_boss_hp = 5
-    $ dunge_battle_result = None
-    $ dunge_mc_hp = 3
-    $ dunge_cory_start_hp = cory_start_hp
-    $ dunge_cory_hp = cory_start_hp
-    $ dunge_cory_losses = 0
-    $ dunge_mc_losses = 0
-
-    $ dunge_player_choice = None
-    $ dunge_boss_choice = None
-    $ dunge_round_result = None
-
-    $ dunge_active_fighter = "mc"
-    $ dunge_laststand_taps = 0
-    $ dunge_laststand_success = False
-
-    # Keep the battle stage visible while the battle is active.
-    show screen dunge_battle_stage
-
-    "Dunge steps forward, raising his claws."
-
-    # MC fights until two losses or Dunge is defeated.
-    while dunge_mc_losses < 2 and dunge_boss_hp > 0:
-
-        $ dunge_active_fighter = "mc"
-        call dunge_play_round
-
-    if dunge_boss_hp <= 0:
-        jump dunge_battle_victory
-
-    # Cory takes over after MC's second loss.
-    "MC can no longer continue. Cory steps in."
-
-    while dunge_cory_losses < 2 and dunge_boss_hp > 0:
-
-        $ dunge_active_fighter = "cory"
-        call dunge_play_round
-
-    if dunge_boss_hp <= 0:
-        jump dunge_battle_victory
-
-    # Last stand
-    "Cory is overwhelmed. MC gathers the strength for one last move."
-
-    $ dunge_laststand_taps = 0
-    call screen dunge_laststand_screen
-    $ dunge_laststand_success = _return
-
-    if not dunge_laststand_success:
-        jump dunge_battle_defeat
-
-    # MC gets one final HP.
-    $ dunge_mc_hp = 1
-    $ dunge_active_fighter = "laststand"
-
-    "MC makes his last stand!"
-
-    while dunge_mc_hp > 0 and dunge_boss_hp > 0:
-
-        call dunge_play_round
-
-    if dunge_boss_hp <= 0:
-        jump dunge_battle_victory
-
-    jump dunge_battle_defeat
-
-# --------------------------------------------------
-# VICTORY
-# --------------------------------------------------
-
-label dunge_battle_victory:
-    hide screen dunge_battle_stage
-
-    $ dunge_battle_result = "victory"
-
     if dunge_battle_encounter == "empress":
-        "The Empress has been defeated!"
+        $ duel_boss = "empress"
     else:
-        "Dunge has been defeated!"
+        $ duel_boss = "dunge"
 
-    return
-
-# --------------------------------------------------
-# DEFEAT
-# --------------------------------------------------
-
-label dunge_battle_defeat:
-    hide screen dunge_battle_stage
-
-    call screen dunge_defeat_screen
-    $ dunge_defeat_choice = _return
-
-    if dunge_defeat_choice == "retry":
-        $ renpy.call("dunge_battle_start", cory_start_hp=dunge_cory_start_hp)
-
-    $ dunge_battle_result = "defeat"
+    call run_duel
 
     return

@@ -8,7 +8,7 @@ label hawk_interaction:
     show hawk default:
         full
         center
-    
+
     mc "fluffy"
     hawk "ppick me some cotton freshie"
 

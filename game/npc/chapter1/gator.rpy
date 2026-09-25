@@ -180,7 +180,7 @@ label gator_interaction:
         surprise
         ease 0.1 medlong
     gator "YOUR FOUL TASTE IS THE ONLY THING STOPPING ME."
-    
+
     hide mc
     hide cory
     hide gator
@@ -342,7 +342,6 @@ label gator_interaction:
             mc "Okaay! Thank you!"
 
             $ focus()
-
 
         "Distract them":
             $ focus()
