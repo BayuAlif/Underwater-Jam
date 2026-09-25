@@ -1,5 +1,4 @@
 init python:
-    # mc is dynamically defined in characters/mc.rpy using player_name
     cory = Character("Cory", color="#ffffff", image="cory")
     scyllarus = Character("Scyllarus", color="#ffffff", image="scy") # Often intentionally miscalled "Larus" or "Clarus"
     seabunny = Character("Sea Bunny", color="#ffffff", image="bunny") # TODO: Name unfinalized (candidates: Paruva, Runa, Joru)
