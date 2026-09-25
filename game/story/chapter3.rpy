@@ -1,11 +1,11 @@
 init python:
     cory = Character("Cory", color="#ffffff", image="cory")
-    scyllarus = Character("Scyllarus", color="#ffffff", image="scy") # Often intentionally miscalled "Larus" or "Clarus"
-    seabunny = Character("Sea Bunny", color="#ffffff", image="bunny") # TODO: Name unfinalized (candidates: Paruva, Runa, Joru)
+    scyllarus = Character("Scyllarus", color="#ffffff", image="scy")
+    seabunny = Character("Sea Bunny", color="#ffffff", image="bunny")
     hawk = Character("Gran Hawk", color="#ffffff", image="hawk")
     dun = Character("Dunge", color="#ffffff", image="dunge")
-    emp = Character("Crustacean Empress VIII", color="#ffffff", image="teto") # TODO: Empress real name unconfirmed ("aduh apaya teto…")
-    gob = Character("Goby", color="#ffffff") # TODO: Name unfinalized ("migu gob.. Gobgy migi")
+    emp = Character("Crustacean Empress VIII", color="#ffffff", image="teto")
+    gob = Character("Goby", color="#ffffff")
     gator = Character("Gator", color="#ffffff", image="gator")
 
     crustaceans = Character("Crustaceans", color="#ffffff")
@@ -1126,7 +1126,7 @@ label ch3_night_explore:
             },
             {
                 "id": "teto",
-                "name": "Teto",
+                "name": "Royal Cavern",
                 "idle": "teto idle",
                 "hover": "teto hover",
                 "xpos": 860,
@@ -1185,21 +1185,31 @@ label ch3_night_explore:
         $ result = _return
 
         if result in ("dunge", "crab"):
-            $ mark_npc_explored("dunge")
-            if not item_collected or "teto" not in explored_npcs:
-                "The large dungeness crab is blocking the entrance ahead. If we approach him now, we might get into a confrontation."
+            if ch3_dunge_defeated:
+                show dun default at npc_right
+                dun "The path is clear. Go on ahead into the lair before I change my mind."
                 menu:
-                    "Approach Mr. Crab":
-                        jump ch3_crab_encounter
-                    "Look around the reef first":
+                    "Enter the Empress's Lair":
+                        jump ch3_boss_intro
+                    "Stay in the reef":
                         jump .loop
             else:
                 jump ch3_crab_encounter
 
         elif result in ("teto", "goby"):
-            $ mark_npc_explored("teto")
-            call ch3_teto_encounter
-            jump .loop
+            if not ch3_dunge_defeated:
+                show dun mad at npc_right
+                dun "Hold your seahorses! No one steps a claw into Her Majesty's lair without goin' through me first!"
+                show cory side at cory_left
+                cory "Looks like Big Dunge down there is blockin' the cavern entrance. We gotta deal with him first."
+                jump .loop
+            else:
+                "The entrance to the Crustacean Empress's lair is open before us."
+                menu:
+                    "Enter the Empress's Lair":
+                        jump ch3_boss_intro
+                    "Stay in the reef":
+                        jump .loop
 
         elif result == "item":
             $ collect_exploration_item()
@@ -1207,7 +1217,14 @@ label ch3_night_explore:
             jump .loop
 
         elif result == "continue":
-            jump ch3_crab_encounter
+            if not ch3_dunge_defeated:
+                show dun mad at npc_right
+                dun "Where do you think you're goin'? No one passes through without permission!"
+                show cory side at cory_left
+                cory "Looks like we gotta deal with Big Dunge first."
+                jump ch3_crab_encounter
+            else:
+                jump ch3_boss_intro
 
         jump .loop
 
@@ -1240,40 +1257,8 @@ label ch3_item_red_seaweed:
     $ has_red_seaweed = True
     return
 
-label ch3_teto_encounter:
-    show teto default at center
-    show mc o at mc_left
-    show cory talk at cory_left
-    show scy default at npc_right
-
-    if not getattr(store, "ch3_teto_visited", False):
-        $ ch3_teto_visited = True
-        teto "Halt! Who dares lurk around the royal threshold of Her Majesty's lair?"
-
-        show scy smile at npc_right
-        scyllarus "Greetings, royal sentinels! It is I, Scyllarus! We have journeyed far to present ourselves before Her Majesty!"
-
-        show teto gun_smirk at center
-        teto "Hah! Present yourselves? With freshwater strays tagging behind your tail?"
-        teto "Nobody enters this cavern without going through proper protocol—and Big Dunge is guarding the outer perimeter down there!"
-
-        show cory side at cory_left
-        cory "Is that a goby riding shotgun on a pistol shrimp? And why are they looking at us like they're itching to pull a trigger?"
-
-        show teto gun_upset at center
-        teto "Keep your whiskers to yourself, catfish! Talk to Dunge down there first if you want any hope of passing through!"
-
-        show mc o at mc_left
-        mc "They look very fierce... We should probably speak to Mr. Crab first!"
-    else:
-        show teto gun_smirk at center
-        teto "I told you already! Go speak to Dunge down there! The Empress doesn't entertain unannounced wanderers!"
-
-    return
-
 label ch3_crab_encounter:
     $ mark_npc_explored("dunge")
-    $ has_red_seaweed = True
     show mc o at mc_left
     show dun smile at npc_right
 
@@ -1375,7 +1360,11 @@ label ch3_crab_mc_opt1:
     dun "This is a clear violation of rules, Larus!"
 
     "No clue added."
-    jump ch3_boss_intro
+    show mc pout at mc_left
+    mc "Aw... Mr. Crab really won't let us through..."
+    show cory side at cory_left
+    cory "Told ya, guppy. Let's see if one of us can talk some sense into him."
+    jump ch3_crab_interactor_retry
 
 label ch3_crab_mc_opt2:
     show mc o at mc_left
@@ -1404,7 +1393,20 @@ label ch3_crab_mc_opt2:
     dun "... who doesn't know a damn thing about the real ocean livin'!"
 
     "No clue added."
-    jump ch3_boss_intro
+    show mc o at mc_left
+    mc "He doesn't seem very interested in marine biology..."
+    show cory talk at cory_left
+    cory "Heh, clearly. Let someone else handle this ol' crab."
+    jump ch3_crab_interactor_retry
+
+label ch3_crab_interactor_retry:
+    menu:
+        "Let Cory speak to Mr. Crab":
+            jump ch3_crab_as_cory
+        "Let Scyllarus speak to Mr. Crab":
+            jump ch3_crab_as_scyllarus
+        "Step back to the reef":
+            jump ch3_night_explore.loop
 
 label ch3_crab_as_cory:
     menu:
@@ -1444,8 +1446,17 @@ label ch3_crab_cory_opt1:
     dun "My job is to block anyone tryin' to set claws or fins in here."
 
     call dunge_duel
-    $ ch3_dunge_defeated = True
-    jump ch3_boss_intro
+
+    if _return != "win" and duel_result != "win":
+        show dun mad at npc_right
+        dun "Hah! Ya got a lot of nerve, but my claws are harder than your head, freshie!"
+        show cory hurt at cory_left
+        cory "Guh... that crab's tough..."
+        show scy default at npc_right
+        scyllarus "Do not fret, comrades! We can regroup and try again!"
+        jump ch3_night_explore.loop
+
+    jump ch3_crab_cory_duel_won
 
 label ch3_crab_cory_opt2:
     show cory unimpressed at cory_left
@@ -1497,8 +1508,47 @@ label ch3_crab_cory_opt2:
     dun "Bless your heart, Larus, but I gotta fight anyone who threatens to take down the regime!"
 
     call dunge_duel
+
+    if _return != "win" and duel_result != "win":
+        show dun mad at npc_right
+        dun "Hah! Ya got a lot of nerve, but my claws are harder than your head, freshie!"
+        show cory hurt at cory_left
+        cory "Guh... that crab's tough..."
+        show scy default at npc_right
+        scyllarus "Do not fret, comrades! We can regroup and try again!"
+        jump ch3_night_explore.loop
+
+    jump ch3_crab_cory_duel_won
+
+label ch3_crab_cory_duel_won:
+    show dun yeesh at npc_right
+    dun "Oof... holy barnacles, you got some heavy fins on ya, freshie..."
+
+    show dun default at npc_right
+    dun "Aight, aight! I yield! You beat me fair and square."
+
+    show cory smile_hu at cory_left
+    cory "Heh. Told ya, amigo. Never underestimate freshwater folks."
+
+    show scy smile at npc_right
+    scyllarus "Splendidly fought, Cory! Now, comrade Dunge, will you let us through?"
+
+    show dun default at npc_right
+    dun "Hmph. Fine. The path to the royal cavern's clear..."
+    dun "If y'all are really plottin' to challenge the Empress, watch yer backs."
+    dun "She holds a powerful golden scale... and she ain't gonna entertain sweet talk."
+
+    "...! the golden scale?"
+
+    scyllarus "We are deeply grateful for your cooperation, Dunge!"
+
+    $ clue_golden_scale = True
     $ ch3_dunge_defeated = True
-    jump ch3_boss_intro
+    $ mark_npc_explored("dunge")
+    $ mark_npc_explored("teto")
+    "Clue added: empress had the golden scale too."
+
+    jump ch3_crab_post_resolution
 
 label ch3_crab_as_scyllarus:
     menu:
@@ -1566,8 +1616,11 @@ label ch3_crab_scy_opt1:
     "Dunge just nods."
 
     $ clue_golden_scale = True
+    $ ch3_dunge_defeated = True
+    $ mark_npc_explored("dunge")
+    $ mark_npc_explored("teto")
     "Clue added: empress had the golden scale too."
-    jump ch3_boss_intro
+    jump ch3_crab_post_resolution
 
 label ch3_crab_scy_opt2:
     show dun default at npc_right
@@ -1610,8 +1663,26 @@ label ch3_crab_scy_opt2:
     scyllarus "We deeply appreciate it, Dunge!"
 
     $ clue_golden_scale = True
+    $ ch3_dunge_defeated = True
+    $ mark_npc_explored("dunge")
+    $ mark_npc_explored("teto")
     "Clue added: empress had the golden scale too."
-    jump ch3_boss_intro
+    jump ch3_crab_post_resolution
+
+label ch3_crab_post_resolution:
+    if not item_collected:
+        show mc o at mc_left
+        mc "Look, Mr. Cory! There's some bright red seaweed over by the reef!"
+        mc "We should take a look around the reef before going inside!"
+        "The path to the Empress's lair is open, but we should explore the reef and collect the red seaweed first."
+        jump ch3_night_explore.loop
+    else:
+        "The path to the Empress's lair is open."
+        menu:
+            "Enter the Crustacean Empress's Lair":
+                jump ch3_boss_intro
+            "Look around the reef first":
+                jump ch3_night_explore.loop
 
 label ch3_boss_intro:
     hide mc
@@ -1635,7 +1706,7 @@ label ch3_boss_intro:
     scyllarus "They're almost blind, actually! And she's just told that her color is red, and it immediately become her favorite!"
 
     show cory smile_hu at cory_left
-    cory "And the eighth you say..? She gon rule for 36 years?" # ref to Henry VIII
+    cory "And the eighth you say..? She gon rule for 36 years?"
 
     "Abruptly—"
 
@@ -1665,9 +1736,9 @@ label ch3_boss_intro:
 
     emp "Then fulfill your wish I shall! Wouldn't the majestic I be the fairest?!"
 
-    play sound "audio/attack_2.mp3" # Placeholder SFX: Gun click / reload
+    play sound "audio/attack_2.mp3"
     $ renpy.pause(0.2)
-    play sound "audio/attack_1.mp3" # Placeholder SFX: Gunshot
+    play sound "audio/attack_1.mp3"
 
     show cory surprise at cory_left
     cory "WOAH WOAH-! CHILL OUT YOUR CRUSTACEAN MAJESTY! PUT THE GUN DOWN"
@@ -1807,7 +1878,7 @@ label ch3_boss_negotiate_mc_opt3:
 
     emp "How thoughtful! Gimme it!"
 
-    play sound "audio/attack_1.mp3" # Placeholder SFX: Gunshot / discreet bang!
+    play sound "audio/attack_1.mp3"
     "At the blink of an eye with a discreet bang! The seaweed vanished.. Now already a crushed victim under the shrimp's eager munch teeth"
 
     gob "Your Majesty, please remember that they are here to negotiate."
@@ -1866,7 +1937,7 @@ label ch3_boss_negotiate_as_cory:
 
     gob "Enough! That was more than 3 seconds!"
 
-    play sound "audio/attack_3.mp3" # Placeholder SFX: Spear thrust
+    play sound "audio/attack_3.mp3"
     "My eyes widen into saucers as it registers a flash of red. The goby's spear grazes past Mr.Cory, tearing through flesh but missing anything vital. A warning, and nothing more."
 
     show cory hurt at cory_left
