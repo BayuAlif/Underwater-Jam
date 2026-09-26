@@ -244,9 +244,7 @@ label chapter1_start:
 
     call chapter1_night
 
-    call chapter1_dawn
-
-    return
+    jump chapter1_dawn
 
 label chapter1_day_exploration:
 
@@ -639,9 +637,4 @@ label chapter1_dawn:
 
     "END OF CHAPTER 1"
 
-    menu:
-        "Continue to Chapter 2":
-            jump chapter2_start
-
-        "End":
-            return
+    jump chapter2_start

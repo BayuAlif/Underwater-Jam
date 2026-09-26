@@ -66,15 +66,29 @@ image duel_bg_mantis = "duel_bg_animated"
 image duel_bg_empress = "duel_bg_animated"
 image duel_bg_dunge = "duel_bg_animated"
 
-image empress_idle1 = "images/jankenpon/Idle1.png"
-image empress_idle2 = "images/jankenpon/Idle2.png"
-image empress_idle3 = "images/jankenpon/Idle3.png"
-image empress_idledmg = "images/jankenpon/IdleDMG.png"
-image empress_lowhp = "images/jankenpon/LowHP.png"
-image empress_lowhp1 = "images/jankenpon/LowHP1.png"
-image empress_lowhp2 = "images/jankenpon/LowHP2.png"
-image empress_lowhp3 = "images/jankenpon/LowHP3.png"
-image empress_lowhpdmg = "images/jankenpon/LowHPDMG.png"
+image empress_idle1 = "images/jankenpon/VS GOBYTETO/TetoDefault.png"
+image empress_idle2 = "images/jankenpon/VS GOBYTETO/TetoDefault.png"
+image empress_idle3 = "images/jankenpon/VS GOBYTETO/TetoDefault.png"
+image empress_idledmg = "images/jankenpon/VS GOBYTETO/TetoDMG.png"
+image empress_lowhp = "images/jankenpon/VS GOBYTETO/TetoDefault.png"
+image empress_lowhp1 = "images/jankenpon/VS GOBYTETO/TetoDefault.png"
+image empress_lowhp2 = "images/jankenpon/VS GOBYTETO/TetoDefault.png"
+image empress_lowhp3 = "images/jankenpon/VS GOBYTETO/TetoDefault.png"
+image empress_lowhpdmg = "images/jankenpon/VS GOBYTETO/TetoDMG.png"
+
+image empress_idle_normal = "empress_idle1"
+image empress_dmg_normal = "empress_idledmg"
+image empress_idle_low = "empress_lowhp"
+image empress_dmg_low = "empress_lowhpdmg"
+
+image empress_icon_full = "images/jankenpon/VS GOBYTETO/ICON/TetoFull.png"
+image empress_icon_half = "images/jankenpon/VS GOBYTETO/ICON/TetoHalf.png"
+image empress_icon_one = "images/jankenpon/VS GOBYTETO/ICON/TetoOne.png"
+image empress_icon_dead = "images/jankenpon/VS GOBYTETO/ICON/TetoDead.png"
+
+image empress dodge bg = "images/jankenpon/VS GOBYTETO/Dodge/BgDodge.png"
+image empress dodge = "images/jankenpon/VS GOBYTETO/Dodge/TetoDodge.png"
+image empress dodge vfx = "images/jankenpon/VS GOBYTETO/Dodge/Dodge.png"
 
 image boss_mantis_idle_normal = "images/jankenpon/Idle1.png"
 
@@ -85,11 +99,6 @@ image boss_mantis_idle_low = "images/jankenpon/LowHP.png"
 image boss_mantis_dmg_low = "images/jankenpon/LowHPDMG.png"
 
 image boss_mantis_dmg_low = "images/jankenpon/LowHPDMG.png"
-
-image empress_idle_normal = "boss_mantis_idle_normal"
-image empress_dmg_normal = "boss_mantis_dmg_normal"
-image empress_idle_low = "boss_mantis_idle_low"
-image empress_dmg_low = "boss_mantis_dmg_low"
 
 image duel_boss_mantis = "boss_mantis_idle_normal"
 image duel_boss_mantis_damaged = "boss_mantis_idle_low"
@@ -171,10 +180,10 @@ init python:
             "bg": "duel_bg_empress",
             "hp": 3,
             "low_hp_threshold": 1,
-            "idle_normal": "boss_mantis_idle_normal",
-            "dmg_normal": "boss_mantis_dmg_normal",
-            "idle_low": "boss_mantis_idle_low",
-            "dmg_low": "boss_mantis_dmg_low",
+            "idle_normal": "empress_idle_normal",
+            "dmg_normal": "empress_dmg_normal",
+            "idle_low": "empress_idle_low",
+            "dmg_low": "empress_dmg_low",
             "weights_normal": {"rock": 0.33, "paper": 0.34, "scissors": 0.33},
             "weights_enraged": {"rock": 0.35, "paper": 0.35, "scissors": 0.30},
             "dodge_target_range": (8, 10),
@@ -216,6 +225,23 @@ init python:
             "ai_counter_chance": 0.25,
             "ai_counter_accuracy": 0.60,
             "has_full_assets": False,
+        },
+        "banished": {
+            "name": "The Banished One",
+            "bg": "duel_bg_mantis",
+            "hp": 3,
+            "low_hp_threshold": 1,
+            "idle_normal": "boss_mantis_idle_normal",
+            "dmg_normal": "boss_mantis_dmg_normal",
+            "idle_low": "boss_mantis_idle_low",
+            "dmg_low": "boss_mantis_dmg_low",
+            "weights_normal": {"rock": 0.35, "paper": 0.35, "scissors": 0.30},
+            "weights_enraged": {"rock": 0.40, "paper": 0.35, "scissors": 0.25},
+            "dodge_target_range": (7, 9),
+            "dodge_tar_range": (5, 7),
+            "ai_counter_chance": 0.30,
+            "ai_counter_accuracy": 0.65,
+            "has_full_assets": True,
         }
     }
 
@@ -365,25 +391,40 @@ screen duel_battle_stage():
                     xalign 0.12
                     yalign 0.12
 
-        if duel_shrimp_hp <= 0:
-            add "dunge icon dead":
-                xalign 0.88
-                yalign 0.12
-
-        elif duel_shrimp_hp == 1:
-            add "dunge icon one":
-                xalign 0.88
-                yalign 0.12
-
-        elif duel_shrimp_hp == 2:
-            add "dunge icon half":
-                xalign 0.88
-                yalign 0.12
-
+        if duel_boss == "empress":
+            if duel_shrimp_hp <= 0:
+                add "empress_icon_dead":
+                    xalign 0.88
+                    yalign 0.12
+            elif duel_shrimp_hp == 1:
+                add "empress_icon_one":
+                    xalign 0.88
+                    yalign 0.12
+            elif duel_shrimp_hp == 2:
+                add "empress_icon_half":
+                    xalign 0.88
+                    yalign 0.12
+            else:
+                add "empress_icon_full":
+                    xalign 0.88
+                    yalign 0.12
         else:
-            add "dunge icon full":
-                xalign 0.88
-                yalign 0.12
+            if duel_shrimp_hp <= 0:
+                add "dunge icon dead":
+                    xalign 0.88
+                    yalign 0.12
+            elif duel_shrimp_hp == 1:
+                add "dunge icon one":
+                    xalign 0.88
+                    yalign 0.12
+            elif duel_shrimp_hp == 2:
+                add "dunge icon half":
+                    xalign 0.88
+                    yalign 0.12
+            else:
+                add "dunge icon full":
+                    xalign 0.88
+                    yalign 0.12
 
 screen mantis_battle_stage():
     use duel_battle_stage
@@ -414,22 +455,31 @@ screen mantis_rps_screen():
         action Return("paper")
 
 screen mantis_spamz_screen(player_choice, boss_choice="paper"):
-
     modal True
 
-    if player_choice == "rock":
-        add "mantis dodge rock"
-    elif player_choice == "paper":
-        add "mantis dodge paper"
-    else:
-        add "mantis dodge scissors"
+    if duel_boss == "empress":
 
-    if boss_choice == "rock":
-        add "images/jankenpon/Rock/Rock.png" at mantis_incoming_attack
-    elif boss_choice in ("scissor", "scissors"):
-        add "images/jankenpon/Scissor/Scissor.png" at mantis_incoming_attack
+        add "empress dodge bg"
+
+        add "empress dodge"
+
+        add "empress dodge vfx"
+
     else:
-        add "images/jankenpon/Paper/Paper.png" at mantis_incoming_attack
+
+        if player_choice == "rock":
+            add "mantis dodge rock"
+        elif player_choice == "paper":
+            add "mantis dodge paper"
+        else:
+            add "mantis dodge scissors"
+
+        if boss_choice == "rock":
+            add "images/jankenpon/Rock/Rock.png" at mantis_incoming_attack
+        elif boss_choice in ("scissor", "scissors"):
+            add "images/jankenpon/Scissor/Scissor.png" at mantis_incoming_attack
+        else:
+            add "images/jankenpon/Paper/Paper.png" at mantis_incoming_attack
 
     if duel_z_taps % 2 == 0:
         add "mantis key idle"
@@ -497,6 +547,10 @@ label empress_duel:
 
 label dunge_duel:
     call run_duel("dunge")
+    return _return
+
+label banished_duel:
+    call run_duel("banished")
     return _return
 
 label run_duel(boss_target="mantis", custom_hp=None, custom_threshold=None):

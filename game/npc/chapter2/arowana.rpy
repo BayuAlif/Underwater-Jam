@@ -85,9 +85,11 @@ label arowana_interaction:
     $ selected_questioner = _return
 
     if selected_questioner == "mc":
-        jump arowana_as_mc
+        call arowana_as_mc
+    else:
+        call arowana_as_cory
 
-    jump arowana_as_cory
+    return
 
 label arowana_as_mc:
     $ focus()
@@ -175,6 +177,7 @@ label arowana_as_mc:
                 right
             mc "Awww…"
             $ focus()
+            return
 
         "Tell him to just swim there.":
             $ focus()
@@ -283,6 +286,7 @@ label arowana_as_mc:
                 right
             mc "hnnrhhgh!!"
             $ focus()
+            return
 
     return
 
@@ -349,6 +353,7 @@ label arowana_as_cory:
 
             $ focus()
             $ add_clue("You have to win in a duel to pass the shrimp.")
+            return
 
         "You know what's up with his bizarre act?":
             $ focus()
@@ -480,5 +485,6 @@ label arowana_as_cory:
             $ focus()
             $ add_item("saltwater_survival_device")
             $ add_clue("The Mantis Shrimp is blocking the only path to the ocean.")
+            return
 
     return

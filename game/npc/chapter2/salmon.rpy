@@ -5,7 +5,7 @@ label salmon_interaction:
     show salmon pien:
         full
         center
-        toright
+        toleft
         pacing
         vibrate
     show mc shock:
@@ -27,11 +27,13 @@ label salmon_interaction:
     show salmon default:
         full
         center
+        toleft
     salmon "....? huh??"
 
     show salmon pien:
         full
         center
+        toleft
         vibrate
     salmon "........."
     salmon "I want to go get down to the sea…"
@@ -40,6 +42,7 @@ label salmon_interaction:
     show salmon pout:
         full
         center
+        toleft
     salmon "I’ve gone through a week of hassle just to get my saltwater license.."
     salmon "But he still won’t let me pass..!!"
     salmon "It’s all… because… of that God awful….."
@@ -47,6 +50,7 @@ label salmon_interaction:
     show salmon pien:
         full
         center
+        toleft
         vibrate
     salmon "UEEEEHHH………."
 
@@ -60,6 +64,7 @@ label salmon_interaction:
     show salmon pien:
         full
         center
+        toleft
         jumpmc
     salmon "......!!!"
 
@@ -72,6 +77,7 @@ label salmon_interaction:
     show salmon default:
         full
         center
+        toleft
     salmon "...... how on ocean does a tiny you know that, love?"
 
     show mc actually:
@@ -84,6 +90,7 @@ label salmon_interaction:
     show salmon happy:
         full
         center
+        toleft
         surprise
     salmon "Oh my…. Hahaha."
     salmon "You’re a very lovely little thing, aren't you?"
@@ -91,12 +98,14 @@ label salmon_interaction:
     show salmon default:
         full
         center
+        toleft
     salmon "Though i haven’t a clue what this “YouTube” is…."
     salmon "Must be a helpful source of information.."
 
     show salmon happy:
         full
         center
+        toleft
     salmon "Tell me love, are there any sort of.. Pregnancy tips in there?"
     salmon "Or what a salmon parent must prepare to leave their young…"
 
@@ -116,12 +125,14 @@ label salmon_interaction:
     show salmon default:
         full
         centerright
+        toleft
     with move
     "Mrs. Salmon looks at Cory."
 
     show salmon default:
         full
         centerright
+        toleft
         surprise
     salmon "Go back to your father now. He must be worried for you"
 
@@ -139,6 +150,7 @@ label salmon_interaction:
     show salmon pout:
         full
         centerright
+        toleft
     salmon "..........???"
     "Salmon glares at Cory suspiciously."
 
@@ -169,9 +181,11 @@ label salmon_interaction:
     $ selected_questioner = _return
 
     if selected_questioner == "mc":
-        jump salmon_as_mc
+        call salmon_as_mc
+    else:
+        call salmon_as_cory
 
-    jump salmon_as_cory
+    return
 
 label salmon_as_mc:
     hide cory side
@@ -186,11 +200,13 @@ label salmon_as_mc:
             show salmon default:
                 full
                 center
+                toleft
             salmon "There's only one path down to the sea from here, innit,"
 
             show salmon pout:
                 full
                 center
+                toleft
                 vibrate
             salmon "But a bloody mantis shrimp’s blocking the way,"
             salmon "So I can’t get past, love."
@@ -204,6 +220,7 @@ label salmon_as_mc:
             show salmon default:
                 full
                 center
+                toleft
             salmon "I haven’t the foggiest idea, love."
 
         "Can't you just push past the river, ma’am?":
@@ -214,6 +231,7 @@ label salmon_as_mc:
             show salmon default:
                 full
                 center
+                toleft
             salmon "Push past it??"
             salmon "Oh, perish that thought, love.."
             salmon "... that path is guarded… by a mantis shrimp."
@@ -222,6 +240,7 @@ label salmon_as_mc:
             show salmon pout:
                 full
                 center
+                toleft
                 vibrate
             salmon "I reckon he's a bloody MMA (Marine Martial Arts) fighter."
             salmon "Tried to ask nicely, but he shooed me right off…"
@@ -236,6 +255,7 @@ label salmon_as_mc:
             show salmon default:
                 full
                 center
+                toleft
             salmon "I haven’t a clue dear, he looks like he lost his mind"
             salmon "Only way to walk pass him is to win in a duel"
 
@@ -247,6 +267,7 @@ label salmon_as_mc:
             show salmon happy:
                 full
                 center
+                toleft
                 surprise
             salmon "Oh how lovely! For me, sweet guppy?"
 
@@ -271,11 +292,13 @@ label salmon_as_mc:
             show salmon happy:
                 full
                 center
+                toleft
                 surprise
 
             show salmon hug:
                 full
                 center
+                toleft
 
             salmon "Thank you, thank you.. I can’t remember the last time I had a meal.."
 
@@ -292,12 +315,14 @@ label salmon_as_mc:
             show salmon default:
                 full
                 center
+                toleft
                 surprise
             salmon "...!"
 
             show salmon happy:
                 full
                 center
+                toleft
                 surprise
             "I feel a faint tap on my glass head. Even when I couldn’t directly feel it, I could picture how it would land on my head, a gentle caress that would wipe all my worries and sadness away"
             salmon "mhm, I’m here for you.."
@@ -307,6 +332,7 @@ label salmon_as_mc:
     show salmon pien:
         full
         centerright
+        toleft
     with move
     salmon "I think i will have to take a detour-"
     salmon "-even it’ll take me aeons."
@@ -327,11 +353,13 @@ label salmon_as_mc:
     show salmon default:
         full
         centerright
+        toleft
     salmon "Haven’t a clue about any other way, unfortunately."
 
     show salmon happy:
         full
         centerright
+        toleft
         surprise
     salmon "I can only wish you the best of luck."
     salmon "I bid you farewell guppy"
@@ -348,6 +376,7 @@ label salmon_as_cory:
     show salmon pout:
         full
         centerright
+        toleft
     salmon "What on ocean are you doing with that guppy?"
 
     show cory talk_hu:
@@ -367,6 +396,7 @@ label salmon_as_cory:
             show salmon pout:
                 full
                 centerright
+                toleft
             salmon "......."
             salmon "I won't be answering your queries young man!"
             salmon "not until you tell the truth about the little one."
@@ -381,12 +411,14 @@ label salmon_as_cory:
             show salmon default:
                 full
                 centerright
+                toleft
                 surprise
             salmon "......!"
 
             show salmon pout:
                 full
                 centerright
+                toleft
                 vibrate
             salmon "Then just turn around and go back."
             salmon "You’d know how bloody dangerous the sea can be for a fry…"
@@ -409,6 +441,7 @@ label salmon_as_cory:
             show salmon pout:
                 full
                 centerright
+                toleft
                 vibrate
             show cory side_close:
                 full
@@ -430,11 +463,13 @@ label salmon_as_cory:
             show salmon default:
                 full
                 centerright
+                toleft
             salmon "Hm, if you say so then…"
 
             show salmon pout:
                 full
                 centerright
+                toleft
                 vibrate
             salmon "But! you watch your back around him anyway, love."
 
@@ -452,6 +487,7 @@ label salmon_as_cory:
             show salmon default:
                 full
                 centerright
+                toleft
             "Cory offers a krill to Mrs. Salmon"
 
             salmon "...!"
@@ -459,6 +495,7 @@ label salmon_as_cory:
             show salmon pout:
                 full
                 centerright
+                toleft
                 vibrate
             salmon "... Hmph"
 
@@ -470,6 +507,7 @@ label salmon_as_cory:
             show salmon default:
                 full
                 centerright
+                toleft
                 surprise
             salmon "Wait!"
 
@@ -481,6 +519,7 @@ label salmon_as_cory:
             show salmon default:
                 full
                 centerright
+                toleft
                 surprise
             salmon "I should be thanking you bloke properly.."
             salmon "That was rude of me, My deepest apologies.."
@@ -494,6 +533,7 @@ label salmon_as_cory:
             show salmon pout:
                 full
                 centerright
+                toleft
                 sink
             salmon "Fair enough.. I can’t help it"
             salmon "You better take a dainty great care of the little fry, okay?"
@@ -501,6 +541,7 @@ label salmon_as_cory:
             show salmon default:
                 full
                 centerright
+                toleft
                 sink
             salmon "I’m bloody worried for them.."
 

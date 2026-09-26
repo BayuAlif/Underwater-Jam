@@ -1,6 +1,12 @@
 # Ren'Py generated files
 *.rpyc
 cache/
+game/saves/
+log.txt
+errors.txt
+
+# Scratch and temporary work
+scratch/
 
 # OS files
 .DS_Store

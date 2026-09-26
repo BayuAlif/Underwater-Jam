@@ -137,9 +137,7 @@ label chapter2_start:
     $ focus()
 
     call chapter2_day_exploration
-    call chapter2_night_start
-
-    return
+    jump chapter2_night_start
 
 label chapter2_day_exploration:
 
@@ -328,8 +326,8 @@ label chapter2_night_start:
 
         elif result == "mantis":
             call mantis_interaction
+            $ mark_npc_explored("mantis")
             if chapter2_mantis_done:
-                $ mark_npc_explored("mantis")
                 if exploration_complete():
                     jump chapter2_ending
             jump .loop
@@ -554,9 +552,4 @@ label chapter2_ending:
 
     "END OF CHAPTER 2"
 
-    menu:
-        "Continue to Chapter 3":
-            jump chapter3_start
-
-        "End":
-            return
+    jump chapter3_start
