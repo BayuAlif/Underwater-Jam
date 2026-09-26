@@ -683,13 +683,18 @@ label ch4_chore1_seaweed:
     $ ch4_chore1_companion = _return
 
     if ch4_chore1_companion == "scy":
+        $ ch4_add_affection("scy")
         jump ch4_chore1_scy
     elif ch4_chore1_companion == "cory":
+        $ ch4_add_affection("cory")
         jump ch4_chore1_cory
     else:
+        $ ch4_add_affection("leo")
         jump ch4_chore1_leo
 
 label ch4_chore1_scy:
+
+    show screen ch4_affection_hud("scy")
 
     show scy proud at npc_right
     scy "Lay it on me!! My eyes are good at picking the freshest of seaweeds!"
@@ -738,7 +743,7 @@ label ch4_chore1_scy:
             scy "We're at the time of scarcity little guppy! Everyone's greedy!"
 
         "A big… strooong colorful hard shelled creature with a super strong punch!":
-            $ ch4_scy_affection += 1
+            $ ch4_add_affection("scy")
             show scy surprise at npc_right
             scy "Big.. colorful hard shelled.. Super strong…"
             scy "It can't be…!"
@@ -759,12 +764,15 @@ label ch4_chore1_scy:
     scy "Oh right! Fine, I shall guide you through it then!"
 
     $ ch4_chore1_done = True
+    hide screen ch4_affection_hud
     hide mc
     hide scy
     with dissolve
     jump ch4_chore_explore_hub
 
 label ch4_chore1_cory:
+
+    show screen ch4_affection_hud("cory")
 
     show cory talk at cory_left
     cory "Plucking seaweeds? I got ya guppy!"
@@ -811,7 +819,7 @@ label ch4_chore1_cory:
             cory "Stay weird little guppy, I mean it."
 
         "Mm! It's like drawing!":
-            $ ch4_cory_affection += 1
+            $ ch4_add_affection("cory")
             show cory talk at cory_left
             cory "Drawing huh..? You an artist?"
             show mc happy at mc_left
@@ -850,12 +858,15 @@ label ch4_chore1_cory:
     cory "No can't do, guppy that's enough"
 
     $ ch4_chore1_done = True
+    hide screen ch4_affection_hud
     hide mc
     hide cory
     with dissolve
     jump ch4_chore_explore_hub
 
 label ch4_chore1_leo:
+
+    show screen ch4_affection_hud("leo")
 
     leo "Ooo hehe how fun~! I like picking flowers"
     leo "Tell me what's your favorite flower, little guppy?"
@@ -867,7 +878,7 @@ label ch4_chore1_leo:
 
     menu:
         "What about you? What's your favorite flower?":
-            $ ch4_leo_affection += 1
+            $ ch4_add_affection("leo")
             leo "Hmm.. I think it would be.. the Night shade.. Familiar?"
             show mc o at mc_left
             mc "No I don't think I've heard of it.. What's it like?"
@@ -909,6 +920,7 @@ label ch4_chore1_leo:
     leo "Mhm, just a theory though.. a sea theory"
 
     $ ch4_chore1_done = True
+    hide screen ch4_affection_hud
     hide mc
     hide leo
     with dissolve
@@ -938,13 +950,18 @@ label ch4_chore2_stand:
     $ ch4_chore2_companion = _return
 
     if ch4_chore2_companion == "scy":
+        $ ch4_add_affection("scy")
         jump ch4_chore2_scy
     elif ch4_chore2_companion == "cory":
+        $ ch4_add_affection("cory")
         jump ch4_chore2_cory
     else:
+        $ ch4_add_affection("leo")
         jump ch4_chore2_leo
 
 label ch4_chore2_scy:
+
+    show screen ch4_affection_hud("scy")
 
     show scy laugh at npc_right
     scy "Kakaka, deal then, guppy!"
@@ -995,7 +1012,7 @@ label ch4_chore2_scy:
 
     menu:
         "Take your time, Mr. Shrimp!":
-            $ ch4_scy_affection += 1
+            $ ch4_add_affection("scy")
             show mc happy at mc_left
             mc "I don't know how it feels… to lose your purpose,"
             mc "I don't know how you're feeling right now…"
@@ -1029,12 +1046,15 @@ label ch4_chore2_scy:
     mc "With.. guppy's assistance :D!"
 
     $ ch4_chore2_done = True
+    hide screen ch4_affection_hud
     hide mc
     hide scy
     with dissolve
     jump ch4_chore_explore_hub
 
 label ch4_chore2_cory:
+
+    show screen ch4_affection_hud("cory")
 
     show cory talk at cory_left
     cory "Ay, gimme a hand with this frame, guppy!!"
@@ -1097,7 +1117,7 @@ label ch4_chore2_cory:
             cory "But you aint wrong, guppy."
 
         "Im sure your family waits for you":
-            $ ch4_cory_affection += 1
+            $ ch4_add_affection("cory")
             show mc happy at mc_left
             mc "I don't think your family cares about your job, Mr. Cory."
             mc "If it were me, I'd just be happy to see you come home safe and sound."
@@ -1120,12 +1140,15 @@ label ch4_chore2_cory:
     cory "Ay, we are the dream team, guppy."
 
     $ ch4_chore2_done = True
+    hide screen ch4_affection_hud
     hide mc
     hide cory
     with dissolve
     jump ch4_chore_explore_hub
 
 label ch4_chore2_leo:
+
+    show screen ch4_affection_hud("leo")
 
     leo "Hee hee! Lets construct this stand together~"
 
@@ -1167,7 +1190,7 @@ label ch4_chore2_leo:
             leo "Hee hee. If you say so~"
 
         "You're so cool :0":
-            $ ch4_leo_affection += 1
+            $ ch4_add_affection("leo")
             leo "Hee-hee~ you're fully capable of this, too, twin~"
             leo "Or well.. You could, if you weren't so accustomed… "
             leo "... to having your fin held through every tiny wave~"
@@ -1187,6 +1210,7 @@ label ch4_chore2_leo:
     leo "See? I told you that you've got it in you~"
 
     $ ch4_chore2_done = True
+    hide screen ch4_affection_hud
     hide mc
     hide leo
     with dissolve
@@ -1631,13 +1655,18 @@ label ch4_minigame_plankton:
     $ ch4_game1_companion = _return
 
     if ch4_game1_companion == "scy":
+        $ ch4_add_affection("scy")
         jump ch4_plankton_scy
     elif ch4_game1_companion == "cory":
+        $ ch4_add_affection("cory")
         jump ch4_plankton_cory
     else:
+        $ ch4_add_affection("leo")
         jump ch4_plankton_leo
 
 label ch4_plankton_scy:
+
+    show screen ch4_affection_hud("scy")
 
     show scy proud at npc_right
     scy "Hah! Plankton catching is a discreet hobby of mine!"
@@ -1676,7 +1705,7 @@ label ch4_plankton_scy:
             scy "I'm fine..! Mother of sea.. Why must they have such foul mouths!"
 
         "Mmno, I want to feed it to you!":
-            $ ch4_scy_affection += 1
+            $ ch4_add_affection("scy")
             show scy surprise at npc_right
             scy "For me…?!"
             scy "Well.. big shrimps like me don't eat critters like these anymore!"
@@ -1713,9 +1742,12 @@ label ch4_plankton_scy:
     scy "I.. try my best to!"
 
     $ ch4_game1_done = True
+    hide screen ch4_affection_hud
     jump ch4_festival_hub
 
 label ch4_plankton_cory:
+
+    show screen ch4_affection_hud("cory")
 
     show cory side at cory_left
     cory "There sure is a lot of stuff huh.. buncha nautical nonsense."
@@ -1731,7 +1763,7 @@ label ch4_plankton_cory:
 
     menu:
         "Get the jellyfish lookalike!":
-            $ ch4_cory_affection += 1
+            $ ch4_add_affection("cory")
             show cory smile at cory_left
             cory "Fan of Jellyfishes I see."
             show mc happy at mc_left
@@ -1781,9 +1813,12 @@ label ch4_plankton_cory:
             cory "These tiny things sure have big mouths, ay?"
 
     $ ch4_game1_done = True
+    hide screen ch4_affection_hud
     jump ch4_festival_hub
 
 label ch4_plankton_leo:
+
+    show screen ch4_affection_hud("leo")
 
     leo "Catching helpless little beings huh? I'm skilled at that~!"
     leo "We'll catch as many as we can, little guppy"
@@ -1794,6 +1829,7 @@ label ch4_plankton_leo:
 
     menu:
         "Do you eat planktons, Leo?":
+            $ ch4_add_affection("leo")
             leo "Hmm if I'm bored, yes."
             leo "I like the feeling of them crawling their futile way about my innards.."
             leo "It sure is a tickling feeling~! Like drinking carbonated water"
@@ -1859,6 +1895,7 @@ label ch4_plankton_leo:
             leo "hehe oopsies~ we can find more in the wild later on"
 
     $ ch4_game1_done = True
+    hide screen ch4_affection_hud
     jump ch4_festival_hub
 
 label ch4_minigame_shooting:
@@ -1892,13 +1929,18 @@ label ch4_minigame_shooting:
     $ ch4_game2_companion = _return
 
     if ch4_game2_companion == "cory":
+        $ ch4_add_affection("cory")
         jump ch4_shoot_cory
     elif ch4_game2_companion == "scy":
+        $ ch4_add_affection("scy")
         jump ch4_shoot_scy
     else:
+        $ ch4_add_affection("leo")
         jump ch4_shoot_leo
 
 label ch4_shoot_cory:
+
+    show screen ch4_affection_hud("cory")
 
     show cory talk at cory_left
     cory "Here's the trick to winnin' this, guppy."
@@ -1937,7 +1979,7 @@ label ch4_shoot_cory:
 
     menu:
         "Maybe you can try using my shooter.":
-            $ ch4_cory_affection += 1
+            $ ch4_add_affection("cory")
             show mc happy at mc_left
             mc "Mmm.. perhaps it's simply an issue with your pistol, Mr. Cory?"
             mc "Or maybe aiming is just harder over there."
@@ -1989,9 +2031,12 @@ label ch4_shoot_cory:
     mc "Mmm okay :D."
 
     $ ch4_game2_done = True
+    hide screen ch4_affection_hud
     jump ch4_festival_hub
 
 label ch4_shoot_scy:
+
+    show screen ch4_affection_hud("scy")
 
     show scy proud at npc_right
     scy "I was trained directly under the Empress herself, KAKAKAKA!"
@@ -2028,7 +2073,7 @@ label ch4_shoot_scy:
 
     menu:
         "It's alright! If Mr. Laurs can do it, I can do it too":
-            $ ch4_scy_affection += 1
+            $ ch4_add_affection("scy")
             show mc o at mc_left
             mc "Um. So accounting for the cross-current drag, the salinity density…"
             mc "... and the angle of refraction through the water column and and,"
@@ -2075,9 +2120,12 @@ label ch4_shoot_scy:
     scy "Kekeke! Today was gonna be the day that we brought it back to you, guppy!"
 
     $ ch4_game2_done = True
+    hide screen ch4_affection_hud
     jump ch4_festival_hub
 
 label ch4_shoot_leo:
+
+    show screen ch4_affection_hud("leo")
 
     leo "Eight shiny little bullets total. Four for each of us, then~"
 
@@ -2110,7 +2158,7 @@ label ch4_shoot_leo:
 
     menu:
         "It is totally is!":
-            $ ch4_leo_affection += 1
+            $ ch4_add_affection("leo")
             show mc pout at mc_left
             mc "It totally is!"
             mc "Awh I really want the bioluminescent bubble blower :C"
@@ -2163,6 +2211,7 @@ label ch4_shoot_leo:
     leo "Now isn't that just enchanting... Mmhehe~"
 
     $ ch4_game2_done = True
+    hide screen ch4_affection_hud
     jump ch4_festival_hub
 
 label ch4_night_ritual:
@@ -2195,7 +2244,8 @@ label ch4_night_ritual:
     hide mc
     call screen ch4_companion_select(
         "Choose your companion for the Abyssal Effigy!",
-        "Face the peak of the festival and cast your burdens together"
+        "Face the peak of the festival and cast your burdens together",
+        min_affection=2
     )
     $ ch4_ritual_companion = _return
 
@@ -2207,6 +2257,8 @@ label ch4_night_ritual:
         jump ch4_rite_cory
 
 label ch4_rite_scy:
+
+    show screen ch4_affection_hud("scy")
 
     show mc happy at mc_left
     mc "Mr Larus! Let's go together! :D"
@@ -2341,6 +2393,8 @@ label ch4_rite_scy:
     jump ch4_climax
 
 label ch4_rite_leo:
+
+    show screen ch4_affection_hud("leo")
 
     leo "Out of everyone you could have chosen to spend the peak festival with."
     leo "You chose me~?"
@@ -2525,6 +2579,8 @@ label ch4_rite_leo:
     jump ch4_climax
 
 label ch4_rite_cory:
+
+    show screen ch4_affection_hud("cory")
 
     show cory smile at cory_left
     cory "Sup guppy goo, you got your statue I see."
@@ -2715,6 +2771,7 @@ label ch4_rite_cory:
 
 label ch4_climax:
 
+    hide screen ch4_affection_hud
     hide mc
     scene ch4_night
     with dissolve
