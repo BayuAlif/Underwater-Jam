@@ -2244,7 +2244,7 @@ label ch3_ending:
     scene ch3_night
     with dissolve
 
-    show gob surprise at npc_left
+    show goby surprise at npc_left
     gob "Your majesty!!"
 
     show teto upset at npc_right
@@ -2491,6 +2491,11 @@ label ch3_ending:
     gator "But best of luck to ya alright"
 
     $ ch3_chapter_complete = True
+
+    hide mc
+    hide gator
+    hide cory
+    with dissolve
 
     scene black with fade
     "END OF CHAPTER 3"
