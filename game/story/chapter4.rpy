@@ -2,6 +2,9 @@ default ch4_scy_affection = 0
 default ch4_cory_affection = 0
 default ch4_leo_affection = 0
 
+default ch4_rin_talked = False
+default ch4_leo_talked = False
+
 default ch4_chore1_done = False
 default ch4_chore2_done = False
 default ch4_chore1_companion = None
@@ -14,6 +17,312 @@ default ch4_game2_companion = None
 
 default ch4_ritual_companion = None
 default ch4_chapter_complete = False
+
+transform ch4_float_rin:
+    subpixel True
+    ease 3.2 yoffset -12
+    ease 3.2 yoffset 0
+    ease 3.2 yoffset 12
+    ease 3.2 yoffset 0
+    repeat
+
+transform ch4_float_leo:
+    subpixel True
+    ease 2.6 yoffset 10
+    ease 2.6 yoffset 0
+    ease 2.6 yoffset -10
+    ease 2.6 yoffset 0
+    repeat
+
+screen ch4_npc_exploration():
+    modal True
+
+    add "ch4_festival_day"
+
+    # Header / Guidance HUD
+    frame:
+        xalign 0.5
+        ypos 30
+        xsize 860
+        ysize 72
+        background Frame(Solid("#021a2cCC"), 12, 12)
+        has vbox:
+            xalign 0.5
+            yalign 0.5
+            spacing 2
+
+        text _("Golden Sea Village - Festival Grounds"):
+            xalign 0.5
+            size 22
+            bold True
+            color "#f5f3c6"
+            outlines [(2, "#011627", 0, 0)]
+
+        text _("Talk with the seafolks to learn about the village and the golden fish."):
+            xalign 0.5
+            size 15
+            color "#b8e2f2"
+            outlines [(1, "#011627", 0, 0)]
+
+    # 1. Chief Rin (Whale Shark) - Left side (pos: 174, 180)
+    imagebutton:
+        pos (174, 180)
+        idle "rin_explore_idle"
+        hover "rin_explore_hover"
+        focus_mask True
+        hovered Play("sound", "audio/pixel_ui_1.mp3")
+        action Return("rin")
+        at ch4_float_rin
+
+    if ch4_rin_talked:
+        text _("Chief Rin (Talked)"):
+            xcenter 562
+            ypos 145
+            size 18
+            bold True
+            color "#4EFA74"
+            outlines [(2, "#000000", 0, 0)]
+    else:
+        text _("Chief Rin"):
+            xcenter 562
+            ypos 145
+            size 18
+            bold True
+            color "#ffdd80"
+            outlines [(2, "#000000", 0, 0)]
+
+    # 2. Miss Leo (Leopard Seal) - Right side (pos: 1246, 556)
+    imagebutton:
+        pos (1246, 556)
+        idle "leo_explore_idle"
+        hover "leo_explore_hover"
+        focus_mask True
+        hovered Play("sound", "audio/pixel_ui_1.mp3")
+        action Return("leo")
+        at ch4_float_leo
+
+    if ch4_leo_talked:
+        text _("Leo (Joined)"):
+            xcenter 1320
+            ypos 510
+            size 18
+            bold True
+            color "#4EFA74"
+            outlines [(2, "#000000", 0, 0)]
+    else:
+        text _("Curious Seal"):
+            xcenter 1320
+            ypos 510
+            size 18
+            bold True
+            color "#ffdd80"
+            outlines [(2, "#000000", 0, 0)]
+
+    # If both talked to, show proceed button
+    if ch4_rin_talked and ch4_leo_talked:
+        frame:
+            xalign 0.5
+            ypos 970
+            background Frame(Solid("#0d486bcc"), 8, 8)
+            padding (25, 10)
+            textbutton _("Begin Festival Preparation"):
+                text_size 22
+                text_bold True
+                text_color "#ffeaa7"
+                text_hover_color "#ffffff"
+                action [Play("sound", "audio/pixel_ui_2.mp3"), Return("proceed")]
+
+screen ch4_chore_exploration():
+    modal True
+
+    add "ch4_festival_day"
+
+    # Header / Guidance HUD
+    frame:
+        xalign 0.5
+        ypos 30
+        xsize 860
+        ysize 72
+        background Frame(Solid("#021a2cCC"), 12, 12)
+        has vbox:
+            xalign 0.5
+            yalign 0.5
+            spacing 2
+
+        text _("Festival Preparation Grounds"):
+            xalign 0.5
+            size 22
+            bold True
+            color "#f5f3c6"
+            outlines [(2, "#011627", 0, 0)]
+
+        text _("Choose a chore to help prepare for tonight's festival."):
+            xalign 0.5
+            size 15
+            color "#b8e2f2"
+            outlines [(1, "#011627", 0, 0)]
+
+    # Chore 1: Corals & Seaweeds (pos: 152, 674)
+    imagebutton:
+        pos (152, 674)
+        idle "ch4_coral_idle"
+        hover "ch4_coral_hover"
+        focus_mask True
+        hovered Play("sound", "audio/pixel_ui_1.mp3")
+        action Return("chore1")
+
+    if ch4_chore1_done:
+        text _("Seaweeds & Corals (Done)"):
+            xcenter 395
+            ypos 630
+            size 18
+            bold True
+            color "#4EFA74"
+            outlines [(2, "#000000", 0, 0)]
+    else:
+        text _("Fetch Seaweeds & Corals"):
+            xcenter 395
+            ypos 630
+            size 19
+            bold True
+            color "#ffeaa7"
+            outlines [(2, "#000000", 0, 0)]
+
+    # Chore 2: Woodbox & Planks (pos: 1381, 725)
+    imagebutton:
+        pos (1381, 725)
+        idle "ch4_woodbox_idle"
+        hover "ch4_woodbox_hover"
+        focus_mask True
+        hovered Play("sound", "audio/pixel_ui_1.mp3")
+        action Return("chore2")
+
+    if ch4_chore2_done:
+        text _("Festival Stands (Done)"):
+            xcenter 1589
+            ypos 695
+            size 18
+            bold True
+            color "#4EFA74"
+            outlines [(2, "#000000", 0, 0)]
+    else:
+        text _("Assemble Festival Stands"):
+            xcenter 1589
+            ypos 695
+            size 19
+            bold True
+            color "#ffeaa7"
+            outlines [(2, "#000000", 0, 0)]
+
+    # If both chores are done, show proceed to feast button
+    if ch4_chore1_done and ch4_chore2_done:
+        frame:
+            xalign 0.5
+            ypos 970
+            background Frame(Solid("#0d486bcc"), 8, 8)
+            padding (25, 10)
+            textbutton _("All Tasks Completed! Join the Feast >>"):
+                text_size 22
+                text_bold True
+                text_color "#ffeaa7"
+                text_hover_color "#ffffff"
+                action [Play("sound", "audio/pixel_ui_2.mp3"), Return("feast")]
+
+screen ch4_festival_night_exploration():
+    modal True
+
+    add "ch4_festival_night"
+
+    # Header / Guidance HUD
+    frame:
+        xalign 0.5
+        ypos 30
+        xsize 860
+        ysize 72
+        background Frame(Solid("#021a2cCC"), 12, 12)
+        has vbox:
+            xalign 0.5
+            yalign 0.5
+            spacing 2
+
+        text _("Golden Sea Village - Night Festival"):
+            xalign 0.5
+            size 22
+            bold True
+            color "#f5f3c6"
+            outlines [(2, "#011627", 0, 0)]
+
+        text _("Visit both festival booths to play games and prepare for the sacred ritual!"):
+            xalign 0.5
+            size 15
+            color "#b8e2f2"
+            outlines [(1, "#011627", 0, 0)]
+
+    # Booth 1: Krill Catch Stall (pos: 439, 193)
+    imagebutton:
+        pos (439, 193)
+        idle "krillstall_idle"
+        hover "krillstall_hover"
+        focus_mask True
+        hovered Play("sound", "audio/pixel_ui_1.mp3")
+        action [Play("sound", "audio/pixel_ui_2.mp3"), Return("game1")]
+
+    if ch4_game1_done:
+        text _("Krill Catch Stall (Done)"):
+            xcenter 686
+            ypos 150
+            size 18
+            bold True
+            color "#4EFA74"
+            outlines [(2, "#000000", 0, 0)]
+    else:
+        text _("Krill Catch Stall"):
+            xcenter 686
+            ypos 150
+            size 18
+            bold True
+            color "#ffeaa7"
+            outlines [(2, "#000000", 0, 0)]
+
+    # Booth 2: Shell Shooter Booth (pos: 1240, 250)
+    imagebutton:
+        pos (1240, 250)
+        idle "shootstall_idle"
+        hover "shootstall_hover"
+        focus_mask True
+        hovered Play("sound", "audio/pixel_ui_1.mp3")
+        action [Play("sound", "audio/pixel_ui_2.mp3"), Return("game2")]
+
+    if ch4_game2_done:
+        text _("Shell Shooter Booth (Done)"):
+            xcenter 1572
+            ypos 210
+            size 18
+            bold True
+            color "#4EFA74"
+            outlines [(2, "#000000", 0, 0)]
+    else:
+        text _("Shell Shooter Booth"):
+            xcenter 1572
+            ypos 210
+            size 18
+            bold True
+            color "#ffeaa7"
+            outlines [(2, "#000000", 0, 0)]
+
+    # If both games are completed, show ritual proceed button
+    if ch4_game1_done and ch4_game2_done:
+        frame:
+            xalign 0.5
+            ypos 970
+            background Frame(Solid("#0d486bcc"), 8, 8)
+            padding (25, 10)
+            textbutton _("Attend the Sacred Effigy Ritual >>"):
+                text_size 22
+                text_bold True
+                text_color "#ffeaa7"
+                text_hover_color "#ffffff"
+                action [Play("sound", "audio/pixel_ui_2.mp3"), Return("ritual")]
 
 label chapter4_start:
 
@@ -86,7 +395,7 @@ label ch4_day_explore:
     $ current_area = "golden_village_gate"
 
     hide mc
-    scene ch4_dialogue
+    scene ch4_festival_day
     with dissolve
 
     show cory upset at cory_left
@@ -104,154 +413,254 @@ label ch4_day_explore:
     show mc excited at mc_left
     mc "Look! Maybe those mr fishes would know where we are, let's ask them! :DD"
 
-    "An enormous whale shark towers the three of us."
+    hide cory
+    hide scy
+    hide mc
+    with dissolve
+
+label ch4_npc_explore_hub:
+
+    call screen ch4_npc_exploration
+    $ ch4_npc_choice = _return
+
+    if ch4_npc_choice == "rin":
+        jump ch4_talk_rin
+    elif ch4_npc_choice == "leo":
+        jump ch4_talk_leo
+    elif ch4_npc_choice == "proceed":
+        jump ch4_start_chores
+    else:
+        jump ch4_npc_explore_hub
+
+label ch4_talk_rin:
+
+    scene ch4_festival_day
+    with dissolve
+
+    if not ch4_rin_talked:
+        "An enormous whale shark towers the three of us."
+
+        show mc happy at mc_left
+        mc "Helloooo!! Good morning sir :D wao you're so biiiiig!!"
+
+        rin "Ah-! Goodness Gracious!"
+        rin "Oh just a guppy aren't you.. Scared the teeth out of old me.."
+
+        show mc o at mc_left
+        mc "oops hehe my bad..!"
+
+        rin "No matter, Youth need not apologize for simply... being young"
+
+        menu:
+            "Have you seen a golden fish around?":
+                show mc o at mc_left
+                mc "We saw it but we lost it amongst these.. Golds you have piled up!"
+                rin "A Golden fish, you say..?"
+                "Mr Whale Shark's great eye drifts slowly toward the mountain of gold ornaments piled around him, as though sifting through decades of memory rather than metal."
+                rin "Mm. I believe... I may have seen such a thing"
+                show mc excited at mc_left
+                mc "Really?! Can you tell us?"
+                rin "Now, now. Need not to hurry young one."
+                show mc pout at mc_left
+                mc "Mnn but I need to know now.. Before it goes further :("
+                rin "Patience will reward you grand.."
+                rin "We're currently having trouble with a festival that's going to occur tonight.."
+
+            "Why's there so many gold here? Are you a gold thief :o":
+                show mc o at mc_left
+                mc "Why's there so many gold here? Are you a gold thief :o"
+                rin "Thief? Oh no, no you have it wrong.."
+                rin "I'm too old to be fretting about wealth.."
+                rin "These golds will be used for an upcoming festival."
+                rin "Golds are believed to stray away evil and bad omens, young one"
+
+        show mc o at mc_left
+        mc "A festival..?"
+
+        show mc excited at mc_left
+        mc "Will there be lots of food? I haven't eaten in a while"
+
+        rin "Oh why of course a big feast will occur!"
+        rin "It's only fitting for a festival this important."
+
+        show cory talk at cory_left
+        cory "What's the festival about if we may know, sir?"
+
+        rin "Yes, a dire one."
+        rin "It's a festival that we held up once a year to ward off evil and bad luck"
+        rin "It's the least we can do to repay the ocean.."
+        rin "However, the sea has been quite turbulent lately, so we were forced to change plans and decided to host it twice a year instead."
+        rin "But we completely underestimated how long gathering materials would take…"
+        rin "... now we're worried we won't finish in time if the festival is held tonight."
+        rin "That's why, as much as I'd love to help with you search, I can't assist you."
+
+        show mc happy at mc_left
+        mc "Alright then we'll help you!"
+
+        rin "Oh how wonderful! The people thank you for your benevolence."
+        rin "Rest assured travelers, we will be preparing the best of meals for your help."
+
+        show cory smile at cory_left
+        cory "About time we fill our stomachs.."
+
+        show scy proud at npc_right
+        scy "Don't fret my friend we shall be of assistance! As much as we can!"
+
+        $ ch4_rin_talked = True
+    else:
+        rin "Take your time, young travelers. Lending a hand with the festival materials will ensure our celebration succeeds tonight."
+
+    hide cory
+    hide scy
+    hide mc
+    with dissolve
+
+    jump ch4_npc_explore_hub
+
+label ch4_talk_leo:
+
+    scene ch4_festival_day
+    with dissolve
+
+    if not ch4_leo_talked:
+        play sound "audio/bush_rustling.mp3"
+        leo "Greetings~!"
+
+        show mc shock at mc_left
+        mc "waouh-!"
+
+        "I stumbled backwards for Mr Larus to catch me, a super tall figure cast shadows over us."
+
+        show scy surprise at npc_right
+        scy "Careful now!"
+
+        leo "Mmhehe my apologies for the spook, friend.."
+        leo "You're searching for the golden fish, yes?"
+        leo "Sparkling rainbow, lush tail.."
+
+        show mc excited at mc_left
+        mc "Yes yes you're right!! Super spot on!"
+
+        leo "I can be of your aid I assure you~!"
+        leo "You just have to follow me!"
+
+        show cory side at cory_left
+        cory "Hold your seahorses!"
+
+        menu:
+            "How did ya know we're lookin for it?":
+                cory "How did ya know we're lookin for it?"
+                leo "Mmm.. it's no science, I've seen you go around asking about it.."
+                leo "Like a little ballerina in a broken music box~"
+                leo "Round and round you go, same question, same steps, same tune.."
+                leo "Doesn't it make you dizzy?"
+                show mc default at mc_left
+                mc "mmn.. No! Because if I get dizzy.."
+                mc "Mr. Cory and Mr. Larus will help make it go away!"
+                mc "So I have nothing to worry about!"
+                leo "I like your answer~!! Always so refreshing!"
+
+            "How do we know ya really know of the fish's whereabouts?":
+                cory "How do we know ya really know of the fish's whereabouts?"
+                leo "Mm but until now.. you've been blindly following clues from strangers too right?"
+                leo "What makes it different from what I said?"
+                show scy smile at npc_right
+                scy "He's right my friend, Cory! We have each other, it'll all be fine!"
+                show mc happy at mc_left
+                mc "Mhm yaa mr Cory you worry too much"
+                mc "More than both of my parents combined.."
+                show cory upset at cory_left
+                cory "Ugh.. maybe you're right my bad…"
+                cory "Dunno what got to me"
+                "Mr Cory looks like he's got a lot in mind"
+
+        leo "Besides, the ocean's my playground~!"
+        leo "I know it like the back of my hand..."
+        leo "Which means i get to join your fun little party yes?"
+
+        show mc happy at mc_left
+        mc "Yaa! Welcome aboard miss…?"
+
+        leo "Leo is fine~! Leo Drurga"
+
+        show mc o at mc_left
+        mc "Drurga.. :o"
+        "The surname tickles something familiar in the back of my brain. Yet I can't really pinpoint what"
+
+        show scy proud at npc_right
+        scy "We welcome you to our thrilling little search party, comrade!"
+
+        leo "My oh my this would be spiiine tingling~!"
+        leo "Ah but I doubt we can go into searching right away.."
+        leo "Not when the chief's having trouble.."
+        leo "He'll go whiny about how much help they require for the festival…"
+
+        $ ch4_leo_talked = True
+    else:
+        leo "My, my, aren't you an eager little guppy~ Don't keep the chief waiting too long, hm?"
+
+    hide cory
+    hide scy
+    hide mc
+    with dissolve
+
+    jump ch4_npc_explore_hub
+
+label ch4_start_chores:
+
+    $ current_area = "festival_preparation_grounds"
+
+    hide mc
+    scene ch4_festival_day
+    with dissolve
 
     show mc happy at mc_left
-    mc "Helloooo!! Good morning sir :D wao you're so biiiiig!!"
-
-    rin "Ah-! Goodness Gracious!"
-    rin "Oh just a guppy aren't you.. Scared the teeth out of old me.."
-
-    show mc o at mc_left
-    mc "oops hehe my bad..!"
-
-    rin "No matter, Youth need not apologize for simply... being young"
-
-    menu:
-        "Have you seen a golden fish around?":
-            show mc o at mc_left
-            mc "We saw it but we lost it amongst these.. Golds you have piled up!"
-            rin "A Golden fish, you say..?"
-            "Mr Whale Shark's great eye drifts slowly toward the mountain of gold ornaments piled around him, as though sifting through decades of memory rather than metal."
-            rin "Mm. I believe... I may have seen such a thing"
-            show mc excited at mc_left
-            mc "Really?! Can you tell us?"
-            rin "Now, now. Need not to hurry young one."
-            show mc pout at mc_left
-            mc "Mnn but I need to know now.. Before it goes further :("
-            rin "Patience will reward you grand.."
-            rin "We're currently having trouble with a festival that's going to occur tonight.."
-
-        "Why's there so many gold here? Are you a gold thief :o":
-            show mc o at mc_left
-            mc "Why's there so many gold here? Are you a gold thief :o"
-            rin "Thief? Oh no, no you have it wrong.."
-            rin "I'm too old to be fretting about wealth.."
-            rin "These golds will be used for an upcoming festival."
-            rin "Golds are believed to stray away evil and bad omens, young one"
-
-    show mc o at mc_left
-    mc "A festival..?"
-
-    show mc excited at mc_left
-    mc "Will there be lots of food? I haven't eaten in a while"
-
-    rin "Oh why of course a big feast will occur!"
-    rin "It's only fitting for a festival this important."
+    mc "Okay! Let's help out with the festival chores so we can find the golden fish tonight!"
 
     show cory talk at cory_left
-    cory "What's the festival about if we may know, sir?"
+    cory "Sounds like a plan. Let's see what needs fixin' or gatherin' around here."
 
-    rin "Yes, a dire one."
-    rin "It's a festival that we held up once a year to ward off evil and bad luck"
-    rin "It's the least we can do to repay the ocean.."
-    rin "However, the sea has been quite turbulent lately, so we were forced to change plans and decided to host it twice a year instead."
-    rin "But we completely underestimated how long gathering materials would take…"
-    rin "... now we're worried we won't finish in time if the festival is held tonight."
-    rin "That's why, as much as I'd love to help with you search, I can't assist you."
+    hide cory
+    hide mc
+    with dissolve
 
-    show mc happy at mc_left
-    mc "Alright then we'll help you!"
+label ch4_chore_explore_hub:
 
-    rin "Oh how wonderful! The people thank you for your benevolence."
-    rin "Rest assured travelers, we will be preparing the best of meals for your help."
+    call screen ch4_chore_exploration
+    $ ch4_chore_choice = _return
 
-    show cory smile at cory_left
-    cory "About time we fill our stomachs.."
-
-    show scy proud at npc_right
-    scy "Don't fret my friend we shall be of assistance! As much as we can!"
-
-    play sound "audio/bush_rustling.mp3"
-    leo "Greetings~!"
-
-    show mc shock at mc_left
-    mc "waouh-!"
-
-    "I stumbled backwards for Mr Larus to catch me, a super tall figure cast shadows over us."
-
-    show scy surprise at npc_right
-    scy "Careful now!"
-
-    leo "Mmhehe my apologies for the spook, friend.."
-    leo "You're searching for the golden fish, yes?"
-    leo "Sparkling rainbow, lush tail.."
-
-    show mc excited at mc_left
-    mc "Yes yes you're right!! Super spot on!"
-
-    leo "I can be of your aid I assure you~!"
-    leo "You just have to follow me!"
-
-    show cory side at cory_left
-    cory "Hold your seahorses!"
-
-    menu:
-        "How did ya know we're lookin for it?":
-            cory "How did ya know we're lookin for it?"
-            leo "Mmm.. it's no science, I've seen you go around asking about it.."
-            leo "Like a little ballerina in a broken music box~"
-            leo "Round and round you go, same question, same steps, same tune.."
-            leo "Doesn't it make you dizzy?"
-            show mc default at mc_left
-            mc "mmn.. No! Because if I get dizzy.."
-            mc "Mr. Cory and Mr. Larus will help make it go away!"
-            mc "So I have nothing to worry about!"
-            leo "I like your answer~!! Always so refreshing!"
-
-        "How do we know ya really know of the fish's whereabouts?":
-            cory "How do we know ya really know of the fish's whereabouts?"
-            leo "Mm but until now.. you've been blindly following clues from strangers too right?"
-            leo "What makes it different from what I said?"
-            show scy smile at npc_right
-            scy "He's right my friend, Cory! We have each other, it'll all be fine!"
+    if ch4_chore_choice == "chore1":
+        if ch4_chore1_done:
             show mc happy at mc_left
-            mc "Mhm yaa mr Cory you worry too much"
-            mc "More than both of my parents combined.."
-            show cory upset at cory_left
-            cory "Ugh.. maybe you're right my bad…"
-            cory "Dunno what got to me"
-            "Mr Cory looks like he's got a lot in mind"
+            mc "We already fetched plenty of radiant seaweeds and corals for the sacred statue!"
+            hide mc
+            with dissolve
+            jump ch4_chore_explore_hub
+        else:
+            jump ch4_chore1_seaweed
 
-    leo "Besides, the ocean's my playground~!"
-    leo "I know it like the back of my hand..."
-    leo "Which means i get to join your fun little party yes?"
+    elif ch4_chore_choice == "chore2":
+        if ch4_chore2_done:
+            show mc happy at mc_left
+            mc "The festival stalls and timber frames are already all built and sturdy!"
+            hide mc
+            with dissolve
+            jump ch4_chore_explore_hub
+        else:
+            jump ch4_chore2_stand
 
-    show mc happy at mc_left
-    mc "Yaa! Welcome aboard miss…?"
+    elif ch4_chore_choice == "feast":
+        jump ch4_dinner_incident
 
-    leo "Leo is fine~! Leo Drurga"
-
-    show mc o at mc_left
-    mc "Drurga.. :o"
-    "The surname tickles something familiar in the back of my brain. Yet I can't really pinpoint what"
-
-    show scy proud at npc_right
-    scy "We welcome you to our thrilling little search party, comrade!"
-
-    leo "My oh my this would be spiiine tingling~!"
-    leo "Ah but I doubt we can go into searching right away.."
-    leo "Not when the chief's having trouble.."
-    leo "He'll go whiny about how much help they require for the festival…"
-
-    jump ch4_chore1_seaweed
+    else:
+        jump ch4_chore_explore_hub
 
 label ch4_chore1_seaweed:
 
     $ current_area = "gathering_grounds"
 
     hide mc
-    scene ch4_dialogue
+    scene ch4_festival_day
     with dissolve
 
     rin "May you be of aid with gathering seaweeds and corals young one?"
@@ -263,6 +672,8 @@ label ch4_chore1_seaweed:
     rin "We need them to decorate the sacred statue"
 
     mc "Yaaay okay! I'll bring lots for you!"
+
+    rin "Keep it balanced yes? We don't want to anger the ocean more than we already have.."
 
     hide mc
     call screen ch4_companion_select(
@@ -348,7 +759,10 @@ label ch4_chore1_scy:
     scy "Oh right! Fine, I shall guide you through it then!"
 
     $ ch4_chore1_done = True
-    jump ch4_chore2_stand
+    hide mc
+    hide scy
+    with dissolve
+    jump ch4_chore_explore_hub
 
 label ch4_chore1_cory:
 
@@ -436,7 +850,10 @@ label ch4_chore1_cory:
     cory "No can't do, guppy that's enough"
 
     $ ch4_chore1_done = True
-    jump ch4_chore2_stand
+    hide mc
+    hide cory
+    with dissolve
+    jump ch4_chore_explore_hub
 
 label ch4_chore1_leo:
 
@@ -492,14 +909,17 @@ label ch4_chore1_leo:
     leo "Mhm, just a theory though.. a sea theory"
 
     $ ch4_chore1_done = True
-    jump ch4_chore2_stand
+    hide mc
+    hide leo
+    with dissolve
+    jump ch4_chore_explore_hub
 
 label ch4_chore2_stand:
 
     $ current_area = "stall_construction_site"
 
     hide mc
-    scene ch4_dialogue
+    scene ch4_festival_day
     with dissolve
 
     rin "Can I trust your hands on assembling these materials into stalls, young one?"
@@ -508,6 +928,8 @@ label ch4_chore2_stand:
     mc "mm I can try..! But I'm going to need a hand from my friends."
 
     rin "Do whatever shall make this easier for you."
+    rin "If you need anything, I'll be around the corner, do be careful."
+
     hide mc
     call screen ch4_companion_select(
         "Choose who to build the stands with!",
@@ -607,7 +1029,10 @@ label ch4_chore2_scy:
     mc "With.. guppy's assistance :D!"
 
     $ ch4_chore2_done = True
-    jump ch4_dinner_incident
+    hide mc
+    hide scy
+    with dissolve
+    jump ch4_chore_explore_hub
 
 label ch4_chore2_cory:
 
@@ -695,7 +1120,10 @@ label ch4_chore2_cory:
     cory "Ay, we are the dream team, guppy."
 
     $ ch4_chore2_done = True
-    jump ch4_dinner_incident
+    hide mc
+    hide cory
+    with dissolve
+    jump ch4_chore_explore_hub
 
 label ch4_chore2_leo:
 
@@ -759,7 +1187,10 @@ label ch4_chore2_leo:
     leo "See? I told you that you've got it in you~"
 
     $ ch4_chore2_done = True
-    jump ch4_dinner_incident
+    hide mc
+    hide leo
+    with dissolve
+    jump ch4_chore_explore_hub
 
 label ch4_dinner_incident:
 
@@ -767,7 +1198,7 @@ label ch4_dinner_incident:
     $ current_area = "golden_village_pavilion"
 
     hide mc
-    scene ch4_dialogue
+    scene ch4_festival_day
     with dissolve
 
     show mc happy at mc_left
@@ -1145,25 +1576,37 @@ label ch4_festival_hub:
 
     $ current_area = "night_festival_plaza"
 
-    hide mc
-    scene ch4_night
+    scene ch4_festival_night
     with dissolve
 
-    "The night festival is in full swing! Colorful lanterns and glowing corals illuminate stalls across the seafloor."
+    call screen ch4_festival_night_exploration
+    $ ch4_night_choice = _return
 
-    menu:
-        "Catch planktons at the Plankton Stall" if not ch4_game1_done:
+    if ch4_night_choice == "game1":
+        if ch4_game1_done:
+            show mc happy at mc_left
+            mc "We already won plenty of prizes at the Krill Catch stall!"
+            hide mc
+            with dissolve
+            jump ch4_festival_hub
+        else:
             jump ch4_minigame_plankton
 
-        "Play the Shooting Game at the Clam Booth" if not ch4_game2_done:
+    elif ch4_night_choice == "game2":
+        if ch4_game2_done:
+            show mc happy at mc_left
+            mc "We already hit all the clam targets at the Shell Shooter booth!"
+            hide mc
+            with dissolve
+            jump ch4_festival_hub
+        else:
             jump ch4_minigame_shooting
 
-        "Attend the Sacred Abyssal Effigy Ritual (Peak of Festival)" if (ch4_game1_done and ch4_game2_done):
-            jump ch4_night_ritual
+    elif ch4_night_choice == "ritual":
+        jump ch4_night_ritual
 
-        "Look around the festival" if not (ch4_game1_done and ch4_game2_done):
-            "The celebratory music echoes through the water. We need to participate in both festival games before the main ritual begins!"
-            jump ch4_festival_hub
+    else:
+        jump ch4_festival_hub
 
 label ch4_minigame_plankton:
 

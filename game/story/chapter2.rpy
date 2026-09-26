@@ -328,8 +328,8 @@ label chapter2_night_start:
 
         elif result == "mantis":
             call mantis_interaction
+            $ mark_npc_explored("mantis")
             if chapter2_mantis_done:
-                $ mark_npc_explored("mantis")
                 if exploration_complete():
                     jump chapter2_ending
             jump .loop

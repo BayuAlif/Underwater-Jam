@@ -1197,6 +1197,7 @@ label ch3_night_explore:
                 jump ch3_crab_encounter
 
         elif result in ("teto", "goby"):
+            $ mark_npc_explored("teto")
             if not ch3_dunge_defeated:
                 show dun mad at npc_right
                 dun "Hold your seahorses! No one steps a claw into Her Majesty's lair without goin' through me first!"

@@ -1,212 +1,303 @@
 screen ch5_anomaly_exploration():
     modal True
 
-    add "bg abyss_depths"
-    add Solid("#020813B8")
-
-    vbox:
-        xalign 0.5
-        ypos 45
-        spacing 6
-
-        text "— The Deep Abyss: Echoes of the Past —":
-            xalign 0.5
-            size 36
-            bold True
-            color "#e0f7fa"
-            outlines [(3, "#0077b6", 0, 0), (1, "#03045e", 0, 0)]
-
-        text "Distorted whispers and anomalous golden lights pulse in the suffocating darkness...":
-            xalign 0.5
-            size 20
-            color "#90e0ef"
-            outlines [(1, "#03045e", 0, 0)]
-
     $ _ch5_explored_count = (1 if ch5_scy_explored else 0) + (1 if ch5_cory_explored else 0) + (1 if ch5_leo_explored else 0)
-    frame:
-        xalign 0.5
-        ypos 135
-        background Solid("#001b2ecc")
-        xpadding 25
-        ypadding 10
 
-        hbox:
-            spacing 20
-            text "Anomalies Explored: [_ch5_explored_count] / 3":
-                size 22
+    # Keyboard navigation (Left / A, Right / D)
+    key "K_LEFT" action If(ch5_exploration_zone == "right", SetVariable("ch5_exploration_zone", "center"), If(ch5_exploration_zone == "center", SetVariable("ch5_exploration_zone", "left"), None))
+    key "a" action If(ch5_exploration_zone == "right", SetVariable("ch5_exploration_zone", "center"), If(ch5_exploration_zone == "center", SetVariable("ch5_exploration_zone", "left"), None))
+    key "K_RIGHT" action If(ch5_exploration_zone == "left", SetVariable("ch5_exploration_zone", "center"), If(ch5_exploration_zone == "center", SetVariable("ch5_exploration_zone", "right"), None))
+    key "d" action If(ch5_exploration_zone == "left", SetVariable("ch5_exploration_zone", "center"), If(ch5_exploration_zone == "center", SetVariable("ch5_exploration_zone", "right"), None))
+
+    # =================================================================
+    # CURRENT ZONE DISPLAY (West / Central / East)
+    # Guaranteed 1920x1080 rendering with matching background slices
+    # =================================================================
+
+    if ch5_exploration_zone == "left":
+        # -------------------------------------------------------------
+        # ZONE 1: WEST (Mr. Scyllarus Anomaly)
+        # -------------------------------------------------------------
+        add "bg abyss_zone_left"
+        add Solid("#02081320")
+
+        if ch5_scy_explored:
+            # Explored: dim sprite, green checkmark above head
+            add Transform("scy_mirage", alpha=0.65):
+                xcenter 960
+                ypos 620
+                at ch5_mirage_hub_scy
+
+            text "✓":
+                xcenter 960
+                ypos 230
+                size 46
                 bold True
-                color "#caf0f8"
-                outlines [(1, "#000000", 0, 0)]
+                color "#4EFA74"
+                outlines [(2, "#033b1c", 0, 0), (1, "#000000", 0, 0)]
 
-            if _ch5_explored_count >= 3:
-                text "(Ready to Follow Miss Leo Deeper!)":
-                    size 20
-                    color "#52b788"
-                    bold True
+            text _("Unresponsive (Lost in guilt)"):
+                xcenter 960
+                ypos 940
+                size 17
+                color "#83c5be"
+                outlines [(2, "#000000", 0, 0)]
+        else:
+            imagebutton:
+                xcenter 960
+                ypos 620
+                idle "scy_mirage"
+                hover Transform("scy_mirage", matrixcolor=BrightnessMatrix(0.18))
+                at ch5_mirage_hub_scy
+                action Return("scy")
+                hover_sound "audio/pixel_ui_1.mp3"
+                activate_sound "audio/pixel_ui_2.mp3"
 
+            textbutton _("✦ Inspect Mirage ✦"):
+                xcenter 960
+                ypos 935
+                style "sea_nav_button"
+                text_size 20
+                text_bold True
+                text_color "#ffd166"
+                text_hover_color "#ffffff"
+                text_outlines [(2, "#000000", 0, 0)]
+                hover_sound "audio/pixel_ui_1.mp3"
+                activate_sound "audio/pixel_ui_2.mp3"
+                action Return("scy")
+
+    elif ch5_exploration_zone == "right":
+        # -------------------------------------------------------------
+        # ZONE 3: EAST (Miss Leo Anomaly)
+        # -------------------------------------------------------------
+        add "bg abyss_zone_right"
+        add Solid("#02081320")
+
+        if ch5_leo_explored:
+            # Explored: dim sprite, green checkmark above head
+            add Transform("leo_mirage", alpha=0.65):
+                xcenter 960
+                ypos 620
+                at ch5_mirage_hub_leo
+
+            text "✓":
+                xcenter 960
+                ypos 230
+                size 46
+                bold True
+                color "#4EFA74"
+                outlines [(2, "#033b1c", 0, 0), (1, "#000000", 0, 0)]
+
+            text _("Mimic dismissed (Leo joined your side)"):
+                xcenter 960
+                ypos 940
+                size 17
+                color "#83c5be"
+                outlines [(2, "#000000", 0, 0)]
+        else:
+            imagebutton:
+                xcenter 960
+                ypos 620
+                idle "leo_mirage"
+                hover Transform("leo_mirage", matrixcolor=BrightnessMatrix(0.18))
+                at ch5_mirage_hub_leo
+                action Return("leo")
+                hover_sound "audio/pixel_ui_1.mp3"
+                activate_sound "audio/pixel_ui_2.mp3"
+
+            textbutton _("✦ Inspect Mirage ✦"):
+                xcenter 960
+                ypos 935
+                style "sea_nav_button"
+                text_size 20
+                text_bold True
+                text_color "#ffd166"
+                text_hover_color "#ffffff"
+                text_outlines [(2, "#000000", 0, 0)]
+                hover_sound "audio/pixel_ui_1.mp3"
+                activate_sound "audio/pixel_ui_2.mp3"
+                action Return("leo")
+
+    else:
+        # -------------------------------------------------------------
+        # ZONE 2: CENTER (Mr. Cory Anomaly)
+        # -------------------------------------------------------------
+        add "bg abyss_zone_center"
+        add Solid("#02081320")
+
+        if ch5_cory_explored:
+            # Explored: dim sprite, green checkmark above head
+            add Transform("cory_mirage", alpha=0.65):
+                xcenter 960
+                ypos 620
+                at ch5_mirage_hub_cory
+
+            text "✓":
+                xcenter 960
+                ypos 230
+                size 46
+                bold True
+                color "#4EFA74"
+                outlines [(2, "#033b1c", 0, 0), (1, "#000000", 0, 0)]
+
+            text _("Unresponsive (Lost in grief)"):
+                xcenter 960
+                ypos 940
+                size 17
+                color "#83c5be"
+                outlines [(2, "#000000", 0, 0)]
+        else:
+            imagebutton:
+                xcenter 960
+                ypos 620
+                idle "cory_mirage"
+                hover Transform("cory_mirage", matrixcolor=BrightnessMatrix(0.18))
+                at ch5_mirage_hub_cory
+                action Return("cory")
+                hover_sound "audio/pixel_ui_1.mp3"
+                activate_sound "audio/pixel_ui_2.mp3"
+
+            textbutton _("✦ Inspect Mirage ✦"):
+                xcenter 960
+                ypos 935
+                style "sea_nav_button"
+                text_size 20
+                text_bold True
+                text_color "#ffd166"
+                text_hover_color "#ffffff"
+                text_outlines [(2, "#000000", 0, 0)]
+                hover_sound "audio/pixel_ui_1.mp3"
+                activate_sound "audio/pixel_ui_2.mp3"
+                action Return("cory")
+
+        # When all 3 explored: path deeper unlocks in Center!
+        if ch5_scy_explored and ch5_cory_explored and ch5_leo_explored:
+            frame:
+                xcenter 960
+                ypos 855
+                background Solid("#0b3c5df0")
+                xpadding 28
+                ypadding 12
+                textbutton _("★ Chase the Real Golden Fish with Miss Leo >>"):
+                    text_size 24
+                    text_bold True
+                    text_color "#ffd700"
+                    text_hover_color "#ffffff"
+                    text_outlines [(2, "#000000", 0, 0)]
+                    hover_sound "audio/pixel_ui_1.mp3"
+                    activate_sound "audio/pixel_ui_2.mp3"
+                    action Return("proceed")
+
+    # =================================================================
+    # POV HUD OVERLAY & TABS (1920x1080)
+    # Clear, spacious, interactive navigation
+    # =================================================================
+
+    # Interactive Zone Tabs & Progress Pill at Top Center
     frame:
         xalign 0.5
-        ypos 205
-        background Solid("#051923dd")
-        xpadding 20
+        ypos 30
+        background Solid("#03121ecc")
+        xpadding 22
         ypadding 8
 
         hbox:
-            spacing 15
+            spacing 16
             yalign 0.5
-            text "Bond Focus:":
-                size 18
-                bold True
+
+            textbutton _("◄ WEST: MR. SCYLLARUS"):
+                action SetVariable("ch5_exploration_zone", "left")
+                text_size 16
+                text_bold True
+                text_color ("#ffd166" if ch5_exploration_zone == "left" else "#83c5be")
+                text_hover_color "#ffffff"
+                text_outlines [(1, "#000000", 0, 0)]
+
+            text "|":
+                color "#495057"
+                size 16
+
+            textbutton _("• CENTER: MR. CORY •"):
+                action SetVariable("ch5_exploration_zone", "center")
+                text_size 16
+                text_bold True
+                text_color ("#ffd166" if ch5_exploration_zone == "center" else "#83c5be")
+                text_hover_color "#ffffff"
+                text_outlines [(1, "#000000", 0, 0)]
+
+            text "|":
+                color "#495057"
+                size 16
+
+            textbutton _("EAST: MISS LEO ►"):
+                action SetVariable("ch5_exploration_zone", "right")
+                text_size 16
+                text_bold True
+                text_color ("#ffd166" if ch5_exploration_zone == "right" else "#83c5be")
+                text_hover_color "#ffffff"
+                text_outlines [(1, "#000000", 0, 0)]
+
+            text "|":
+                color "#495057"
+                size 16
+
+            text "Echoes: [_ch5_explored_count]/3":
+                size 16
                 color "#90e0ef"
-                yalign 0.5
+                outlines [(1, "#000000", 0, 0)]
 
-            textbutton _("Scyllarus's Echo"):
-                style "sea_nav_button"
-                text_size 20
-                text_idle_color ("#ffd166" if ch5_companion_focus == "scy" else "#adb5bd")
-                action SetVariable("ch5_companion_focus", "scy")
-
-            textbutton _("Cory's Echo"):
-                style "sea_nav_button"
-                text_size 20
-                text_idle_color ("#ffd166" if ch5_companion_focus == "cory" else "#adb5bd")
-                action SetVariable("ch5_companion_focus", "cory")
-
-            textbutton _("Leo's Presence"):
-                style "sea_nav_button"
-                text_size 20
-                text_idle_color ("#ffd166" if ch5_companion_focus == "leo" else "#adb5bd")
-                action SetVariable("ch5_companion_focus", "leo")
-
-    vbox:
-        xpos 180
-        ypos 330
-        spacing 12
-        xsize 420
-
-        frame:
-            background Solid("#051923dd")
-            xpadding 18
-            ypadding 16
-            xfill True
-
-            vbox:
-                spacing 8
-                text "1. Crimson Claw Mirage":
-                    size 24
-                    bold True
-                    color "#70d6ff"
-                    outlines [(2, "#000000", 0, 0)]
-
-                text "Faint clinking of claws and cries of battle echo in the dark void.":
+            if _ch5_explored_count >= 3:
+                text "★ Ready!":
                     size 16
-                    color "#d8f3dc"
-
-                if ch5_scy_explored:
-                    text "✓ Scyllarus is paralyzed by guilt":
-                        size 18
-                        bold True
-                        color "#52b788"
-                else:
-                    textbutton _("Approach Anomaly >>"):
-                        action Return("scy")
-                        text_size 20
-                        text_bold True
-                        text_color "#ffd166"
-                        text_hover_color "#ffffff"
-                        hover_sound "audio/pixel_ui_1.mp3"
-                        activate_sound "audio/pixel_ui_2.mp3"
-
-    vbox:
-        xalign 0.5
-        ypos 450
-        spacing 12
-        xsize 420
-
-        frame:
-            background Solid("#051923dd")
-            xpadding 18
-            ypadding 16
-            xfill True
-
-            vbox:
-                spacing 8
-                text "2. Freshwater Stream Mirage":
-                    size 24
+                    color "#4EFA74"
                     bold True
-                    color "#ffd166"
-                    outlines [(2, "#000000", 0, 0)]
 
-                text "A delirious murmur longing for freshwater and a lost sister.":
-                    size 16
-                    color "#d8f3dc"
+    # -----------------------------------------------------------------
+    # NAVIGATION ARROWS (Hand-drawn buttons on left & right margins)
+    # -----------------------------------------------------------------
+    # Left Navigation Arrow (shown when at Center or Right)
+    if ch5_exploration_zone != "left":
+        vbox:
+            xpos 45
+            yalign 0.50
+            spacing 8
+            at ch5_arrow_bob_left
 
-                if ch5_cory_explored:
-                    text "✓ Cory is drowning in remorse":
-                        size 18
-                        bold True
-                        color "#52b788"
-                else:
-                    textbutton _("Approach Anomaly >>"):
-                        action Return("cory")
-                        text_size 20
-                        text_bold True
-                        text_color "#ffd166"
-                        text_hover_color "#ffffff"
-                        hover_sound "audio/pixel_ui_1.mp3"
-                        activate_sound "audio/pixel_ui_2.mp3"
+            imagebutton:
+                idle "ch5_arrow_left"
+                hover Transform("ch5_arrow_left", zoom=1.08)
+                action If(ch5_exploration_zone == "right", SetVariable("ch5_exploration_zone", "center"), SetVariable("ch5_exploration_zone", "left"))
+                hover_sound "audio/pixel_ui_1.mp3"
+                activate_sound "audio/pixel_ui_2.mp3"
 
-    vbox:
-        xpos 1320
-        ypos 330
-        spacing 12
-        xsize 420
+            text ("◄ Mr. Cory" if ch5_exploration_zone == "right" else "◄ Mr. Scyllarus"):
+                xalign 0.5
+                size 15
+                bold True
+                color "#caf0f8"
+                outlines [(2, "#000000", 0, 0)]
 
-        frame:
-            background Solid("#051923dd")
-            xpadding 18
-            ypadding 16
-            xfill True
+    # Right Navigation Arrow (shown when at Center or Left)
+    if ch5_exploration_zone != "right":
+        vbox:
+            xpos 1755
+            yalign 0.50
+            spacing 8
+            at ch5_arrow_bob_right
 
-            vbox:
-                spacing 8
-                text "3. Unsightly Shadow Mirage":
-                    size 24
-                    bold True
-                    color "#ff70a6"
-                    outlines [(2, "#000000", 0, 0)]
+            imagebutton:
+                idle "ch5_arrow_right"
+                hover Transform("ch5_arrow_right", zoom=1.08)
+                action If(ch5_exploration_zone == "left", SetVariable("ch5_exploration_zone", "center"), SetVariable("ch5_exploration_zone", "right"))
+                hover_sound "audio/pixel_ui_1.mp3"
+                activate_sound "audio/pixel_ui_2.mp3"
 
-                text "A dim golden fish nestled within large, shadowy seal flippers.":
-                    size 16
-                    color "#d8f3dc"
-
-                if ch5_leo_explored:
-                    text "✓ Miss Leo has joined your side":
-                        size 18
-                        bold True
-                        color "#52b788"
-                else:
-                    textbutton _("Approach Anomaly >>"):
-                        action Return("leo")
-                        text_size 20
-                        text_bold True
-                        text_color "#ffd166"
-                        text_hover_color "#ffffff"
-                        hover_sound "audio/pixel_ui_1.mp3"
-                        activate_sound "audio/pixel_ui_2.mp3"
-
-    if ch5_scy_explored and ch5_cory_explored and ch5_leo_explored:
-        textbutton _("Chase the Real Golden Fish with Miss Leo >>"):
-            xalign 0.5
-            ypos 880
-            text_size 28
-            text_bold True
-            text_color "#ffffff"
-            text_hover_color "#ffd700"
-            text_outlines [(2, "#000000", 0, 0)]
-            hover_sound "audio/pixel_ui_1.mp3"
-            activate_sound "audio/pixel_ui_2.mp3"
-            action Return("proceed")
+            text ("Mr. Cory ►" if ch5_exploration_zone == "left" else "Miss Leo ►"):
+                xalign 0.5
+                size 15
+                bold True
+                color "#caf0f8"
+                outlines [(2, "#000000", 0, 0)]
 
 label chapter5_start:
 
@@ -283,7 +374,7 @@ label ch5_exploration_hub:
 
 label ch5_scy_sequence:
 
-    scene bg abyss_depths
+    scene bg abyss_zone_left
     with dissolve
 
     show scy_mirage at npc_right
@@ -335,6 +426,7 @@ label ch5_scy_sequence:
     show mc holdcry at mc_left
     mc "I- I cant"
 
+    show scy_mirage burst at npc_right with vpunch
     scy_fake "{font=DejaVuSans.ttf}w̷̳̓ͅĥ̶̥̩̋y̷̒̓͜ ̶̦̣̔̕w̸̜̋o̴͎̪̭͆̌n̴̬͂ṫ̸̛͇̳̤ ̷͓̎̀͜͝y̵̙̦̣̔̂ö̸̩͈́ũ̴͚͐ ̴̱̰̗͐͊m̴̛̜̑̈́a̷̡̗͊̋͝k̵̰̻͕͆͊e̶͈͋̈́ ̴̱̦͑̈́̈́t̸͈̳̎h̸̢͎̟̿ê̸̘̕m̷͔͌̚̕ ̵̟̠̺̆́͘s̶̻͚̺̒̂t̶͓̃ŏ̶̟͕͐p̵̺̰̪̀̍̃{/font}"
     scy_fake "{font=DejaVuSans.ttf}M̵̢̼̦̩̝͙͈͖̟̞͚̟̿̉̿͐ȃ̶̡̧̗̜̩͕̖͚̦̬̟̮̾͑̏̓̈́͗̎͘̚͜k̴̙̽̒e̷̢̓ ̵̨͈͇̙̙̩̗̖͇͚̟̘̣̇̀͑̃̎͒̽̉͝͝t̵̛̥̟͐̄̿̿̌̾̽̌̎͆̄̅̈̕ȟ̸̢͎̭͉̤̖̝͍̤̇̒̆̈́̍̾͘ͅē̸͈̊̐͠m̶̨̟̬͎̬̔̋̐ͅ ̶̠̦̊̒̊̀̅ͅs̸̖͚̞̳̙͚͐͒̒̌̈̾̈́̿̃͛̚͘͝t̷̳̟̤͇̬͚͎̫̲̪͋͋̒͑̀̓͆̈͜͠͝o̴̲̥͉̅́p̸̺̬̠͈͎̥̖̝̲̼̱̱̠̖̌̓̈́̄̆{/font}"
     scy_fake "{font=DejaVuSans.ttf}Ȋ̶͎͂ ̶̛̗̇͝ń̷̝̘̦e̷̢̱̫͒̇e̵̫̹͌ͅḏ̶͋̂͜ ̵͔͕̗̏͑y̴̰͇̅̀̌o̸̫̝͚͒̆u̷̮̼͉̐ ̴̲̩̅t̸͚͗̇o̸̳̦͆̀͜ ̵̘͐̕m̸͎̋à̵̝̥̎͝k̴̳̪̀e̴͓̓͂ ̵͔̉́t̸̨̑̒̚ḩ̸̭̅ë̴̼̆͝m̸͎͉͛̾ ̶͕̱͎͗̀̒s̵̫͕̠͆ẗ̸̺̞̻́̽ô̴̢͙̬p̸̢̠̼̋͊{/font}"
@@ -451,7 +543,7 @@ label ch5_scy_sequence:
 
 label ch5_cory_sequence:
 
-    scene bg abyss_depths
+    scene bg abyss_zone_center
     with dissolve
 
     show cory_mirage at npc_right
@@ -539,6 +631,7 @@ label ch5_cory_sequence:
             cory "I didn’t.. have any choice..!"
             cory_fake "I bet she cried for days.. havin to defend herself in a brand new world"
             cory_fake "How could ya, even after hearin how dangerous sea is at night.. You still—"
+            show cory_mirage scream at npc_right with vpunch
             cory "SHUT THE FUGU UP…!"
 
         "“Mr. Cory.. Mr Cory’s right.. we should search for your sister!”":
@@ -573,7 +666,7 @@ label ch5_cory_sequence:
 
 label ch5_leo_sequence:
 
-    scene bg abyss_depths
+    scene bg abyss_zone_right
     with dissolve
 
     show leo_mirage at npc_right
@@ -629,6 +722,7 @@ label ch5_leo_sequence:
     show mc shock at mc_left
     mc "Two miss leos…?"
 
+    show leo_mirage scream at npc_right with dissolve
     leo_fake "It’s like looking into your own unsightly reflection doesn’t it?"
 
     leo "Nah, for something that’s imitating me, you sure look pretty ugly~!"
@@ -680,7 +774,7 @@ label ch5_leo_sequence:
 
 label ch5_chase_real_gold:
 
-    scene bg abyss_depths
+    scene bg abyss_zone_center
     with fade
 
     show mc serious at mc_left

@@ -122,6 +122,7 @@ style say_dialogue:
     xpos gui.dialogue_xpos
     xsize gui.dialogue_width
     ypos gui.dialogue_ypos
+    line_spacing -2
 
     adjust_spacing False
     outlines [ (2, "#000000", 0, 0) ]

@@ -154,24 +154,56 @@ image leo proud = "images/characters/rotasi/LeoHover.png"
 image leo surprise = "images/characters/rotasi/LeoHover.png"
 image leo talk = "images/characters/rotasi/LeoIdle.png"
 
-image scy_mirage:
-    "images/npc/chapter2/Mantis/ScyDefault_.png"
-    matrixcolor TintMatrix("#70d6ff") * BrightnessMatrix(-0.15)
-    alpha 0.85
+# Chapter 5 Anomaly & Mirage Sprites
+image scy_anomaly_cry:
+    "images/chapter5/anomalies/scy_anomaly_cry.png"
+    zoom 0.52
 
-image cory_mirage:
-    "images/characters/cory/CoryTalkNetral_.png"
-    matrixcolor TintMatrix("#ffd166") * BrightnessMatrix(-0.15)
-    alpha 0.85
+image scy_anomaly_burst:
+    "images/chapter5/anomalies/scy_anomaly_burst.png"
+    zoom 0.52
 
-image leo_mirage:
-    "images/characters/rotasi/LeoIdle.png"
-    matrixcolor TintMatrix("#ff70a6") * BrightnessMatrix(-0.15)
-    alpha 0.85
+image cory_anomaly_distort:
+    "images/chapter5/anomalies/cory_anomaly_distort.png"
+    zoom 0.50
 
-image bg abyss_depths = "images/backgrounds/chapter1/bgdark1.png"
+image cory_anomaly_scream:
+    "images/chapter5/anomalies/cory_anomaly_scream.png"
+    zoom 0.50
+
+image leo_anomaly:
+    "images/chapter5/anomalies/leo_anomaly.png"
+    zoom 0.50
+
+image leo_anomaly_scream:
+    "images/chapter5/anomalies/leo_anomaly_scream.png"
+    zoom 0.50
+
+image scy_mirage = "scy_anomaly_cry"
+image scy_mirage cry = "scy_anomaly_cry"
+image scy_mirage burst = "scy_anomaly_burst"
+
+image cory_mirage = "cory_anomaly_distort"
+image cory_mirage distort = "cory_anomaly_distort"
+image cory_mirage scream = "cory_anomaly_scream"
+
+image leo_mirage = "leo_anomaly"
+image leo_mirage default = "leo_anomaly"
+image leo_mirage scream = "leo_anomaly_scream"
+
+image bg abyss_depths = "images/backgrounds/chapter5/bg_abyss_center.png"
+image bg abyss_wide = "images/backgrounds/chapter5/bg_abyss_wide.png"
+image bg abyss_zone_left = "images/backgrounds/chapter5/bg_abyss_left.png"
+image bg abyss_zone_center = "images/backgrounds/chapter5/bg_abyss_center.png"
+image bg abyss_zone_right = "images/backgrounds/chapter5/bg_abyss_right.png"
+
+image ch5_arrow_left = "images/ui/chapter5/arrow_left.png"
+image ch5_arrow_left_hover = "images/ui/chapter5/arrow_left_hover.png"
+image ch5_arrow_right = "images/ui/chapter5/arrow_right.png"
+image ch5_arrow_right_hover = "images/ui/chapter5/arrow_right_hover.png"
 image bg bedroom_dream = "images/backgrounds/chapter2/bgday2.jpg"
 image bg tsunami_approaching = "images/backgrounds/chapter1/bgnight1.jpg"
+image white = Solid("#ffffff")
 
 image cory_talk_neutral = "images/characters/cory/CoryTalkNetral_.png"
 image cory_side_legacy = "images/characters/cory/CorySide_.png"
@@ -218,10 +250,29 @@ image ch1_dialogue = "images/backgrounds/chapter1/bgday1.jpg"
 image ch2_dialogue = "images/backgrounds/chapter2/bgnight2.jpg"
 image ch3_day = "images/backgrounds/chapter3/bgday3.jpg"
 image ch3_night = "images/backgrounds/chapter3/bgnight3.jpg"
-image ch4_day = "images/backgrounds/chapter3/bgday3.jpg"
-image ch4_night = "images/backgrounds/chapter3/bgnight3.jpg"
-image ch4_dialogue = "images/backgrounds/chapter3/bgday3.jpg"
-image ch4_dialogue_night = "images/backgrounds/chapter3/bgnight3.jpg"
+image ch4_day = "images/backgrounds/chapter4/bg_festival_day.png"
+image ch4_night = "images/backgrounds/chapter4/bg_festival_night.jpg"
+image ch4_dialogue = "images/backgrounds/chapter4/bg_festival_day.png"
+image ch4_dialogue_night = "images/backgrounds/chapter4/bg_festival_night.jpg"
+image ch4_festival_day = "images/backgrounds/chapter4/bg_festival_day.png"
+image ch4_festival_night = "images/backgrounds/chapter4/bg_festival_night.jpg"
+image ch4_festival_night_bordered = "images/backgrounds/chapter4/bg_festival_night_bordered.jpg"
+
+# Chapter 4 Exploration Sprites
+image rin_explore_idle = "images/npc/chapter4/rin_explore_idle.png"
+image rin_explore_hover = "images/npc/chapter4/rin_explore_hover.png"
+image leo_explore_idle = "images/npc/chapter4/leo_explore_idle.png"
+image leo_explore_hover = "images/npc/chapter4/leo_explore_hover.png"
+
+image ch4_coral_idle = "images/items/chapter4/ch4_coral_idle.png"
+image ch4_coral_hover = "images/items/chapter4/ch4_coral_hover.png"
+image ch4_woodbox_idle = "images/items/chapter4/ch4_woodbox_idle.png"
+image ch4_woodbox_hover = "images/items/chapter4/ch4_woodbox_hover.png"
+
+image krillstall_idle = "images/items/chapter4/krillstall_idle.png"
+image krillstall_hover = "images/items/chapter4/krillstall_hover.png"
+image shootstall_idle = "images/items/chapter4/shootstall_idle.png"
+image shootstall_hover = "images/items/chapter4/shootstall_hover.png"
 
 image cutpro1 = "images/cutscenes/prologue/1.png"
 image cutpro2 = "images/cutscenes/prologue/2.png"
