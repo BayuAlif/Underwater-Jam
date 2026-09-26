@@ -60,17 +60,6 @@ init python:
     renpy.image(("item_seaweed",), "images/items/chapter3/seaweed_idle.png")
     renpy.image(("item_seaweed_hover",), "images/items/chapter3/seaweed_hover.png")
 
-    renpy.image(("bunny", "cry"), "images/placeholder/seabunny_cry.png")
-    renpy.image(("bunny", "scared"), "images/placeholder/seabunny_scared.png")
-    renpy.image(("bunny", "sad"), "images/placeholder/seabunny_sad.png")
-    renpy.image(("bunny", "default"), "images/placeholder/seabunny_default.png")
-    renpy.image(("bunny", "happy"), "images/placeholder/seabunny_happy.png")
-
-    renpy.image(("hawk", "default"), "images/placeholder/hawk_default.png")
-    renpy.image(("hawk", "sigh"), "images/placeholder/hawk_sigh.png")
-    renpy.image(("hawk", "smile"), "images/placeholder/hawk_smile.png")
-    renpy.image(("hawk", "laugh"), "images/placeholder/hawk_laugh.png")
-
 screen ch3_boss_negotiation_timer(timeout=8.0):
     timer timeout action Jump("ch3_boss_negotiate_mc_timeout")
 
