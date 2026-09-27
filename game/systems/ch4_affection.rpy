@@ -35,12 +35,15 @@ init python:
             store.ch4_leo_affection = min(3, max(0, store.ch4_leo_affection + amount))
 
         new_val = ch4_get_affection(c_id)
-        if notify and new_val > old_val:
-            renpy.notify(_("%s's affection increased! (+%d)") % (name, amount))
-            try:
-                renpy.play("audio/pixel_save_game.mp3", channel="sound")
-            except Exception:
-                pass
+        if notify:
+            if new_val > old_val:
+                renpy.notify(_("%s's affection increased! (+%d)") % (name, amount))
+                try:
+                    renpy.play("audio/pixel_save_game.mp3", channel="sound")
+                except Exception:
+                    pass
+            elif new_val == 3 and old_val == 3 and amount > 0:
+                renpy.notify(_("%s's affection is at MAX! (3 Hearts)") % name)
         return new_val
 
 transform ch4_affection_hud_trans:
