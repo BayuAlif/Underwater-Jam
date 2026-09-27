@@ -29,6 +29,13 @@ default duel_boss_dmg_low = "boss_mantis_dmg_low"
 default duel_current_boss_sprite = "boss_mantis_idle_normal"
 default empress_current_sprite = "boss_mantis_idle_normal"
 
+default duel_boss_stance_name = ""
+default duel_boss_stance_hint = ""
+default duel_boss_telegraph = ""
+default duel_boss_planned_move = "rock"
+default duel_boss_is_feint = False
+default duel_match_history = []
+
 define MANTIS_DUEL_BYPASS = False
 
 define AI_COUNTER_CHANCE = 0.35
@@ -259,19 +266,173 @@ init python:
         if store.duel_z_taps < store.duel_z_target:
             store.duel_z_taps += 1
 
-    def duel_ai_pick(history, boss="mantis"):
-        moves = ["rock", "paper", "scissors"]
-        counter_map = {
-            "rock": "paper",
-            "paper": "scissors",
-            "scissors": "rock"
+    DUEL_STRATEGY_DATA = {
+        "mantis": {
+            "name": "Mantis Shrimp",
+            "stances": {
+                "rock": {
+                    "name": "Heavy Hammer Stance",
+                    "quotes": [
+                        "Feel the crushing impact of my hammer claws! KAKAKA!",
+                        "A direct supersonic punch shatters all resistance!",
+                        "Prepare yourself! Here comes my heavyweight strike!"
+                    ],
+                    "hint": "Winding up a crushing blunt strike! (Favors Rock - Counter with Paper)",
+                    "weights": {"rock": 0.80, "scissors": 0.10, "paper": 0.10}
+                },
+                "scissors": {
+                    "name": "Pincer Snap Stance",
+                    "quotes": [
+                        "Too slow! I'll snip your fins before you can even blink!",
+                        "My claws can cut through steel! Watch your edges!",
+                        "Speed and sharpness! Let's see you dodge this snip!"
+                    ],
+                    "hint": "Cocking claws for a piercing snip! (Favors Scissors - Counter with Rock)",
+                    "weights": {"scissors": 0.80, "rock": 0.10, "paper": 0.10}
+                },
+                "paper": {
+                    "name": "Current Sweep Stance",
+                    "quotes": [
+                        "A true warrior defends from every angle! Come at me!",
+                        "My domain covers the entire current! Nowhere to slip past!",
+                        "Sweeping the battlefield! Let the waves swallow you!"
+                    ],
+                    "hint": "Sweeping outward to parry and envelop! (Favors Paper - Counter with Scissors)",
+                    "weights": {"paper": 0.80, "scissors": 0.10, "rock": 0.10}
+                }
+            },
+            "anti_spam_quote": "Kakaka! Trying the same trick twice?! I saw that coming!",
+            "anti_spam_hint": "Anti-Spam: Mantis counters your repeated move!",
+            "enrage_feint_quote": "GAAHH! Don't look down on me! You think you can read my punch?!",
+            "enrage_feint_hint": "[FEINT ALERT] Mantis feints a heavy punch to bait Paper! (Favors Scissors)",
+        },
+        "dunge": {
+            "name": "Dunge Crab",
+            "stances": {
+                "rock": {
+                    "name": "Iron Shell Stance",
+                    "quotes": [
+                        "Hah! Good luck scratchin' this thick shell, guppy!",
+                        "Nothin' in these waters breaks through solid stone!",
+                        "Bunker down! Let's see ya bounce right off my carapace!"
+                    ],
+                    "hint": "Hunkering behind dense armored shell! (Favors Rock - Counter with Paper)",
+                    "weights": {"rock": 0.82, "scissors": 0.09, "paper": 0.09}
+                },
+                "scissors": {
+                    "name": "Razor Vise Stance",
+                    "quotes": [
+                        "Snip snip! One pinch and yer fresh fins are mine!",
+                        "These pincers were made for crunchin' bones!",
+                        "Keep yer distance if ya don't wanna get clipped in half!"
+                    ],
+                    "hint": "Snapping iron pincers forward! (Favors Scissors - Counter with Rock)",
+                    "weights": {"scissors": 0.82, "rock": 0.09, "paper": 0.09}
+                },
+                "paper": {
+                    "name": "Silt Cloak Stance",
+                    "quotes": [
+                        "Kickin' up sand! Can't hit what ya can't see, kid!",
+                        "Blanketin' the whole seabed! Try finding an opening in this!",
+                        "A smokescreen of mud and silt! Yer trapped!"
+                    ],
+                    "hint": "Spreading a wide shroud of sand! (Favors Paper - Counter with Scissors)",
+                    "weights": {"paper": 0.82, "scissors": 0.09, "rock": 0.09}
+                }
+            },
+            "anti_spam_quote": "Mane, you're predictable! Ain't no way that works twice on an old crab!",
+            "anti_spam_hint": "Anti-Spam: Crab blocks and counters your repeated move!",
+            "enrage_feint_quote": "Tch... yer hits sting like jellyfish! Time for a dirty trick!",
+            "enrage_feint_hint": "[FEINT ALERT] Crab fakes a defensive shell to bait Paper! (Favors Scissors)",
+        },
+        "empress": {
+            "name": "Crustacean Empress VIII",
+            "stances": {
+                "scissors": {
+                    "name": "Imperial Execution Stance",
+                    "quotes": [
+                        "Your insubordination shall be severed here and now.",
+                        "Bow your head before the royal guillotine.",
+                        "A single decree is enough to slice away your defiance."
+                    ],
+                    "hint": "Aiming for a swift royal execution! (Favors Scissors - Counter with Rock)",
+                    "weights": {"scissors": 0.82, "rock": 0.09, "paper": 0.09}
+                },
+                "rock": {
+                    "name": "Monarch's Mountain Stance",
+                    "quotes": [
+                        "The imperial throne is an immovable mountain. You cannot shake it.",
+                        "Crush beneath the royal weight of my empire!",
+                        "Absolute authority cannot be penetrated by petty rebels."
+                    ],
+                    "hint": "Immovable imperial fortress! (Favors Rock - Counter with Paper)",
+                    "weights": {"rock": 0.82, "scissors": 0.09, "paper": 0.09}
+                },
+                "paper": {
+                    "name": "Royal Decree Stance",
+                    "quotes": [
+                        "My sovereign will envelops the entire ocean.",
+                        "A grand net leaves no commoner an escape.",
+                        "You struggle within the palm of my kingdom."
+                    ],
+                    "hint": "Unfurling an all-encompassing royal decree! (Favors Paper - Counter with Scissors)",
+                    "weights": {"paper": 0.82, "scissors": 0.09, "rock": 0.09}
+                }
+            },
+            "anti_spam_quote": "How delightfully predictable! Did you think mere repetition could topple an Empress?!",
+            "anti_spam_hint": "Anti-Spam: The Empress punishes your repeated move with absolute precision!",
+            "enrage_feint_quote": "You insolent worm! I see through your meager counter-tactics!",
+            "enrage_feint_hint": "[ROYAL FEINT] The Empress anticipates your counter and feints to trap you!",
+        },
+        "banished": {
+            "name": "The Banished One",
+            "stances": {
+                "rock": {
+                    "name": "Abyssal Crush Stance",
+                    "quotes": [
+                        "The crushing pressure of the depths shall shatter you...",
+                        "A mountain of sunken stones bears down upon your soul...",
+                        "Drown beneath the weight of forgotten darkness..."
+                    ],
+                    "hint": "Gathering heavy crushing pressure! (Favors Rock - Counter with Paper)",
+                    "weights": {"rock": 0.80, "scissors": 0.10, "paper": 0.10}
+                },
+                "scissors": {
+                    "name": "Shadow Rend Stance",
+                    "quotes": [
+                        "Torn to shreds in the perpetual night...",
+                        "Claws of shadow slice through the faint glimmer of your hope...",
+                        "Bleed into the abyss..."
+                    ],
+                    "hint": "Sharpening lethal shadow claws! (Favors Scissors - Counter with Rock)",
+                    "weights": {"scissors": 0.80, "rock": 0.10, "paper": 0.10}
+                },
+                "paper": {
+                    "name": "Void Shroud Stance",
+                    "quotes": [
+                        "The endless void engulfs all light...",
+                        "Suffocate within the black shroud of the deep...",
+                        "There is no boundary where the abyss ends..."
+                    ],
+                    "hint": "Enfolding the arena in suffocating void! (Favors Paper - Counter with Scissors)",
+                    "weights": {"paper": 0.80, "scissors": 0.10, "rock": 0.10}
+                }
+            },
+            "anti_spam_quote": "Futility repeats itself... your habits are laid bare...",
+            "anti_spam_hint": "Anti-Spam: The abyss consumes repeated techniques!",
+            "enrage_feint_quote": "You think the dark can be anticipated?! Fall into the trap...",
+            "enrage_feint_hint": "[ABYSSAL FEINT] Shadows shift deceptively to counter your expected read!",
         }
-        loses_to_map = {
-            "rock": "scissors",
-            "paper": "rock",
-            "scissors": "paper"
-        }
+    }
 
+    def duel_prepare_round_strategy(boss=None):
+        b_key = boss if boss else getattr(store, "duel_boss", "mantis")
+        b_data = DUEL_STRATEGY_DATA.get(b_key, DUEL_STRATEGY_DATA["mantis"])
+        b_cfg = DUEL_BOSS_REGISTRY.get(b_key, {})
+        b_hp = getattr(store, "duel_boss_hp", 3)
+        low_hp = b_hp <= b_cfg.get("low_hp_threshold", 1)
+
+        history = getattr(store, "player_choice_history", [])
         cleaned_history = []
         for m in (history or []):
             if m in ("scissor", "scissors"):
@@ -279,48 +440,86 @@ init python:
             else:
                 cleaned_history.append(str(m).lower())
 
-        cfg = DUEL_BOSS_REGISTRY.get(boss, DUEL_BOSS_REGISTRY.get("mantis", {}))
-        boss_hp = getattr(store, "duel_boss_hp", 3)
-        low_threshold = cfg.get("low_hp_threshold", 1)
-        is_low = boss_hp <= low_threshold
+        counter_map = {"rock": "paper", "paper": "scissors", "scissors": "rock"}
+        beats_map = {"rock": "scissors", "paper": "rock", "scissors": "paper"}
 
-        weights_cfg = cfg.get("weights_enraged" if is_low else "weights_normal", {})
-        w_rock = weights_cfg.get("rock", 0.334)
-        w_paper = weights_cfg.get("paper", 0.333)
-        w_scissors = weights_cfg.get("scissors", 0.333)
+        # 1. Anti-Spam Check: Did player play the exact same move twice in a row?
+        if len(cleaned_history) >= 2 and cleaned_history[-1] == cleaned_history[-2]:
+            repeated_move = cleaned_history[-1]
+            punish_move = counter_map[repeated_move]
+            punish_counter = counter_map[punish_move]
+            store.duel_boss_stance_name = "Punish Stance"
+            store.duel_boss_telegraph = b_data.get("anti_spam_quote", "Trying the same move twice won't work!")
+            store.duel_boss_stance_hint = "Anti-Spam: Countering repeated %s! (Favors %s - Counter with %s)" % (
+                repeated_move.upper(),
+                punish_move.upper(),
+                punish_counter.upper()
+            )
+            store.duel_boss_planned_move = punish_move
+            store.duel_boss_is_feint = False
+            return
 
-        def weighted_pick():
-            r = random.random()
-            if r < w_rock:
-                return "rock"
-            elif r < w_rock + w_paper:
-                return "paper"
-            return "scissors"
+        # 2. Enrage Feint Check: If low HP, 30% chance to execute a feint
+        if low_hp and random.random() < 0.30:
+            fake_intent = random.choice(["rock", "scissors", "paper"])
+            player_expected_counter = counter_map[fake_intent]
+            boss_feint_move = counter_map[player_expected_counter]
+            player_counter_feint = counter_map[boss_feint_move]
 
-        if not cleaned_history or len(cleaned_history) < 2:
-            return weighted_pick()
+            store.duel_boss_stance_name = "Feint Stance"
+            store.duel_boss_telegraph = b_data.get("enrage_feint_quote", "Think you can read my moves?! Think again!")
+            store.duel_boss_stance_hint = "[FEINT ALERT] Feigning %s to bait %s! (Boss throws %s - Counter with %s)" % (
+                fake_intent.upper(),
+                player_expected_counter.upper(),
+                boss_feint_move.upper(),
+                player_counter_feint.upper()
+            )
+            store.duel_boss_planned_move = boss_feint_move
+            store.duel_boss_is_feint = True
+            return
 
-        last_move = cleaned_history[-1]
-        prev_move = cleaned_history[-2]
+        # 3. Standard Stance with Clear Telegraph
+        stances = list(b_data["stances"].keys())
+        chosen_stance_key = random.choice(stances)
+        sdata = b_data["stances"][chosen_stance_key]
 
-        if last_move == prev_move:
-            roll = random.random()
-            if roll < 0.40:
-                return last_move
-            elif roll < 0.75:
-                return loses_to_map.get(last_move, "rock")
-            else:
-                return counter_map.get(last_move, "scissors")
-
-        if random.random() < 0.65:
-            return weighted_pick()
+        w = sdata["weights"]
+        r = random.random()
+        if r < w.get(chosen_stance_key, 0.80):
+            actual_move = chosen_stance_key
+        elif r < w.get(chosen_stance_key, 0.80) + 0.10:
+            actual_move = counter_map[chosen_stance_key]
         else:
-            alternatives = [m for m in moves if m != last_move]
-            predicted = random.choice(alternatives)
-            return counter_map[predicted]
+            actual_move = beats_map[chosen_stance_key]
+
+        store.duel_boss_stance_name = sdata["name"]
+        store.duel_boss_telegraph = random.choice(sdata["quotes"])
+        store.duel_boss_stance_hint = sdata["hint"]
+        store.duel_boss_planned_move = actual_move
+        store.duel_boss_is_feint = False
+
+    def duel_ai_pick(history=None, boss="mantis"):
+        if hasattr(store, "duel_boss_planned_move") and store.duel_boss_planned_move:
+            move = store.duel_boss_planned_move
+            store.duel_boss_planned_move = None
+            return move
+        duel_prepare_round_strategy(boss)
+        move = getattr(store, "duel_boss_planned_move", "rock")
+        store.duel_boss_planned_move = None
+        return move
 
     def mantis_ai_pick(history):
         return duel_ai_pick(history, getattr(store, "duel_boss", "mantis"))
+
+    def duel_record_round_result(round_num, p_choice, b_choice, result):
+        if not hasattr(store, "duel_match_history") or store.duel_match_history is None:
+            store.duel_match_history = []
+        store.duel_match_history.append({
+            "round": round_num,
+            "player": str(p_choice).capitalize(),
+            "boss": str(b_choice).capitalize(),
+            "result": str(result).lower()
+        })
 
     import math
     def smooth_spark_transform(trans, st, at):
@@ -460,26 +659,158 @@ screen mantis_rps_screen():
 
     modal True
 
-    imagebutton:
-        idle "jankenpon button rock"
-        focus_mask True
+    # 1. Boss Strategic Telegraph & Stance Banner (Top Center)
+    frame:
+        xalign 0.5
+        ypos 36
+        xsize 940
+        background Frame(Solid("#021a2cf0"), 12, 12)
+        padding (22, 12)
+
+        has vbox:
+            xalign 0.5
+            spacing 5
+
+        # Boss Name • Stance • Round
+        hbox:
+            xalign 0.5
+            spacing 14
+            text "[duel_boss_name]":
+                size 21
+                bold True
+                color "#ffeaa7"
+                outlines [(2, "#011627", 0, 0)]
+            text "•":
+                size 21
+                color "#74b9ff"
+            text "[duel_boss_stance_name]":
+                size 21
+                bold True
+                color ("#ff7675" if duel_boss_is_feint else "#fab1a0")
+                outlines [(2, "#011627", 0, 0)]
+            text "•":
+                size 21
+                color "#74b9ff"
+            text _("Round [duel_round]"):
+                size 18
+                color "#dfe6e9"
+                outlines [(1, "#011627", 0, 0)]
+
+        # Boss Dialogue Quote / Telegraph
+        text "\"[duel_boss_telegraph]\"":
+            xalign 0.5
+            size 20
+            italic True
+            color "#ffffff"
+            outlines [(2, "#000000", 0, 0)]
+
+        # Tactical Clue
+        frame:
+            xalign 0.5
+            background Solid("#00000088")
+            padding (14, 4)
+            text "[duel_boss_stance_hint]":
+                xalign 0.5
+                size 15
+                bold True
+                color ("#fdcb6e" if duel_boss_is_feint else "#55efc4")
+                outlines [(1, "#000000", 0, 0)]
+
+    # 2. Match History Tracker (Recent rounds)
+    if duel_match_history and len(duel_match_history) > 0:
+        hbox:
+            xalign 0.5
+            ypos 188
+            spacing 10
+            for item in duel_match_history[-3:]:
+                $ hist_r = str(item.get("round", ""))
+                $ hist_p = str(item.get("player", ""))
+                $ hist_b = str(item.get("boss", ""))
+                $ hist_res = str(item.get("result", "")).upper()
+                $ hist_color = "#55efc4" if item.get("result") == "win" else ("#74b9ff" if item.get("result") == "dodged" else ("#ff7675" if item.get("result") == "lose" else "#ffeaa7"))
+                frame:
+                    background Solid("#011422cc")
+                    padding (10, 4)
+                    has hbox:
+                        spacing 6
+                    text ("R" + hist_r + ":"):
+                        size 14
+                        color "#b2bec3"
+                    text hist_p:
+                        size 14
+                        bold True
+                        color hist_color
+                    text "vs":
+                        size 14
+                        color "#636e72"
+                    text hist_b:
+                        size 14
+                        color "#dfe6e9"
+                    text ("(" + hist_res + ")"):
+                        size 14
+                        bold True
+                        color hist_color
+
+    # 3. Action Buttons with Tactical Guidance
+    vbox:
         xalign 0.20
-        yalign 0.90
-        action Return("rock")
+        yalign 0.94
+        spacing 6
+        imagebutton:
+            xalign 0.5
+            idle "jankenpon button rock"
+            focus_mask True
+            hovered Play("sound", "audio/pixel_ui_1.mp3")
+            action [Play("sound", "audio/pixel_ui_2.mp3"), Return("rock")]
+        frame:
+            xalign 0.5
+            background Solid("#011627dd")
+            padding (10, 4)
+            text _("ROCK (Crushes Scissors)"):
+                size 15
+                bold True
+                color "#dfe6e9"
+                outlines [(1, "#000000", 0, 0)]
 
-    imagebutton:
-        idle "jankenpon button scissors"
-        focus_mask True
+    vbox:
         xalign 0.50
-        yalign 0.90
-        action Return("scissors")
+        yalign 0.94
+        spacing 6
+        imagebutton:
+            xalign 0.5
+            idle "jankenpon button scissors"
+            focus_mask True
+            hovered Play("sound", "audio/pixel_ui_1.mp3")
+            action [Play("sound", "audio/pixel_ui_2.mp3"), Return("scissors")]
+        frame:
+            xalign 0.5
+            background Solid("#011627dd")
+            padding (10, 4)
+            text _("SCISSORS (Cuts Paper)"):
+                size 15
+                bold True
+                color "#dfe6e9"
+                outlines [(1, "#000000", 0, 0)]
 
-    imagebutton:
-        idle "jankenpon button paper"
-        focus_mask True
+    vbox:
         xalign 0.80
-        yalign 0.90
-        action Return("paper")
+        yalign 0.94
+        spacing 6
+        imagebutton:
+            xalign 0.5
+            idle "jankenpon button paper"
+            focus_mask True
+            hovered Play("sound", "audio/pixel_ui_1.mp3")
+            action [Play("sound", "audio/pixel_ui_2.mp3"), Return("paper")]
+        frame:
+            xalign 0.5
+            background Solid("#011627dd")
+            padding (10, 4)
+            text _("PAPER (Enfolds Rock)"):
+                size 15
+                bold True
+                color "#dfe6e9"
+                outlines [(1, "#000000", 0, 0)]
 
 screen mantis_spamz_screen(player_choice, boss_choice="paper"):
     modal True
@@ -623,6 +954,13 @@ label run_duel(boss_target="mantis", custom_hp=None, custom_threshold=None):
 
     $ duel_player_history = []
     $ player_choice_history = []
+    $ duel_match_history = []
+
+    $ duel_boss_stance_name = ""
+    $ duel_boss_stance_hint = ""
+    $ duel_boss_telegraph = ""
+    $ duel_boss_planned_move = None
+    $ duel_boss_is_feint = False
 
     $ duel_z_taps = 0
     $ duel_z_target = 10
@@ -669,6 +1007,8 @@ label run_duel(boss_target="mantis", custom_hp=None, custom_threshold=None):
         and duel_boss_hp > 0
     ):
 
+        $ duel_prepare_round_strategy(duel_boss)
+
         call screen mantis_rps_screen
         $ duel_player_choice = _return
 
@@ -714,9 +1054,12 @@ label run_duel(boss_target="mantis", custom_hp=None, custom_threshold=None):
                 $ dodge_result = _return   # True = spam success, False = spam fail
                 $ duel_is_dodging = False
 
+        # Record round result for tactical HUD
+        $ _outcome = "dodged" if (duel_round_result == "lose" and dodge_result) else duel_round_result
+        $ duel_record_round_result(duel_round, duel_player_choice, duel_shrimp_choice, _outcome)
+
         if duel_round_result == "win":
             $ duel_player_wins += 1
-            $ duel_round += 1
             $ duel_boss_hp = max(0, duel_boss_hp - 1)
             $ duel_shrimp_hp = duel_boss_hp
             if duel_boss_hp <= duel_boss_low_threshold:
@@ -732,9 +1075,10 @@ label run_duel(boss_target="mantis", custom_hp=None, custom_threshold=None):
                 call screen mantis_punch_effect(duel_shrimp_choice)
                 $ duel_player_hp = max(0, duel_player_hp - 1)
                 $ duel_shrimp_wins += 1
-                $ duel_round += 1
             else:
                 pass
+
+        $ duel_round += 1
 
     hide screen duel_battle_stage
     hide screen mantis_battle_stage
