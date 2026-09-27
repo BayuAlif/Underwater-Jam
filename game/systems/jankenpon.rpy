@@ -23,6 +23,11 @@ image jankenpon button rock = "images/jankenpon/Button Rock Paper Scissor/Rock.p
 image jankenpon button paper = "images/jankenpon/Button Rock Paper Scissor/Paper.png"
 image jankenpon button scissors = "images/jankenpon/Button Rock Paper Scissor/Scissor_.png"
 
+image mantis icon full = "images/jankenpon/ICON/ScyFull.png"
+image mantis icon half = "images/jankenpon/ICON/ScyHalf.png"
+image mantis icon one  = "images/jankenpon/ICON/ScyOne.png"
+image mantis icon dead = "images/jankenpon/ICON/ScyDead.png"
+
 image dunge icon full = "images/jankenpon/ICON/ScyFull.png"
 image dunge icon half = "images/jankenpon/ICON/ScyHalf.png"
 image dunge icon one  = "images/jankenpon/ICON/ScyOne.png"

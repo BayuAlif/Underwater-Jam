@@ -105,13 +105,23 @@ image duel_boss_mantis_damaged = "boss_mantis_idle_low"
 image duel_boss_empress = "boss_mantis_idle_normal"
 image duel_boss_empress_damaged = "boss_mantis_idle_low"
 
-image boss_dunge_idle_normal = "images/jankenpon/Idle1.png"
-image boss_dunge_dmg_normal = "images/jankenpon/IdleDMG.png"
-image boss_dunge_idle_low = "images/jankenpon/LowHP1.png"
-image boss_dunge_dmg_low = "images/jankenpon/LowHPDMG.png"
+image boss_dunge_idle_normal = "images/jankenpon/DUNGE/DungeIdleNormal.png"
+image boss_dunge_dmg_normal = "images/jankenpon/DUNGE/DungeDmgNormal.png"
+image boss_dunge_idle_low = "images/jankenpon/DUNGE/DungeIdleLow.png"
+image boss_dunge_dmg_low = "images/jankenpon/DUNGE/DungeDmgLow.png"
 
 image duel_boss_dunge = "boss_dunge_idle_normal"
 image duel_boss_dunge_damaged = "boss_dunge_idle_low"
+
+image mantis_icon_full = "images/jankenpon/ICON/ScyFull.png"
+image mantis_icon_half = "images/jankenpon/ICON/ScyHalf.png"
+image mantis_icon_one = "images/jankenpon/ICON/ScyOne.png"
+image mantis_icon_dead = "images/jankenpon/ICON/ScyDead.png"
+
+image dunge_icon_full = "images/jankenpon/ICON/DungeFull.png"
+image dunge_icon_half = "images/jankenpon/ICON/DungeHalf.png"
+image dunge_icon_one = "images/jankenpon/ICON/DungeOne.png"
+image dunge_icon_dead = "images/jankenpon/ICON/DungeDead.png"
 
 image mantis dodge rock = "images/jankenpon/Rock/RockDodge.png"
 image mantis dodge paper = "images/jankenpon/Paper/PaperDodge.png"
@@ -224,7 +234,7 @@ init python:
             "dodge_tar_range": (5, 7),
             "ai_counter_chance": 0.25,
             "ai_counter_accuracy": 0.60,
-            "has_full_assets": False,
+            "has_full_assets": True,
         },
         "banished": {
             "name": "The Banished One",
@@ -408,21 +418,38 @@ screen duel_battle_stage():
                 add "empress_icon_full":
                     xalign 0.88
                     yalign 0.12
-        else:
+        elif duel_boss == "dunge":
             if duel_shrimp_hp <= 0:
-                add "dunge icon dead":
+                add "dunge_icon_dead":
                     xalign 0.88
                     yalign 0.12
             elif duel_shrimp_hp == 1:
-                add "dunge icon one":
+                add "dunge_icon_one":
                     xalign 0.88
                     yalign 0.12
             elif duel_shrimp_hp == 2:
-                add "dunge icon half":
+                add "dunge_icon_half":
                     xalign 0.88
                     yalign 0.12
             else:
-                add "dunge icon full":
+                add "dunge_icon_full":
+                    xalign 0.88
+                    yalign 0.12
+        else:
+            if duel_shrimp_hp <= 0:
+                add "mantis_icon_dead":
+                    xalign 0.88
+                    yalign 0.12
+            elif duel_shrimp_hp == 1:
+                add "mantis_icon_one":
+                    xalign 0.88
+                    yalign 0.12
+            elif duel_shrimp_hp == 2:
+                add "mantis_icon_half":
+                    xalign 0.88
+                    yalign 0.12
+            else:
+                add "mantis_icon_full":
                     xalign 0.88
                     yalign 0.12
 
@@ -546,6 +573,7 @@ label empress_duel:
     return _return
 
 label dunge_duel:
+    $ duel_fighter = "cory"
     call run_duel("dunge")
     return _return
 
@@ -673,15 +701,18 @@ label run_duel(boss_target="mantis", custom_hp=None, custom_threshold=None):
         )
 
         if duel_round_result == "lose":
-            $ _bcfg = DUEL_BOSS_REGISTRY.get(duel_boss, DUEL_BOSS_REGISTRY["mantis"])
-            $ _tar_range = _bcfg.get("dodge_tar_range" if coal_tar_effective else "dodge_target_range", (7, 9))
-            $ duel_z_target = random.randint(_tar_range[0], _tar_range[1])
-            $ duel_z_taps = 0
+            if duel_boss == "dunge":
+                $ dodge_result = False
+            else:
+                $ _bcfg = DUEL_BOSS_REGISTRY.get(duel_boss, DUEL_BOSS_REGISTRY["mantis"])
+                $ _tar_range = _bcfg.get("dodge_tar_range" if coal_tar_effective else "dodge_target_range", (7, 9))
+                $ duel_z_target = random.randint(_tar_range[0], _tar_range[1])
+                $ duel_z_taps = 0
 
-            $ duel_is_dodging = True
-            call screen mantis_spamz_screen(duel_player_choice, duel_shrimp_choice)
-            $ dodge_result = _return   # True = spam success, False = spam fail
-            $ duel_is_dodging = False
+                $ duel_is_dodging = True
+                call screen mantis_spamz_screen(duel_player_choice, duel_shrimp_choice)
+                $ dodge_result = _return   # True = spam success, False = spam fail
+                $ duel_is_dodging = False
 
         if duel_round_result == "win":
             $ duel_player_wins += 1

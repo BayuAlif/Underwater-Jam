@@ -160,6 +160,16 @@ image leo proud = "images/characters/rotasi/LeoHover.png"
 image leo surprise = "images/characters/rotasi/LeoHover.png"
 image leo talk = "images/characters/rotasi/LeoIdle.png"
 
+# Chapter 5 Exploration NPC Sprites (Idle & Hover)
+image ch5_mantis_idle = "images/chapter5/anomalies/MantisIdle.png"
+image ch5_mantis_hover = "images/chapter5/anomalies/MantisHover.png"
+
+image ch5_cory_idle = "images/chapter5/anomalies/CoryIdle.png"
+image ch5_cory_hover = "images/chapter5/anomalies/CoryHover.png"
+
+image ch5_leo_idle = "images/chapter5/anomalies/LeoIdle.png"
+image ch5_leo_hover = "images/chapter5/anomalies/LeoHover.png"
+
 # Chapter 5 Anomaly & Mirage Sprites
 image scy_anomaly_cry:
     "images/chapter5/anomalies/scy_anomaly_cry.png"

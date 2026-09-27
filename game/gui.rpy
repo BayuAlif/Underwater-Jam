@@ -69,7 +69,7 @@ define gui.namebox_borders = Borders(5, 5, 5, 5)
 define gui.namebox_tile = False
 
 define gui.dialogue_xpos = 270
-define gui.dialogue_ypos = 80
+define gui.dialogue_ypos = 95
 
 define gui.dialogue_width = 1180
 

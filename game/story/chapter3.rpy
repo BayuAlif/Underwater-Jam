@@ -680,6 +680,7 @@ label ch3_night_explore:
                 with moveinright
                 cory "Looks like Big Dunge down there is blockin' the cavern entrance. We gotta deal with him first."
                 $ focus ()
+                call ch3_teto_encounter
                 jump .loop
             else:
                 "The entrance to the Crustacean Empress's lair is open before us."
@@ -767,15 +768,14 @@ label ch3_item_red_seaweed:
     return
 
 label ch3_teto_encounter:
+    $ mark_npc_explored("teto")
     show mc o at mc_left
-    show teto default
 
     if not getattr(store, "ch3_teto_visited", False):
         $ ch3_teto_visited = True
-        teto "Halt! Who dares lurk around the royal threshold of Her Majesty's lair?"
-        hide teto default
-
         show teto default at npc_left
+        teto "Halt! Who dares lurk around the royal threshold of Her Majesty's lair?"
+
         show scy smile at npc_right
         scyllarus "Greetings, royal sentinels! It is I, Scyllarus! We have journeyed far to present ourselves before Her Majesty!"
 
@@ -783,7 +783,6 @@ label ch3_teto_encounter:
         teto "Hah! Present yourselves? With freshwater strays tagging behind your tail?"
         teto "Nobody enters this cavern without going through proper protocol—and Big Dunge is guarding the outer perimeter down there!"
 
-        hide teto gun_smirk
         show cory side at cory_left
         cory "Is that a goby riding shotgun on a pistol shrimp? And why are they looking at us like they're itching to pull a trigger?"
 
@@ -992,6 +991,436 @@ label ch3_boss_intro:
     emp "I shall busy myself with my new golden toy!"
     $ focus ()
     jump ch3_boss_negotiation
+
+label ch3_boss_negotiation:
+    hide mc
+    hide cory
+    hide scy
+    hide teto
+    call screen choose_interactor(
+        "Choose who should negotiate with the Empress!",
+        "Each character will present their own proposal"
+    )
+
+    $ selected_questioner = _return
+
+    if selected_questioner == "mc":
+        jump ch3_boss_negotiate_as_mc
+    elif selected_questioner == "cory":
+        jump ch3_boss_negotiate_as_cory
+    else:
+        jump ch3_boss_negotiate_as_scyllarus
+
+label ch3_boss_negotiate_as_mc:
+    show mc happy at mc_left
+    mc "Hi!! Your highness goby fish!"
+
+    show goby default at npc_left
+    gob "You have 10 seconds to speak your lies"
+    gob "Before my spear goes through you."
+
+    show mc shock_hu at mc_left
+    mc "ah only t-ten seconds?! oh no! oh no!"
+
+    show goby annoy at npc_left
+    gob "There goes your two seconds."
+
+    show screen ch3_boss_negotiation_timer(8.0)
+
+    menu:
+        "\"I propose crustaceans and every creature in the sea hold hands until the end of time!\"":
+            hide screen ch3_boss_negotiation_timer
+            jump ch3_boss_negotiate_mc_opt1
+
+        "\"I propose that the crustaceans apologize to everyone in sea!\"":
+            hide screen ch3_boss_negotiation_timer
+            jump ch3_boss_negotiate_mc_opt2
+
+        "\"I think this might be a great addition to your red collection!\" (Give red seaweed)" if has_red_seaweed:
+            hide screen ch3_boss_negotiation_timer
+            jump ch3_boss_negotiate_mc_opt3
+
+label ch3_boss_negotiate_mc_timeout:
+    hide screen ch3_boss_negotiation_timer
+    show goby surprise at npc_left
+    gob "Time's up! You hesitated, dirtwater!"
+    mc "W-wait! I have an answer! Don't poke me with the spear!"
+    jump ch3_boss_negotiate_mc_opt1
+
+label ch3_boss_negotiate_mc_opt1:
+    show mc default at mc_left
+    show goby default at npc_left
+    gob "..."
+    gob "Unlike a defect breed like you.."
+    gob "We have no hands you speak of"
+    gob "All we have are chelipeds"
+
+    show mc o at mc_left
+    mc "But you're not even a crustacean! What you have are fins!"
+
+    gob "...!"
+
+    show mc o at mc_left
+    mc "If you can command an army of crustaceans"
+    mc "If you can hold the empress' great chelipeds.."
+
+    show mc pout at mc_left
+    mc "What makes you stop at holding other fishes' fins..?"
+
+    show mc default at mc_left
+    mc "Besides.. Goby fishes have relatives in freshwater!"
+
+    gob "I'm not a part of that filthy kind."
+    gob "You think you're so smart because you've read a few books?"
+    gob "Save those futile fun facts for afterlife"
+    hide goby
+    jump ch3_boss_negotiate_mc_after
+
+label ch3_boss_negotiate_mc_opt2:
+    show mc o at mc_left
+    mc "Everyone we met seemed really sad because of what the crustaceans did.."
+    mc "Some lost their families. Some are scared to even leave their homes."
+
+    show mc happy at mc_left
+    mc "Therefore, saying sorry would be a good start?"
+    mc "Maybe then they all would be kind and respect you too"
+
+    show goby surprise at npc_left
+    gob "The audacity!"
+    gob "You demand an apology from the rulers of the sea?"
+
+    show mc pout at mc_left
+    mc "But order isn't supposed to make everyone scared!"
+
+    gob "What the sea thinks is never worth our concern!"
+    hide goby
+    jump ch3_boss_negotiate_mc_after
+
+label ch3_boss_negotiate_mc_opt3:
+    show mc happy at mc_left
+    show goby surprise at npc_left
+    gob "...!"
+    gob "That's.. The great empress' favorite!"
+
+    show teto laugh at npc_right
+    emp "DID SOMEONE SAY RED SEAWEED?!"
+
+    show mc default at mc_left
+    mc "Mhm! I picked it up on the way here! As a peace offering!"
+
+    emp "How thoughtful! Gimme it!"
+
+    play sound "audio/attack_1.mp3"
+    "At the blink of an eye with a discreet bang! The seaweed vanished.. Now already a crushed victim under the shrimp's eager munch teeth"
+
+    show goby annoy at npc_left
+    gob "Your Majesty, please remember that they are here to negotiate."
+
+    emp "I know! I can eat and listen at the same time."
+    emp "munch munch munch…"
+
+    show mc shock at mc_left
+    "Did she use her pistol to steal the seaweed from my hand without injuring me?"
+
+    show mc o at mc_left
+    "Whatever it was, I need to see it again! Maybe I should provoke her more?"
+
+    gob "Ah your majesty- there's a seaweed on your cheek"
+
+    emp "Really?! Help me get rid of it my Gobby!"
+
+    gob "Affirmative.."
+
+    show mc happy at mc_left
+    mc "Yaaay true love wins!"
+
+    show mc excited at mc_left
+    mc "Which means Freshwater and Saltwater can live together in peace now!!"
+
+    gob "T-true love-?!"
+    hide goby
+    hide teto
+    jump ch3_boss_negotiate_mc_after
+
+label ch3_boss_negotiate_mc_after:
+    show goby surprise at npc_left
+    gob "We have to obliterate these scums at once, Your Majesty"
+
+    show teto gun_smirk at npc_right
+    emp "Hah! Count me in on the fun! I've got to test my new found!"
+
+    show goby default at npc_left
+    gob "My empress, I'm afraid these filth isn't worth your power…"
+
+    hide teto
+    show teto pout at npc_right
+    emp "Hmph! But I wanna use my brand new golden toy!"
+
+    "Ms Empress Shrimp pulls out what it seems a golden scale from under her robe. Its shimmer glistens in rainbows under the light."
+
+    show mc shock at mc_left
+    mc "The golden scale.. she really has it"
+
+    gob "Then unleash nightmares that follows them to hell, Your Majestic Majesty"
+
+    show teto gun_smirk at npc_right
+    hide goby
+    show cory side_close at cory_left
+    cory "Looks like we have no choice but to fight fins and gills, ay?"
+
+    jump ch3_boss_battle
+
+label ch3_boss_negotiate_as_cory:
+    hide teto
+    show goby default at npc_right
+    gob "You got exactly 1.8 seconds."
+
+    show cory surprise at cory_left
+    cory "...!"
+    cory "Might as well say fugu off with your bullcarp shrimp regime-!"
+
+    show goby surprise at npc_right
+    gob "Enough! That was more than 3 seconds!"
+
+    play sound "audio/attack_3.mp3"
+    "My eyes widen into saucers as it registers a flash of red. The goby's spear grazes past Mr.Cory, tearing through flesh but missing anything vital. A warning, and nothing more."
+
+    show cory hurt at cory_left
+    cory "Guh-!"
+
+    show mc shock_hu at mc_left
+    mc "Mr. Cory…!!"
+    mc "WHY WOULD YOU SAY THAAAT MR CORYYY!!"
+
+    hide goby
+    show teto default at npc_right
+    emp "Oooh a rebel I sense?!"
+    emp "Kekeke! That bravery of yours, I quite like it!"
+    emp "It'll make your screams echo all the sweeter."
+
+    hide teto
+    show goby surprise at npc_right
+    gob "Now face agonizing torture, worth three lifetimes over, dirtwater."
+
+    hide goby
+    show scy sepet at npc_right
+    scyllarus "Frankly! I don't think I can defend you on this one, my questionable friend!"
+
+    jump ch3_boss_battle
+
+label ch3_boss_negotiate_as_scyllarus:
+    show goby surprise at npc_right
+    gob "Make it count, Scyllarus."
+    gob "I'm only hearing you out because you're our precious strongest personnel"
+    show goby default at npc_right
+    gob "Having you against us will be disadvantageous for both of us."
+
+    show scy default_om at npc_left
+    scyllarus "I'll make it justifiable!"
+
+    menu:
+        "\"We propose a future where freshwater creatures are no longer detained simply for existing in the sea\"":
+            jump ch3_boss_scy_opt1
+
+        "\"We propose that the crustaceans rule with honor again, not fear!\"":
+            jump ch3_boss_scy_opt2
+
+        "\"Calm yourself down first your highness!\" (Give red seaweed)" if has_red_seaweed:
+            jump ch3_boss_scy_opt3
+
+label ch3_boss_scy_opt1:
+    show goby default at npc_right
+    gob "Oh? You'd bring numbers to a fight, Scyllarus?"
+
+    show scy default_om at npc_left
+    scyllarus "By statistics! Seafolks' crime rates are still higher than the freshwater immigrants!"
+    scyllarus "With that data in mind.. we shouldn't have detained freshwaters for simply setting fins into sea!"
+    scyllarus "And to keep punishing an entire species for the sins of a few is neither just, nor even strategic!"
+
+    show goby annoy at npc_right
+    gob "Even when those are facts.."
+    gob "You can't dismiss that incident.."
+    gob "In which disaster were caused by those filthy freshwaters?"
+    gob "Fishes, mollusks, our own kind — all of them paid for what happened at the Old Canal Junction."
+    gob "What we're doing are simply precautions"
+    gob "So tragedy doesn't repeat itself…"
+
+    show scy default at npc_left
+    scyllarus "But that was 10 years ago, general!"
+    scyllarus "Longer than both you and the empress' ages combined!"
+    scyllarus "I was there when it happened…"
+    scyllarus "And it was also a freshwater that helped me through that time…"
+    scyllarus "So don't tell me they're all the villains in this story!"
+    scyllarus "I refuse to believe that anymore!"
+    jump ch3_boss_negotiate_scy_after
+
+label ch3_boss_scy_opt2:
+    show scy shy at npc_left
+    scyllarus "It truly pains me to say this but…!"
+    scyllarus "We were once honored, loved. Well mannered."
+    scyllarus "Crustaceans are of the supportive, enthusiastically kind!"
+    scyllarus "Our way of showing it might come off as rough but..!"
+    scyllarus "It is necessary to fight for the things we care for!"
+    show scy default at npc_left
+    scyllarus "Now all I've seen from seafolks are that of disdain and fear of us.."
+    scyllarus "Is that really what our kind wants to be known as..?"
+    scyllarus "A ruthless, impudent dictatorship that easily tramples the life of others..!"
+
+    show goby default at npc_right
+    gob "You talk all high and mighty.."
+    gob "Yet how many died pleading at your own claws, Scyllarus?"
+
+    scyllarus "....!"
+    scyllarus "That's why I…!!"
+
+    show goby annoy at npc_right
+    gob "Your fierce claws.. are not made for compassion is it?"
+    gob "You're a killing machine."
+    gob "One that would swipe through anything in its path, crustacean or not, if ordered to.."
+    gob "You're not one to propose for harmony."
+
+    scyllarus "..."
+
+    show mc pout at mc_left
+    mc "YOU'RE WRONG!!"
+
+    show goby default at npc_right
+    gob "oh..?"
+
+    show mc holdcry at mc_left
+    mc "Mr. shrimp- Mr.. Mr Sc... Cy.. Clarus has never once hurt me!"
+
+    hide scy
+    show cory talk at cory_left
+    cory "It's Scyllarus guppy…"
+
+    hide cory
+    show scy default at npc_left
+    show mc sad_hu at mc_left
+    mc "He always touches me super carefully! I've never got any scratches see!"
+
+    "I extended both arms outwards, showing off every unscratched, unbruised inch of them."
+
+    show mc sad at mc_left
+    mc "He's.. he's … always trying his best to not hurt anyone…"
+
+    scyllarus "....guppy"
+
+    hide scy
+    show cory talk at cory_left
+    cory "What they said!"
+    cory "Our big ol friend here is not what you claim a killin machine!"
+    cory "He's just stuck under a regime he can't escape from.."
+    cory "He's not killin for fun, it was yous who put the weapon in his claws in the first place!"
+
+    hide cory
+    show scy shy at npc_left
+    scyllarus "Cory…!"
+
+    gob "Foolish dirtwaters! You just haven't witnessed his true side yet!"
+
+    show mc happy at mc_left
+    mc "Maybe so! But.. I trust the side of him I have seen!"
+    jump ch3_boss_negotiate_scy_after
+
+label ch3_boss_scy_opt3:
+    show scy smile at npc_left
+    scyllarus "My friend here picked out the brightest, freshest red seaweed for you to feast!"
+
+    hide goby
+    show teto laugh at npc_right
+    emp "Oh ho ho don't mind if I do~!!"
+    emp "Mmmn.. this is why you're the best Scyllarus..!"
+
+    hide teto
+    show goby surprise at npc_right
+    gob "He's the best…? But your highness you told me that I'm-"
+    show goby disgust at npc_right
+    gob "sigh.. please don't play favorites in front of the enemy, your majesty."
+
+    hide goby
+    show teto default at npc_right
+    emp "shh what does he have to say! Speak my esteemed soldier Scyllarus!"
+
+    show scy default at npc_left
+    scyllarus "Right now.. we are at a compromised position, your majesty.."
+    scyllarus "The seafolks hates and fear us, the freshwaters no longer trust us either.."
+    scyllarus "This isn't a war we can win by claws and fear alone!"
+    scyllarus "So with that in mind.. I propose that.."
+    scyllarus "We go back to Her Majesty the VII's system.."
+    scyllarus "We earn the sea's trust instead of demanding its fear!"
+
+    show teto upset at npc_right
+    emp "My.. mother?!"
+    emp "YOU FOOLISH SAND-FILLED BRAIN LUDICROUS IMBECILE!!"
+    show teto gun_upset at npc_right
+    emp "I'm sick of it! My mother's softness cost us everything, and you want me to make that same mistake?!"
+    emp "CRUSTACEANS!! Detain them at once!"
+    jump ch3_boss_negotiate_scy_after
+
+label ch3_boss_negotiate_scy_after:
+    hide teto
+    show goby default at npc_right
+    gob "This is exactly why you were never fit to be a general."
+    gob "Sand for brains, One sob story from a guppy and you fold like a cheap net."
+    gob "That's not honor, Scyllarus. That's just being easy to manipulate."
+
+    show scy default_om at npc_left
+    scyllarus "I'd rather be wrong for believing in people than right for fearing them!"
+
+    hide goby
+    show teto default at npc_right
+    emp "Heh! Time to answer the most asked question then!"
+    emp "The ultimate showdown…!!"
+
+    show mc excited at mc_left
+    mc "Oh my oh my!"
+
+    emp_mc "PISTOL SHRIMP VS MANTIS SHRIMP!! YOU WON'T BELIEVE WHO WINS?? (GONE WRONG)"
+
+    show teto gun_smirk at npc_right
+    emp "KEKEKEKE!! Oh how I adore you! Too bad I gotta kill you now!"
+
+    hide scy
+    show cory upset at cory_left
+    cory "Aye! This is no play guppy! Get your ass ready for a fight!"
+
+label ch3_boss_battle:
+    show cory talk at cory_left
+    cory "Hah that means nothing, we got one ourself too! Show em guppy!"
+
+    emp "Oh-ho! Well that makes it the more interesting…!"
+    emp "May the best gold bearer wins! Spoiler: it is I, most obviously!"
+
+    call empress_duel
+
+    if _return != "win" and duel_result != "win":
+        jump ch3_boss_battle_lose
+
+    $ ch3_empress_defeated = True
+    jump ch3_ending
+
+label ch3_boss_battle_lose:
+    hide mc
+    hide cory
+    hide scy
+    scene ch3_night
+    with dissolve
+
+    show teto laugh at npc_right
+    emp "KEKEKE!! I thought you would've last longer!"
+
+    show teto gun_smirk at npc_right
+    emp "I'm too overpowered for insignificant freshies!"
+
+    show goby default at npc_left
+    gob "None other shall dare defy the great crustacean empress regime, anymore"
+
+    menu:
+        "Try again?":
+            jump ch3_boss_battle
+        "Return to reef":
+            jump ch3_night_explore.loop
 
 label ch3_ending:
     hide mc
