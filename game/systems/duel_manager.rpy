@@ -113,6 +113,16 @@ image boss_dunge_dmg_low = "images/jankenpon/DUNGE/DungeDmgLow.png"
 image duel_boss_dunge = "boss_dunge_idle_normal"
 image duel_boss_dunge_damaged = "boss_dunge_idle_low"
 
+image mantis_icon_full = "images/jankenpon/ICON/ScyFull.png"
+image mantis_icon_half = "images/jankenpon/ICON/ScyHalf.png"
+image mantis_icon_one = "images/jankenpon/ICON/ScyOne.png"
+image mantis_icon_dead = "images/jankenpon/ICON/ScyDead.png"
+
+image dunge_icon_full = "images/jankenpon/ICON/DungeFull.png"
+image dunge_icon_half = "images/jankenpon/ICON/DungeHalf.png"
+image dunge_icon_one = "images/jankenpon/ICON/DungeOne.png"
+image dunge_icon_dead = "images/jankenpon/ICON/DungeDead.png"
+
 image mantis dodge rock = "images/jankenpon/Rock/RockDodge.png"
 image mantis dodge paper = "images/jankenpon/Paper/PaperDodge.png"
 image mantis dodge scissors = "images/jankenpon/Scissor/ScissorDodge.png"
@@ -408,21 +418,38 @@ screen duel_battle_stage():
                 add "empress_icon_full":
                     xalign 0.88
                     yalign 0.12
-        else:
+        elif duel_boss == "dunge":
             if duel_shrimp_hp <= 0:
-                add "dunge icon dead":
+                add "dunge_icon_dead":
                     xalign 0.88
                     yalign 0.12
             elif duel_shrimp_hp == 1:
-                add "dunge icon one":
+                add "dunge_icon_one":
                     xalign 0.88
                     yalign 0.12
             elif duel_shrimp_hp == 2:
-                add "dunge icon half":
+                add "dunge_icon_half":
                     xalign 0.88
                     yalign 0.12
             else:
-                add "dunge icon full":
+                add "dunge_icon_full":
+                    xalign 0.88
+                    yalign 0.12
+        else:
+            if duel_shrimp_hp <= 0:
+                add "mantis_icon_dead":
+                    xalign 0.88
+                    yalign 0.12
+            elif duel_shrimp_hp == 1:
+                add "mantis_icon_one":
+                    xalign 0.88
+                    yalign 0.12
+            elif duel_shrimp_hp == 2:
+                add "mantis_icon_half":
+                    xalign 0.88
+                    yalign 0.12
+            else:
+                add "mantis_icon_full":
                     xalign 0.88
                     yalign 0.12
 
