@@ -54,27 +54,3 @@ transform ch5_arrow_bob_right:
     easein 1.2 xoffset 6
     easeout 1.2 xoffset 0
     repeat
-
-transform ch5_mirage_hub_scy_panel:
-    subpixel True
-    zoom 0.55
-    anchor (0.5, 0.5)
-    easein 2.5 yoffset -10
-    easeout 2.5 yoffset 10
-    repeat
-
-transform ch5_mirage_hub_cory_panel:
-    subpixel True
-    zoom 0.42
-    anchor (0.5, 0.5)
-    easein 2.5 yoffset -10
-    easeout 2.5 yoffset 10
-    repeat
-
-transform ch5_mirage_hub_leo_panel:
-    subpixel True
-    zoom 0.42
-    anchor (0.5, 0.5)
-    easein 2.5 yoffset -10
-    easeout 2.5 yoffset 10
-    repeat

@@ -244,7 +244,9 @@ label chapter1_start:
 
     call chapter1_night
 
-    jump chapter1_dawn
+    call chapter1_dawn
+
+    return
 
 label chapter1_day_exploration:
 

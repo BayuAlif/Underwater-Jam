@@ -137,7 +137,9 @@ label chapter2_start:
     $ focus()
 
     call chapter2_day_exploration
-    jump chapter2_night_start
+    call chapter2_night_start
+
+    return
 
 label chapter2_day_exploration:
 

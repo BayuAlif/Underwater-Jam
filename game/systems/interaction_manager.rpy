@@ -151,31 +151,3 @@ transform selector_3_clarus:
     xpos 0.80
     ypos 0.86
     zoom 0.55
-
-transform selector_4_mc:
-    xanchor 0.5
-    yanchor 1.0
-    xpos 0.14
-    ypos 0.86
-    zoom 0.48
-
-transform selector_4_cory:
-    xanchor 0.5
-    yanchor 1.0
-    xpos 0.38
-    ypos 0.86
-    zoom 0.48
-
-transform selector_4_clarus:
-    xanchor 0.5
-    yanchor 1.0
-    xpos 0.62
-    ypos 0.86
-    zoom 0.48
-
-transform selector_4_leo:
-    xanchor 0.5
-    yanchor 1.0
-    xpos 0.86
-    ypos 0.86
-    zoom 0.48

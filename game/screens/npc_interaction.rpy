@@ -15,32 +15,7 @@ screen character_question_visual(title, subtitle):
         yalign 0.15
         size 24
 
-    if current_chapter >= 4:
-        imagebutton:
-            idle "images/characters/rotasi/McIdle.png"
-            hover "images/characters/rotasi/McHover.png"
-            at selector_4_mc
-            action Return("mc")
-
-        imagebutton:
-            idle "images/characters/rotasi/CoryIdle.png"
-            hover "images/characters/rotasi/CoryHover.png"
-            at selector_4_cory
-            action Return("cory")
-
-        imagebutton:
-            idle "images/characters/rotasi/ClarusIdle.png"
-            hover "images/characters/rotasi/ClarusHover.png"
-            at selector_4_clarus
-            action Return("scyllarus")
-
-        imagebutton:
-            idle "images/characters/rotasi/LeoIdle.png"
-            hover "images/characters/rotasi/LeoHover.png"
-            at selector_4_leo
-            action Return("leo")
-
-    elif current_chapter >= 3:
+    if current_chapter >= 3:
         imagebutton:
             idle "images/characters/rotasi/McIdle.png"
             hover "images/characters/rotasi/McHover.png"

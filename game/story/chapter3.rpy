@@ -222,11 +222,13 @@ label ch3_day_explore:
 
         if result in ("bunny", "seabunny"):
             $ mark_npc_explored("bunny")
-            jump ch3_seabunny_encounter
+            call ch3_seabunny_encounter
+            jump .loop
 
         elif result in ("hawk", "turtle"):
             $ mark_npc_explored("hawk")
-            jump ch3_turtle_encounter
+            call ch3_turtle_encounter
+            jump .loop
 
         elif result == "item":
             $ collect_exploration_item()
