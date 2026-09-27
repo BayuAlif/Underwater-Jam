@@ -1187,10 +1187,7 @@ label ch3_night_explore:
         elif result in ("teto", "goby"):
             $ mark_npc_explored("teto")
             if not ch3_dunge_defeated:
-                show dun mad at npc_right
-                dun "Hold your seahorses! No one steps a claw into Her Majesty's lair without goin' through me first!"
-                show cory side at cory_left
-                cory "Looks like Big Dunge down there is blockin' the cavern entrance. We gotta deal with him first."
+                call ch3_teto_encounter
                 jump .loop
             else:
                 "The entrance to the Crustacean Empress's lair is open before us."
@@ -1247,15 +1244,14 @@ label ch3_item_red_seaweed:
     return
 
 label ch3_teto_encounter:
+    $ mark_npc_explored("teto")
     show mc o at mc_left
-    show teto default
 
     if not getattr(store, "ch3_teto_visited", False):
         $ ch3_teto_visited = True
-        teto "Halt! Who dares lurk around the royal threshold of Her Majesty's lair?"
-        hide teto default
-
         show teto default at npc_left
+        teto "Halt! Who dares lurk around the royal threshold of Her Majesty's lair?"
+
         show scy smile at npc_right
         scyllarus "Greetings, royal sentinels! It is I, Scyllarus! We have journeyed far to present ourselves before Her Majesty!"
 
@@ -1263,7 +1259,6 @@ label ch3_teto_encounter:
         teto "Hah! Present yourselves? With freshwater strays tagging behind your tail?"
         teto "Nobody enters this cavern without going through proper protocol—and Big Dunge is guarding the outer perimeter down there!"
 
-        hide teto gun_smirk
         show cory side at cory_left
         cory "Is that a goby riding shotgun on a pistol shrimp? And why are they looking at us like they're itching to pull a trigger?"
 
@@ -2224,8 +2219,33 @@ label ch3_boss_battle:
 
     call empress_duel
 
+    if _return != "win" and duel_result != "win":
+        jump ch3_boss_battle_lose
+
     $ ch3_empress_defeated = True
     jump ch3_ending
+
+label ch3_boss_battle_lose:
+    hide mc
+    hide cory
+    hide scy
+    scene ch3_night
+    with dissolve
+
+    show teto laugh at npc_right
+    emp "KEKEKE!! I thought you would've last longer!"
+
+    show teto gun_smirk at npc_right
+    emp "I'm too overpowered for insignificant freshies!"
+
+    show goby default at npc_left
+    gob "None other shall dare defy the great crustacean empress regime, anymore"
+
+    menu:
+        "Try again?":
+            jump ch3_boss_battle
+        "Return to reef":
+            jump ch3_night_explore.loop
 
 label ch3_ending:
     hide mc

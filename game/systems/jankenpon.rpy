@@ -1,7 +1,7 @@
 image dunge battle bg = "images/jankenpon/Bg1.png"
 
-image dunge idle = "images/jankenpon/Idle1.png"
-image dunge damaged = "images/jankenpon/IdleDMG.png"
+image dunge idle = "images/jankenpon/DUNGE/DungeIdleNormal.png"
+image dunge damaged = "images/jankenpon/DUNGE/DungeDmgNormal.png"
 
 image jankenpon countdown 3 = "images/jankenpon/Button Rock Paper Scissor/3.png"
 image jankenpon countdown 2 = "images/jankenpon/Button Rock Paper Scissor/2.png"
@@ -23,10 +23,10 @@ image jankenpon button rock = "images/jankenpon/Button Rock Paper Scissor/Rock.p
 image jankenpon button paper = "images/jankenpon/Button Rock Paper Scissor/Paper.png"
 image jankenpon button scissors = "images/jankenpon/Button Rock Paper Scissor/Scissor_.png"
 
-image dunge icon full = "images/jankenpon/ICON/ScyFull.png"
-image dunge icon half = "images/jankenpon/ICON/ScyHalf.png"
-image dunge icon one  = "images/jankenpon/ICON/ScyOne.png"
-image dunge icon dead = "images/jankenpon/ICON/ScyDead.png"
+image dunge icon full = "images/jankenpon/ICON/DungeFull.png"
+image dunge icon half = "images/jankenpon/ICON/DungeHalf.png"
+image dunge icon one  = "images/jankenpon/ICON/DungeOne.png"
+image dunge icon dead = "images/jankenpon/ICON/DungeDead.png"
 
 image mc icon full = "images/jankenpon/ICON/McFull.png"
 image mc icon half = "images/jankenpon/ICON/McHalf.png"

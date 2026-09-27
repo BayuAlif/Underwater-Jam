@@ -105,10 +105,10 @@ image duel_boss_mantis_damaged = "boss_mantis_idle_low"
 image duel_boss_empress = "boss_mantis_idle_normal"
 image duel_boss_empress_damaged = "boss_mantis_idle_low"
 
-image boss_dunge_idle_normal = "images/jankenpon/Idle1.png"
-image boss_dunge_dmg_normal = "images/jankenpon/IdleDMG.png"
-image boss_dunge_idle_low = "images/jankenpon/LowHP1.png"
-image boss_dunge_dmg_low = "images/jankenpon/LowHPDMG.png"
+image boss_dunge_idle_normal = "images/jankenpon/DUNGE/DungeIdleNormal.png"
+image boss_dunge_dmg_normal = "images/jankenpon/DUNGE/DungeDmgNormal.png"
+image boss_dunge_idle_low = "images/jankenpon/DUNGE/DungeIdleLow.png"
+image boss_dunge_dmg_low = "images/jankenpon/DUNGE/DungeDmgLow.png"
 
 image duel_boss_dunge = "boss_dunge_idle_normal"
 image duel_boss_dunge_damaged = "boss_dunge_idle_low"
@@ -224,7 +224,7 @@ init python:
             "dodge_tar_range": (5, 7),
             "ai_counter_chance": 0.25,
             "ai_counter_accuracy": 0.60,
-            "has_full_assets": False,
+            "has_full_assets": True,
         },
         "banished": {
             "name": "The Banished One",
@@ -546,6 +546,7 @@ label empress_duel:
     return _return
 
 label dunge_duel:
+    $ duel_fighter = "cory"
     call run_duel("dunge")
     return _return
 
@@ -673,15 +674,18 @@ label run_duel(boss_target="mantis", custom_hp=None, custom_threshold=None):
         )
 
         if duel_round_result == "lose":
-            $ _bcfg = DUEL_BOSS_REGISTRY.get(duel_boss, DUEL_BOSS_REGISTRY["mantis"])
-            $ _tar_range = _bcfg.get("dodge_tar_range" if coal_tar_effective else "dodge_target_range", (7, 9))
-            $ duel_z_target = random.randint(_tar_range[0], _tar_range[1])
-            $ duel_z_taps = 0
+            if duel_boss == "dunge":
+                $ dodge_result = False
+            else:
+                $ _bcfg = DUEL_BOSS_REGISTRY.get(duel_boss, DUEL_BOSS_REGISTRY["mantis"])
+                $ _tar_range = _bcfg.get("dodge_tar_range" if coal_tar_effective else "dodge_target_range", (7, 9))
+                $ duel_z_target = random.randint(_tar_range[0], _tar_range[1])
+                $ duel_z_taps = 0
 
-            $ duel_is_dodging = True
-            call screen mantis_spamz_screen(duel_player_choice, duel_shrimp_choice)
-            $ dodge_result = _return   # True = spam success, False = spam fail
-            $ duel_is_dodging = False
+                $ duel_is_dodging = True
+                call screen mantis_spamz_screen(duel_player_choice, duel_shrimp_choice)
+                $ dodge_result = _return   # True = spam success, False = spam fail
+                $ duel_is_dodging = False
 
         if duel_round_result == "win":
             $ duel_player_wins += 1
