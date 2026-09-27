@@ -371,6 +371,9 @@ label ch3_boss_battle:
 
     call empress_duel
 
+    if _return != "win" and duel_result != "win":
+        jump ch3_boss_battle_lose
+    
     $ ch3_empress_defeated = True
     jump ch3_ending
 
@@ -851,16 +854,20 @@ label ch3_boss_negotiate_scy_after:
 
     call empress_duel
 
+    if _return != "win" and duel_result != "win":
+        jump ch3_boss_battle_lose
+    
     $ ch3_empress_defeated = True
     jump ch3_ending
 
 label ch3_boss_battle_lose:
+    hide scy
     $ focus ()
-    show teto_gun_smirk:
+    show teto gun_smirk:
         full
         unpose
         offscreenright
-    show teto_gun_smirk:
+    show teto gun_smirk:
         centerleft
     with moveinright
     emp "KEKEKE!! I thought you would've last longer!"
@@ -873,7 +880,11 @@ label ch3_boss_battle_lose:
     show goby default:
         centerright
     with moveinright
-    goby "None other shall dare defy the great crustacean empress regime, anymore"
+    gob "None other shall dare defy the great crustacean empress regime, anymore"
     $ focus ()
 
-    jump ch3_boss_negotiation
+    menu:
+        "Try again?":
+            jump ch3_boss_battle
+        "Return to reef":
+            jump ch3_night_explore.loop
