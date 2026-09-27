@@ -29,7 +29,7 @@ transform ch5_mirage_hub_scy:
 
 transform ch5_mirage_hub_cory:
     subpixel True
-    zoom 0.62
+    zoom 0.88
     anchor (0.5, 0.5)
     easein 2.5 yoffset -12
     easeout 2.5 yoffset 12
@@ -37,7 +37,7 @@ transform ch5_mirage_hub_cory:
 
 transform ch5_mirage_hub_leo:
     subpixel True
-    zoom 0.62
+    zoom 0.88
     anchor (0.5, 0.5)
     easein 2.5 yoffset -12
     easeout 2.5 yoffset 12

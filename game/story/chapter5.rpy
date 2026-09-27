@@ -23,7 +23,7 @@ screen ch5_anomaly_exploration():
 
         if ch5_scy_explored:
             # Explored: dim sprite, green checkmark above head
-            add Transform("scy_mirage", alpha=0.65):
+            add Transform("ch5_mantis_idle", alpha=0.65):
                 xcenter 960
                 ypos 620
                 at ch5_mirage_hub_scy
@@ -46,8 +46,8 @@ screen ch5_anomaly_exploration():
             imagebutton:
                 xcenter 960
                 ypos 620
-                idle "scy_mirage"
-                hover Transform("scy_mirage", matrixcolor=BrightnessMatrix(0.18))
+                idle "ch5_mantis_idle"
+                hover "ch5_mantis_hover"
                 at ch5_mirage_hub_scy
                 action Return("scy")
                 hover_sound "audio/pixel_ui_1.mp3"
@@ -75,7 +75,7 @@ screen ch5_anomaly_exploration():
 
         if ch5_leo_explored:
             # Explored: dim sprite, green checkmark above head
-            add Transform("leo_mirage", alpha=0.65):
+            add Transform("ch5_leo_idle", alpha=0.65):
                 xcenter 960
                 ypos 620
                 at ch5_mirage_hub_leo
@@ -98,8 +98,8 @@ screen ch5_anomaly_exploration():
             imagebutton:
                 xcenter 960
                 ypos 620
-                idle "leo_mirage"
-                hover Transform("leo_mirage", matrixcolor=BrightnessMatrix(0.18))
+                idle "ch5_leo_idle"
+                hover "ch5_leo_hover"
                 at ch5_mirage_hub_leo
                 action Return("leo")
                 hover_sound "audio/pixel_ui_1.mp3"
@@ -127,7 +127,7 @@ screen ch5_anomaly_exploration():
 
         if ch5_cory_explored:
             # Explored: dim sprite, green checkmark above head
-            add Transform("cory_mirage", alpha=0.65):
+            add Transform("ch5_cory_idle", alpha=0.65):
                 xcenter 960
                 ypos 620
                 at ch5_mirage_hub_cory
@@ -150,8 +150,8 @@ screen ch5_anomaly_exploration():
             imagebutton:
                 xcenter 960
                 ypos 620
-                idle "cory_mirage"
-                hover Transform("cory_mirage", matrixcolor=BrightnessMatrix(0.18))
+                idle "ch5_cory_idle"
+                hover "ch5_cory_hover"
                 at ch5_mirage_hub_cory
                 action Return("cory")
                 hover_sound "audio/pixel_ui_1.mp3"
