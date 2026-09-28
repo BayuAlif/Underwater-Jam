@@ -514,7 +514,7 @@ label chapter2_ending:
     cory "Shrimps have better resistance in freshwater don't they?"
 
     if has_item("saltwater_survival_device"):
-        cory "And we only have one 50% effective saltwater device.."
+        cory "And we only have one 50%% effective saltwater device.."
 
     show mc shock:
         full

@@ -496,7 +496,7 @@ label arowana_as_cory:
                 trio_left
             cory "For reals yo?!"
 
-            arowana "Of course. But it's broken. Only 50% effective..."
+            arowana "Of course. But it's broken. Only 50%% effective..."
             arowana "Take it or leave"
 
             show cory smile_hu:
