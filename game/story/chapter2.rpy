@@ -694,8 +694,7 @@ label chapter2_ending:
     "Mr shrimp then carefully puts us down"
 
     show shrimp laugh:
-        full
-        trio_right
+        trio_right_mantis
         toleft
     with move
     shrimp "With this, we can now safely travel amongst the seas! KAKAKA!"
@@ -714,8 +713,7 @@ label chapter2_ending:
     mc "oaooaooouhh yaaaah lets meef the… crustashan empeees.."
 
     show shrimp smile:
-        full
-        trio_right
+        trio_right_mantis
         toleft
     shrimp "Don’t worry, my dizzy lieges! I’ll carry the both of you until you regain your ground! Or.. your water!"
 

@@ -107,32 +107,32 @@ label ghost_as_mc:
 
     show ghost default:
         full
-        center
+        trio_center
         float_idle
     ghost "Brave little one…"
 
     show ghost deadpan:
         full
-        center
+        trio_center
         float_idle
     ghost "I believe you have far better questions to ask…"
 
     show ghost side:
         full
-        center
+        trio_center
         float_idle
     ghost "Perhaps of.. the golden fish.."
     ghost "You haven’t asked that for a while.."
 
     show mc shock:
         full
-        right
+        trio_right
         surprise
     mc "ahh! You’re right. but.. how did you know that?!"
 
     show ghost close:
         full
-        center
+        trio_center
         float_idle
     ghost "I am a fish who listens.."
 
@@ -142,29 +142,29 @@ label ghost_as_mc:
             $ focus()
             show mc o:
                 full
-                right
+                trio_right
             show ghost default:
                 full
-                center
+                trio_center
                 float_idle
             ghost "The mantis shrimp is but a lost cause…"
 
             show mc shock:
                 full
-                right
+                trio_right
                 surprise
             mc "Huh?? What do you mean..?"
 
             show ghost close:
                 full
-                center
+                trio_center
                 float_idle
             ghost "Everyone mistakes anger for strength."
             ghost "Do not mistake an obstacle for an enemy."
 
             show mc excited:
                 full
-                right
+                trio_right
                 block:
                     jumpmc
                     pause 1
@@ -174,48 +174,48 @@ label ghost_as_mc:
 
             show ghost side:
                 full
-                center
+                trio_center
                 float_idle
             ghost "...I think you should know what you're fighting first."
 
             show ghost default:
                 full
-                center
+                trio_center
                 float_idle
             ghost "Perhaps a coal tar would help seek your answer"
 
             show mc o:
                 full
-                right
+                trio_right
             mc "Whuh? But what's a coal tar… I don't think I've heard of it"
 
             show ghost close:
                 full
-                center
+                trio_center
                 float_idle
             ghost "A strong smelling black lump"
             ghost "Mix it with something of hardened shell and it will weaken the shrimp"
 
             show mc o:
                 full
-                right
+                trio_right
                 surprise
             mc "But.. you just told us not to fight the shrimp..? Why do we need to weaken it?"
 
             show ghost deadpan:
                 full
-                center
+                trio_center
                 float_idle
             ghost "I never said so.. It is you who claimed that conclusion"
 
             show mc default:
                 full
-                right
+                trio_right
             mc "Oh.. right! So we still need to fight it then?"
 
             show ghost side:
                 full
-                center
+                trio_center
                 float_idle
             ghost "Perhaps so…"
 
@@ -226,47 +226,47 @@ label ghost_as_mc:
             $ focus()
             show mc o:
                 full
-                right
+                trio_right
             show ghost side:
                 full
-                center
+                trio_center
                 float_idle
             ghost "Yes I have…. It went in the direction of the sea…"
 
             show ghost default:
                 full
-                center
+                trio_center
                 float_idle
             ghost "Tell me, why do you choose to pursue the sacred cursed fish?"
 
             show mc default:
                 full
-                right
+                trio_right
             mc "Because it's shiny! and not in the way.. most goldfishes shine"
             mc "The shape is weird too like it's from another universe"
 
             show ghost deadpan:
                 full
-                center
+                trio_center
                 float_idle
             ghost "....and?"
 
             show mc happy:
                 full
-                right
+                trio_right
                 surprise
             mc "Ah I also have one of its scales, it gave me the power to speak to fishes! And to breathe underwater for a little longer!"
 
             show ghost default:
                 full
-                center
+                trio_center
                 float_idle
             ghost "Hm. And your presence… it's the same as ours, despite being human."
             ghost "Remarkable… that you can withstand its power at all."
 
             show mc excited:
                 full
-                right
+                trio_right
                 block:
                     jumpmc
                     pause 1
@@ -275,39 +275,39 @@ label ghost_as_mc:
 
             show ghost side:
                 full
-                center
+                trio_center
                 float_idle
             ghost "…The fish you pursue is no ordinary creature."
             ghost "It only surfaces when the sea is dying, when the waters are closest to ruin."
 
             show ghost close:
                 full
-                center
+                trio_center
                 float_idle
             ghost "A final gift from the Goddess of sea, left behind after her retirement… so the sea could still right itself, even without her."
 
             show ghost default:
                 full
-                center
+                trio_center
                 float_idle
             ghost "But that gift was meant for one of us. A creature of the sea. Not a visitor to it."
 
             show mc shock:
                 full
-                right
+                trio_right
                 surprise
             mc "Ah… but what if it fall into the wrong hands?"
 
             show ghost close:
                 full
-                center
+                trio_center
                 float_idle
             ghost "That is something only fate can answer."
             ghost "If it must be that way, then we can only watch as it happens."
 
             show ghost deadpan:
                 full
-                center
+                trio_center
                 float_idle
             ghost "The sea knows what it deserves."
 
@@ -317,29 +317,29 @@ label ghost_as_mc:
                     $ focus()
                     show mc o:
                         full
-                        right
+                        trio_right
                     show ghost close:
                         full
-                        center
+                        trio_center
                         float_idle
                     ghost "Few even know this fish exists… fewer still know what it can do."
                     ghost "It doesn't announce itself. It doesn't wait to be found."
 
                     show ghost side:
                         full
-                        center
+                        trio_center
                         float_idle
                     ghost "The sea decides who's worthy long before they ever see it."
 
                     show mc happy:
                         full
-                        right
+                        trio_right
                         surprise
                     mc "You know so much of it! You must be suuuper worthy of having it no?"
 
                     show ghost close:
                         full
-                        center
+                        trio_center
                         float_idle
                     ghost "I’m but a messenger, brave one…"
 
@@ -347,42 +347,42 @@ label ghost_as_mc:
                     $ focus()
                     show ghost side:
                         full
-                        center
+                        trio_center
                         float_idle
                     ghost "...."
 
                     show ghost deadpan:
                         full
-                        center
+                        trio_center
                         float_idle
                     ghost "I believe only your heart can answer that question."
 
     show ghost default:
         full
-        center
+        trio_center
         float_idle
     ghost "I wish you the best of luck in your pursue, little brave one.."
 
     show mc o:
         full
-        right
+        trio_right
     mc "Will we meet again?"
 
     show ghost side:
         full
-        center
+        trio_center
         float_idle
     ghost "Perhaps, if fate allows…"
 
     show ghost close:
         full
-        center
+        trio_center
         float_idle
     ghost "May the sea be with you…"
 
     show mc happy:
         full
-        right
+        trio_right
         surprise
     mc "Thank you Ms fish ghost!! I won't let you down!"
 

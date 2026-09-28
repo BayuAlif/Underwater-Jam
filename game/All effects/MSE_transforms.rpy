@@ -112,29 +112,47 @@ transform offscreenright: # ^
 ## Non-overlapping Duo and Trio layout presets
 transform duo_left:
     anchor (0.5, 1.0)
-    xpos 0.25
+    xpos 0.26
 
 transform duo_right:
     anchor (0.5, 1.0)
-    xpos 0.78
+    xpos 0.74
+
+transform duo_left_mantis:
+    anchor (0.5, 1.0)
+    xpos 0.28
+    ypos 1.0
+    zoom (0.80 / scale)
+
+transform duo_right_mantis:
+    anchor (0.5, 1.0)
+    xpos 0.72
+    ypos 1.0
+    zoom (0.80 / scale)
 
 transform trio_left:
     anchor (0.5, 1.0)
-    xpos 0.15
+    xpos 0.20
 
 transform trio_center:
     anchor (0.5, 1.0)
-    xpos 0.52
+    xpos 0.60
 
 transform trio_center_mantis:
     anchor (0.5, 1.0)
-    xpos 0.52
+    xpos 0.58
     ypos 1.0
-    zoom (0.82 / scale)
+    zoom (0.80 / scale)
+
+transform trio_right_mantis:
+    anchor (0.5, 1.0)
+    xpos 0.74
+    ypos 1.0
+    zoom (0.78 / scale)
 
 transform trio_right:
     anchor (0.5, 1.0)
-    xpos 0.88
+    xpos 0.90
 
 ################################################################################
 ## Movement between positions
