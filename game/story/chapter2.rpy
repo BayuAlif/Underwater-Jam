@@ -478,8 +478,7 @@ label chapter2_coal_tar:
     "I obtained: a mysterious stinky black lump"
     return
 
-<<<<<<< HEAD
-=======
+
 label chapter2_ghostfish_questions:
 
     hide mc
@@ -1232,7 +1231,6 @@ label chapter2_mantis_cory_route:
 
         jump chapter2_ending
 
->>>>>>> restore-friend-work
 label chapter2_ending:
     $ focus()
     show mc excited:
@@ -1242,7 +1240,6 @@ label chapter2_ending:
     mc "onward! to the sea we go!"
 
     show shrimp laugh:
-<<<<<<< HEAD
         trio_center_mantis
         toleft
         surprise
@@ -1271,35 +1268,6 @@ label chapter2_ending:
 
     if has_item("saltwater_survival_device"):
         cory "And we only have one 50%% effective saltwater device.."
-=======
-            full
-            centerleft
-            toleft
-            walkloop
-    shrimp "KAKAKA! to the sea!"
-
-    show cory netral:
-            full
-            rightish
-    cory "..."
-
-    show cory side:
-            full
-            rightish
-    cory "......"
-
-    show cory fond:
-            full
-            rightish
-    cory "shrimp.. I leave the guppy's safety to ya alright?"
-    cory "Shrimps have better resistance in freshwater don't they?"
-
-    if has_item("saltwater_survival_device"):
-        show cory side:
-            full
-            rightish
-        cory "And we only have one 50% effective saltwater device.."
->>>>>>> restore-friend-work
 
     show mc shock:
         full
@@ -1307,15 +1275,9 @@ label chapter2_ending:
         surprise
     mc "...!!"
 
-<<<<<<< HEAD
     show shrimp default_om:
         trio_center_mantis
         toleft
-=======
-    show shrimp default:
-            full
-            centerleft
->>>>>>> restore-friend-work
     shrimp "yes of course! Protect i shall. it is my utmost duty to protect!"
 
     show mc pout:
@@ -1324,13 +1286,8 @@ label chapter2_ending:
     mc "no!"
 
     show cory side_close:
-<<<<<<< HEAD
         full
         trio_left
-=======
-            full
-            rightish
->>>>>>> restore-friend-work
     cory "guppy.."
 
     show mc pout:
@@ -1340,15 +1297,9 @@ label chapter2_ending:
     mc "no no no! I’m not going anywhere without Mr. Cory!!"
 
     show cory talk:
-<<<<<<< HEAD
         full
         trio_left
     cory "guppy, I’d dry the sea to come along but-"
-=======
-            full
-            rightish
-    cory "guppy, I'd dry the sea to come along but-"
->>>>>>> restore-friend-work
 
     show mc pout:
         full
@@ -1358,13 +1309,8 @@ label chapter2_ending:
     mc "punch all the freshwater away from mr.cory!"
 
     show shrimp sepet:
-<<<<<<< HEAD
         trio_center_mantis
         toleft
-=======
-            full
-            centerleft
->>>>>>> restore-friend-work
     shrimp "..."
 
     show shrimp default_om:
@@ -1388,36 +1334,23 @@ label chapter2_ending:
     mc "that we'd catch that fish together...."
 
     show cory side_close:
-<<<<<<< HEAD
         full
         trio_left
         sink
-=======
-            full
-            rightish
->>>>>>> restore-friend-work
     cory "....."
     cory "I’m.. God terribly. sorry guppy.."
     cory "I didn't think far enough that it'd reach the sea.."
 
     show cory side:
-<<<<<<< HEAD
         full
         trio_left
     cory "...I’m afraid that I’m a fraud..."
-=======
-            full
-            rightish
-            sink
-    cory "...I'm afraid that I'm a fraud..."
->>>>>>> restore-friend-work
 
     show shrimp smile:
         trio_center_mantis
         toleft
     shrimp "that makes a good rhyme!"
 
-<<<<<<< HEAD
     "The fish scale in my bag suddenly glows into a blinding sparkly light for one second. Painting the three of us in gold, before it dims once more. But something felt different"
 
     show mc o:
@@ -1431,20 +1364,6 @@ label chapter2_ending:
         full
         leftish
         surprise
-=======
-    "The fish scale in my bag suddenly glows into a blinding sparkly light for one second."
-    "Painting the three of us in gold, before it dims once more."
-    "But something felt different."
-
-    show mc o at mc_left
-    mc "mm?"
-
-    show cory surprise:
-            unpose
-            full
-            rightish
-            surprise
->>>>>>> restore-friend-work
     cory "I-! Huh? I feel different!"
 
     show mc o:
@@ -1453,14 +1372,8 @@ label chapter2_ending:
     mc "Try stepping in the saltwater, Mr.Cory!"
 
     show cory side:
-<<<<<<< HEAD
         full
         leftish
-=======
-            unpose
-            full
-            rightish
->>>>>>> restore-friend-work
     cory "Are ya sure..? What if it's just my imagination?"
 
     show mc happy:
@@ -1470,31 +1383,18 @@ label chapter2_ending:
     mc "trust me!"
 
     show cory side_close:
-<<<<<<< HEAD
         full
         leftish
     cory "Alright…"
-=======
-            unpose
-            full
-            rightish
-    cory "Alright… here goes nothin.."
->>>>>>> restore-friend-work
 
     "Mr Cory hesitantly takes one step into where freshwater and saltwater collide with one eye closed."
 
     show cory surprise:
-<<<<<<< HEAD
         full
         centerleft
         walkto(centerleft, walktime=1.5)
     with move
 
-=======
-            full
-            rightish
-            surprise
->>>>>>> restore-friend-work
     cory "Holy mother of sea…!"
 
     show mc shock:
@@ -1505,18 +1405,10 @@ label chapter2_ending:
 
     "Before I can finish my line I was swept into a spinning hug"
 
-<<<<<<< HEAD
     show cory proud:
         full
         centerleft
         jumpmc
-=======
-    show cory proud_hu:
-            full
-            rightish
-            surprise
-            vibrate
->>>>>>> restore-friend-work
     cory "I CAN'T BELIEVE IT!! I'M IN SALTWATER GUPPY!!"
 
     show mc excited:
@@ -1543,15 +1435,7 @@ label chapter2_ending:
         vibrate(3)
     shrimp "KAKAKA! WAHOO!"
 
-<<<<<<< HEAD
-    cory "THAT’S WAY TOO FAAAUUUAASHHTT SHRIMP PUT US DOOOOWN"
-=======
-    show cory upset:
-            full
-            rightish
-            vibrate
-    cory "{sc}THAT'S WAY TOO FAAAUUUAASHHTT SHRIMP PUT US DOOOOWN {/sc}"
->>>>>>> restore-friend-work
+    cory "{sc}THAT'S WAY TOO FAAAUUUAASHHTT SHRIMP PUT US DOOOOWN{/sc}"
 
     mc "YIPEEEEE FAAASTEEER!!"
 
@@ -1568,17 +1452,10 @@ label chapter2_ending:
     with move
     shrimp "With this, we can now safely travel amongst the seas! KAKAKA!"
 
-<<<<<<< HEAD
     show cory unimpressed:
         full
         trio_left
         sink
-=======
-    show cory unimpressed2:
-            full
-            rightish
-            vibrate
->>>>>>> restore-friend-work
     cory "ngnuuurhhhehhkk"
 
     show mc dizzy:
@@ -1602,3 +1479,4 @@ label chapter2_ending:
     "END OF CHAPTER 2"
 
     jump chapter3_start
+

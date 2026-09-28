@@ -29,6 +29,8 @@ image cory anon = "images/characters/cory/00FIXXX/CoryAnon.png"
 image cory disrespect = "images/characters/cory/00FIXXX/CoryDisrespectful.png"
 image cory fond = "images/characters/cory/00FIXXX/CoryFondSmile.png"
 image cory neutral = "images/characters/cory/00FIXXX/CoryNetral.png"
+image cory netral = "images/characters/cory/00FIXXX/CoryNetral.png"
+image cory dizzy = "images/characters/cory/00FIXXX/CoryOhiounimpressed1.png"
 image cory unimpressed = "images/characters/cory/00FIXXX/CoryOhiounimpressed1.png"
 image cory unimpressed2 = "images/characters/cory/00FIXXX/CoryOhiounimpressed2.png"
 image cory proud = "images/characters/cory/00FIXXX/CoryProud.png"
@@ -84,7 +86,8 @@ image gator upset = "images/npc/chapter1/aligator/GatorUpset_.png"
 image salmon idle = "images/npc/chapter2/Salmon/salmon_idle.png"
 image salmon hover = "images/npc/chapter2/Salmon/salmon_hover.png"
 image salmon default = "images/npc/chapter2/Salmon/SalDefault.png"
-image salmon happy = "images/npc/chapter2/Salmon/SalHappy.png"
+image salmon happy = "images/npc/chapter2/Salmon/SalSmile.png"
+image salmon smile = "images/npc/chapter2/Salmon/SalSmile.png"
 image salmon pien = "images/npc/chapter2/Salmon/SalPien.png"
 image salmon pout = "images/npc/chapter2/Salmon/SalPout.png"
 image salmon hug = "images/npc/chapter2/Salmon/SalHug.png"
@@ -135,19 +138,12 @@ image crab hover = "images/backgrounds/chapter3/NIGHT/crab_hover.png"
 
 image hawk idle = "images/npc/chapter3/hawk/turtle_idle.png"
 image hawk hover = "images/npc/chapter3/hawk/turtle_hover.png"
-<<<<<<< HEAD
+image turtle idle = "images/npc/chapter3/hawk/turtle_idle.png"
+image turtle hover = "images/npc/chapter3/hawk/turtle_hover.png"
 image hawk default = "images/npc/chapter3/hawk/HawkDefault.png"
 image hawk laugh = "images/npc/chapter3/hawk/HawkLaugh.png"
 image hawk sigh = "images/npc/chapter3/hawk/HawkSigh.png"
 image hawk smile = "images/npc/chapter3/hawk/HawkSmile.png"
-=======
-image turtle idle = "images/npc/chapter3/hawk/turtle_idle.png"
-image turtle hover = "images/npc/chapter3/hawk/turtle_hover.png"
-image hawk default = "images/placeholder/hawk_default.png"
-image hawk laugh = "images/placeholder/hawk_laugh.png"
-image hawk sigh = "images/placeholder/hawk_sigh.png"
-image hawk smile = "images/placeholder/hawk_smile.png"
->>>>>>> restore-friend-work
 
 image teto idle = "images/npc/chapter3/teto/teto_idle.png"
 image teto hover = "images/npc/chapter3/teto/teto_hover.png"
@@ -166,26 +162,18 @@ image goby struck = "images/npc/chapter3/GOBY/GobyStrucked.png"
 
 image bunny idle = "images/npc/chapter3/seabunny/seabunny_idle.png"
 image bunny hover = "images/npc/chapter3/seabunny/seabunny_hover.png"
-<<<<<<< HEAD
 image bunny default = "images/npc/chapter3/seabunny/BunnyDefault.png"
 image bunny cry = "images/npc/chapter3/seabunny/BunnyCry.png"
 image bunny happy = "images/npc/chapter3/seabunny/BunnyHappy.png"
 image bunny sad = "images/npc/chapter3/seabunny/BunnySad.png"
 image bunny scared = "images/npc/chapter3/seabunny/BunnyScared.png"
-=======
-image bunny default = "images/placeholder/seabunny_default.png"
-image bunny cry = "images/placeholder/seabunny_cry.png"
-image bunny happy = "images/placeholder/seabunny_happy.png"
-image bunny sad = "images/placeholder/seabunny_sad.png"
-image bunny scared = "images/placeholder/seabunny_scared.png"
 image seabunny idle = "images/npc/chapter3/seabunny/seabunny_idle.png"
 image seabunny hover = "images/npc/chapter3/seabunny/seabunny_hover.png"
 
-image goby default = "images/npc/chapter3/gobypis/GobyDefault.png"
-image goby annoyed = "images/npc/chapter3/gobypis/GobyAnnoyed.png"
-image goby awe = "images/npc/chapter3/gobypis/GobyAwe.png"
-image goby disgusted = "images/npc/chapter3/gobypis/GobyDisgusted.png"
-image goby surprised = "images/npc/chapter3/gobypis/GobySurprised.png"
+image goby annoyed = "images/npc/chapter3/GOBY/GobyAnnoyed.png"
+image goby awe = "images/npc/chapter3/teto/GobyAwe.png"
+image goby disgusted = "images/npc/chapter3/GOBY/GobyDisgusted.png"
+image goby surprised = "images/npc/chapter3/teto/GobySurprised.png"
 
 #CHAP 4 SPRITES --------------------------------------------------------------------
 image leo idle = "images/npc/chapter4/Leo/leopard_idle.png"
@@ -239,12 +227,8 @@ image mama smile_s = "images/npc/chapter5/Parents/MamaSmileS.png"
 image papa default = "images/npc/chapter5/Parents/Papa.png"
 
 #ITEMS ------------------------------------------------------------------
->>>>>>> restore-friend-work
-
 image empress placeholder = Solid("#8b2635")
 
-image leo default = "images/characters/rotasi/LeoIdle.png"
-image leo smile = "images/characters/rotasi/LeoHover.png"
 image leo proud = "images/characters/rotasi/LeoHover.png"
 image leo surprise = "images/characters/rotasi/LeoHover.png"
 image leo talk = "images/characters/rotasi/LeoIdle.png"
@@ -318,7 +302,7 @@ image mc_shock_legacy = "images/characters/mc/McShock_.png"
 image mc_o_legacy = "images/characters/mc/McO.png"
 image mc_excited_legacy = "images/characters/mc/McExcited_.png"
 image mc_dizzy_legacy = "images/characters/mc/McDizzy.png"
-image mc_actually_legacy = "images/characters/mc/McActually_.png"
+image mc_actually_legacy = "images/characters/mc/McActually.png"
 
 image item_gold_idle = "images/items/chapter1/goldenrock_idle.png"
 image item_gold_hover = "images/items/chapter1/goldenrock_hover.png"
@@ -356,16 +340,15 @@ image shootstall hover = "images/items/chapter4/shootstall_hover.png"
 image prologue_day = "images/backgrounds/prologue/prologue_day.jpg"
 image ch1_day = "images/backgrounds/chapter1/bgday1.jpg"
 image ch1_night = "images/backgrounds/chapter1/bgnight1.jpg"
-image ch1_dark = "images/backgrounds/chapter1/bgdark1.jpg"
+image ch1_dark = "images/backgrounds/chapter1/bgdark1.png"
 image ch2_day = "images/backgrounds/chapter2/bgday2.jpg"
 image ch2_night = "images/backgrounds/chapter2/bgnight2.jpg"
 image ch1_dialogue = "images/backgrounds/chapter1/bgday1.jpg"
 image ch2_dialogue = "images/backgrounds/chapter2/bgnight2.jpg"
 image ch3_day = "images/backgrounds/chapter3/bgday3.jpg"
 image ch3_night = "images/backgrounds/chapter3/bgnight3.jpg"
-<<<<<<< HEAD
-image ch4_day = "images/backgrounds/chapter4/bg_festival_day.png"
-image ch4_night = "images/backgrounds/chapter4/bg_festival_night.jpg"
+image ch4_day = "images/backgrounds/chapter4/bgday4.jpg"
+image ch4_night = "images/backgrounds/chapter4/bgnight4.jpg"
 image ch4_dialogue = "images/backgrounds/chapter4/bg_festival_day.png"
 image ch4_dialogue_night = "images/backgrounds/chapter4/bg_festival_night.jpg"
 image ch4_festival_day = "images/backgrounds/chapter4/bg_festival_day.png"
@@ -387,15 +370,12 @@ image krillstall_idle = "images/items/chapter4/krillstall_idle.png"
 image krillstall_hover = "images/items/chapter4/krillstall_hover.png"
 image shootstall_idle = "images/items/chapter4/shootstall_idle.png"
 image shootstall_hover = "images/items/chapter4/shootstall_hover.png"
-=======
+
 image bg night3 = "images/backgrounds/chapter3/NIGHT/bg night3.jpg"
 image bg night3_bordered = "images/backgrounds/chapter3/NIGHT/bg night3_bordered.jpg"
-image ch4_day = "images/backgrounds/chapter4/bgday4.jpg"
-image ch4_night = "images/backgrounds/chapter4/bgnight4.jpg"
 image ch4_npc = "images/backgrounds/chapter4/bgday4_sesiNPC.jpg"
-image ch4_activity = "images/backgrounds/chapter4/bgday4_sesiaffectionroute.jpg"
-image ch5_deepsea = "images/backgrounds/chapter5/BgPanjangDeepSea.jpg"
->>>>>>> restore-friend-work
+image ch4_activity = "images/backgrounds/chapter4/bgday4_sesi affectionroute.jpg"
+image ch5_deepsea = "images/backgrounds/chapter5/BgPanjangDeepSea.png"
 
 #CUTSCENES -----------------------------------------------------
 image cutpro1 = "images/cutscenes/prologue/1.png"
@@ -418,14 +398,11 @@ image cutchap2 = "images/cutscenes/chapter1/2.png"
 image cutchap3 = "images/cutscenes/chapter1/3.png"
 image cutchap4 = "images/cutscenes/chapter1/4.png"
 image cutchap5 = "images/cutscenes/chapter1/5.png"
-<<<<<<< HEAD
-
 image bg name_input = "images/BackgroundNama.png"
 image mc_name_input = "images/SpriteMCgede.png"
 
 transform mc_name_pos:
     xalign 0.5
     yalign 1.0
-=======
+
 image cutchap6 = "images/cutscenes/chapter2/6.png"
->>>>>>> restore-friend-work
