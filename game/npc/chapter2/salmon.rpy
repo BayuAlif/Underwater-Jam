@@ -61,16 +61,29 @@ label salmon_interaction:
     mc "!! waouh-? Don’t cry, Mrs Salmon!"
     mc "(hugs the salmon)"
 
+    show mc:
+        full
+        centerright
+        walkto(centerright)
+    with move
+    show salmon hug:
+        full
+        center
+        toleft
+    with dissolve
+    pause 0.5
+
     show salmon pien:
         full
         center
         toleft
         jumpmc
-    salmon "......!!!"
-
     show mc happy:
         full
         right
+    with move
+    salmon "......!!!"
+
     mc "There, there."
     mc "If the mama is sad, the baby gets sad, too."
 
@@ -305,10 +318,11 @@ label salmon_as_mc:
             "Her voice trembles in sincere gratitude, so soft it’s enough to lull me to sleep. It was akin to mama’s voice when she sings. But it’s not the same.."
             "It’s not her…"
 
-            show mc pout:
+            show mc holdcry:
                 full
                 right
                 sink
+                vibrate(1)
             mc "mn..*sniff*"
             mc "Mama..."
 

@@ -39,7 +39,13 @@ label arowana_interaction:
     show arowana default:
         full
         rightish
+        bowleft(0.6)
     arowana "My apologies, sir. I failed to notice you"
+
+    show arowana default:
+        full
+        rightish
+        unpose
 
     show cory surprise:
         full
@@ -195,10 +201,7 @@ label arowana_as_mc:
             show mc excited:
                 full
                 right
-                block:
-                    jumpmc
-                    pause 1
-                    repeat
+                jumpmc
             mc "Just like how a flying fish would!"
 
             show arowana squint:
@@ -216,7 +219,7 @@ label arowana_as_mc:
                 full
                 right
                 surprise
-            mc "Right?! So you can just go!”"
+            mc "Right?! So you can just go!"
 
             show arowana default:
                 full
@@ -242,6 +245,7 @@ label arowana_as_mc:
             show arowana squint:
                 full
                 center
+                sink
             arowana "And now I have a headache."
 
             show mc shock:

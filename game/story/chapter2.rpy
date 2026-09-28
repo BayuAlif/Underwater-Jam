@@ -227,26 +227,29 @@ label chapter2_tiny_krill:
     mc "A tiny krill!"
 
     show krill:
-        full
-        left
-        medium
+        xpos 0.45
+        ypos 0.62
+        anchor (0.5, 0.5)
+        zoom 2.0
+        float_idle
     tinykrill "Eah!"
 
     show cory disrespect:
         full
-        center
+        leftish
     cory "Heh.. you could say it's.. One in a krillion"
 
     show krill:
-        full
-        left
-        medium
-        surprise
+        xpos 0.45
+        ypos 0.62
+        anchor (0.5, 0.5)
+        zoom 2.0
+        vibrate(3)
     tinykrill "{size=20}Your joke sucks ass!{/size}"
 
     show cory unimpressed:
         full
-        center
+        leftish
     cory "...."
     cory "... I say we feed that thing to a fish, guppy"
 
@@ -257,13 +260,15 @@ label chapter2_tiny_krill:
     mc "Aw shucks, do we really have to krill it mr cory? :("
 
     show krill:
-        full
-        left
-        medium
-        vibrate
+        xpos 0.45
+        ypos 0.62
+        anchor (0.5, 0.5)
+        zoom 2.0
+        vibrate(4)
     tinykrill "Suffer in eternal torment both of you!"
 
     $ add_item("tiny_krill")
+    hide krill with dissolve
     "I obtained a tiny krill"
     $ focus()
     return
@@ -344,68 +349,127 @@ label chapter2_night_start:
 
 label chapter2_coal_tar:
     $ focus()
-    show mc o at mc_center_left
+    show mc o:
+        full
+        right
+    show cory talk_hu:
+        full
+        centerleft
     mc "Mr. Cory, do you know what this black lump is?"
 
-    show cory talk_hu at cory_center_right
     cory "Mmmn.. no clue."
 
-    show cory unimpressed2 at cory_center_right
+    show cory unimpressed2:
+        full
+        centerleft
     cory "Almost looks like poo to me, you better drop that thing guppy."
 
-    show mc shock at mc_center_left
+    show mc shock:
+        full
+        right
+        sink
     mc "Yuck! it smells… weird."
 
-    show ghost deadpan at npc_right
     ghost "You shouldn't be carrying things you don't understand."
 
-    show cory smile_hu at cory_left
+    show cory smile_hu:
+        full
+        centerleft
     cory "Yeah.. that's right guppy.."
     cory "Finally, Some self preservation in ya!"
 
-    show mc o at mc_left
+    show mc o:
+        full
+        right
+        surprise
     mc "That.. wasn’t me…"
 
     "The water around us suddenly grows eerily still."
     "Faint glow pair of eyes emerges from the darkness."
 
-    show cory surprise at cory_left
+    show ghost deadpan:
+        full
+        leftish
+        float_idle
+    with dissolve
+
+    show cory surprise:
+        full
+        centerleft
+        surprise
+        vibrate
     cory "GYAAAAAAA—"
 
-    "Mr Cory jumped and immediate cower behind my back with a loud screech"
+    "Mr Cory jumped and immediately cowers behind my back with a loud screech"
 
-    show mc o at mc_left
+    show cory side_close:
+        full
+        farright
+        toleft
+        sink
+    with move
+
+    show mc o:
+        full
+        right
+        surprise
     mc ":o"
 
-    show mc excited at mc_left
+    show mc excited:
+        full
+        right
+        jumpmc
     mc "Woah! What are you?"
 
-    show ghost default at npc_right
+    show ghost default:
+        full
+        leftish
+        float_idle
     ghost "A fish."
 
-    show mc pout at mc_left
+    show mc pout:
+        full
+        right
     mc "I can see that."
 
     ghost "Then you needn’t know more."
 
-    show mc o at mc_left
+    show mc o:
+        full
+        right
     mc "Why are you here… fish?"
 
-    show ghost side at npc_right
+    show ghost side:
+        full
+        leftish
+        float_idle
     ghost "You were meant to find me."
 
-    show ghost close at npc_right
+    show ghost close:
+        full
+        leftish
+        float_idle
     ghost "But this second is not the time"
     ghost "We shall meet again.. very soon."
 
-    show ghost side at npc_right
+    show ghost side:
+        full
+        leftish
+        float_idle
     ghost "Or perhaps.. we have met before."
 
-    show mc happy at mc_left
+    hide ghost with dissolve
+
+    show mc happy:
+        full
+        right
     mc "Okay! Looking forward to meeting you again, fish!"
     mc "Mr Cory you can come out, it's fine now."
 
-    show cory upset at cory_left
+    show cory upset:
+        full
+        centerleft
+    with move
     cory "What the eel even was that?!"
     cory "Straight out of deep sea I swear!"
 
@@ -416,140 +480,254 @@ label chapter2_coal_tar:
 
 label chapter2_ending:
     $ focus()
-    show mc excited at mc_left
+    show mc excited:
+        full
+        right
+        jumpmc
     mc "onward! to the sea we go!"
 
-    show shrimp laugh at npc_right
+    show shrimp laugh:
+        full
+        centerright
+        toleft
+        surprise
     shrimp "to the sea!"
 
-    show cory side at cory_left
+    show cory side:
+        full
+        leftish
     cory "..."
 
-    show cory side_close at cory_left
+    show cory side_close:
+        full
+        leftish
+        sink
     cory "......"
 
-    show cory fond at cory_left
+    show cory fond:
+        full
+        leftish
     cory "imp.. I leave the guppy's safety to ya alright?"
 
-    show cory smile_hu at cory_left
+    show cory smile_hu:
+        full
+        leftish
     cory "Shrimps have better resistance in freshwater don't they?"
 
     if has_item("saltwater_survival_device"):
         cory "And we only have one 50% effective saltwater device.."
 
-    show mc shock at mc_left
+    show mc shock:
+        full
+        right
+        surprise
     mc "...!!"
 
-    show shrimp default at npc_right
+    show shrimp default_om:
+        full
+        centerright
+        toleft
     shrimp "yes of course! Protect i shall. it is my utmost duty to protect!"
 
-    show mc pout at mc_left
+    show mc pout:
+        full
+        right
     mc "no!"
 
-    show cory side_close at cory_left
+    show cory side_close:
+        full
+        leftish
     cory "guppy.."
 
-    show mc pout at mc_left
+    show mc pout:
+        full
+        right
+        jumpmc
     mc "no no no! I’m not going anywhere without Mr. Cory!!"
 
-    show cory talk at cory_left
+    show cory talk:
+        full
+        leftish
     cory "guppy, I’d dry the sea to come along but-"
 
-    show mc pout at mc_left
+    show mc pout:
+        full
+        right
+        surprise
     mc "mr shrimp cant you protect him? With your punches!"
     mc "punch all the freshwater away from mr.cory!"
 
-    show shrimp sepet at npc_right
+    show shrimp sepet:
+        full
+        centerright
+        toleft
     shrimp "..."
 
-    show shrimp default at npc_right
+    show shrimp default_om:
+        full
+        centerright
+        toleft
     shrimp "I'm afraid I cannot, my dear comrade!"
     shrimp "punching water is akin to fighting a shadow…"
 
-    show mc shock at mc_left
+    show mc shock:
+        full
+        right
+        sink
     mc "no.."
 
-    show mc holdcry at mc_left
+    show mc holdcry:
+        full
+        right
+        sink
+        vibrate(1)
     mc "but you promised… *sniffle*"
     mc "that we'd catch that fish together...."
 
-    show cory side_close at cory_left
+    show cory side_close:
+        full
+        leftish
+        sink
     cory "....."
     cory "I’m.. God terribly. sorry guppy.."
     cory "I didn't think far enough that it'd reach the sea.."
 
-    show cory side at cory_left
+    show cory side:
+        full
+        leftish
     cory "...I’m afraid that I’m a fraud..."
 
-    show shrimp smile at npc_right
+    show shrimp smile:
+        full
+        centerright
+        toleft
     shrimp "that makes a good rhyme!"
 
     "The fish scale in my bag suddenly glows into a blinding sparkly light for one second. Painting the three of us in gold, before it dims once more. But something felt different"
 
-    show mc o at mc_left
+    show mc o:
+        full
+        right
+        surprise
+    with Dissolve(0.5)
     mc "mm?"
 
-    show cory surprise at cory_left
+    show cory surprise:
+        full
+        leftish
+        surprise
     cory "I-! Huh? I feel different!"
 
-    show mc o at mc_left
+    show mc o:
+        full
+        right
     mc "Try stepping in the saltwater, Mr.Cory!"
 
-    show cory side at cory_left
+    show cory side:
+        full
+        leftish
     cory "Are ya sure..? What if it's just my imagination?"
 
-    show mc happy at mc_left
+    show mc happy:
+        full
+        right
+        surprise
     mc "trust me!"
 
-    show cory side_close at cory_left
+    show cory side_close:
+        full
+        leftish
     cory "Alright…"
 
     "Mr Cory hesitantly takes one step into where freshwater and saltwater collide with one eye closed."
 
-    show cory surprise at cory_left
+    show cory surprise:
+        full
+        centerleft
+        walkto(centerleft, walktime=1.5)
+    with move
+
     cory "Holy mother of sea…!"
 
-    show mc shock at mc_left
+    show mc shock:
+        full
+        right
+        surprise
     mc "d-does it hurt-"
 
     "Before I can finish my line I was swept into a spinning hug"
 
-    show cory proud at cory_left
+    show cory proud:
+        full
+        centerleft
+        jumpmc
     cory "I CAN'T BELIEVE IT!! I'M IN SALTWATER GUPPY!!"
 
-    show mc excited at mc_left
+    show mc excited:
+        full
+        right
+        jumpmc
     mc "YAAAAAY"
 
     "Mr shrimp then lifts the both of us with its strong claws spinning us all into a dizzying spiral"
 
-    show shrimp laugh at npc_right
+    show shrimp laugh:
+        full
+        center
+        jumpmc
+    show mc excited:
+        full
+        right
+        surprise
+        vibrate(3)
+    show cory upset:
+        full
+        leftish
+        surprise
+        vibrate(3)
     shrimp "KAKAKA! WAHOO!"
 
-    show cory upset at cory_left
     cory "THAT’S WAY TOO FAAAUUUAASHHTT SHRIMP PUT US DOOOOWN"
 
-    show mc excited at mc_left
     mc "YIPEEEEE FAAASTEEER!!"
 
-    show shrimp surprise at npc_right
+    show shrimp surprise:
+        full
+        center
     shrimp "Ah! My apologies, comrades! And congratulations to Mr. Cory!"
 
-    "Mr shimp then carefully puf us down"
+    "Mr shimp then carefully puts us down"
 
-    show shrimp laugh at npc_right
+    show shrimp laugh:
+        full
+        centerright
+        toleft
+    with move
     shrimp "With this, we can now safely travel amongst the seas! KAKAKA!"
 
-    show cory unimpressed at cory_left
+    show cory unimpressed:
+        full
+        leftish
+        sink
     cory "ngnuuurhhhehhkk"
 
-    show mc dizzy at mc_left
+    show mc dizzy:
+        full
+        center
+        sink
+        vibrate(2)
     mc "oaooaooouhh yaaaah lets meef the… crustashan empeees.."
 
-    show shrimp smile at npc_right
+    show shrimp smile:
+        full
+        centerright
+        toleft
     shrimp "Don’t worry, my dizzy lieges! I’ll carry the both of you until you regain your ground! Or.. your water!"
 
     $ focus()
     hide mc
+    hide cory
+    hide shrimp
     scene black with dissolve
 
     "END OF CHAPTER 2"
