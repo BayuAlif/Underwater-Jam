@@ -48,7 +48,7 @@ label chapter1_start:
 
     $ focus()
     play music chap_1_day volume 0.5
-    show cory talk:
+    show cory talk_hu:
         full
         center
     show mc shock:
@@ -80,6 +80,7 @@ label chapter1_start:
     cory "Mane just what the {b}fugu{/b} is you doing..?!"
 
     show mc actually:
+        unpose
         full 
         right
     with moveinright
