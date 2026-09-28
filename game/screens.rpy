@@ -64,6 +64,37 @@ style frame:
     padding gui.frame_borders.padding
     background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
 
+init -1 python:
+    # Glyph advance widths for NerkoOne-Regular font at 1000 units_per_em
+    _NAME_FONT_METRICS = {
+        ' ': 260, '!': 236, '"': 470, '#': 682, '$': 447, '%': 459, '&': 559, "'": 223,
+        '(': 347, ')': 354, '*': 179, '+': 563, ',': 257, '-': 408, '.': 213, '/': 448,
+        '0': 460, '1': 348, '2': 456, '3': 458, '4': 453, '5': 455, '6': 462, '7': 440,
+        '8': 451, '9': 481, ':': 226, ';': 257, '<': 442, '=': 500, '>': 442, '?': 417,
+        '@': 563, 'A': 537, 'B': 507, 'C': 445, 'D': 471, 'E': 457, 'F': 443, 'G': 466,
+        'H': 498, 'I': 274, 'J': 433, 'K': 510, 'L': 487, 'M': 636, 'N': 538, 'O': 475,
+        'P': 461, 'Q': 507, 'R': 499, 'S': 455, 'T': 493, 'U': 468, 'V': 436, 'W': 715,
+        'X': 520, 'Y': 481, 'Z': 452, '[': 221, '\\': 443, ']': 208, '^': 410, '_': 575,
+        '`': 259, 'a': 495, 'b': 466, 'c': 473, 'd': 478, 'e': 481, 'f': 357, 'g': 506,
+        'h': 477, 'i': 268, 'j': 268, 'k': 521, 'l': 233, 'm': 769, 'n': 472, 'o': 464,
+        'p': 512, 'q': 477, 'r': 408, 's': 491, 't': 326, 'u': 445, 'v': 472, 'w': 702,
+        'x': 486, 'y': 462, 'z': 508, '{': 325, '|': 212, '}': 316, '~': 588
+    }
+
+    def calculate_name_size(name, max_width=220, base_size=None, min_size=20):
+        if base_size is None:
+            base_size = gui.name_text_size
+        if not name:
+            return base_size
+        import re
+        clean_text = re.sub(r'\{[^}]*\}', '', str(name))
+        raw_units = sum(_NAME_FONT_METRICS.get(ch, 500) for ch in clean_text)
+        width_at_base = raw_units * base_size / 1000.0
+        if width_at_base <= max_width:
+            return base_size
+        scaled_size = int(max_width * 1000.0 / raw_units)
+        return max(min_size, min(base_size, scaled_size))
+
 screen say(who, what):
 
     window:
@@ -74,7 +105,7 @@ screen say(who, what):
             window:
                 id "namebox"
                 style "namebox"
-                text who id "who"
+                text who id "who" size calculate_name_size(who)
 
         text what id "what"
 

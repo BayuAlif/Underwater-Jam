@@ -56,13 +56,13 @@ define gui.textbox_height = 278
 
 define gui.textbox_yalign = 1.0
 
-define gui.name_xpos = 255
+define gui.name_xpos = 250
 define gui.name_ypos = 0
 
 define gui.name_xalign = 0.0
 
 define gui.namebox_width = None
-define gui.namebox_height = None
+define gui.namebox_height = 56
 
 define gui.namebox_borders = Borders(5, 5, 5, 5)
 
