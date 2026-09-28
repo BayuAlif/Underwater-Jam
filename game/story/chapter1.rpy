@@ -41,9 +41,10 @@ label chapter1_start:
         right
     "{i}I slowly nodded in agreement.{/i}" 
 
-    hide ch1_day
+    hide wave_overlay
+    hide cory
     hide mc
-    scene ch1_day with Dissolve(0.5)
+    with Dissolve(0.5)
     "{i}Before my mind could curiously wonder more to the depth of said cliff, I looked up to the source of voice.{/i}"
 
     $ focus()
