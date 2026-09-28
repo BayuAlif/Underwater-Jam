@@ -80,6 +80,7 @@ label salmon_interaction:
         jumpmc
     show mc happy:
         full
+        unpose
         right
     with move
     salmon "......!!!"

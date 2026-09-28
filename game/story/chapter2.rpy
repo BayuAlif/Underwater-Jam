@@ -11,20 +11,16 @@ label chapter2_start:
     "The sunlight above grew softer, hiding themself behind layers of drifting water plants."
     $ focus()
     show mc o:
-        offscreenright
         full
+        unpose
         right
-        walkto(right)
         toleft
-        walkloop
     with moveinright
     show cory side:
-        offscreenright
         full
+        unpose
         center
-        walkto(center)
         toleft
-        walkloop
     with moveinright
     mc "Have you been to the sea mr. Cory?"
 
@@ -32,21 +28,19 @@ label chapter2_start:
         full
         center
         toleft
-        walkloop
     cory "Sea? Nah that's waaay past my territory"
     cory "Nearest I've been at is meters before saltwater and freshwater collides"
 
     show cory smile_hu:
         full
         center
-        walkloop
+        toleft
     cory "Besides, I'm a freshwater fish guppy, one step into sea, and I explode"
 
     show mc shock:
         full
         right
         toleft
-        walkloop
         vibrate
     mc "EXPLODE?? NOOO MR CORY PLEASE DONT EXPLODE!! I LEFT MY GLUE AT HOME D:"
 
@@ -54,26 +48,24 @@ label chapter2_start:
         full
         center
         toleft
-        walkloop
     cory "Ay easy, easy! I won't be exploding now..!"
 
     show cory side:
         full
         center
         toleft
-        walkloop
     cory "{cps=30}{size=24}Ah but.. that woulda mean we have to part ways-{/size}{/cps}"
 
     show mc o:
         full
         right
+        toleft
     mc "Woah look ahead! that's a lotta shoal!"
 
     show cory talk:
         full
         center
         toleft
-        walkloop
     cory "Huh..?"
 
     "Several tens of fishes crowd at what looks like a border built out of tall reefs, a small cave sits in the middle where a speckle of colorful creature stands firm guarding the entrance."
@@ -81,12 +73,14 @@ label chapter2_start:
     show cory talk_hu:
         full
         center
+        toleft
     cory "That's the border of salt fresh.."
     cory "Itsa always been a busy place but this amount is unnatural..."
 
     show mc o:
         full
         right
+        toleft
         surprise
     mc "Is that a shrimp guarding the cave hole?"
 
@@ -95,6 +89,7 @@ label chapter2_start:
     show mc excited:
         full
         right
+        toleft
         block:
             jumpmc
             pause 1
@@ -103,17 +98,21 @@ label chapter2_start:
 
     show mc excited:
         full
+        unpose
         right
+        toleft
     mc "Mr cory can we give it a handshake? :D"
 
     show cory unimpressed2:
         full
         center
+        toleft
     cory "Nuh uh! unless you want your hand gone for good"
 
     show cory talk:
         full
         center
+        toleft
     cory "But eh, that mantis shrimp.. He had been around for a good while"
     cory "He's quite friendly, it's hard to believe if the fuss is his doing."
 
@@ -122,17 +121,21 @@ label chapter2_start:
     show cory talk_hu:
         full
         center
+        toleft
     cory "Yeah, But I say we ask around first to know what the crowd's about.."
 
     show mc happy:
         full
+        unpose
         right
+        toleft
         surprise
     mc "Sir yes sir mr cory!"
 
     show cory fond:
         full
         center
+        toleft
     cory "Heh, atta fish"
     $ focus()
 

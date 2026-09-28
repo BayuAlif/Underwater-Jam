@@ -35,8 +35,6 @@ label ghostfish_interaction:
     show cory side:
         full
         unpose
-        offscreenleft
-    show cory side:
         leftish
     with moveinleft
     cory "....."
