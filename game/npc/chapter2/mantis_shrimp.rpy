@@ -57,34 +57,38 @@ label mantis_interaction:
 
     show cory smile:
         full
-        leftish
+        trio_left
     with move
     show shrimp default:
+        trio_center_mantis
+        toleft
+    with move
+    show mc happy:
         full
-        centerright
+        trio_right
     with move
     cory "oooh.. That’s not very nice… you can’t be saying young fish…"
 
     show shrimp surprise:
-        full
-        centerright
+        trio_center_mantis
+        toleft
         surprise
     shrimp "and who are you!!"
 
     show cory smile:
         full
-        leftish
+        trio_left
     cory "I’m the young guppy’s guardian…"
 
     show shrimp sepet:
-        full
-        centerright
+        trio_center_mantis
+        toleft
     shrimp "I’m still not letting an elderly and a young guppy pass!"
     shrimp "Especially the elder…. Squints"
 
     show shrimp default_om:
-        full
-        centerright
+        trio_center_mantis
+        toleft
     shrimp "You have to prove yourself worthy through a duel!"
     shrimp "Only then I shall let you pass!"
 
@@ -110,15 +114,13 @@ label mantis_as_mc:
     $ duel_fighter = "mc"
     $ focus()
 
-    show cory talk:
-        full
-        leftish
+    hide cory with dissolve
     show shrimp default:
         full
-        centerright
+        duo_left
     show mc default:
         full
-        right
+        duo_right
     with dissolve
 
     menu:
@@ -127,68 +129,68 @@ label mantis_as_mc:
             $ focus()
             show mc o:
                 full
-                right
+                duo_right
             show shrimp default:
                 full
-                centerright
+                duo_left
             mc "mm.. say mr shrimp.. why do you guard the gate so strictly…?"
 
             shrimp "Because I was told to!"
 
             show mc o:
                 full
-                right
+                duo_right
             mc "told to..? By who?"
 
             show shrimp proud:
                 full
-                centerright
+                duo_left
                 surprise
             shrimp "The great empress I owe my life to!"
             shrimp "She saved me in my lowest moment in life.."
 
             show shrimp laugh:
                 full
-                centerright
+                duo_left
                 jump
             shrimp "And in exchange I devote my life to her compelling regime!"
 
             show mc dizzy:
                 full
-                right
+                duo_right
             mc "regime..? What’s a regime :o"
 
             show shrimp default:
                 full
-                centerright
+                duo_left
             shrimp "a regime is some sort of propaganda! Maybe!"
 
             show shrimp shy:
                 full
-                centerright
+                duo_left
             shrimp "I’m not too good with politics either so I wouldn’t know!"
 
             show mc pout:
                 full
-                right
+                duo_right
                 sink
             mc "blehh you’re right politics suck.. All the grown ups are so invested in it"
             mc "Is it so hard for everyone to just be friends, hold hands and help each other? :("
 
             show shrimp default:
                 full
-                centerright
+                duo_left
             shrimp "but it’s hard to hold hands when you’ve got big claws this strong!"
             shrimp "It’d always hurt someone that’s a different species!"
 
             show shrimp shy:
                 full
-                centerright
+                duo_left
             shrimp "No matter how hard you try to be gentle."
 
             show mc o:
                 full
-                right
+                duo_right
             mc "..."
 
             menu:
@@ -197,66 +199,66 @@ label mantis_as_mc:
                     $ focus()
                     show mc o:
                         full
-                        right
+                        duo_right
                     mc "mr shrimp.."
 
                     show mc excited:
                         full
-                        right
+                        duo_right
                         surprise
                     mc "what if i were to hypothetically ask to…"
                     mc "touch your claws..?"
 
                     show shrimp surprise:
                         full
-                        centerright
+                        duo_left
                         surprise
                     shrimp "No!"
 
                     show mc pout:
                         full
-                        right
+                        duo_right
                     mc "huh? Why not..?"
 
                     show shrimp default_om:
                         full
-                        centerright
+                        duo_left
                     shrimp "Because it will hurt your tiny hands!"
 
                     show mc pout:
                         full
-                        right
+                        duo_right
                     mc "but you said you won’t hesitate to punch me in a duel.."
 
                     show mc o:
                         full
-                        right
+                        duo_right
                     mc "why are you worried now Mr.shrimp?"
 
                     show shrimp default:
                         full
-                        centerright
+                        duo_left
                     shrimp "... that’s different! This is a no duel context!"
 
                     show shrimp default_om:
                         full
-                        centerright
+                        duo_left
                     shrimp "I would minimize as much damage as possible!"
 
                     show mc happy:
                         full
-                        right
+                        duo_right
                     mc "But it’s okay Mr.shrimp, I don’t mind pain!"
 
                     show shrimp surprise:
                         full
-                        centerright
+                        duo_left
                         surprise
                     shrimp "huh…?"
 
                     show mc default:
                         full
-                        right
+                        duo_right
                     mc "Some pain is worth it for the sake of knowledge."
                     mc "And also for the sake of easing other people’s pain.."
 
@@ -264,43 +266,43 @@ label mantis_as_mc:
 
                     show mc excited:
                         full
-                        right
+                        duo_right
                         surprise
                     mc "I’ve never met a mantis shrimp before!"
                     mc "So it made me suuuper curious on how your claws work!"
 
                     show shrimp sepet:
                         full
-                        centerright
+                        duo_left
                     shrimp "... hmph. Fine then touch you shall!"
 
                     show shrimp default_om:
                         full
-                        centerright
+                        duo_left
                     shrimp "But don’t come crying if you scrape yourself!"
 
                     show mc pout:
                         full
-                        right
+                        duo_right
                     mc "im a good guppy! Good guppies don’t cry!"
 
                     "Quenching curiosity, I started with poking its left claw with a finger repeatedly, assessing. With each poke, my finger easily bends under the rigid calloused textured shell. I can tell the mechanism that lies beneath the hard surface is very advanced just by the feel of it. Would one punch of it really instant kill me?"
 
                     show mc excited:
                         full
-                        right
+                        duo_right
                         jump
                     mc "ooo..! So THIS is what a 150-kilo punch feels like..!"
 
                     show shrimp proud:
                         full
-                        centerright
+                        duo_left
                         surprise
                     shrimp "How’s it?! Fastest moving claws in all of animal kingdom!"
 
                     show shrimp laugh:
                         full
-                        centerright
+                        duo_left
                         jump
                     shrimp "Grace upon the excellent anatomy of a mantis shrimp! kakaka!"
 
@@ -316,80 +318,80 @@ label mantis_as_mc:
             $ focus()
             show mc happy:
                 full
-                right
+                duo_right
             mc "I’m here to offer you snacks.. You seem veeery tired.."
 
             show shrimp surprise:
                 full
-                centerright
+                duo_left
                 surprise
             shrimp "Huh…!"
             shrimp "Wait me? TIRED? Tiredness can’t affect a warrior!"
 
             show shrimp proud:
                 full
-                centerright
+                duo_left
             shrimp "But I won’t say no to delicious looking delicacies"
 
             "Without second guessing, Mr.shrimp took about three clams, breaking the shell with his punch before stuffing it into his mouth enthusiastically. I watched the interesting process with rapt attention.. I’ve never seen a mantis shrimp eat before…"
 
             show shrimp default:
                 full
-                centerright
+                duo_left
             shrimp "mm? What is it! Why are you staring!"
 
             show shrimp default_om:
                 full
-                centerright
+                duo_left
             shrimp "Staring won’t make me share a thing with you!"
 
             show mc default:
                 full
-                right
+                duo_right
             mc "ah nonono am not hungry… *stomach growls*"
 
             show shrimp surprise:
                 full
-                centerright
+                duo_left
                 surprise
             shrimp "...."
 
             show shrimp sepet:
                 full
-                centerright
+                duo_left
             shrimp "Let’s hypothetically say, I shared one clam!"
 
             show shrimp shy:
                 full
-                centerright
+                duo_left
             shrimp "Would you eat it?!"
 
             show mc o:
                 full
-                right
+                duo_right
                 surprise
             mc "...!"
 
             show mc happy:
                 full
-                right
+                duo_right
             mc "hehe don’t worry you can have all of it, mr shrimp"
             mc "you look like you need it more"
 
             show shrimp surprise:
                 full
-                centerright
+                duo_left
                 surprise
             shrimp "I never said that I WOULD share it with you!"
 
             show shrimp default_om:
                 full
-                centerright
+                duo_left
             shrimp "That was a merely hypothetical!"
 
             show shrimp shy:
                 full
-                centerright
+                duo_left
             shrimp "Don’t get too into yourself now!"
 
             "Mr. Shrimp ate enough coal tar for it to take effect."
@@ -402,122 +404,122 @@ label mantis_as_mc:
                     $ focus()
                     show mc o:
                         full
-                        right
+                        duo_right
                     show shrimp default:
                         full
-                        centerright
+                        duo_left
                     shrimp "maybe!"
 
                     show mc happy:
                         full
-                        right
+                        duo_right
                     mc "mm you seem starving.."
 
                     show shrimp surprise:
                         full
-                        centerright
+                        duo_left
                         surprise
                     shrimp "Starving?! A mantis shrimp is able to not eat anything for weeks without hunger!"
 
                     show mc o:
                         full
-                        right
+                        duo_right
                     mc "and when’s the last time you eat?"
 
                     show shrimp default_om:
                         full
-                        centerright
+                        duo_left
                     shrimp "I don’t keep count!"
 
                     show shrimp smile:
                         full
-                        centerright
+                        duo_left
                     shrimp "Though I must say these are oddly rich tasted clams! Very scrumptious!"
                     shrimp "What did you put in them?!"
 
                     show mc shock:
                         full
-                        right
+                        duo_right
                         surprise
                     mc "ah that's.."
                     mc "mmn it's a secret ingredient I can't tell you!"
 
                     show mc happy:
                         full
-                        right
+                        duo_right
                     mc "unless you let me pass then maybe I'll tell.."
 
                     show shrimp surprise:
                         full
-                        centerright
+                        duo_left
                         surprise
                     shrimp "guh…!!"
 
                     show shrimp shy:
                         full
-                        centerright
+                        duo_left
                     shrimp "O-okay.. fine. pass you shall!"
 
                     show mc excited:
                         full
-                        right
+                        duo_right
                         jump
                     mc "Really?!"
 
                     show shrimp surprise:
                         full
-                        centerright
+                        duo_left
                         jump
                         vibrate
                     shrimp "WAIT WAIT WAIT! NO! PASS YOU SHALL NOT!"
 
                     show shrimp sepet:
                         full
-                        centerright
+                        duo_left
                         vibrate
                     shrimp "bad! bad Scyllarus! You can't let good food cloud your judgement!"
                     shrimp "even when said food.. reminds you of your mother’s cooking…"
 
                     show mc o:
                         full
-                        right
+                        duo_right
                     mc "mm.. but i say your mother’s cooking is worth fighting for!"
 
                     show mc happy:
                         full
-                        right
+                        duo_right
                     mc "sometimes it’s the reason to keep going for another day and the next!"
 
                     show shrimp default:
                         full
-                        centerright
+                        duo_left
                     shrimp ".... you might be right!"
 
                     show shrimp smile:
                         full
-                        centerright
+                        duo_left
                     shrimp "My mother’s food always gave me a calming effect!"
                     shrimp "One that would make you rest easier!"
 
                     show mc shock:
                         full
-                        right
+                        duo_right
                     "Was tiny mr shrimp so active that his mother had to feed him coal tar to make him less energized..?"
 
                     show shrimp laugh:
                         full
-                        centerright
+                        duo_left
                         jump
                     shrimp "So, I must thank you for the food and the memories!"
 
                     show shrimp default:
                         full
-                        centerright
+                        duo_left
                     shrimp "I’m still not letting you pass though!"
 
                     show shrimp shy:
                         full
-                        centerright
+                        duo_left
                     shrimp "{size=20}Please bring me more of it…{/size}"
 
                     jump mantis_mc_duel_convo_2
@@ -530,29 +532,29 @@ label mantis_mc_duel_convo:
     $ focus()
     show mc shock:
         full
-        right
+        duo_right
     mc "Mr. shrimp.. Is winning a duel the only way to pass the gate..?"
 
     show shrimp default:
         full
-        centerright
+        duo_left
     shrimp "I’m afraid, yes little guppy!"
 
     show shrimp default_om:
         full
-        centerright
+        duo_left
     shrimp "You have to prove yourself worthy of the sea!"
     shrimp "The beauty of it is not for the weak!"
 
     show mc excited:
         full
-        right
+        duo_right
         jump
     mc "it leaves me no choice then.. bring it on!"
 
     show shrimp laugh:
         full
-        centerright
+        duo_left
         jump
     shrimp "Kakaka! That’s the spirit"
     jump mantis_pre_duel
@@ -561,90 +563,93 @@ label mantis_mc_duel_convo_2:
     $ focus()
     show mc shock:
         full
-        right
+        duo_right
     mc "Mr. shrimp.. Is winning a duel the only way to pass the gate..?"
 
     show shrimp default:
         full
-        centerright
+        duo_left
     shrimp "I’m afraid, yes little guppy!"
 
     show shrimp default_om:
         full
-        centerright
+        duo_left
     shrimp "You have to prove yourself worthy of the sea!"
     shrimp "The beauty of it is not for the weak!"
 
     show mc excited:
         full
-        right
+        duo_right
         jump
     mc "it leaves me no choice then.. bring it on!"
 
     show shrimp laugh:
         full
-        centerright
+        duo_left
         jump
     shrimp "Kakaka! That’s the spirit"
     jump mantis_pre_duel
 
 label mantis_as_cory:
     $ focus()
+    hide mc with dissolve
 
     show cory anon:
         full
         unpose
         offscreenleft
     show cory anon:
-        leftish
+        duo_left
     with moveinleft
 
     show shrimp default:
         full
-        centerright
-    show mc default:
-        full
-        right
+        duo_right
+        toleft
     with dissolve
 
     cory "hello.. young fish…"
 
     show shrimp default_om:
         full
-        centerright
+        duo_right
+        toleft
     shrimp "no!"
 
     show cory anon:
         full
-        leftish
+        duo_left
         vibrate
     cory "fugu you mean no?!"
 
     show cory anon:
         full
-        leftish
+        duo_left
     cory "I mean! oooh that’s not a very nice thing to say to an elderly.. young fish…"
 
     show shrimp default_om:
         full
-        centerright
+        duo_right
+        toleft
     shrimp "no! Most elders always have something up their sleeves!"
 
     show shrimp sepet:
         full
-        centerright
+        duo_right
+        toleft
     shrimp "They call me sweet names and caress me without permission!"
     shrimp "And they think they can pass with that!"
 
     show cory anon:
         full
-        leftish
+        duo_left
     cory "Mane.. That’s rough, I’m sorry for you buddy.."
     cory "Don’t worry I’m not that type of old.."
 
     show shrimp default_om:
         full
-        centerright
+        duo_right
+        toleft
     shrimp "I don’t need your pity! I’m fine! Just surprised!"
 
     menu:
@@ -655,14 +660,16 @@ label mantis_as_cory:
 
             show shrimp default_om:
                 full
-                centerright
+                duo_right
+                toleft
             shrimp "No!"
 
             cory "Would you be so kind to at least hear me out-"
 
             show shrimp default_om:
                 full
-                centerright
+                duo_right
+                toleft
             shrimp "No!"
 
             cory "okay mane.."
@@ -672,44 +679,47 @@ label mantis_as_cory:
 
             show shrimp sepet:
                 full
-                centerright
+                duo_right
+                toleft
             shrimp "Are you saying I'm talking to a ghost right now?!"
 
             cory "I ain’t no meemaw or peepaw"
 
             show cory talk:
                 full
-                leftish
+                duo_left
             with dissolve
             cory "remember me?"
 
             show shrimp surprise:
                 full
-                centerright
+                duo_right
+                toleft
                 surprise
             shrimp "...you!"
             shrimp "The one that sneaked in a young fish!"
 
             show cory side:
                 full
-                leftish
+                duo_left
             cory "Yes… and I apologize with what I did"
 
             show cory talk_hu:
                 full
-                leftish
+                duo_left
             cory "But this ain’t you brother."
             cory "You were actively helpin out fishes in need"
             cory "Those who couldn’t pay the prices of this gate"
 
             show cory side_close:
                 full
-                leftish
+                duo_left
             cory "You helped my family when we had none.."
 
             show shrimp sepet:
                 full
-                centerright
+                duo_right
+                toleft
             shrimp "....!"
 
         "offers mr shrimp a snack" if has_item("coal_tar"):
@@ -718,7 +728,8 @@ label mantis_as_cory:
 
             show shrimp default_om:
                 full
-                centerright
+                duo_right
+                toleft
             shrimp "no!"
 
             cory "oh please? I've worked so hard to make these extra tasty…"
@@ -726,12 +737,14 @@ label mantis_as_cory:
 
             show shrimp default_om:
                 full
-                centerright
+                duo_right
+                toleft
             shrimp "No! That sounds suspicious!"
 
             show shrimp sepet:
                 full
-                centerright
+                duo_right
+                toleft
             shrimp "But fine! Maybe.. maybe just a bite!"
 
             "Mr shrimp took a small bite out of the algae. It's not very effective it seems."
@@ -740,7 +753,8 @@ label mantis_as_cory:
 
             show shrimp default_om:
                 full
-                centerright
+                duo_right
+                toleft
             shrimp "I shouldn’t be indulging myself more in this delicacy!"
 
             "Mr. Shrimp didn’t eat enough coal tar for it to take effect."
@@ -749,29 +763,30 @@ label mantis_as_cory:
 
             show cory side_close:
                 full
-                leftish
+                duo_left
                 sink
             cory "oh fugu me…"
 
             show cory talk:
                 full
-                leftish
+                duo_left
             with dissolve
 
     show shrimp default_om:
         full
-        centerright
+        duo_right
+        toleft
     shrimp "You’ve bothered me enough!"
     shrimp "It is time for us to duel if you’re so insistent on passing through!"
 
     show cory side:
         full
-        leftish
+        duo_left
     cory "Guess we got no other choice huh.."
 
     show cory talk:
         full
-        leftish
+        duo_left
     cory "prepare yerself to fight guppy…"
 
     jump mantis_pre_duel
@@ -781,60 +796,64 @@ label mantis_pre_duel:
 
     show shrimp default_om:
         full
-        centerright
+        trio_center_mantis
+        toleft
         jump
     shrimp "We shall now start a sacred duel of… ROCK PAPER SCISSORS!"
 
     show cory surprise:
         full
-        leftish
+        trio_left
         surprise
     cory "whuh?"
 
     show mc shock:
         full
-        right
+        trio_right
         surprise
     mc "eh?"
 
     show cory upset:
         full
-        leftish
+        trio_left
         vibrate
     cory "mane all that trouble just for some guppy games?!"
     cory "Why don’t everyfish just play and pass then?!"
 
     show shrimp proud:
         full
-        centerright
+        trio_center_mantis
+        toleft
     shrimp "The moment i mention a duel they all cower in fear and retreat!"
     shrimp "You’re the second bravest soul to duel with me today!"
 
     show mc o:
         full
-        right
+        trio_right
     mc "Did the first fish pass?"
 
     show shrimp default:
         full
-        centerright
+        trio_center_mantis
+        toleft
     shrimp "No! They died under the weight of my mighty punch!"
 
     show cory unimpressed:
         full
-        leftish
+        trio_left
         sink
     cory "glup…"
 
     show mc excited:
         full
-        right
+        trio_right
         surprise
     mc "oh…!"
 
     show shrimp default_om:
         full
-        centerright
+        trio_center_mantis
+        toleft
     shrimp "The rules are easy!"
     shrimp "Each of you, have three rounds to go against me!"
     shrimp "And each round, whoever wins gets to attack the loser!"
@@ -842,38 +861,42 @@ label mantis_pre_duel:
 
     show shrimp sepet:
         full
-        centerright
+        trio_center_mantis
+        toleft
     shrimp "Or if one of us is dead!"
 
     show shrimp proud:
         full
-        centerright
+        trio_center_mantis
+        toleft
     shrimp "Since you came in a pair, and I’m a generous mantis shrimp!"
     shrimp "One of you wins, and you both get through the gate!"
 
     show mc o:
         full
-        right
+        trio_right
     mc "question! Are we allowed to dodge the attack"
 
     show shrimp default_om:
         full
-        centerright
+        trio_center_mantis
+        toleft
     shrimp "yes, dodge you shall!"
 
     show shrimp proud:
         full
-        centerright
+        trio_center_mantis
+        toleft
     shrimp "hmph! But can you really dodge my fast punches?!"
 
     show mc happy:
         full
-        right
+        trio_right
     mc "hehe we’ll see about that"
 
     show cory talk_hu:
         full
-        leftish
+        trio_left
     cory "you ready to start, guppy?"
 
     menu:
@@ -895,7 +918,8 @@ label mantis_pre_duel:
         "The coal tar is effectively weakening Mr Shrimp's punch. -1 HP"
         show shrimp default:
             full
-            centerright
+            trio_center_mantis
+            toleft
             vibrate
         shrimp "guh..! My punches aren’t as effective tonight…!"
         $ duel_fighter = "cory"
@@ -906,31 +930,33 @@ label mantis_pre_duel:
         "Mr shrimp punch is as strong as ever, it knocked me far away hard. -3 HP"
         show shrimp default:
             full
-            centerright
+            trio_center_mantis
+            toleft
         shrimp "Hah! Witness the might of a peacock mantis shrimp!"
 
         show mc dizzy:
             full
-            right
+            trio_right
             sink
             vibrate
         mc "nnguuh-!"
 
         show cory surprise:
             full
-            leftish
+            trio_left
             jump
         cory "GUPPY!"
 
         show cory upset:
             full
-            leftish
+            trio_left
             vibrate
         cory "ghhrr I’ll avenge you guppy!"
 
         show shrimp default:
             full
-            centerright
+            trio_center_mantis
+            toleft
         shrimp "Hah! Bring it On!"
 
         $ duel_fighter = "cory"
@@ -946,15 +972,15 @@ label mantis_pre_duel:
 
     show mc dizzy:
         full
-        right
+        trio_right
         sink
     show cory dizzy:
         full
-        leftish
+        trio_left
         sink
     show shrimp proud:
-        full
-        center
+        trio_center_mantis
+        toleft
     with dissolve
     "You were defeated by the Mantis Shrimp..."
 
@@ -973,15 +999,15 @@ label mantis_win:
 
     show mc excited:
         full
-        right
+        trio_right
         jump
     show cory proud:
         full
-        leftish
+        trio_left
         jump
     show shrimp sepet:
-        full
-        center
+        trio_center_mantis
+        toleft
     with dissolve
 
     mc "We did it!! We won mr.Cory!!"
@@ -989,8 +1015,8 @@ label mantis_win:
     cory "EEEL YEAHH THAT’S WHAT I’M TALKING ABOUT GUPPY!!"
 
     show shrimp default_om:
-        full
-        center
+        trio_center_mantis
+        toleft
     shrimp "Hmph! Very well!"
     shrimp "You have proven yourself worthy of the sea’s grace!"
 
@@ -1000,14 +1026,14 @@ label mantis_win:
     mc "mr shrimp.. Why don’t you come along with us?"
 
     show shrimp surprise:
-        full
-        center
+        trio_center_mantis
+        toleft
         surprise
     shrimp "WHAT?!"
 
     show cory surprise:
         full
-        leftish
+        trio_left
         surprise
     cory "HUH?!"
     cory "Guppy did you see how deadly those punches are?!"
@@ -1017,12 +1043,12 @@ label mantis_win:
 
     show cory side:
         full
-        leftish
+        trio_left
     cory "... can’t argue with that."
 
     show shrimp default:
-        full
-        center
+        trio_center_mantis
+        toleft
     shrimp "... But why the sudden preposterous preposition?!"
     shrimp "I’m the guardian of the sacred sea-salt gate!"
     shrimp "I mustn't leave my post! I mustn't let the unworthy pass!"
@@ -1032,7 +1058,7 @@ label mantis_win:
 
     show cory talk:
         full
-        leftish
+        trio_left
     cory "They’re right.."
     cory "There’s a pregnant fish.. And some fish gone mad because of this carp"
     cory "Before this, You were actively helpin out fishes in need"
@@ -1040,33 +1066,33 @@ label mantis_win:
     cory "You’ve changed, what’s up with that? Really."
 
     show shrimp shy:
-        full
-        center
+        trio_center_mantis
+        toleft
     shrimp "...."
     shrimp "I was..!"
 
     show shrimp sepet:
-        full
-        center
+        trio_center_mantis
+        toleft
     shrimp "What I did was a moment of weakness! One that I wouldn’t repeat!"
     shrimp "And the cost of it was.. something irreversible…"
     shrimp "The one moment I let my guard down.."
 
     show shrimp surprise:
-        full
-        center
+        trio_center_mantis
+        toleft
         surprise
     shrimp "a sudden golden burst of incredible power dashed past me!"
 
     show mc o:
         full
-        right
+        trio_right
         surprise
     mc "the golden fish…!"
 
     show shrimp default_om:
-        full
-        center
+        trio_center_mantis
+        toleft
     shrimp "It’s thousand suns way stronger than what my claws, my whole body can endure!"
     shrimp "I have never felt more powerless in my life than that moment!"
     shrimp "and it was I that let such a dangerous powerful entity into the sea…"
@@ -1074,42 +1100,42 @@ label mantis_win:
     shrimp "Since that moment, the empress has tightened security at every gate that leads to the sea."
 
     show shrimp shy:
-        full
-        center
+        trio_center_mantis
+        toleft
     shrimp "And even when the empress had known of my crimes of letting fishes that didn't qualify pass through…"
 
     show shrimp smile:
-        full
-        center
+        trio_center_mantis
+        toleft
     shrimp "She still forgave me!"
 
     show shrimp default_om:
-        full
-        center
+        trio_center_mantis
+        toleft
     shrimp "I swore to her that I won’t repeat the same mistake!"
 
     show mc o:
         full
-        right
+        trio_right
     mc "But mr shrimp.. It wasn’t your fault that the golden fish pass through!"
     mc "it wasn’t something you can stop.. Nor something you can expect"
     mc "and me and mr cory are heading to sea in search of the golden fish!"
     mc "We can search for it together! To prevent it from doing more harm"
 
     show shrimp surprise:
-        full
-        center
+        trio_center_mantis
+        toleft
         surprise
     shrimp "YOU ARE?!"
 
     show shrimp shy:
-        full
-        center
+        trio_center_mantis
+        toleft
     shrimp "But.. who will guard the gates.. If not me?"
 
     show cory side:
         full
-        leftish
+        trio_left
     cory "Naaah i don’t think it needs guarding."
     cory "That shrimp empress’s regime.. Is total bullshrimp"
 
@@ -1119,13 +1145,13 @@ label mantis_win:
     cory "They don’t mean no harm to the sea i guarantee.."
 
     show shrimp default_om:
-        full
-        center
+        trio_center_mantis
+        toleft
     shrimp ".... Fine! I'll go! But only if we talk it out first with the shrimp empress!"
 
     show shrimp shy:
-        full
-        center
+        trio_center_mantis
+        toleft
     shrimp "I can't just abandon my post without notice"
     shrimp "That would be betrayal of the highest order!"
 

@@ -351,22 +351,22 @@ label chapter2_coal_tar:
     $ focus()
     show mc o:
         full
-        right
+        duo_right
     show cory talk_hu:
         full
-        centerleft
+        duo_left
     mc "Mr. Cory, do you know what this black lump is?"
 
     cory "Mmmn.. no clue."
 
     show cory unimpressed2:
         full
-        centerleft
+        duo_left
     cory "Almost looks like poo to me, you better drop that thing guppy."
 
     show mc shock:
         full
-        right
+        duo_right
         sink
     mc "Yuck! it smells… weird."
 
@@ -374,13 +374,13 @@ label chapter2_coal_tar:
 
     show cory smile_hu:
         full
-        centerleft
+        duo_left
     cory "Yeah.. that's right guppy.."
     cory "Finally, Some self preservation in ya!"
 
     show mc o:
         full
-        right
+        duo_right
         surprise
     mc "That.. wasn’t me…"
 
@@ -389,13 +389,13 @@ label chapter2_coal_tar:
 
     show ghost deadpan:
         full
-        leftish
+        duo_left
         float_idle
     with dissolve
 
     show cory surprise:
         full
-        centerleft
+        duo_left
         surprise
         vibrate
     cory "GYAAAAAAA—"
@@ -411,50 +411,50 @@ label chapter2_coal_tar:
 
     show mc o:
         full
-        right
+        duo_right
         surprise
     mc ":o"
 
     show mc excited:
         full
-        right
+        duo_right
         jumpmc
     mc "Woah! What are you?"
 
     show ghost default:
         full
-        leftish
+        duo_left
         float_idle
     ghost "A fish."
 
     show mc pout:
         full
-        right
+        duo_right
     mc "I can see that."
 
     ghost "Then you needn’t know more."
 
     show mc o:
         full
-        right
+        duo_right
     mc "Why are you here… fish?"
 
     show ghost side:
         full
-        leftish
+        duo_left
         float_idle
     ghost "You were meant to find me."
 
     show ghost close:
         full
-        leftish
+        duo_left
         float_idle
     ghost "But this second is not the time"
     ghost "We shall meet again.. very soon."
 
     show ghost side:
         full
-        leftish
+        duo_left
         float_idle
     ghost "Or perhaps.. we have met before."
 
@@ -462,13 +462,13 @@ label chapter2_coal_tar:
 
     show mc happy:
         full
-        right
+        duo_right
     mc "Okay! Looking forward to meeting you again, fish!"
     mc "Mr Cory you can come out, it's fine now."
 
     show cory upset:
         full
-        centerleft
+        duo_left
     with move
     cory "What the eel even was that?!"
     cory "Straight out of deep sea I swear!"
@@ -482,36 +482,35 @@ label chapter2_ending:
     $ focus()
     show mc excited:
         full
-        right
+        trio_right
         jumpmc
     mc "onward! to the sea we go!"
 
     show shrimp laugh:
-        full
-        centerright
+        trio_center_mantis
         toleft
         surprise
     shrimp "to the sea!"
 
     show cory side:
         full
-        leftish
+        trio_left
     cory "..."
 
     show cory side_close:
         full
-        leftish
+        trio_left
         sink
     cory "......"
 
     show cory fond:
         full
-        leftish
+        trio_left
     cory "imp.. I leave the guppy's safety to ya alright?"
 
     show cory smile_hu:
         full
-        leftish
+        trio_left
     cory "Shrimps have better resistance in freshwater don't they?"
 
     if has_item("saltwater_survival_device"):
@@ -519,66 +518,63 @@ label chapter2_ending:
 
     show mc shock:
         full
-        right
+        trio_right
         surprise
     mc "...!!"
 
     show shrimp default_om:
-        full
-        centerright
+        trio_center_mantis
         toleft
     shrimp "yes of course! Protect i shall. it is my utmost duty to protect!"
 
     show mc pout:
         full
-        right
+        trio_right
     mc "no!"
 
     show cory side_close:
         full
-        leftish
+        trio_left
     cory "guppy.."
 
     show mc pout:
         full
-        right
+        trio_right
         jumpmc
     mc "no no no! I’m not going anywhere without Mr. Cory!!"
 
     show cory talk:
         full
-        leftish
+        trio_left
     cory "guppy, I’d dry the sea to come along but-"
 
     show mc pout:
         full
-        right
+        trio_right
         surprise
     mc "mr shrimp cant you protect him? With your punches!"
     mc "punch all the freshwater away from mr.cory!"
 
     show shrimp sepet:
-        full
-        centerright
+        trio_center_mantis
         toleft
     shrimp "..."
 
     show shrimp default_om:
-        full
-        centerright
+        trio_center_mantis
         toleft
     shrimp "I'm afraid I cannot, my dear comrade!"
     shrimp "punching water is akin to fighting a shadow…"
 
     show mc shock:
         full
-        right
+        trio_right
         sink
     mc "no.."
 
     show mc holdcry:
         full
-        right
+        trio_right
         sink
         vibrate(1)
     mc "but you promised… *sniffle*"
@@ -586,7 +582,7 @@ label chapter2_ending:
 
     show cory side_close:
         full
-        leftish
+        trio_left
         sink
     cory "....."
     cory "I’m.. God terribly. sorry guppy.."
@@ -594,12 +590,11 @@ label chapter2_ending:
 
     show cory side:
         full
-        leftish
+        trio_left
     cory "...I’m afraid that I’m a fraud..."
 
     show shrimp smile:
-        full
-        centerright
+        trio_center_mantis
         toleft
     shrimp "that makes a good rhyme!"
 
@@ -696,31 +691,31 @@ label chapter2_ending:
         center
     shrimp "Ah! My apologies, comrades! And congratulations to Mr. Cory!"
 
-    "Mr shimp then carefully puts us down"
+    "Mr shrimp then carefully puts us down"
 
     show shrimp laugh:
         full
-        centerright
+        trio_right
         toleft
     with move
     shrimp "With this, we can now safely travel amongst the seas! KAKAKA!"
 
     show cory unimpressed:
         full
-        leftish
+        trio_left
         sink
     cory "ngnuuurhhhehhkk"
 
     show mc dizzy:
         full
-        center
+        trio_center
         sink
         vibrate(2)
     mc "oaooaooouhh yaaaah lets meef the… crustashan empeees.."
 
     show shrimp smile:
         full
-        centerright
+        trio_right
         toleft
     shrimp "Don’t worry, my dizzy lieges! I’ll carry the both of you until you regain your ground! Or.. your water!"
 

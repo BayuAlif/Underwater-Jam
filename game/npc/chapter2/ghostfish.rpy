@@ -93,14 +93,14 @@ label ghost_as_mc:
     $ focus()
     show cory talk:
         full
-        leftish
+        trio_left
     show ghost default:
         full
-        center
+        trio_center
         float_idle
     show mc o:
         full
-        right
+        trio_right
     with dissolve
 
     mc "Are you a ghost fish or a fish ghost?"
@@ -398,46 +398,46 @@ label ghost_as_cory:
     $ focus()
     show cory surprise:
         full
-        leftish
+        trio_left
         jump
     show ghost side:
         full
-        centerright
+        trio_center
         float_idle
     show mc default:
         full
-        right
+        trio_right
     with dissolve
 
     cory "M-me?! Why does it have to be me?!"
 
     show ghost side:
         full
-        centerright
+        trio_center
         float_idle
     ghost "you have a thousand questions running around in your head.."
 
     show ghost deadpan:
         full
-        centerright
+        trio_center
         float_idle
     ghost "yet your fear.. stops you from asking."
     ghost "Like shadows fleeing a light that follows without moving."
 
     show cory unimpressed2:
         full
-        leftish
+        trio_left
     cory "w-what that mean yo…"
 
     show ghost mweheh:
         full
-        centerright
+        trio_center
         float_idle
     ghost "ask away, I promise I don't bite. much"
 
     show cory upset:
         full
-        leftish
+        trio_left
         vibrate
     cory "WHADDYA MEAN MUCH?!"
 
@@ -447,81 +447,80 @@ label ghost_as_cory:
             $ focus()
             show cory talk_hu:
                 full
-                leftish
+                trio_left
             show ghost close:
                 full
-                centerright
+                trio_center
                 float_idle
             ghost "perhaps I do."
 
             show ghost side:
                 full
-                centerright
+                trio_center
                 float_idle
             ghost "but why should I tell you"
 
             show cory side:
                 full
-                leftish
+                trio_left
             cory "because! We-we needa know!"
 
             show ghost deadpan:
                 full
-                centerright
+                trio_center
                 float_idle
             ghost "not an enough reason…"
 
             show cory side_close:
                 full
-                leftish
+                trio_left
             cory "because- we.. because the guppy needs to get to the- the golden fish!"
 
             show ghost side:
                 full
-                centerright
+                trio_center
                 float_idle
             ghost "hmm.."
 
             show ghost close:
                 full
-                centerright
+                trio_center
                 float_idle
             ghost "rejected."
 
             show cory upset:
                 full
-                leftish
+                trio_left
                 vibrate
             cory "what more do ya want from me mane?!"
 
             show ghost deadpan:
                 full
-                center
+                trio_center
                 float_idle
-            with move
             ghost "look behind you"
 
             show cory side_close:
                 full
-                leftish
+                trio_left
                 vibrate
             cory "NUH UH I'M NOT FALLING FOR THAT!"
 
             show ghost deadpan:
                 full
-                center
+                trio_center
             ghost "..."
 
             show ghost mweheh:
                 medclose
-                center
+                trio_center
                 surprise
             with vpunch
             ghost "{size=+8}boo…{/size}"
 
             show cory surprise:
                 full
-                leftish
+                trio_left
                 jump
                 vibrate
             cory "{size=+10}GYAAAAH!!{/size}"
@@ -531,14 +530,14 @@ label ghost_as_cory:
 
             show mc shock:
                 full
-                right
+                trio_right
                 surprise
                 jumpmc
             mc "ah! Mr Cory waaaaait!!"
 
             show ghost mweheh:
                 full
-                centerright
+                trio_center
                 float_idle
             with move
             ghost "heh heh…"
