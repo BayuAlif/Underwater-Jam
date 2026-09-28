@@ -48,12 +48,14 @@ label prologue:
         sink
     mc "Mmm... but a true flying fish should be able to jump at least 6m high... That was only 10 cm higher and my best was 1 meter before..."
     show mc default:
+        unpose
         full
         right 
         jumpmc 
     mc "Eh, oh well, I'll get there sooner or later..."
 
     show mc happy:
+        unpose
         full
         right
         jumpmc 
@@ -84,13 +86,23 @@ label prologue:
     mc "Ah! Wait up!!"
 
     hide mc
-    scene prologue_day 
+    scene lari1 with Dissolve(0.5)
     with vpunch
     "{i}Before I knew it my feet brought me up in a speed bolt. I ran along the river. Eyes locked onto the mysterious golden fish.{/i}"
-    "{i}Every time I thought I was close enough to reach it… It drifted just a little farther away.{/i}" 
+    scene lari2 with Dissolve(0.5)
+    "{i}Every time I thought I was close enough to reach it… It drifted just a little farther away.{/i}"
+    scene lari3 with Dissolve(0.5)
     "{i}My feet stopped me at the edge of the river, where the grassy path came to an abrupt end.{/i}"
+    scene prologue_day with Dissolve(0.5)
+    show mc shock:
+        full
+        right
+        jumpmc 
     "{i}The water looked dauntingly deeper than I remember.{/i}"
     "{i}But I couldn't look away.. Not even if i tried. It felt as though it was calling me not with words, but with something I couldn't explain.{/i}"
+    show mc serious_hu:
+        full
+        right
     "{i}I couldn't let it escape.{/i}"
     "{i}One step became two, and before I knew it..{/i}"
 

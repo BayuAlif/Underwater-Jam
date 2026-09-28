@@ -1563,79 +1563,162 @@ label chapter2_mantis_cory_route:
 
     if duel_result == "win":
 
-        show mc excited at mc_left
+        show mc yay:
+            full 
+            right
+            surprise
         mc "We did it!! We won mr.Cory!!"
 
-        show cory proud at cory_left
+        show cory proud_hu:
+            full
+            center
+            moveinleft
         cory "EEEL YEAHH THAT'S WHAT I'M TALKING ABOUT GUPPY!!"
 
-        show shrimp default at npc_right
+        show shrimp default:
+            full
+            centerleft
+            moveinleft
+        show cory proud_hu:
+            full
+            rightish
+        with move
         shrimp "Hmph! Very well!"
+        show shrimp default_om:
+            full
+            centerleft
+            moveinleft
         shrimp "You have proven yourself worthy of the sea's grace!"
 
+        show shrimp default:
+            full
+            left
+        with move
+        show mc o:
+            full 
+            right
         "Mr shrimp moves aside to reveal the cave's entrance and its long tunnel."
-
         "But we couldn't just go yet.."
-
+        show mc serious:
+            full 
+            right
+            surprise
         mc "mr shrimp.. Why don't you come along with us?"
 
-        show shrimp surprise at npc_right
-        shrimp "WHAT?!"
+        show shrimp surprise:
+            full
+            centerleft
+            surprise
+        with move
+        shrimp "{size=50}WHAT?!{/size}"
 
-        show cory surprise at cory_left
-        cory "HUH?!"
-        cory "Guppy did you see how deadly those punches are?!"
+        show cory surprise:
+            full
+            rightish
+            surprise
+        cory "{size=45}HUH?!{/size}"
+        cory "Guppy did you not see how deadly those punches are?!"
 
+        show mc serious_hu:
+            full 
+            right
         mc "I know! But it was part of the duel.."
         mc "He didn't even once hurt us before it started…"
 
-        show cory side at cory_left
+        show cory side_close:
+            full
+            rightish
         cory "... can't argue with that."
 
-        show shrimp surprise at npc_right
+        show shrimp surprise:
+            full
+            centerleft
+            surprise
         shrimp "... But why the sudden preposterous preposition?!"
         shrimp "I'm the guardian of the sacred sea-salt gate!"
+        show shrimp default_om:
+            full
+            centerleft
         shrimp "I mustn't leave my post! I mustn't let the unworthy pass!"
 
         mc "but you can't keep doing this mr shrimp.."
         mc "there are fishes that reeaaally need to pass the gate.."
 
+        show cory talk:
+            full
+            rightish
         cory "They're right.."
         cory "There's a pregnant fish.. And some fish gone mad because of this carp"
+        show cory talk_hu:
+            full
+            rightish
         cory "Before this, You were actively helpin out fishes in need"
         cory "Those who couldn't pay the prices of this gate, you'd help them pass.."
+        show cory netral:
+            full
+            rightish
         cory "You've changed, what's up with that? Really."
 
-        show shrimp shy at npc_right
+        show shrimp shy:
+            full
+            centerleft
+            sink
         shrimp "...."
         shrimp "I was..!"
 
-        show shrimp sepet at npc_right
+        show shrimp sepet:
+            unpose
+            full
+            centerleft
         shrimp "What I did was a moment of weakness! One that I wouldn't repeat!"
+        show shrimp shy:
+            full
+            centerleft
         shrimp "And the cost of it was.. something irreversible…"
         shrimp "The one moment I let my guard down.."
 
-        show shrimp surprise at npc_right
+        show shrimp surprise:
+            full
+            centerleft
+            surprise
         shrimp "a sudden golden burst of incredible power dashed past me!"
 
         show mc o at mc_left
         mc "the golden fish…!"
 
-        show shrimp default at npc_right
+        show shrimp default_om:
+            unpose
+            full
+            centerleft
         shrimp "It's thousand suns way stronger than what my claws, my whole body can endure!"
+        show shrimp shy:
+            full
+            centerleft
         shrimp "I have never felt more powerless in my life than that moment!"
         shrimp "and it was I that let such a dangerous powerful entity into the sea…"
+        show shrimp default:
+            full
+            centerleft
         shrimp "One that doesn't bend down to rules… not even negotiation"
-
+        show shrimp default_om:
+            full
+            centerleft
+            surprise
         shrimp "Since that moment, the empress has tightened security at every gate that leads to the sea."
 
-        show shrimp shy at npc_right
+        show shrimp shy:
+            full
+            centerleft
         shrimp "And even when the empress had known of my crimes of letting fishes that didn't qualify pass through…"
 
-        show shrimp smile at npc_right
+        show shrimp smile:
+            full
+            centerleft
         shrimp "She still forgave me!"
 
-        show shrimp default at npc_right
+        show shrimp default_om:
+            full
+            centerleft
         shrimp "I swore to her that I won't repeat the same mistake!"
 
         mc "But mr shrimp.. It wasn't your fault that the golden fish pass through!"
@@ -1643,10 +1726,16 @@ label chapter2_mantis_cory_route:
         mc "and me and mr cory are heading to sea in search of the golden fish!"
         mc "We can search for it together! To prevent it from doing more harm"
 
-        show shrimp surprise at npc_right
+        show shrimp surprise:
+            full
+            centerleft
+            surprise
         shrimp "YOU ARE?!"
 
-        show shrimp shy at npc_right
+        show shrimp shy:
+            full
+            centerleft
+            sink
         shrimp "But.. who will guard the gates.. If not me?"
 
         cory "Naaah i don't think it needs guarding."
@@ -1657,11 +1746,20 @@ label chapter2_mantis_cory_route:
         cory "There are fishes who just want to survive and meet their family.."
         cory "They don't mean no harm to the sea i guarantee.."
 
-        show shrimp default at npc_right
+        show shrimp sepet:
+            unpose
+            full
+            centerleft
         shrimp ".... Fine! I'll go! But only if we talk it out first with the shrimp empress!"
 
-        show shrimp shy at npc_right
+        show shrimp default:
+            full
+            centerleft
         shrimp "I can't just abandon my post without notice"
+        show shrimp default_om:
+            full
+            centerleft
+            surprise
         shrimp "That would be betrayal of the highest order!"
 
         jump chapter2_ending
@@ -1671,45 +1769,66 @@ label chapter2_ending:
     show mc excited at mc_left
     mc "onward! to the sea we go!"
 
-    show shrimp laugh at npc_right
-    shrimp "to the sea!"
+    show shrimp laugh:
+            full
+            centerleft
+            toleft
+            walkloop
+    shrimp "KAKAKA! to the sea!"
 
-    show cory side at cory_left
+    show cory netral:
+            full
+            rightish
     cory "..."
 
-    show cory side_close at cory_left
+    show cory side:
+            full
+            rightish
     cory "......"
 
-    show cory fond at cory_left
-    cory "imp.. I leave the guppy's safety to ya alright?"
+    show cory fond:
+            full
+            rightish
+    cory "shrimp.. I leave the guppy's safety to ya alright?"
     cory "Shrimps have better resistance in freshwater don't they?"
 
     if has_item("saltwater_survival_device"):
+        show cory side:
+            full
+            rightish
         cory "And we only have one 50% effective saltwater device.."
 
     show mc shock at mc_left
     mc "...!!"
 
-    show shrimp default at npc_right
+    show shrimp default:
+            full
+            centerleft
     shrimp "yes of course! Protect i shall. it is my utmost duty to protect!"
 
     show mc pout at mc_left
     mc "no!"
 
-    show cory side_close at cory_left
+    show cory side_close:
+            full
+            rightish
     cory "guppy.."
 
     show mc pout at mc_left
     mc "no no no! I'm not going anywhere without Mr. Cory!!"
 
-    show cory talk at cory_left
+    show cory talk:
+            full
+            rightish
     cory "guppy, I'd dry the sea to come along but-"
 
     show mc pout at mc_left
     mc "mr shrimp cant you protect him? With your punches!"
     mc "punch all the freshwater away from mr.cory!"
 
-    show shrimp sepet at npc_right
+    show shrimp sepet:
+            full
+            centerleft
     shrimp "..."
 
     show shrimp default at npc_right
@@ -1723,44 +1842,60 @@ label chapter2_ending:
     mc "but you promised… *sniffle*"
     mc "that we'd catch that fish together...."
 
-    show cory side_close at cory_left
+    show cory side_close:
+            full
+            rightish
     cory "....."
     cory "I'm.. God terribly. sorry guppy.."
     cory "I didn't think far enough that it'd reach the sea.."
 
-    show cory side at cory_left
+    show cory side:
+            full
+            rightish
+            sink
     cory "...I'm afraid that I'm a fraud..."
 
     show shrimp smile at npc_right
     shrimp "that makes a good rhyme!"
 
     "The fish scale in my bag suddenly glows into a blinding sparkly light for one second."
-
     "Painting the three of us in gold, before it dims once more."
-
     "But something felt different."
 
     show mc o at mc_left
     mc "mm?"
 
-    show cory surprise at cory_left
+    show cory surprise:
+            unpose
+            full
+            rightish
+            surprise
     cory "I-! Huh? I feel different!"
 
     show mc o at mc_left
     mc "Try stepping in the saltwater, Mr.Cory!"
 
-    show cory side at cory_left
+    show cory side:
+            unpose
+            full
+            rightish
     cory "Are ya sure..? What if it's just my imagination?"
 
     show mc happy at mc_left
     mc "trust me!"
 
-    show cory side_close at cory_left
-    cory "Alright…"
+    show cory side_close:
+            unpose
+            full
+            rightish
+    cory "Alright… here goes nothin.."
 
     "Mr Cory hesitantly takes one step into where freshwater and saltwater collide with one eye closed."
 
-    show cory surprise at cory_left
+    show cory surprise:
+            full
+            rightish
+            surprise
     cory "Holy mother of sea…!"
 
     show mc shock at mc_left
@@ -1768,7 +1903,11 @@ label chapter2_ending:
 
     "Before I can finish my line I was swept into a spinning hug."
 
-    show cory proud at cory_left
+    show cory proud_hu:
+            full
+            rightish
+            surprise
+            vibrate
     cory "I CAN'T BELIEVE IT!! I'M IN SALTWATER GUPPY!!"
 
     show mc excited at mc_left
@@ -1779,8 +1918,11 @@ label chapter2_ending:
     show shrimp laugh at npc_right
     shrimp "KAKAKA! WAHOO!"
 
-    show cory upset at cory_left
-    cory "THAT'S WAY TOO FAAAUUUAASHHTT SHRIMP PUT US DOOOOWN"
+    show cory upset:
+            full
+            rightish
+            vibrate
+    cory "{sc}THAT'S WAY TOO FAAAUUUAASHHTT SHRIMP PUT US DOOOOWN {/sc}"
 
     show mc excited at mc_left
     mc "YIPEEEEE FAAASTEEER!!"
@@ -1793,7 +1935,10 @@ label chapter2_ending:
     show shrimp laugh at npc_right
     shrimp "With this, we can now safely travel amongst the seas! KAKAKA!"
 
-    show cory unimpressed at cory_left
+    show cory unimpressed2:
+            full
+            rightish
+            vibrate
     cory "ngnuuurhhhehhkk"
 
     show mc dizzy at mc_left
