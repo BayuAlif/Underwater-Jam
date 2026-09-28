@@ -44,6 +44,7 @@ screen ch5_anomaly_exploration():
                 outlines [(2, "#000000", 0, 0)]
         else:
             imagebutton:
+                focus_mask True
                 xcenter 960
                 ypos 620
                 idle "ch5_mantis_idle"
@@ -96,6 +97,7 @@ screen ch5_anomaly_exploration():
                 outlines [(2, "#000000", 0, 0)]
         else:
             imagebutton:
+                focus_mask True
                 xcenter 960
                 ypos 620
                 idle "ch5_leo_idle"
@@ -148,6 +150,7 @@ screen ch5_anomaly_exploration():
                 outlines [(2, "#000000", 0, 0)]
         else:
             imagebutton:
+                focus_mask True
                 xcenter 960
                 ypos 620
                 idle "ch5_cory_idle"
