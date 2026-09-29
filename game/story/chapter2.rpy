@@ -11,20 +11,25 @@ label chapter2_start:
     "The sunlight above grew softer, hiding themself behind layers of drifting water plants as we continue to swim."
     $ focus()
     show mc o:
-        unpose
         full
+        unpose
+    show mc o:
+        unpose
         right
         toleft
     with moveinright
     show cory netral:
-        unpose
         full
+        unpose
+    show cory netral:
+        unpose
         center
         toleft
     with moveinright
     mc "Have you been to the sea mr. Cory?"
 
     show cory talk:
+        unpose
         full
         center
         toleft
@@ -32,12 +37,14 @@ label chapter2_start:
     cory "Nearest I've been at is meters before saltwater and freshwater collides"
 
     show cory smile:
+        unpose
         full
         center
         toleft
     cory "Besides, I'm a freshwater fish guppy, one step into sea, and I explode"
 
     show mc shock:
+        unpose
         full
         right
         toleft
@@ -45,24 +52,28 @@ label chapter2_start:
     mc "EXPLODE?? NOOO MR CORY PLEASE DONT EXPLODE!! I LEFT MY GLUE AT HOME D:"
 
     show cory smile:
+        unpose
         full
         center
         toleft
     cory "Ay easy, easy! I won't be exploding now..!"
 
     show cory side:
+        unpose
         full
         center
         toleft
     cory "{cps=30}{size=24}Ah but.. that woulda mean we have to part ways-{/size}{/cps}"
 
     show mc o:
+        unpose
         full
         right
         toleft
     mc "Woah look ahead! that's a lotta shoal!"
 
     show cory talk:
+        unpose
         full
         center
         toleft
@@ -71,6 +82,7 @@ label chapter2_start:
     "Several tens of fishes crowd at what looks like a border built out of tall reefs, a small cave sits in the middle where a speckle of colorful creature stands firm guarding the entrance."
 
     show cory talk:
+        unpose
         full
         center
         toleft
@@ -78,6 +90,7 @@ label chapter2_start:
     cory "Itsa always been a busy place but this amount is unnatural..."
 
     show mc o:
+        unpose
         full
         right
         toleft
@@ -87,6 +100,7 @@ label chapter2_start:
     "I squint my eyes into thin lines to take a better look on the eccentric colored guardian right before the cave's entrance."
 
     show mc excited:
+        unpose
         full
         right
         toleft
@@ -106,12 +120,14 @@ label chapter2_start:
     mc "Mr cory can we give it a handshake? :D"
 
     show cory unimpressed2:
+        unpose
         full
         center
         toleft
     cory "Nuh uh! unless you want your hand gone for good"
 
     show cory talk:
+        unpose
         full
         center
         toleft
@@ -119,11 +135,13 @@ label chapter2_start:
     cory "He's quite friendly, it's hard to believe if the fuss is his doing."
 
     show mc serious_hu:
+        unpose
         full
         right
     mc "really?! You know him?"
 
     show cory talk_hu:
+        unpose
         full
         center
         toleft
@@ -138,6 +156,7 @@ label chapter2_start:
     mc "Sir yes sir mr cory!"
 
     show cory fond:
+        unpose
         full
         center
         toleft
@@ -232,6 +251,7 @@ label chapter2_tiny_krill:
 
     $ focus()
     show mc happy:
+        unpose
         full
         right
         surprise
@@ -246,6 +266,7 @@ label chapter2_tiny_krill:
     tinykrill "Eah!"
 
     show cory disrespect:
+        unpose
         full
         center
     with moveinleft
@@ -259,12 +280,14 @@ label chapter2_tiny_krill:
     tinykrill "Your joke sucks ass!"
 
     show cory unimpressed:
+        unpose
         full
         center
     cory "...."
     cory "... I say we feed that thing to a fish, guppy"
 
     show mc sad_hu:
+        unpose
         full
         right
         sink
@@ -397,35 +420,44 @@ label chapter2_ending:
 
     $ focus()
     show mc excited:
-        unpose
         full
         right
+        unpose
+    show mc excited:
+        unpose
         walkloop
     mc "onward! to the sea we go!"
 
     show shrimp laugh:
-        unpose
         full
+        unpose
+        offscreenleft
+    show shrimp laugh:
+        unpose
         centerleft
         walkloop
     with moveinleft
     shrimp "KAKAKA! to the sea!"
 
     show cory netral:
-        unpose
         full
+        unpose
+        offscreenleft
+    show cory netral:
+        unpose
         rightish
         walkloop
-    with moveinleft
     cory "..."
 
     show cory side:
+        unpose
         full
         right
     with move
     cory "......"
 
     show cory fond:
+        unpose
         full
         right
     cory "shrimp.. I leave the guppy's safety to ya alright?"
@@ -433,73 +465,87 @@ label chapter2_ending:
 
     if has_item("saltwater_survival_device"):
         show cory side:
+            unpose
             full
             right
         cory "And we only have one 50% effective saltwater device.."
 
     show mc shock:
+        unpose
         full
         right
     mc "...!!"
 
     show shrimp default:
+        unpose
         full
         centerleft
     show cory side:
+        unpose
         full
         rightish
     with move
     shrimp "yes of course! Protect i shall. it is my utmost duty to protect!"
 
     show mc pout:
+        unpose
         full
         right
     mc "no!"
 
     show cory side_close:
+        unpose
         full
         rightish
     cory "guppy.."
 
     show mc pout:
+        unpose
         full
         right
     mc "no no no! I'm not going anywhere without Mr. Cory!!"
 
     show cory talk:
+        unpose
         full
         rightish
     cory "guppy, I'd dry the sea to come along but-"
 
     show mc pout:
+        unpose
         full
         right
     mc "mr shrimp cant you protect him? With your punches!"
     mc "punch all the freshwater away from mr.cory!"
 
     show shrimp sepet:
+        unpose
         full
         centerleft
     shrimp "..."
 
     show shrimp default:
+        unpose
         full
         centerleft
     shrimp "I'm afraid I cannot, my dear comrade!"
     shrimp "punching water is akin to fighting a shadow…"
 
     show mc shock:
+        unpose
         full
         right
     mc "no.."
 
     show mc holdcry:
+        unpose
         full
         right
     mc "but you promised… *sniffle*"
     mc "that we'd catch that fish together...."
 
     show cory side_close:
+        unpose
         full
         rightish
     cory "....."
@@ -507,12 +553,14 @@ label chapter2_ending:
     cory "I didn't think far enough that it'd reach the sea.."
 
     show cory side:
+        unpose
         full
         rightish
         sink
     cory "...I'm afraid that I'm a fraud..."
 
     show shrimp smile:
+        unpose
         full
         centerleft
     shrimp "that makes a good rhyme!"
@@ -522,6 +570,7 @@ label chapter2_ending:
     "But something felt different."
 
     show mc o:
+        unpose
         full
         right
     mc "mm?"
@@ -534,6 +583,7 @@ label chapter2_ending:
     cory "I-! Huh? I feel different!"
 
     show mc o:
+        unpose
         full
         right
     mc "Try stepping in the saltwater, Mr.Cory!"
@@ -545,6 +595,7 @@ label chapter2_ending:
     cory "Are ya sure..? What if it's just my imagination?"
 
     show mc happy:
+        unpose
         full
         right
     mc "trust me!"
@@ -558,12 +609,14 @@ label chapter2_ending:
     "Mr Cory hesitantly takes one step into where freshwater and saltwater collide with one eye closed."
 
     show cory surprise:
+        unpose
         full
         rightish
         surprise
     cory "Holy mother of sea…!"
 
     show mc shock:
+        unpose
         full
         right
     mc "d-does it hurt-"
@@ -571,6 +624,7 @@ label chapter2_ending:
     "Before I can finish my line I was swept into a spinning hug."
 
     show cory proud_hu:
+        unpose
         full
         rightish
         surprise
@@ -578,6 +632,7 @@ label chapter2_ending:
     cory "I CAN'T BELIEVE IT!! I'M IN SALTWATER GUPPY!!"
 
     show mc excited:
+        unpose
         full
         right
     mc "YAAAAAY"
@@ -585,22 +640,26 @@ label chapter2_ending:
     "Mr shrimp then lifts the both of us with its strong claws spinning us all into a dizzying spiral."
 
     show shrimp laugh:
+        unpose
         full
         centerleft
     shrimp "KAKAKA! WAHOO!"
 
     show cory upset:
+        unpose
         full
         rightish
         vibrate
     cory "{sc}THAT'S WAY TOO FAAAUUUAASHHTT SHRIMP PUT US DOOOOWN{/sc}"
 
     show mc excited:
+        unpose
         full
         right
     mc "YIPEEEEE FAAASTEEER!!"
 
     show shrimp surprise:
+        unpose
         full
         centerleft
     shrimp "Ah! My apologies, comrades! And congratulations to Mr. Cory!"
@@ -608,22 +667,26 @@ label chapter2_ending:
     "Mr shrimp then carefully puts us down."
 
     show shrimp laugh:
+        unpose
         full
         centerleft
     shrimp "With this, we can now safely travel amongst the seas! KAKAKA!"
 
     show cory unimpressed2:
+        unpose
         full
         rightish
         vibrate
     cory "ngnuuurhhhehhkk"
 
     show mc dizzy:
+        unpose
         full
         right
     mc "oaooaooouhh yaaaah lets meef the… crustashan empeees.."
 
     show shrimp smile:
+        unpose
         full
         centerleft
     shrimp "Don't worry, my dizzy lieges! I'll carry the both of you until you regain your ground! Or.. your water!"
