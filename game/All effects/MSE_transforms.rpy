@@ -219,18 +219,18 @@ transform jump(windup=1,power=1,airtime=1):
     easein_circ 0.1*airtime yoffset 10*power
     ease 0.1*airtime yoffset 0
 
-transform jumpmc(windup=0.5,power=1,airtime=1):
+transform jumpmc(windup=1,power=2,airtime=1):
     ease windup yoffset 10*windup
-    easein 0.4*airtime yoffset -40*power
+    easein 0.4*airtime yoffset -50*power
     easeout 0.4*airtime yoffset 0
     easein_circ 0.1*airtime yoffset 10*power
     ease 0.1*airtime yoffset 0
 
-transform surprise(windup=0,power=0.3,airtime=0.5):
+transform surprise(windup=0,power=1,airtime=1):
     ease windup yoffset 10*windup
-    easein 0.4*airtime yoffset -90*power
+    easein 0.4*airtime yoffset -100*power
     easeout 0.4*airtime yoffset 0
-    easein_circ 0.1*airtime yoffset 5*power
+    easein_circ 0.1*airtime yoffset 10*power
     ease 0.1*airtime yoffset 0
 
 
@@ -475,7 +475,7 @@ transform seesaw_right:
 ## Pickup ##############################
 
 transform sink(depth=1):
-    ease 0.3 yoffset 50*depth
+    ease 0.3 yoffset 100*depth
 
 transform pickup(depth=1):
     ease 0.5 yoffset 100*depth
