@@ -7,7 +7,7 @@ label chapter2_start:
     hide mc
     scene ch2_day with Dissolve(0.5)
     play music chap_2_day volume 0.5
-    "The river flowed faster, slowly giving way to larger stones." 
+    "The river flowed faster, slowly giving way to larger stones."
     "The sunlight above grew softer, hiding themself behind layers of drifting water plants as we continue to swim."
     $ focus()
     show mc o:
@@ -96,17 +96,15 @@ label chapter2_start:
             surprise
             pause 1
             repeat
-<<<<<<< HEAD
+
     mc "Oh oh! That's a mantis shrimp!! He looks really tough!"
-=======
-    mc "Oh oh! That's a mantis shrimp!! He looks really though!"
 
     show mc excited:
         full
         unpose
         right
         toleft
->>>>>>> f03d93af220224b5bdd23ea2c1b2eaf6b2e8a9cc
+
     mc "Mr cory can we give it a handshake? :D"
 
     show cory unimpressed2:
@@ -152,6 +150,7 @@ label chapter2_start:
     call chapter2_night_start
 
     return
+
 
 label chapter2_day_exploration:
 
@@ -230,7 +229,9 @@ label chapter2_day_exploration:
             $ chapter2_day_done = True
             return
 
+
 label chapter2_tiny_krill:
+
     $ focus()
     show mc happy:
         full
@@ -281,6 +282,7 @@ label chapter2_tiny_krill:
     "{b}I obtained a tiny krill.{/b}"
     $ focus()
     return
+
 
 label chapter2_salmon:
 
@@ -394,6 +396,7 @@ label chapter2_salmon:
     $ add_clue("The only way to go to the sea is blocked by a mantis shrimp.")
 
     return
+
 
 label chapter2_salmon_questions:
 
@@ -582,6 +585,7 @@ label chapter2_salmon_questions:
 
     return
 
+
 label chapter2_arowana:
 
     show arowana mad at npc_right
@@ -604,7 +608,6 @@ label chapter2_arowana:
     show arowana squint at npc_right
     aro "Oh. A fish."
 
-    show arowana default at npc_right
     show arowana default at npc_right
     aro "My apologies, sir. I failed to notice you"
 
@@ -631,6 +634,7 @@ label chapter2_arowana:
     call chapter2_arowana_questions
 
     return
+
 
 label chapter2_arowana_questions:
 
@@ -849,6 +853,7 @@ label chapter2_arowana_questions:
 
     return
 
+
 label chapter2_night_start:
 
     $ current_cycle = "night"
@@ -926,7 +931,9 @@ label chapter2_night_start:
 
     return
 
+
 label chapter2_coal_tar:
+
     $ focus()
     show mc o at mc_center_left
     mc "Mr. Cory, do you know what this black lump is?"
@@ -940,59 +947,62 @@ label chapter2_coal_tar:
     show mc shock at mc_center_left
     mc "Yuck! it smells… weird."
 
-<<<<<<< HEAD
-    show ghost deadpan at npc_right
-    ghost "You shouldn't be carrying things you don't understand."
-
-    show cory smile_hu at cory_left
-    cory "Yeah.. that's right guppy.."
-    cory "Finally, Some self preservation in ya!"
-
-    show mc o at mc_left
-    mc "That.. wasn't me…"
-
-    "The water around us suddenly grows eerily still."
-
-    "Faint glow pair of eyes emerges from the darkness."
-
-    show cory surprise at cory_left
-    cory "GYAAAAAAA—"
-
-    "Mr Cory jumped and immediate cower behind my back with a loud screech."
-
-    show mc o at mc_left
-    mc ":o"
-
-    show mc excited at mc_left
-    mc "Woah! What are you?"
-
-    show ghost default at npc_right
-    ghost "A fish."
-
-    show mc pout at mc_left
-    mc "I can see that."
-
-    ghost "Then you needn't know more."
-
-    show mc o at mc_left
-    mc "Why are you here… fish?"
-
-    show ghost side at npc_right
-    ghost "You were meant to find me."
-
-    show ghost close at npc_right
-    ghost "But this second is not the time"
-    ghost "We shall meet again.. very soon."
-
-    show ghost side at npc_right
-    ghost "Or perhaps.. we have met before."
-
-    show mc happy at mc_left
-    mc "Okay! Looking forward to meeting you again, fish!"
-    mc "Mr Cory you can come out, it's fine now."
-=======
+    # Merge conflict resolved: using the label version (branch f03d93a).
+    # The old inline ghost dialogue (from HEAD) is kept below as a comment
+    # so nothing is lost. Make sure it exists inside ghost_coal_tar_encounter.
     call ghost_coal_tar_encounter
->>>>>>> f03d93af220224b5bdd23ea2c1b2eaf6b2e8a9cc
+
+    # --- OLD INLINE VERSION (HEAD), kept for reference ---
+    # show ghost deadpan at npc_right
+    # ghost "You shouldn't be carrying things you don't understand."
+    #
+    # show cory smile_hu at cory_left
+    # cory "Yeah.. that's right guppy.."
+    # cory "Finally, Some self preservation in ya!"
+    #
+    # show mc o at mc_left
+    # mc "That.. wasn't me…"
+    #
+    # "The water around us suddenly grows eerily still."
+    #
+    # "Faint glow pair of eyes emerges from the darkness."
+    #
+    # show cory surprise at cory_left
+    # cory "GYAAAAAAA—"
+    #
+    # "Mr Cory jumped and immediate cower behind my back with a loud screech."
+    #
+    # show mc o at mc_left
+    # mc ":o"
+    #
+    # show mc excited at mc_left
+    # mc "Woah! What are you?"
+    #
+    # show ghost default at npc_right
+    # ghost "A fish."
+    #
+    # show mc pout at mc_left
+    # mc "I can see that."
+    #
+    # ghost "Then you needn't know more."
+    #
+    # show mc o at mc_left
+    # mc "Why are you here… fish?"
+    #
+    # show ghost side at npc_right
+    # ghost "You were meant to find me."
+    #
+    # show ghost close at npc_right
+    # ghost "But this second is not the time"
+    # ghost "We shall meet again.. very soon."
+    #
+    # show ghost side at npc_right
+    # ghost "Or perhaps.. we have met before."
+    #
+    # show mc happy at mc_left
+    # mc "Okay! Looking forward to meeting you again, fish!"
+    # mc "Mr Cory you can come out, it's fine now."
+    # --- END OLD VERSION ---
 
     show cory upset at cory_left
     cory "What the eel even was that?!"
@@ -1059,6 +1069,7 @@ label chapter2_mantis:
     call chapter2_mantis_mc_route
 
     return
+
 
 label chapter2_mantis_mc_route:
 
@@ -1237,6 +1248,7 @@ label chapter2_mantis_mc_route:
 
     jump chapter2_mantis_cory_route
 
+
 label chapter2_mantis_cory_route:
 
     show shrimp default at npc_right
@@ -1314,7 +1326,7 @@ label chapter2_mantis_cory_route:
 
     if duel_result == "win":
         show mc yay:
-            full 
+            full
             right
             surprise
         mc "We did it!! We won mr.Cory!!"
@@ -1350,7 +1362,7 @@ label chapter2_mantis_cory_route:
         "Mr shrimp moves aside to reveal the cave's entrance and its long tunnel."
         "But we couldn't just go yet.."
         show mc serious:
-            full 
+            full
             right
             surprise
         mc "mr shrimp.. Why don't you come along with us?"
@@ -1370,7 +1382,7 @@ label chapter2_mantis_cory_route:
         cory "Guppy did you not see how deadly those punches are?!"
 
         show mc serious_hu:
-            full 
+            full
             right
         mc "I know! But it was part of the duel.."
         mc "He didn't even once hurt us before it started…"
@@ -1516,14 +1528,18 @@ label chapter2_mantis_cory_route:
 
         jump chapter2_ending
 
+    return
+
+
 label chapter2_ending:
+
     $ focus()
     show mc excited:
-            full
-            right
-            unpose
+        full
+        right
+        unpose
     show mc excited:
-            walkloop
+        walkloop
     mc "onward! to the sea we go!"
 
     show shrimp laugh:
@@ -1537,23 +1553,23 @@ label chapter2_ending:
     shrimp "KAKAKA! to the sea!"
 
     show cory netral:
-            full
-            unpose
-            offscreenleft
+        full
+        unpose
+        offscreenleft
     show cory netral:
-            rightish
-            walkloop
+        rightish
+        walkloop
     cory "..."
 
     show cory side:
-            full
-            right
+        full
+        right
     with move
     cory "......"
 
     show cory fond:
-            full
-            right
+        full
+        right
     cory "shrimp.. I leave the guppy's safety to ya alright?"
     cory "Shrimps have better resistance in freshwater don't they?"
 
@@ -1564,83 +1580,83 @@ label chapter2_ending:
         cory "And we only have one 50% effective saltwater device.."
 
     show mc shock:
-            full
-            right
+        full
+        right
     mc "...!!"
 
     show shrimp default:
-            full
-            centerleft
+        full
+        centerleft
     show cory side:
-            full
-            rightish
+        full
+        rightish
     with move
     shrimp "yes of course! Protect i shall. it is my utmost duty to protect!"
 
     show mc pout:
-            full
-            right
+        full
+        right
     mc "no!"
 
     show cory side_close:
-            full
-            rightish
+        full
+        rightish
     cory "guppy.."
 
     show mc pout:
-            full
-            right
+        full
+        right
     mc "no no no! I'm not going anywhere without Mr. Cory!!"
 
     show cory talk:
-            full
-            rightish
+        full
+        rightish
     cory "guppy, I'd dry the sea to come along but-"
 
     show mc pout:
-            full
-            right
+        full
+        right
     mc "mr shrimp cant you protect him? With your punches!"
     mc "punch all the freshwater away from mr.cory!"
 
     show shrimp sepet:
-            full
-            centerleft
+        full
+        centerleft
     shrimp "..."
 
     show shrimp default:
-            full
-            centerleft
+        full
+        centerleft
     shrimp "I'm afraid I cannot, my dear comrade!"
     shrimp "punching water is akin to fighting a shadow…"
 
     show mc shock:
-            full
-            right
+        full
+        right
     mc "no.."
 
     show mc holdcry:
-            full
-            right
+        full
+        right
     mc "but you promised… *sniffle*"
     mc "that we'd catch that fish together...."
 
     show cory side_close:
-            full
-            rightish
+        full
+        rightish
     cory "....."
     cory "I'm.. God terribly. sorry guppy.."
     cory "I didn't think far enough that it'd reach the sea.."
 
     show cory side:
-            full
-            rightish
-            sink
+        full
+        rightish
+        sink
     cory "...I'm afraid that I'm a fraud..."
 
     show shrimp smile:
-            full
-            centerleft
+        full
+        centerleft
     shrimp "that makes a good rhyme!"
 
     "The fish scale in my bag suddenly glows into a blinding sparkly light for one second."
@@ -1648,110 +1664,110 @@ label chapter2_ending:
     "But something felt different."
 
     show mc o:
-            full
-            right
+        full
+        right
     mc "mm?"
 
     show cory surprise:
-            unpose
-            full
-            rightish
-            surprise
+        unpose
+        full
+        rightish
+        surprise
     cory "I-! Huh? I feel different!"
 
     show mc o:
-            full
-            right
+        full
+        right
     mc "Try stepping in the saltwater, Mr.Cory!"
 
     show cory side:
-            unpose
-            full
-            rightish
+        unpose
+        full
+        rightish
     cory "Are ya sure..? What if it's just my imagination?"
 
     show mc happy:
-            full
-            right
+        full
+        right
     mc "trust me!"
 
     show cory side_close:
-            unpose
-            full
-            rightish
+        unpose
+        full
+        rightish
     cory "Alright… here goes nothin.."
 
     "Mr Cory hesitantly takes one step into where freshwater and saltwater collide with one eye closed."
 
     show cory surprise:
-            full
-            rightish
-            surprise
+        full
+        rightish
+        surprise
     cory "Holy mother of sea…!"
 
     show mc shock:
-            full
-            right
+        full
+        right
     mc "d-does it hurt-"
 
     "Before I can finish my line I was swept into a spinning hug."
 
     show cory proud_hu:
-            full
-            rightish
-            surprise
-            vibrate
+        full
+        rightish
+        surprise
+        vibrate
     cory "I CAN'T BELIEVE IT!! I'M IN SALTWATER GUPPY!!"
 
     show mc excited:
-            full
-            right
+        full
+        right
     mc "YAAAAAY"
 
     "Mr shrimp then lifts the both of us with its strong claws spinning us all into a dizzying spiral."
 
     show shrimp laugh:
-            full
-            centerleft
+        full
+        centerleft
     shrimp "KAKAKA! WAHOO!"
 
     show cory upset:
-            full
-            rightish
-            vibrate
+        full
+        rightish
+        vibrate
     cory "{sc}THAT'S WAY TOO FAAAUUUAASHHTT SHRIMP PUT US DOOOOWN{/sc}"
 
     show mc excited:
-            full
-            right
+        full
+        right
     mc "YIPEEEEE FAAASTEEER!!"
 
     show shrimp surprise:
-            full
-            centerleft
+        full
+        centerleft
     shrimp "Ah! My apologies, comrades! And congratulations to Mr. Cory!"
 
     "Mr shrimp then carefully puts us down."
 
     show shrimp laugh:
-            full
-            centerleft
+        full
+        centerleft
     shrimp "With this, we can now safely travel amongst the seas! KAKAKA!"
 
     show cory unimpressed2:
-            full
-            rightish
-            vibrate
+        full
+        rightish
+        vibrate
     cory "ngnuuurhhhehhkk"
 
     show mc dizzy:
-            full
-            right
+        full
+        right
     mc "oaooaooouhh yaaaah lets meef the… crustashan empeees.."
 
     show shrimp smile:
-            full
-            centerleft
+        full
+        centerleft
     shrimp "Don't worry, my dizzy lieges! I'll carry the both of you until you regain your ground! Or.. your water!"
 
     $ focus()
