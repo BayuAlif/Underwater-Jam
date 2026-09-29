@@ -15,18 +15,14 @@ label chapter2_start:
         unpose
     show mc o:
         right
-        walkto(right)
         toleft
-        walkloop
     with moveinright
     show cory netral:
         full
         unpose
     show cory netral:
         center
-        walkto(center)
         toleft
-        walkloop
     with moveinright
     mc "Have you been to the sea mr. Cory?"
 
@@ -34,21 +30,19 @@ label chapter2_start:
         full
         center
         toleft
-        walkloop
     cory "Sea? Nah that's waaay past my territory"
     cory "Nearest I've been at is meters before saltwater and freshwater collides"
 
     show cory smile:
         full
         center
-        walkloop
+        toleft
     cory "Besides, I'm a freshwater fish guppy, one step into sea, and I explode"
 
     show mc shock:
         full
         right
         toleft
-        walkloop
         vibrate
     mc "EXPLODE?? NOOO MR CORY PLEASE DONT EXPLODE!! I LEFT MY GLUE AT HOME D:"
 
@@ -56,26 +50,24 @@ label chapter2_start:
         full
         center
         toleft
-        walkloop
     cory "Ay easy, easy! I won't be exploding now..!"
 
     show cory side:
         full
         center
         toleft
-        walkloop
     cory "{cps=30}{size=24}Ah but.. that woulda mean we have to part ways-{/size}{/cps}"
 
     show mc o:
         full
         right
+        toleft
     mc "Woah look ahead! that's a lotta shoal!"
 
     show cory talk:
         full
         center
         toleft
-        walkloop
     cory "Huh..?"
 
     "Several tens of fishes crowd at what looks like a border built out of tall reefs, a small cave sits in the middle where a speckle of colorful creature stands firm guarding the entrance."
@@ -83,12 +75,14 @@ label chapter2_start:
     show cory talk:
         full
         center
+        toleft
     cory "That's the border of salt fresh.."
     cory "Itsa always been a busy place but this amount is unnatural..."
 
     show mc o:
         full
         right
+        toleft
         surprise
     mc "Is that a shrimp guarding the cave hole?"
 
@@ -97,21 +91,34 @@ label chapter2_start:
     show mc excited:
         full
         right
+        toleft
         block:
             surprise
             pause 1
             repeat
+<<<<<<< HEAD
     mc "Oh oh! That's a mantis shrimp!! He looks really tough!"
+=======
+    mc "Oh oh! That's a mantis shrimp!! He looks really though!"
+
+    show mc excited:
+        full
+        unpose
+        right
+        toleft
+>>>>>>> f03d93af220224b5bdd23ea2c1b2eaf6b2e8a9cc
     mc "Mr cory can we give it a handshake? :D"
 
     show cory unimpressed2:
         full
         center
+        toleft
     cory "Nuh uh! unless you want your hand gone for good"
 
     show cory talk:
         full
         center
+        toleft
     cory "But eh, that mantis shrimp.. He had been around for a good while"
     cory "He's quite friendly, it's hard to believe if the fuss is his doing."
 
@@ -123,17 +130,21 @@ label chapter2_start:
     show cory talk_hu:
         full
         center
+        toleft
     cory "Yeah, But I say we ask around first to know what the crowd's about.."
 
     show mc happy:
         full
+        unpose
         right
+        toleft
         surprise
     mc "Sir yes sir mr cory!"
 
     show cory fond:
         full
         center
+        toleft
     cory "Heh, atta fish"
     $ focus()
 
@@ -888,7 +899,8 @@ label chapter2_night_start:
 
         if result == "ghostfish":
             call ghostfish_interaction
-            $ mark_npc_explored("ghostfish")
+            if _return != "unexplored":
+                $ mark_npc_explored("ghostfish")
             jump .loop
 
         elif result == "item":
@@ -928,6 +940,7 @@ label chapter2_coal_tar:
     show mc shock at mc_center_left
     mc "Yuck! it smells… weird."
 
+<<<<<<< HEAD
     show ghost deadpan at npc_right
     ghost "You shouldn't be carrying things you don't understand."
 
@@ -977,6 +990,9 @@ label chapter2_coal_tar:
     show mc happy at mc_left
     mc "Okay! Looking forward to meeting you again, fish!"
     mc "Mr Cory you can come out, it's fine now."
+=======
+    call ghost_coal_tar_encounter
+>>>>>>> f03d93af220224b5bdd23ea2c1b2eaf6b2e8a9cc
 
     show cory upset at cory_left
     cory "What the eel even was that?!"

@@ -189,10 +189,13 @@ style input_prompt is default
 style input_prompt:
     xalign gui.dialogue_text_xalign
     properties gui.text_properties("input_prompt")
+    line_spacing -2
+    outlines [ (2, "#000000", 0, 0) ]
 
 style input:
     xalign gui.dialogue_text_xalign
     xmaximum gui.dialogue_width
+    outlines [ (2, "#000000", 0, 0) ]
 
 screen choice(items):
     style_prefix "choice"

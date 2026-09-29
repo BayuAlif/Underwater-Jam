@@ -10,16 +10,12 @@ label mantis_interaction:
     show cory talk:
         full
         unpose
-        offscreenleft
-    show cory talk:
         leftish
     with moveinleft
 
     show mc serious:
         full
         unpose
-        offscreenright
-    show mc serious:
         right
     with moveinright
 
@@ -551,8 +547,6 @@ label mantis_as_cory:
     show cory anon:
         full
         unpose
-        offscreenleft
-    show cory anon:
         duo_left
     with moveinleft
 

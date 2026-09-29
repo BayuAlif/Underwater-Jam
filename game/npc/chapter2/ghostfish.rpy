@@ -1,8 +1,161 @@
+default ghost_first_met = False
+
+label ghost_coal_tar_encounter:
+    ghost "You shouldn't be carrying things you don't understand."
+
+    show cory smile_hu:
+        full
+        duo_left
+    cory "Yeah.. that's right guppy.."
+    cory "Finally, Some self preservation in ya!"
+
+    show mc o:
+        full
+        duo_right
+        surprise
+    mc "That.. wasn’t me…"
+
+    "The water around us suddenly grows eerily still."
+    "Faint glow pair of eyes emerges from the darkness."
+
+    show ghost deadpan:
+        full
+        duo_left
+        float_idle
+    with dissolve
+
+    show cory surprise:
+        full
+        duo_left
+        surprise
+        vibrate
+    cory "GYAAAAAAA—"
+
+    "Mr Cory jumped and immediately cowers behind my back with a loud screech"
+
+    show cory side_close:
+        full
+        farright
+        toleft
+        sink
+    with move
+
+    show mc o:
+        full
+        duo_right
+        surprise
+    mc ":o"
+
+    show mc excited:
+        full
+        duo_right
+        jumpmc
+    if ghost_first_met:
+        mc "Woah! It's you again, Ms. Fish!"
+    else:
+        mc "Woah! What are you?"
+
+    show ghost default:
+        full
+        duo_left
+        float_idle
+    ghost "A fish."
+
+    show mc pout:
+        full
+        duo_right
+    mc "I can see that."
+
+    ghost "Then you needn’t know more."
+
+    show mc o:
+        full
+        duo_right
+    mc "Why are you here… fish?"
+
+    show ghost side:
+        full
+        duo_left
+        float_idle
+    ghost "You were meant to find me."
+
+    show ghost close:
+        full
+        duo_left
+        float_idle
+    ghost "But this second is not the time"
+    ghost "We shall meet again.. very soon."
+
+    show ghost side:
+        full
+        duo_left
+        float_idle
+    ghost "Or perhaps.. we have met before."
+
+    hide ghost with dissolve
+
+    show mc happy:
+        full
+        duo_right
+    mc "Okay! Looking forward to meeting you again, fish!"
+    mc "Mr Cory you can come out, it's fine now."
+
+    $ ghost_first_met = True
+    return
+
 label ghostfish_interaction:
     hide mc
     hide cory
     scene ch2_night with dissolve
     $ focus()
+
+    if not has_item("coal_tar"):
+        show ghost default:
+            full
+            center
+            float_idle
+        with moveinright
+
+        show mc o:
+            full
+            right
+        with moveinright
+
+        "A mysterious knife fish floats in tranquility. The dark atmosphere blending in, making its eyes and white stripes the only thing visible of her."
+        "The way its fin flows is mesmerizing to watch. Yet Mr Cory already cowers behind me."
+
+        show mc o:
+            full
+            right
+            surprise
+        mc "Uhm... hello? Miss Fish?"
+
+        show ghost default:
+            full
+            centerright
+            float_idle
+        with move
+        ghost "Greetings, little wanderer."
+        ghost "You seek answers in the dark, yet your eyes haven't caught the strange remnant resting on the riverbed."
+
+        show mc o:
+            full
+            right
+        mc "The riverbed? Is there something down there?"
+
+        show ghost close:
+            full
+            centerright
+            float_idle
+        ghost "Look closer before you speak with the unseen. Search the seabed first."
+
+        hide ghost
+        hide mc
+        hide cory
+        with dissolve
+
+        $ ghost_first_met = True
+        return "unexplored"
 
     show ghost default:
         full

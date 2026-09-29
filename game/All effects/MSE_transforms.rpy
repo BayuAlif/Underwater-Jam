@@ -40,6 +40,8 @@ transform toright:
 transform full:
     ypos 1.0
     zoom 1/scale
+    offset (0,0)
+    rotate 0
 
 transform medlong:
     ypos 1.45
@@ -203,10 +205,8 @@ transform bowright(depth=1):
 
 transform unpose: ## Return to default
     transform_anchor True
-    parallel:
-        ease 1.0 rotate 0
-    parallel:
-        ease 1.0 offset (0,0)
+    offset (0,0)
+    rotate 0
 
 ################################################################################
 ## Action Animations

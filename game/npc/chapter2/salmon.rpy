@@ -62,6 +62,7 @@ label salmon_interaction:
 
     show mc happy:
         full
+        unpose
         right
     mc "There, there."
     mc "If the mama is sad, the baby gets sad, too."
