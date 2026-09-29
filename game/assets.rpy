@@ -3,7 +3,7 @@ init -2 python:
         config.layers.insert(config.layers.index("screens") + 1, "mc_front")
     config.tag_layer["mc"] = "mc_front"
 
-image mc default = "images/characters/mc/McDefault_.png"
+image mc default = "images/characters/mc/McDefault.png"
 image mc o = "images/characters/mc/McO.png"
 image mc shock = "images/characters/mc/McShock.png"
 image mc shock_hu = "images/characters/mc/McShockHU.png"

@@ -24,6 +24,7 @@ label prologue:
     scene prologue_day
     play sound "audio/thump.mp3"
     show mc dizzy:
+        unpose
         full
         right
         vibrate
@@ -32,6 +33,7 @@ label prologue:
     mc "{bt}Woahwoah WOAH-!{/bt}"
     $ focus()
     show mc excited:
+        unpose
         full
         right
         block:
@@ -43,6 +45,7 @@ label prologue:
     mc "Maybe my flying fish genes have finally awoken!"
 
     show mc shock:
+        unpose
         full
         right   
         sink
@@ -95,12 +98,14 @@ label prologue:
     "{i}My feet stopped me at the edge of the river, where the grassy path came to an abrupt end.{/i}"
     scene prologue_day with Dissolve(0.5)
     show mc shock:
+        unpose
         full
         right
         jumpmc 
     "{i}The water looked dauntingly deeper than I remember.{/i}"
     "{i}But I couldn't look away.. Not even if i tried. It felt as though it was calling me not with words, but with something I couldn't explain.{/i}"
     show mc serious_hu:
+        unpose
         full
         right
     "{i}I couldn't let it escape.{/i}"
@@ -146,12 +151,14 @@ label prologue:
     play sound underwater_current
     "{i}I barely had time to look at it before the current dragged me under again.{/i}"
     show cory anon:
+        unpose
         full
         centerright
     anon "ay ay ay! Where do ya think you're going guppy?! That's the end of the line!"
 
     stop sound fadeout 1.0
     show mc shock:
+        unpose
         full
         right
     mc "huh..?"
