@@ -19,7 +19,7 @@ define emp = Character("Empress Crustacean VIII")
 
 define scy = Character("Scyllarus", color="#ffffff")
 define rin = Character("Chief Rin", color="#ffffff")
-define leo = Character("Leo Drurga", color="#ffffff")
+define leo = Character("Leo", color="#ffffff")
 define ori = Character("Orin", color="#ffffff")
 define stall1 = Character("Stall Keeper", color="#ffffff")
 define stall2 = Character("Booth Master", color="#ffffff")

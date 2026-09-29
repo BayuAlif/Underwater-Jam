@@ -1,15 +1,20 @@
-define NAME_INPUT_DEFAULT = "Mc"
-define NAME_INPUT_PROMPT = "What is your name?"
+define NAME_INPUT_DEFAULT = "Koral"
+define NAME_INPUT_PROMPT = "Pick a name that suits them"
 define NAME_INPUT_MAX_LENGTH = 14
 
 label name_input_start:
     stop music fadeout 1.0
+    scene black 
+    "Oh my, a player? Hi there~!"
 
     window hide
     hide mc
 
     scene bg name_input with dissolve
     show mc_name_input at mc_name_pos onlayer master with dissolve
+
+    "You're going to live for the next few hours in this cute adventurous little vessel... "
+    "Pick a name that suits them~! Or do you want to go as their original name? Mmn not a very creative name I tell you.."
 
     $ entered_name = renpy.input(NAME_INPUT_PROMPT, default=NAME_INPUT_DEFAULT, length=NAME_INPUT_MAX_LENGTH).strip()
     $ entered_name = entered_name.replace("[", "").replace("]", "").replace("{", "").replace("}", "")

@@ -30,7 +30,7 @@ label mantis_interaction:
 
     show mc happy:
         full
-        rightish
+        right
         jump
     with move
     mc "Good evening.. Mr shrimp!"

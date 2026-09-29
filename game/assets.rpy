@@ -354,6 +354,7 @@ image ch4_dialogue_night = "images/backgrounds/chapter4/bg_festival_night.jpg"
 image ch4_festival_day = "images/backgrounds/chapter4/bg_festival_day.png"
 image ch4_festival_night = "images/backgrounds/chapter4/bg_festival_night.jpg"
 image ch4_festival_night_bordered = "images/backgrounds/chapter4/bg_festival_night_bordered.jpg"
+image ch4_deeptalk = "images/backgrounds/chapter4/bgdeeptalk.jpg"
 
 # Chapter 4 Exploration Sprites
 image rin_explore_idle = "images/npc/chapter4/rin_explore_idle.png"
@@ -400,9 +401,74 @@ image cutchap4 = "images/cutscenes/chapter1/4.png"
 image cutchap5 = "images/cutscenes/chapter1/5.png"
 image bg name_input = "images/BackgroundNama.png"
 image mc_name_input = "images/SpriteMCgede.png"
+image cutjumpscare = "images/cutscenes/chapter2/6.png"
 
-transform mc_name_pos:
-    xalign 0.5
-    yalign 1.0
+# --- Chapter 4
+image cory close-o = "images/cutscenes/chapter4/DEEPTALKCORY/close-o.png"
+image cory close-surprise = "images/cutscenes/chapter4/DEEPTALKCORY/close-surprise.png"
+image cory close-upset2 = "images/cutscenes/chapter4/DEEPTALKCORY/close-upset2.png"
+image cory conflictedC-upset2 = "images/cutscenes/chapter4/DEEPTALKCORY/conflictedC-upset2.png"
+image cory conflicted-happy = "images/cutscenes/chapter4/DEEPTALKCORY/conflicted-happy.png"
+image cory conflicted-o = "images/cutscenes/chapter4/DEEPTALKCORY/conflicted-o.png"
+image cory conflicted-upset2 = "images/cutscenes/chapter4/DEEPTALKCORY/conflicted-upset2.png"
+image cory happy-happy = "images/cutscenes/chapter4/DEEPTALKCORY/happy-happy.png"
+image cory happy-O = "images/cutscenes/chapter4/DEEPTALKCORY/happy-O.png"
+image cory happy-Odown = "images/cutscenes/chapter4/DEEPTALKCORY/happy-Odown.png"
+image cory sorryC-upset2 = "images/cutscenes/chapter4/DEEPTALKCORY/sorryC-upset2.png"
+image cory sorry-upset2 = "images/cutscenes/chapter4/DEEPTALKCORY/sorry-upset2.png"
+image cory surpriseC-upset2 = "images/cutscenes/chapter4/DEEPTALKCORY/surpriseC-upset2.png"
+image cory surprise-upset1 = "images/cutscenes/chapter4/DEEPTALKCORY/surprise-upset1.png"
 
-image cutchap6 = "images/cutscenes/chapter2/6.png"
+image leo default-down = "images/cutscenes/chapter4/DEEPTALKLEO/default-down.png"
+image leo default-o = "images/cutscenes/chapter4/DEEPTALKLEO/default-o.png"
+image leo default-pout = "images/cutscenes/chapter4/DEEPTALKLEO/default-pout.png"
+image leo default-sad = "images/cutscenes/chapter4/DEEPTALKLEO/default-sad.png"
+image leo happy-eat = "images/cutscenes/chapter4/DEEPTALKLEO/happy-eat.png"
+image leo happy-happy = "images/cutscenes/chapter4/DEEPTALKLEO/happy-happy.png"
+image leo happy-o = "images/cutscenes/chapter4/DEEPTALKLEO/happy-o.png"
+image leo happy-sad = "images/cutscenes/chapter4/DEEPTALKLEO/happy-sad.png"
+image leo scary-pout = "images/cutscenes/chapter4/DEEPTALKLEO/scary-pout.png"
+image leo scary-sad = "images/cutscenes/chapter4/DEEPTALKLEO/scary-sad.png"
+image leo scary-surprise = "images/cutscenes/chapter4/DEEPTALKLEO/scary-surprise.png"
+image leo upset-sad = "images/cutscenes/chapter4/DEEPTALKLEO/upset-sad.png"
+
+image scy determined-angry = "images/cutscenes/chapter4/DEEPTALKSCYLLARUS/determined-angry.png"
+image scy determined-happy = "images/cutscenes/chapter4/DEEPTALKSCYLLARUS/determined-happy.png"
+image scy determined-o = "images/cutscenes/chapter4/DEEPTALKSCYLLARUS/determined-o.png"
+image scy determined-pout = "images/cutscenes/chapter4/DEEPTALKSCYLLARUS/determined-pout.png"
+image scy down-down = "images/cutscenes/chapter4/DEEPTALKSCYLLARUS/down-down.png"
+image scy down-o = "images/cutscenes/chapter4/DEEPTALKSCYLLARUS/down-o.png"
+image scy guilty-happy = "images/cutscenes/chapter4/DEEPTALKSCYLLARUS/guilty-happy.png"
+image scy guilty-o = "images/cutscenes/chapter4/DEEPTALKSCYLLARUS/guilty-o.png"
+image scy guilty-pout = "images/cutscenes/chapter4/DEEPTALKSCYLLARUS/guilty-pout.png"
+image scy proud-happy = "images/cutscenes/chapter4/DEEPTALKSCYLLARUS/proud-happy.png"
+image scy proud-o = "images/cutscenes/chapter4/DEEPTALKSCYLLARUS/proud-o.png"
+image scy sepet-happy = "images/cutscenes/chapter4/DEEPTALKSCYLLARUS/sepet-happy.png"
+image scy sepet-o = "images/cutscenes/chapter4/DEEPTALKSCYLLARUS/sepet-o.png"
+
+
+image goldfall = "images/cutscenes/chapter4/goldfall.jpg"
+image mcfall = "images/cutscenes/chapter4/mcfall.png"
+
+# --- Chapter 5: 
+image banishedone = "images/cutscenes/chapter5/banishedone.png"
+image banishedoneangry = "images/cutscenes/chapter5/banishedoneangy.png"
+image chooseendingsmall = "images/cutscenes/chapter5/chooseendingsmall.png"
+image chooseendingbig = "images/cutscenes/chapter5/chooseendingbig.png"
+
+image tsunamiending = "images/cutscenes/chapter5/tsunamiending.png"
+
+image turnfish 1 = "images/cutscenes/chapter5/turnfish/1.png"
+image turnfish 2 = "images/cutscenes/chapter5/turnfish/2.png"
+image turnfish 3 = "images/cutscenes/chapter5/turnfish/3.png"
+image turnfish 4 = "images/cutscenes/chapter5/turnfish/4.png"
+image turnfish 5 = "images/cutscenes/chapter5/turnfish/5.png"
+
+
+image delfish1 = "images/cutscenes/chapter5/deletefish/1.png"
+image delfish 2 = "images/cutscenes/chapter5/deletefish/2.png"
+image delfish 3 = "images/cutscenes/chapter5/deletefish/3.png"
+image delfish 4 = "images/cutscenes/chapter5/deletefish/4.png"
+image delfish 5 = "images/cutscenes/chapter5/deletefish/5.png"
+image delfish 6 = "images/cutscenes/chapter5/deletefish/6.png"
+image purewhite = "images/cutscenes/chapter5/deletefish/purewhite.png"
