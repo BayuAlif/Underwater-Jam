@@ -326,7 +326,8 @@ label chapter2_night_start:
 
         if result == "ghostfish":
             call ghostfish_interaction
-            $ mark_npc_explored("ghostfish")
+            if _return != "unexplored":
+                $ mark_npc_explored("ghostfish")
             jump .loop
 
         elif result == "item":
@@ -373,101 +374,7 @@ label chapter2_coal_tar:
         sink
     mc "Yuck! it smells… weird."
 
-    ghost "You shouldn't be carrying things you don't understand."
-
-    show cory smile_hu:
-        full
-        duo_left
-    cory "Yeah.. that's right guppy.."
-    cory "Finally, Some self preservation in ya!"
-
-    show mc o:
-        full
-        duo_right
-        surprise
-    mc "That.. wasn’t me…"
-
-    "The water around us suddenly grows eerily still."
-    "Faint glow pair of eyes emerges from the darkness."
-
-    show ghost deadpan:
-        full
-        duo_left
-        float_idle
-    with dissolve
-
-    show cory surprise:
-        full
-        duo_left
-        surprise
-        vibrate
-    cory "GYAAAAAAA—"
-
-    "Mr Cory jumped and immediately cowers behind my back with a loud screech"
-
-    show cory side_close:
-        full
-        farright
-        toleft
-        sink
-    with move
-
-    show mc o:
-        full
-        duo_right
-        surprise
-    mc ":o"
-
-    show mc excited:
-        full
-        duo_right
-        jumpmc
-    mc "Woah! What are you?"
-
-    show ghost default:
-        full
-        duo_left
-        float_idle
-    ghost "A fish."
-
-    show mc pout:
-        full
-        duo_right
-    mc "I can see that."
-
-    ghost "Then you needn’t know more."
-
-    show mc o:
-        full
-        duo_right
-    mc "Why are you here… fish?"
-
-    show ghost side:
-        full
-        duo_left
-        float_idle
-    ghost "You were meant to find me."
-
-    show ghost close:
-        full
-        duo_left
-        float_idle
-    ghost "But this second is not the time"
-    ghost "We shall meet again.. very soon."
-
-    show ghost side:
-        full
-        duo_left
-        float_idle
-    ghost "Or perhaps.. we have met before."
-
-    hide ghost with dissolve
-
-    show mc happy:
-        full
-        duo_right
-    mc "Okay! Looking forward to meeting you again, fish!"
-    mc "Mr Cory you can come out, it's fine now."
+    call ghost_coal_tar_encounter
 
     show cory upset:
         full
