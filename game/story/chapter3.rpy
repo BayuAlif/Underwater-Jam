@@ -80,12 +80,9 @@ label ch3_start:
     $ focus ()
 
     show mc excited:
-        full
         unpose
-        offscreenright
-    show mc excited:
+        full
         right
-        walkto(right)
         toleft
         block:
             jumpmc
@@ -93,12 +90,9 @@ label ch3_start:
             repeat
     with moveinright
     show cory smile_hu:
-        full
         unpose
-        offscreenright
-    show cory smile_hu:
+        full
         center
-        walkto(center)
         toleft
         walkloop
     with moveinright
@@ -123,10 +117,8 @@ label ch3_start:
         leftish
     with move
     show shrimp proud:
-        full
         unpose
-        offscreenleft
-    show shrimp proud:
+        full
         centerright
         walkloop
     with moveinleft
@@ -315,24 +307,18 @@ label ch3_day_explore:
 label ch3_item_rainbow_algae:
     $ focus ()
     show mc excited:
-        full
         unpose
-        offscreenright
-    show mc excited:
+        full
         right
-        walkto(right)
         toleft
         surprise
     with moveinright
     mc "Woah! Rainbow algaes"
 
     show cory talk_hu:
-        full
         unpose
-        offscreenright
-    show cory talk_hu:
+        full
         center
-        walkto(center)
         toleft
         walkloop
     with moveinright
@@ -343,10 +329,8 @@ label ch3_item_rainbow_algae:
         leftish
     with move
     show shrimp laugh:
-        full
         unpose
-        offscreenleft
-    show shrimp laugh:
+        full
         centerright
         walkloop
     with moveinleft
@@ -462,20 +446,16 @@ label ch3_night_explore:
 
     $ focus ()
     show scy smile:
-        full
         unpose
-        offscreenright
-    show scy smile:
+        full
         centerright
         walkloop
     with moveinright
     scyllarus "This way everyone! We'll arrive at the lair soon!"
 
     show cory talk:
-        full
         unpose
-        offscreenright
-    show cory talk:
+        full
         leftish
         walkloop
     with moveinright
@@ -491,10 +471,8 @@ label ch3_night_explore:
     cory "We've been swimmin for more than half a day now!"
 
     show mc shock:
-        full
         unpose
-        offscreenright
-    show mc shock:
+        full
         right
         vibrate
     with moveinright
@@ -643,10 +621,8 @@ label ch3_night_explore:
             if ch3_dunge_defeated:
                 $ focus ()
                 show dun default:
-                    full
                     unpose
-                    offscreenright
-                show dun default:
+                    full
                     center
                 with moveinright
                 dun "The path is clear. Go on ahead into the lair before I change my mind."
@@ -664,18 +640,14 @@ label ch3_night_explore:
             if not ch3_dunge_defeated:
                 $ focus ()
                 show dun mad:
-                    full
                     unpose
-                    offscreenright
-                show dun mad:
+                    full
                     leftish
                 with moveinright
                 dun "Hold your seahorses! No one steps a claw into Her Majesty's lair without goin' through me first!"
                 show cory side:
-                    full
                     unpose
-                    offscreenright
-                show cory side:
+                    full
                     rightish
                 with moveinright
                 cory "Looks like Big Dunge down there is blockin' the cavern entrance. We gotta deal with him first."
@@ -714,10 +686,8 @@ label ch3_night_explore:
 label ch3_item_red_seaweed:
     $ focus ()
     show mc excited:
-        full
         unpose
-        offscreenright
-    show mc excited:
+        full
         right
         surprise
     with moveinright
@@ -725,10 +695,8 @@ label ch3_item_red_seaweed:
     mc "Is it where the color red came from?"
 
     show scy default_om:
-        full
         unpose
-        offscreenright
-    show scy default_om:
+        full
         centerright
         walkloop
     with moveinright
@@ -746,10 +714,8 @@ label ch3_item_red_seaweed:
     mc "ooo i see.."
 
     show cory side:
-        full
         unpose
-        offscreenright
-    show cory side:
+        full
         leftish
         walkloop
     with moveinright
@@ -780,26 +746,20 @@ label ch3_teto_encounter:
         hide cory
         $ focus ()
         show mc o:
-            full
             unpose
-            offscreenright
-        show mc o:
+            full
             right
         with moveinright
         show goby default:
-            full
             unpose
-            offscreenright
-        show goby default:
+            full
             rightish
         with moveinright
         gob "Halt! Who dares lurk around the royal threshold of Her Majesty's lair?"
 
         show scy smile:
-            full
             unpose
-            offscreenright
-        show scy smile:
+            full
             center
         with moveinright
         scyllarus "Greetings, royal sentinels! It is I, Scyllarus! We have journeyed far to present ourselves before Her Majesty!"
@@ -811,10 +771,8 @@ label ch3_teto_encounter:
         gob "Nobody enters this cavern without going through proper protocol—and Big Dunge is guarding the outer perimeter down there!"
 
         show cory side:
-            full
             unpose
-            offscreenright
-        show cory side:
+            full
             leftish
         with moveinright
         cory "Is that a goby riding shotgun on a pistol shrimp? And why are they looking at us like they're itching to pull a trigger?"
@@ -830,10 +788,8 @@ label ch3_teto_encounter:
         hide dun
         $ focus ()
         show goby annoy:
-            full
             unpose
-            offscreenright
-        show goby annoy:
+            full
             rightish
         with moveinright
         gob "I told you already! Go speak to Dunge down there! The Empress doesn't entertain unannounced wanderers!"
@@ -850,20 +806,16 @@ label ch3_boss_intro:
 
     $ focus ()
     show scy laugh:
-        full
         unpose
-        offscreenright
-    show scy laugh:
+        full
         centerright
         walkloop
     with moveinright
     scyllarus "Welcome my friends to the humble abode of crustacean empress the VIII!"
 
     show mc excited:
-        full
         unpose
-        offscreenright
-    show mc excited:
+        full
         right
         surprise
     with moveinright
@@ -887,10 +839,8 @@ label ch3_boss_intro:
     scyllarus "And she's just told that her color is red, and it immediately become her favorite!"
 
     show cory smile_hu:
-        full
         unpose
-        offscreenright
-    show cory smile_hu:
+        full
         leftish
         walkloop
     with moveinright
@@ -904,20 +854,16 @@ label ch3_boss_intro:
     with moveoutleft
 
     show goby default:
-        full
         unpose
-        offscreenright
-    show goby default:
+        full
         centerright
     with moveinright
     gob "Fall to your knees and tremble before Her Majestic Majesty, the one and only!"
     gob "Her Majesty Empress Crustacean the VIII!"
 
     show teto default:
-        full
         unpose
-        offscreenright
-    show teto default:
+        full
         centerleft
     with moveinright
     emp "Ah, a visitor?"
@@ -941,10 +887,8 @@ label ch3_boss_intro:
     gob "I am merely speaking truth, your Majesty!"
 
     show cory unimpressed:
-        full
         unpose
-        offscreenright
-    show cory unimpressed:
+        full
         leftish
     with moveinleft
     show teto default:
@@ -990,10 +934,8 @@ label ch3_boss_intro:
 
     hide cory with moveoutleft
     show scy default_om:
-        full
         unpose
-        offscreenright
-    show scy default_om:
+        full
         leftish
     with moveinleft
     scyllarus "Wait, don't!! I beg for mercy on every one of my ten legs, your majesty!"
@@ -1045,19 +987,15 @@ label ch3_ending:
 
     $ focus ()
     show goby surprise:
-        full
         unpose
-        offscreenright
-    show goby surprise:
+        full
         centerright
     with moveinright
     gob "Your majesty!!"
 
     show teto upset:
-        full
         unpose
-        offscreenright
-    show teto upset:
+        full
         centerleft
     with moveinright
     emp "gooobyyy…"
@@ -1090,10 +1028,8 @@ label ch3_ending:
 
 
     show cory smile:
-        full
         unpose
-        offscreenleft
-    show cory smile:
+        full
         leftish
     with moveinleft
     show teto gun_upset:
@@ -1135,10 +1071,8 @@ label ch3_ending:
     cory "Heh.. didn't thought gob's still have some sense like that"
 
     show scy proud:
-        full
         unpose
-        offscreenleft
-    show scy proud:
+        full
         centerright
     with moveinleft
     scyllarus "Hm! I always knew General had a sense of justice in her!"
@@ -1154,10 +1088,8 @@ label ch3_ending:
     scyllarus "Hah! Now that's over all there is to make a statement of apology to the seafolks and…"
 
     show mc excited:
-        full
         unpose
-        offscreenleft
-    show mc excited:
+        full
         right
         block:
             jumpmc
@@ -1210,10 +1142,8 @@ label ch3_ending:
     hide cory with moveoutleft
 
     show dunge default:
-        full
         unpose
-        offscreenleft
-    show dunge default:
+        full
         leftish
     with moveinleft
     dun "Larus!"
@@ -1345,10 +1275,8 @@ label ch3_ending:
     mc "oh oh maybe.. 35 clams too…"
 
     show cory upset:
-        full
         unpose
-        offscreenleft
-    show cory upset:
+        full
         leftish
     with moveinleft
     cory "WHAT-?! Don't listen to them larus!"
@@ -1464,10 +1392,8 @@ label ch3_ending:
     mc "now I can breathe just fine!"
 
     show gator smile:
-        full
         unpose
-        offscreenright
-    show gator smile:
+        full
         rightish
     with moveinright
     show scy laugh:

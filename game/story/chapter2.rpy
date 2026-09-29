@@ -11,16 +11,14 @@ label chapter2_start:
     "The sunlight above grew softer, hiding themself behind layers of drifting water plants as we continue to swim."
     $ focus()
     show mc o:
-        full
         unpose
-    show mc o:
+        full
         right
         toleft
     with moveinright
     show cory netral:
-        full
         unpose
-    show cory netral:
+        full
         center
         toleft
     with moveinright
@@ -399,30 +397,26 @@ label chapter2_ending:
 
     $ focus()
     show mc excited:
+        unpose
         full
         right
-        unpose
-    show mc excited:
         walkloop
     mc "onward! to the sea we go!"
 
     show shrimp laugh:
-        full
         unpose
-        offscreenleft
-    show shrimp laugh:
+        full
         centerleft
         walkloop
     with moveinleft
     shrimp "KAKAKA! to the sea!"
 
     show cory netral:
-        full
         unpose
-        offscreenleft
-    show cory netral:
+        full
         rightish
         walkloop
+    with moveinleft
     cory "..."
 
     show cory side:
