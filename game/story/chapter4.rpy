@@ -98,9 +98,9 @@ label ch4_npc_explore_hub:
     $ ch4_npc_choice = _return
 
     if ch4_npc_choice == "rin":
-        jump rin_interaction
+        jump ch4_talk_rin
     elif ch4_npc_choice == "leo":
-        jump leo_interaction
+        jump ch4_talk_leo
     elif ch4_npc_choice == "proceed":
         jump ch4_start_chores
     else:

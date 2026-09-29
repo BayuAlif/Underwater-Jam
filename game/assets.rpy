@@ -401,6 +401,11 @@ image cutchap4 = "images/cutscenes/chapter1/4.png"
 image cutchap5 = "images/cutscenes/chapter1/5.png"
 image bg name_input = "images/BackgroundNama.png"
 image mc_name_input = "images/SpriteMCgede.png"
+
+transform mc_name_pos:
+    xalign 0.5
+    yalign 1.0
+
 image cutjumpscare = "images/cutscenes/chapter2/6.png"
 
 # --- Chapter 4
@@ -451,24 +456,24 @@ image goldfall = "images/cutscenes/chapter4/goldfall.jpg"
 image mcfall = "images/cutscenes/chapter4/mcfall.png"
 
 # --- Chapter 5: 
-image banishedone = "images/cutscenes/chapter5/banishedone.png"
-image banishedoneangry = "images/cutscenes/chapter5/banishedoneangy.png"
-image chooseendingsmall = "images/cutscenes/chapter5/chooseendingsmall.png"
-image chooseendingbig = "images/cutscenes/chapter5/chooseendingbig.png"
+image banishedone = "images/cutscenes/chapter 5/banishedone.png"
+image banishedoneangry = "images/cutscenes/chapter 5/banishedoneangy.png"
+image chooseendingsmall = "images/cutscenes/chapter 5/chooseedingsmall.png"
+image chooseendingbig = "images/cutscenes/chapter 5/chooseendingbig.png"
 
-image tsunamiending = "images/cutscenes/chapter5/tsunamiending.png"
+image tsunamiending = "images/cutscenes/chapter 5/tsunamiending.jpg"
 
-image turnfish 1 = "images/cutscenes/chapter5/turnfish/1.png"
-image turnfish 2 = "images/cutscenes/chapter5/turnfish/2.png"
-image turnfish 3 = "images/cutscenes/chapter5/turnfish/3.png"
-image turnfish 4 = "images/cutscenes/chapter5/turnfish/4.png"
-image turnfish 5 = "images/cutscenes/chapter5/turnfish/5.png"
+image turnfish 1 = "images/cutscenes/chapter 5/turnfish/1.jpg"
+image turnfish 2 = "images/cutscenes/chapter 5/turnfish/2.jpg"
+image turnfish 3 = "images/cutscenes/chapter 5/turnfish/3.jpg"
+image turnfish 4 = "images/cutscenes/chapter 5/turnfish/4.jpg"
+image turnfish 5 = "images/cutscenes/chapter 5/turnfish/5.jpg"
 
 
-image delfish1 = "images/cutscenes/chapter5/deletefish/1.png"
-image delfish 2 = "images/cutscenes/chapter5/deletefish/2.png"
-image delfish 3 = "images/cutscenes/chapter5/deletefish/3.png"
-image delfish 4 = "images/cutscenes/chapter5/deletefish/4.png"
-image delfish 5 = "images/cutscenes/chapter5/deletefish/5.png"
-image delfish 6 = "images/cutscenes/chapter5/deletefish/6.png"
-image purewhite = "images/cutscenes/chapter5/deletefish/purewhite.png"
+image delfish1 = "images/cutscenes/chapter 5/deletefish/1.png"
+image delfish 2 = "images/cutscenes/chapter 5/deletefish/2.png"
+image delfish 3 = "images/cutscenes/chapter 5/deletefish/3.png"
+image delfish 4 = "images/cutscenes/chapter 5/deletefish/4.png"
+image delfish 5 = "images/cutscenes/chapter 5/deletefish/5.png"
+image delfish 6 = "images/cutscenes/chapter 5/deletefish/6.png"
+image purewhite = "images/cutscenes/chapter 5/deletefish/purewhite.png"

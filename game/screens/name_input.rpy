@@ -15,16 +15,17 @@ label name_input_start:
 
 label name_input_prompt:
     $ default_name = player_name if player_name else NAME_INPUT_DEFAULT
-    $ entered_name = renpy.input(NAME_INPUT_PROMPT, default=default_name, length=NAME_INPUT_MAX_LENGTH).strip()
-    $ entered_name = entered_name.replace("[", "").replace("]", "").replace("{", "").replace("}", "")
+    $ entered_name = renpy.input(NAME_INPUT_PROMPT, default=default_name, length=NAME_INPUT_MAX_LENGTH)
+    $ entered_name = entered_name.replace("[", "").replace("]", "").replace("{", "").replace("}", "").strip()
 
     if not entered_name:
         $ entered_name = NAME_INPUT_DEFAULT
 
     $ player_name = entered_name
 
+    "Is \"[player_name]\" your name?"
+
     menu:
-        "Is \"[player_name]\" your name?":
         "Yes, that's me!":
             pass
         "No, let me change it":
