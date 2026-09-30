@@ -4,7 +4,7 @@ label prologue:
     scene prologue_day
     with fade
     play music ambianceprologue volume 1.0
-
+    
     "{i}Ah, the rivershore.. A serene calming scene adorned by the rustling wind of leaves.{/i}" 
     "{i}Gentle applauses are carried by the trees of forest in celebration for yet another day of the sun's blessing.{/i}" 
     hide mc
@@ -15,7 +15,7 @@ label prologue:
 
     hide mc
     scene cutpro2 with Dissolve(0.5)
-    play music prologue_funny_underwater fadein 1.0 volume 0.5
+    play music "audio/bgm/prologue_funny_underwater.ogg" fadein 1.0 volume 0.5
     mc "Weee~! For practicing my flying fish jump of course! Haha!"
 
     "{i}I soared through the sky, my arms and legs held up by the encouraging carry of gravity.{/i}"

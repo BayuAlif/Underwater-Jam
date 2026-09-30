@@ -7,7 +7,8 @@ label chapter4_start:
     hide mc
     scene ch4_day
     with fade
-
+    
+    play music "audio/bgm/chap_4_day.ogg" volume 0.4
     show cory talk at cory_left
     cory "The water sure feels easier to breathe now that she's gone huh?"
 

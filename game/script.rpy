@@ -11,7 +11,8 @@ init python:
         if playing != store._last_playing_audio:
             store._last_playing_audio = playing
             if playing:
-                renpy.notify("Audio Debug: Playing " + str(playing))
+                # renpy.notify("Audio Debug: Playing " + str(playing))
+                pass
 
     config.overlay_screens.append("debug_audio_tracker")
 

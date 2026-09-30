@@ -867,7 +867,6 @@ label ch5_chase_real_gold:
     "Enormous shadowy tentacles rise like colossi from the seabed."
     leo "Brace yourself, Guppy! We have to fight our way through!"
 
-    play music "audio/a_battle.wav" volume 0.85
     call banished_duel
 
     stop music fadeout 1.5
