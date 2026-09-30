@@ -28,30 +28,44 @@ label ch4_talk_rin:
             sink
         rin "Oh just a guppy aren't you.. Scared the teeth out of old me.."
 
-        show mc o at mc_left
+        show mc o:
+            unpose
+            mc_left
         mc "oops hehe my bad..!"
 
         show rin smile:
-            unpose
-            ease 0.2
             full
             center
+            ease 0.2 yoffset 0
         rin "No matter, Youth need not apologize for simply... being young"
         $ focus()
 
         menu:
             "Have you seen a golden fish around?":
                 $ focus()
-                show mc o at mc_left
+                show mc o:
+                    unpose
+                    mc_left
                 mc "We saw it but we lost it amongst these.. Golds you have piled up!"
                 rin "A Golden fish, you say..?"
                 "Mr Whale Shark's great eye drifts slowly toward the mountain of gold ornaments piled around him, as though sifting through decades of memory rather than metal."
                 rin "Mm. I believe... I may have seen such a thing"
-                show mc excited at mc_left, walkto(centerleft, steps=2, walktime=0.6, bounce=0.5, sway=0.3)
+                show mc excited:
+                    unpose
+                    mc_left
+                    walkto(center, steps=1, walktime=0.6, bounce=0.5, sway=0.3)
+
                 pause 0.6
                 mc "Really?! Can you tell us?"
+                show mc pout:
+                    unpose
+                    walkto(rightish, steps=1, walktime=0.6)
+                    sink
                 rin "Now, now. Need not to hurry young one."
-                show mc pout at mc_left, sink
+                show mc pout:
+                    unpose
+                    mc_left
+                    sink
                 mc "Mnn but I need to know now.. Before it goes further :("
                 rin "Patience will reward you grand.."
                 rin "We're currently having trouble with a festival that's going to occur tonight.."
@@ -59,7 +73,9 @@ label ch4_talk_rin:
 
             "Why's there so many gold here? Are you a gold thief :o":
                 $ focus()
-                show mc o at mc_left
+                show mc o:
+                    unpose
+                    mc_left
                 mc "Why's there so many gold here? Are you a gold thief :o"
                 rin "Thief? Oh no, no you have it wrong.."
                 rin "I'm too old to be fretting about wealth.."
@@ -67,10 +83,15 @@ label ch4_talk_rin:
                 rin "Golds are believed to stray away evil and bad omens, young one"
                 
 
-        show mc o at mc_left
+        show mc o:
+            unpose
+            mc_left
         mc "A festival..?"
 
-        show mc excited at mc_left, vibrate
+        show mc excited:
+            unpose
+            mc_left
+            vibrate
         mc "Will there be lots of food? I haven't eaten in a while"
 
         rin "Oh why of course a big feast will occur!"
@@ -119,6 +140,7 @@ label ch4_talk_rin:
             centerright
         show cory side:
             full
+            unpose
             leftish
         cory "About time we fill our stomachs.."
 
@@ -128,7 +150,7 @@ label ch4_talk_rin:
             unpose
             centerright
         with move
-        show shrimp laugh:
+        show shrimp laugh behind cory:
             full
             unpose
             leftish
@@ -155,7 +177,7 @@ label ch4_talk_rin:
     with dissolve
     hide cory
     with dissolve
-    hide scy
+    hide shrimp 
     with dissolve
     hide mc
     with dissolve
