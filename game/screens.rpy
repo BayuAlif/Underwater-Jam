@@ -487,7 +487,7 @@ screen credits():
                         color "#7ae5cf"
                         outlines [ (2, "#052229", 0, 0) ]
                         xalign 0.5
-                    text "Dexterous, ISeria (Evil), LonelyHina, syanshine":
+                    text "Dexterous, ISeria (Evil), LonelyHina, syanshine, Maz Sleepy":
                         size 24
                         color "#ffffff"
                         outlines [ (2, "#03151b", 0, 0) ]

@@ -9,9 +9,12 @@ label chapter4_start:
     with fade
     
     play music "audio/bgm/chap_2_day.ogg" volume 0.4
-
     $ focus()
-    $ focus()
+    show mc default:
+        full
+        unpose
+        right
+    with moveinright
     show cory smile:
         full
         unpose
@@ -28,7 +31,7 @@ label chapter4_start:
     with moveinleft
     show cory talk
     cory "The water sure feels easier to breathe now that she's gone huh?"
-
+    hide shrimp
     hide shrimp default
     show scy default:
         unpose
@@ -232,7 +235,7 @@ label ch4_start_chores:
     show cory talk:
         unpose
         full
-        rightish
+        center
     cory "Sounds like a plan. Let's see what needs fixin' or gatherin' around here."
 
     $ focus()
@@ -294,15 +297,16 @@ label ch4_dinner_incident:
         jumpmc(windup=0.1, power=0.5, airtime=0.35)
     mc "Mr whaaale, we're done! :D"
 
-    show rin default:
+    show rin surprise:
         unpose
         full
         center
     with moveinleft
-
     rin "Oh praise the mother of sea.. Aren't you as swift as an arrow?"
+    show rin smile at center, bowleft(depth=1)
     rin "We are truly grateful for your assistance!"
 
+    show mc default 
     mc "Yaaa no problem!"
 
     show mc excited:
@@ -315,16 +319,19 @@ label ch4_dinner_incident:
         unpose
         full
         center
+    show mc pout
     rin "Fufu"
     "Mr whale slips out a tiny chuckle at my impatience. Is starvation something that amuses him? >:T"
 
-    show rin default:
+    show rin talk:
         unpose
         full
         center
     rin "Rest assured my child, we have prepared a forethoughtful spread for all of you, come."
 
+    show mc happy
     "I nodded gleefully, drooling at the mouth while skipping behind mr whale's enormous tail"
+    show mc o
     "We then arrive at a super big table, it looks like it could serve two whale sharks!"
     "Yet as my gaze fell down to the contents, I scrunched up in disappointment."
     show mc pout:
@@ -336,19 +343,19 @@ label ch4_dinner_incident:
     show cory proud:
         full
         unpose
-        centerleft
+        rightish
     cory "bloodworms?! Didn't know you were fancy like that mr chief sir."
 
     show scy proud:
         full
         unpose
-        centerright
+        leftish
     scy "Hah! Talk about a banquet!"
 
-    show rin smile:
+    show rin talk:
         full
         unpose
-        right
+        center
     rin "Yes of course, we prepare this with every species' likings in mind"
 
     show mc o:
@@ -360,29 +367,32 @@ label ch4_dinner_incident:
     show cory surprise:
         full
         unpose
-        centerleft
+        rightish
         jumpmc(windup=0.1, power=0.45, airtime=0.45)
-
+    show scy surprise:
+        full
+        unpose
+        leftish
     pause 0.45
 
     show cory surprise:
         full
         unpose
-        centerleft
+        rightish
     cory "...???"
 
-    show leo ehe:
+    show leo smile:
         unpose
         full
-        rightish
+        center
     with moveinright
     leo "Oh dear the cat's out of the bag~"
 
-    show cory upset:
+    show cory surprise:
         full
         unpose
-        centerleft
-        shake
+        left
+        vibrate
     cory "Guppy… you wouldn't eat me would ya?! I'm made of bones and pigments!"
 
     show mc shock:
@@ -393,16 +403,16 @@ label ch4_dinner_incident:
     mc "mn nonono! I mean! Like.. tuna or.. Salmon or.. fried catfish maybe?"
     mc "Don't fishes eat other fishes too..? Mr whale shark your diet is small fishes right? Mackerel.. and.."
 
-    show leo smile:
+    show leo niko:
         unpose
         full
-        rightish
+        center
     leo "Mhm that's right, whale sharks eat baby fishes too.. As well shrimps"
 
     show scy surprise:
         full
         unpose
-        centerright
+        leftish
         jumpmc(windup=0.1, power=0.7, airtime=0.5)
 
     pause 0.5
@@ -412,7 +422,7 @@ label ch4_dinner_incident:
     show scy surprise:
         full
         unpose
-        centerright
+        leftish
 
     show mc pout:
         unpose
@@ -420,40 +430,43 @@ label ch4_dinner_incident:
         mc_left
     mc "and mr.. mr scyllarus too you.. you eat crabs.. Supposedly!"
 
-    show scy sepet:
+    show scy surprise:
         unpose
         full
-        centerright
-        shake
+        leftish
+        vibrate
     scy "A-are you suggesting I would eat my own comrades..?!"
 
+    show mc serious_hu
     mc "But it's how nature is…!"
     
     show rin surprise:
         unpose
         full
-        right
+        center
     rin "…"
+    show mc shock
+    show leo smile at center
     "My confused stare bore back into my own at tenfolds. Meanwhile Leo just sits there in the corner unbothered."
     "Her unreadable smile felt like a wash of relief and support amongst the overwhelmingly rigid tension."
 
     show rin o:
         unpose
         full
-        right
+        center
     rin "My apologies young one.. Our village had long forbid such extreme practice…"
     rin "While there are fishes that are still… what I would describe as crassly primitive"
     show rin o:
         unpose
         full
-        right
+        center
         sink
     rin "We do not condone of such unvirtuous behavior around here"
     
     show rin smile:
         unpose
         full
-        right
+        center
     rin "The best we can provide for your appetites are.. Jellies made algaes"
 
     show mc pout:
@@ -465,12 +478,12 @@ label ch4_dinner_incident:
     show rin talk:
         unpose
         full
-        right
+        center
     rin "Do… rest yourselves until tonight. Before the parade begins."
     show rin o:
         unpose
         full
-        right
+        center
     rin "Please excuse me."
 
     hide rin with dissolve
@@ -479,20 +492,20 @@ label ch4_dinner_incident:
     show leo smile:
         unpose
         full
-        rightish
+        center
     leo "You know guppy, I can indulge you in some.. fishes that suits your taste"
 
     show cory upset:
         unpose
         full
-        centerleft
+        rightish
         jump(windup=0.1, power=0.45, airtime=0.35)
     cory "In front of my bloodworms?!"
 
     show leo ehe:
         unpose
         full
-        rightish
+        center
     leo "Oh I might be talking about you, Corydoras.."
 
     show mc shock:
@@ -502,36 +515,40 @@ label ch4_dinner_incident:
         jumpmc(windup=0.1, power=0.5, airtime=0.35)
     mc "I wouldn't-! No, I wouldn't eat my friends!"
 
+    show leo feral:
+        unpose
+        full
+        center
+    leo "Would you now?"
     show leo niko:
         unpose
         full
-        rightish
-    leo "Would you now?"
+        center
     leo "Let's ask the consensus~!"
     leo "Starting from you, Doras~! Are you just now imagining our beloved protagonist's tiny sharp teeth chewing away on you?"
 
     show cory side:
         unpose
         full
-        centerleft
+        rightish
     cory "Nah of course not! You're just trying to rile things up! I ain't falling for that"
 
     show leo smile:
         unpose
         full
-        rightish
+        center
     leo "Hmm~ But your fins.. I saw them tremble just now.."
 
     show cory upset:
         unpose
         full
-        centerleft
+        rightish
     cory "They're just a kid! If they want anything from me I could still defend myself from-"
 
     show scy proud:
         unpose
         full
-        centerright
+        leftish
     scy "That's right! If the situation came to that.. my claws are ready to stop your nibbles!"
 
     show mc holdcry:
@@ -554,7 +571,7 @@ label ch4_dinner_incident:
     show leo sad:
         unpose
         full
-        rightish
+        center
     leo "Hmm, folded too fast."
 
     $ focus()
@@ -575,9 +592,14 @@ label ch4_night_explore:
 
     $ focus()
     $ focus()
+    show mc holdcry at mc_left, vibrate
     "I managed to find myself a quiet space to pond over everything."
     "The swaying of anemones and glowing corals calms me down a little."
+    show mc holdcry at mc_left, sink
     "I sat somewhere far from where my friends are to calm myself down"
+    show mc o 
+
+    show orin default
     "Until suddenly a fish sat down beside me. It's a catshark"
 
     show orin default:
@@ -593,6 +615,7 @@ label ch4_night_explore:
         sink
     mc "*sniffles* w-wauh?"
 
+    show orin happy
     ori "meow"
 
     show mc o:
@@ -607,9 +630,11 @@ label ch4_night_explore:
         full
         centerright
     ori "mhm."
-
+    show orin default at centerright
+    with move
     "The chained cat shark despite its scary jailbreak appearance offers me a square shaped jelly that looks like a failed assasination attempt of a character?"
 
+    show orin default
     ori "sepombop"
 
     mc "spongebob..?"
@@ -642,9 +667,11 @@ label ch4_night_explore:
         full
         mc_left
     mc "mm? Been.. where exactly?"
-
+    
+    show orin think
     ori "been under."
 
+    show mc shock
     mc "under where? :o"
 
     show orin smile:
@@ -665,6 +692,7 @@ label ch4_night_explore:
         full
         centerright
     ori "heh."
+    show orin think
     ori "Why are you alone? Saw you with friends. Big shrimp. and freshwater and smiley Seal."
 
     show mc pout:
@@ -686,8 +714,10 @@ label ch4_night_explore:
         mc_left
     mc "have you.. eaten fishes in your life?"
 
+    show orin default
     ori "mm. have…"
 
+    show mc sad_hu
     mc "Do you think it's wrong for predator fishes to eat other fishes?"
 
     show orin default:
@@ -695,9 +725,12 @@ label ch4_night_explore:
         full
         centerright
     ori "..."
-
+    
+    show mc serious
     mc "well.. I don't think it's wrong.. because that is the way nature intended us to be.. the weak gets hunted."
-    mc "but it also doesn't mean.. we eat our friends because their species is in our diet.. like! If you had a pet chicken, you wouldn't eat it right? Even if.. chickens are considered food to a lot of predators.. even if we eat chickens often."
+    mc "but it also doesn't mean.. we eat our friends because their species is in our diet.."
+    show mc serious_hu
+    mc "like! If you had a pet chicken, you wouldn't eat it right? Even if.. chickens are considered food to a lot of predators.. even if we eat chickens often."
 
     show orin think:
         unpose
@@ -711,6 +744,7 @@ label ch4_night_explore:
         mc_left
     mc "ah nono they're a living creature that's.. like a bird!"
 
+    show orin think
     ori "bird..?"
 
     show mc o:
@@ -728,6 +762,8 @@ label ch4_night_explore:
     mc "...?"
 
     ori "but if a pet sees you eat the same kind as what they are.."
+
+    show orin default
     ori "It would be scared of you too. Distrust."
     ori "will think. What if I'm next?"
 
@@ -738,6 +774,7 @@ label ch4_night_explore:
         sink
     mc "mnnn… but I would never do thaaat! D:"
 
+    show orin think
     ori "mm even so. Will still think that. In the back of mind."
     ori "If I tell. I eat human daily. Would you.. think of me eating you in the back of mind?"
 
@@ -759,6 +796,7 @@ label ch4_night_explore:
         "Is eating fishes the reason you're all chained up?":
 
             $ focus()
+            show orin default
             ori "it's-"
             show leo ehe:
                 unpose
@@ -777,9 +815,12 @@ label ch4_night_explore:
                 full
                 rightish
             leo "mhm yes yes it is i~"
+            show leo default
             leo "I've just been wooondering where you've been.."
             "A tiny boop to my nose"
+            show leo sad
             leo "After the whole debacle there.. I'm worried my friend here might fall into a deeeeep hole of overthinking and sadness.."
+            show leo default
             leo "so I came to check up~!"
             show mc default:
                 unpose
@@ -813,6 +854,7 @@ label ch4_night_explore:
             ori "mean it."
             "as the cat shark lowers its head for me,"
             mc "hehehe you can purrrrrr~!! Good.. boy good girl good thing!"
+            show orin happy
             ori "meow"
             show leo ehe:
                 unpose
@@ -832,6 +874,7 @@ label ch4_night_explore:
                 rightish
             leo "mhm, yes it is i~"
             leo "I see you made a little friend"
+            show leo sad
             leo "Are you feeling okay? No more hungry for fish?"
             show mc pout:
                 unpose
@@ -843,19 +886,20 @@ label ch4_night_explore:
                 full
                 rightish
             leo "I don't think it's your fault, we all have our appetites"
+            show leo smile
             leo "I eat fishes, penguins on a daily basis too, you know~!"
             show leo feral:
                 unpose
                 full
                 rightish
             leo "don't let anyone stop you from eating what you want, little guppy."
-            show orin default:
+            show orin think:
                 unpose
                 full
                 centerright
             ori "bad advice…"
             
-
+    
     "Leo closely inspects the cat shark, twirling a 360 around it with an inquisitive hum"
 
     show leo smile:
@@ -868,6 +912,7 @@ label ch4_night_explore:
         full
         rightish
     leo "Ah I remember now~! You're that one fugitive that went on a cannibalistic rampage~!"
+    show leo smile
     leo "Guess we all have something in common huh?"
 
     show mc shock:
@@ -938,7 +983,7 @@ label ch4_festival_night:
     show cory upset:
         unpose
         full
-        cory_left
+        rightish
         jump(windup=0.1, power=0.45, airtime=0.35)
     cory "Guppy! Where the eel have ya been??"
 
@@ -951,7 +996,7 @@ label ch4_festival_night:
     show scy surprise:
         unpose
         full
-        centerright
+        leftish
         jump(windup=0.15, power=0.45, airtime=0.35)
     scy "Have you filled your stomach with anything?!"
 
@@ -964,26 +1009,26 @@ label ch4_festival_night:
     show scy default:
         unpose
         full
-        centerright
+        leftish
     scy "A jelly is not a proper diet for a developing guppy like you!"
 
     show cory side:
         unpose
         full
-        cory_left
+        rightish
     cory "We brought you smashed krills…"
 
     show scy proud:
         unpose
         full
-        centerright
+        leftish
     scy "Yes! I helped with the smashing of course!"
     scy "I made sure it's digestible for your throat!"
 
     show cory talk:
         unpose
         full
-        cory_left
+        rightish
     cory "It's the least we can do to fulfill your appetite.."
 
     show mc o:
@@ -995,7 +1040,7 @@ label ch4_festival_night:
     show scy smile:
         unpose
         full
-        centerright
+        leftish
     scy "Cory also said that he's sorry!"
     scy "But he didn't want to tell it yet before Preparing something grand or something along the line for a proper apology."
     scy "But I think you should know it guppy! I apologize too.."
@@ -1003,34 +1048,34 @@ label ch4_festival_night:
     show cory surprise:
         unpose
         full
-        cory_left
+        rightish
         jump(windup=0.1, power=0.55, airtime=0.35)
     cory "I'm right here?!"
 
     show cory side:
         unpose
         full
-        cory_left
+        rightish
         sink
     cory "but.. *siiigh* exactly what he said"
 
     show cory side_close:
         unpose
         full
-        cory_left
+        rightish
     cory "We're sorry for the way we reacted.."
     cory "We just wanna let you know that.. we're not afraid of ya guppy"
 
     show cory fond:
         unpose
         full
-        cory_left
+        rightish
     cory "You're our friend."
 
     show scy laugh:
         unpose
         full
-        centerright
+        leftish
         jump(windup=0.15, power=0.45, airtime=0.35)
     scy "KAKAKA That's right Cory! And Friends protect each other! Forever!"
 
@@ -1068,7 +1113,7 @@ label ch4_festival_night:
     show cory side:
         unpose
         full
-        cory_left
+        rightish
     cory "Went somewhere, he looks busy"
 
     show mc pout:
@@ -1081,29 +1126,31 @@ label ch4_festival_night:
     show scy smile:
         unpose
         full
-        centerright
+        leftish
     scy "Yes! But he told us to have fun and enjoy the festival!"
     scy "Maybe then he'll help us after the festival!"
 
-    show leo smile:
+    show leo niko:
         unpose
         full
-        rightish
+        center
     with moveinright
     leo "then fun we shall have~!"
 
     show cory surprise:
         unpose
         full
-        cory_left
+        rightish
         jump(windup=0.1, power=0.6, airtime=0.35)
     cory "GYAH-!! Don't just sneak up on us!"
 
-    show leo ehe:
+    show leo niko:
         unpose
         full
-        rightish
+        center
+    with ease
     leo "Aw, have some whimsy would you?"
+    show leo default
     leo "Ah, also look forward to the end of this festival~!"
     leo "They say a sacred ritual will be held"
 
@@ -1167,11 +1214,17 @@ label ch4_climax:
 
     hide screen ch4_affection_hud
     hide mc
-    scene ch4_night
     with dissolve
     $ focus()
-    "At the ledge of the great abyss, multiple glowing effigies are cast into the dark void by the seafolks, tumbling downward into the deep sea."
 
+    window hide
+    scene goldfall
+    with dissolve
+    pause 2.5
+
+    scene black with fade
+
+    "At the ledge of the great abyss, multiple glowing effigies are cast into the dark void by the seafolks, tumbling downward into the deep sea."
     "Then suddenly, amongst the multiple thrown effigies I noticed something glows a bright gold."
     "Not the kind of gold that Mr. Rin uses.."
     "Not the kind of gold that the effigy has"
@@ -1181,6 +1234,7 @@ label ch4_climax:
     play sound "audio/ambience/mysterious_golden_looking.ogg"
 
     "But that rainbow radiant.. shimmering glow"
+    scene black with dissolve
     "In that moment, everything else were a blur."
 
     show mc serious:
@@ -1198,6 +1252,11 @@ label ch4_climax:
     play sound "audio/sfx/splash.mp3"
     hide mc
     with dissolve
+
+    window hide
+    scene mcfall
+    with dissolve
+    pause 2.5
 
     scene black with fade
     stop music fadeout 2.0

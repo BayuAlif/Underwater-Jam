@@ -1,96 +1,39 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-Exception: Could not load the game. Perhaps the script changed in an incompatible way.
+  File "game/story/chapter1.rpy", line 273, in script call
+    call chapter1_dawn
+  File "game/story/chapter2.rpy", line 171, in script call
+    call chapter2_night_start
+  File "game/story/chapter3.rpy", line 294, in script call
+    call hawk_encounter
+  File "game/story/chapter3.rpy", line 289, in script call
+    call seabunny_encounter
+  File "game/systems/duel_manager.rpy", line 951, in script
+    return _return
+Exception: Could not find return label ('game/story/chapter5.rpy', 804041750, 6590).
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in script
-    python hide:
-  File "renpy/ast.py", line 1193, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1276, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in <module>
-    python hide:
-  File "renpy/common/_layout/screen_main_menu.rpym", line 35, in _execute_python_hide
-    ui.interact()
-    ~~~~~~~~~~~^^
-  File "renpy/ui.py", line 306, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/core.py", line 2163, in interact
-    repeat, rv = self.interact_core(
-                 ~~~~~~~~~~~~~~~~~~^
-        preloads=preloads,
-        ^^^^^^^^^^^^^^^^^^
-    ...<4 lines>...
-        **kwargs,
-        ^^^^^^^^^
-    )
-    ^
-  File "renpy/display/core.py", line 3263, in interact_core
-    rv = root_widget.event(ev, x, y, 0)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1281, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1281, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1281, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/screen.py", line 805, in event
-    rv = self.child.event(ev, x, y, st)
-         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1281, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1510, in event
-    rv = super(Window, self).event(ev, x, y, st)
-         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 273, in event
-    rv = d.event(ev, x - xo, y - yo, st)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1281, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1510, in event
-    rv = super(Window, self).event(ev, x, y, st)
-         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 273, in event
-    rv = d.event(ev, x - xo, y - yo, st)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1281, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 273, in event
-    rv = d.event(ev, x - xo, y - yo, st)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/behavior.py", line 1189, in event
-    return handle_click(self.clicked)
-           ~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "renpy/display/behavior.py", line 1111, in handle_click
-    rv = run(action)
-         ~~~^^^^^^^^
-  File "renpy/display/behavior.py", line 411, in run
-    return action(*args, **kwargs)
-           ~~~~~~^^^^^^^^^^^^^^^^^
-  File "renpy/common/00action_file.rpy", line 499, in __call__
-    renpy.load(fn)
-    ~~~~~~~~~~^^^^
-  File "renpy/loadsave.py", line 638, in load
-    log.unfreeze(roots, label="_after_load")
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/rollback.py", line 1094, in unfreeze
-    raise Exception("Could not load the game. Perhaps the script changed in an incompatible way.")
-Exception: Could not load the game. Perhaps the script changed in an incompatible way.
+  File "game/story/chapter1.rpy", line 273, in script call
+    call chapter1_dawn
+  File "game/story/chapter2.rpy", line 171, in script call
+    call chapter2_night_start
+  File "game/story/chapter3.rpy", line 294, in script call
+    call hawk_encounter
+  File "game/story/chapter3.rpy", line 289, in script call
+    call seabunny_encounter
+  File "game/systems/duel_manager.rpy", line 951, in script
+    return _return
+  File "renpy/ast.py", line 1710, in execute
+    next_node(renpy.game.context().lookup_return(pop=True))
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^ 
+  File "renpy/execution.py", line 812, in lookup_return
+    raise Exception("Could not find return label {!r}.".format(self.return_stack[-1]))
+Exception: Could not find return label ('game/story/chapter5.rpy', 804041750, 6590).
 
 Windows-11-10.0.26200-SP0 AMD64
 Ren'Py 8.5.3.26051504
 One with the Sea 1.0
-Thu Oct  1 00:34:07 2026
+Thu Oct  1 03:17:21 2026

@@ -5,7 +5,6 @@ label ch4_talk_rin:
 
     if not ch4_rin_talked:
         $ focus()
-        $ focus()
         #posisi kalau rin+mc sendiri di screen
         "An enormous whale shark towers the three of us."
         show mc excited:

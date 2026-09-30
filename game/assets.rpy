@@ -34,6 +34,8 @@ image mc scared_close = "images/characters/mc/McScaredClose.png"
 image mc scared big = "images/characters/mc/McScared.png"
 image mc scared_close big = "images/characters/mc/McScaredClose.png"
 image mc yay = "images/characters/mc/McYay.png"
+image mc silumansenyum = "images/characters/mc/McLeoGrin.png"
+image mc silumankaget = "images/characters/mc/McLeoSurprise.png"
 
 image cory anon = "images/characters/cory/00FIXXX/CoryAnon.png"
 image cory disrespect = "images/characters/cory/00FIXXX/CoryDisrespectful.png"
@@ -231,6 +233,7 @@ image fakescy hover = "images/npc/chapter5/ANOMALIS/MantisHover.png"
 image fakescy default = "images/npc/chapter5/ANOMALIS/FScyDefault.png"
 image fakescy motion = "images/npc/chapter5/ANOMALIS/FScyMotion.png"
 image fakescy smash = "images/npc/chapter5/ANOMALIS/FScySmash.png"
+image fakescy Covering = "images/npc/chapter5/ANOMALIS/FScyCovering.png"
 
 image mama default = "images/npc/chapter5/Parents/MamaDefault.png"
 image mama default_s = "images/npc/chapter5/Parents/MamaDefaultS.png"
@@ -394,20 +397,75 @@ image ch4_activity = "images/backgrounds/chapter4/bgday4_sesi affectionroute.jpg
 image ch5_deepsea = "images/backgrounds/chapter5/BgPanjangDeepSea.png"
 
 #CUTSCENES -----------------------------------------------------
-image cutpro1 = "images/cutscenes/prologue/1.png"
-image cutpro2 = "images/cutscenes/prologue/2.png"
-image cutpro3 = "images/cutscenes/prologue/3.png"
-image cutpro4 = "images/cutscenes/prologue/4.png"
-image cutpro5 = "images/cutscenes/prologue/5.png"
-image cutpro6 = "images/cutscenes/prologue/6.png"
-image cutpro8 = "images/cutscenes/prologue/8.png"
-image cutpro9 = "images/cutscenes/prologue/9.png"
-image cutpro10 = "images/cutscenes/prologue/10.png"
-image cutpro11 = "images/cutscenes/prologue/11.png"
-image cutpro12 = "images/cutscenes/prologue/12.png"
-image lari1 = "images/cutscenes/prologue/lari1.png"
-image lari2 = "images/cutscenes/prologue/lari2.png"
-image lari3 = "images/cutscenes/prologue/lari3.png"
+image cutpro1:
+    "images/cutscenes/prologue/1.png"
+    xsize 1920
+    ysize 1080
+
+image cutpro2:
+    "images/cutscenes/prologue/2.png"
+    xsize 1920
+    ysize 1080
+
+image cutpro3:
+    "images/cutscenes/prologue/3.png"
+    xsize 1920
+    ysize 1080
+
+image cutpro4:
+    "images/cutscenes/prologue/4.png"
+    xsize 1920
+    ysize 1080
+
+image cutpro5:
+    "images/cutscenes/prologue/5.png"
+    xsize 1920
+    ysize 1080
+
+image cutpro6:
+    "images/cutscenes/prologue/6.png"
+    xsize 1920
+    ysize 1080
+
+image cutpro8:
+    "images/cutscenes/prologue/8.png"
+    xsize 1920
+    ysize 1080
+
+image cutpro9:
+    "images/cutscenes/prologue/9.png"
+    xsize 1920
+    ysize 1080
+
+image cutpro10:
+    "images/cutscenes/prologue/10.png"
+    xsize 1920
+    ysize 1080
+
+image cutpro11:
+    "images/cutscenes/prologue/11.png"
+    xsize 1920
+    ysize 1080
+
+image cutpro12:
+    "images/cutscenes/prologue/12.png"
+    xsize 1920
+    ysize 1080
+
+image lari1:
+    "images/cutscenes/prologue/lari1.png"
+    xsize 1920
+    ysize 1080
+
+image lari2:
+    "images/cutscenes/prologue/lari2.png"
+    xsize 1920
+    ysize 1080
+
+image lari3:
+    "images/cutscenes/prologue/lari3.png"
+    xsize 1920
+    ysize 1080
 
 image cutchap1 = "images/cutscenes/chapter1/1.png"
 image cutchap2 = "images/cutscenes/chapter1/2.png"
@@ -467,28 +525,110 @@ image scy sepet-happy = "images/cutscenes/chapter4/DEEPTALKSCYLLARUS/sepet-happy
 image scy sepet-o = "images/cutscenes/chapter4/DEEPTALKSCYLLARUS/sepet-o.png"
 
 
-image goldfall = "images/cutscenes/chapter4/goldfall.jpg"
-image mcfall = "images/cutscenes/chapter4/mcfall.png"
+image goldfall:
+    "images/cutscenes/chapter4/goldfall.jpg"
+    xsize 1920
+    ysize 1080
+
+image mcfall:
+    "images/cutscenes/chapter4/mcfall.png"
+    xsize 1920
+    ysize 1080
 
 # --- Chapter 5: 
-image banishedone = "images/cutscenes/chapter 5/banishedone.png"
-image banishedoneangry = "images/cutscenes/chapter 5/banishedoneangy.png"
-image chooseendingsmall = "images/cutscenes/chapter 5/chooseedingsmall.png"
-image chooseendingbig = "images/cutscenes/chapter 5/chooseendingbig.png"
+image banishedone:
+    "images/cutscenes/chapter 5/banishedone.png"
+    xsize 1920
+    ysize 1080
 
-image tsunamiending = "images/cutscenes/chapter 5/tsunamiending.jpg"
+image banishedoneangry:
+    "images/cutscenes/chapter 5/banishedoneangy.png"
+    xsize 1920
+    ysize 1080
 
-image turnfish 1 = "images/cutscenes/chapter 5/turnfish/1.jpg"
-image turnfish 2 = "images/cutscenes/chapter 5/turnfish/2.jpg"
-image turnfish 3 = "images/cutscenes/chapter 5/turnfish/3.jpg"
-image turnfish 4 = "images/cutscenes/chapter 5/turnfish/4.jpg"
-image turnfish 5 = "images/cutscenes/chapter 5/turnfish/5.jpg"
+image banishedonevsfurrylaut:
+    "images/cutscenes/chapter 5/banishedonevsfurrylaut.png"
+    xsize 1920
+    ysize 1080
+image chooseendingsmall:
+    "images/cutscenes/chapter 5/chooseedingsmall.png"
+    xsize 1920
+    ysize 1080
+
+image chooseendingbig:
+    "images/cutscenes/chapter 5/chooseendingbig.png"
+    xsize 1920
+    ysize 1080
+
+image chooseendingfinal:
+    "images/cutscenes/chapter 5/chooseendingfinal.png"
+    xsize 1920
+    ysize 1080
+
+image tsunamiending:
+    "images/cutscenes/chapter 5/tsunamiending.jpg"
+    xsize 1920
+    ysize 1080
+
+image turnfish 1:
+    "images/cutscenes/chapter 5/turnfish/1.jpg"
+    xsize 1920
+    ysize 1080
+
+image turnfish 2:
+    "images/cutscenes/chapter 5/turnfish/2.jpg"
+    xsize 1920
+    ysize 1080
+
+image turnfish 3:
+    "images/cutscenes/chapter 5/turnfish/3.jpg"
+    xsize 1920
+    ysize 1080
+
+image turnfish 4:
+    "images/cutscenes/chapter 5/turnfish/4.jpg"
+    xsize 1920
+    ysize 1080
+
+image turnfish 5:
+    "images/cutscenes/chapter 5/turnfish/5.jpg"
+    xsize 1920
+    ysize 1080
 
 
-image delfish1 = "images/cutscenes/chapter 5/deletefish/1.png"
-image delfish 2 = "images/cutscenes/chapter 5/deletefish/2.png"
-image delfish 3 = "images/cutscenes/chapter 5/deletefish/3.png"
-image delfish 4 = "images/cutscenes/chapter 5/deletefish/4.png"
-image delfish 5 = "images/cutscenes/chapter 5/deletefish/5.png"
-image delfish 6 = "images/cutscenes/chapter 5/deletefish/6.png"
-image purewhite = "images/cutscenes/chapter 5/deletefish/purewhite.png"
+image delfish1:
+    "images/cutscenes/chapter 5/deletefish/1.png"
+    xsize 1920
+    ysize 1080
+
+image delfish 2:
+    "images/cutscenes/chapter 5/deletefish/2.png"
+    xsize 1920
+    ysize 1080
+
+image delfish 3:
+    "images/cutscenes/chapter 5/deletefish/3.png"
+    xsize 1920
+    ysize 1080
+
+image delfish 4:
+    "images/cutscenes/chapter 5/deletefish/4.png"
+    xsize 1920
+    ysize 1080
+
+image delfish 5:
+    "images/cutscenes/chapter 5/deletefish/5.png"
+    xsize 1920
+    ysize 1080
+
+image delfish 6:
+    "images/cutscenes/chapter 5/deletefish/6.png"
+    xsize 1920
+    ysize 1080
+
+image purewhite:
+    "images/cutscenes/chapter 5/deletefish/purewhite.png"
+    xsize 1920
+    ysize 1080
+
+image bg bedroom_dream = "images/backgrounds/chapter5/BgKamarMc.png"
