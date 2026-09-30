@@ -219,9 +219,9 @@ screen exploration_screen():
                     yalign exploration_item.get("y", 0.83)
 
                 focus_mask True
-                hovered Play("sound", "audio/pixel_ui_1.mp3")
+                hovered Play("sound", "audio/sfx/pixel_ui_1.mp3")
 
-                action [Play("sound", "audio/pixel_ui_2.mp3"), Return("item")]
+                action [Play("sound", "audio/sfx/pixel_ui_2.mp3"), Return("item")]
         else:
             imagebutton:
                 idle itm_idle

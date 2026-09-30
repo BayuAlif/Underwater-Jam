@@ -772,7 +772,6 @@ label ch3_boss_negotiate_scy_after:
     $ ch3_empress_defeated = True
     play music "audio/bgm/chap_3_night.ogg"
     jump ch3_ending
-    jump ch3_ending
 
 label ch3_boss_battle_lose:
     hide scy

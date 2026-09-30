@@ -887,7 +887,7 @@ label ch5_nightmare_bedroom:
 
     scene black
     with fade
-    play music "audio/ambianceprologue.mp3" volume 0.5 fadein 2.0
+    play music "audio/ambience/ambianceprologue.mp3" volume 0.5 fadein 2.0
 
     "My vision is suddenly engulfed in pitch black leaving me and Mr banished one in a surreal scene."
     "It's as if we're on a whole different dimension.."
@@ -1066,7 +1066,7 @@ label ch5_ending_bad:
 
     mc "I…I wish for mama to get better and papa to come home!"
 
-    play sound "audio/mysterious_golden_looking.ogg"
+    play sound "audio/ambience/mysterious_golden_looking.ogg"
     "The golden fish suddenly shines brighter."
     "The entire ocean is engulfed in golden light."
 
@@ -1109,7 +1109,7 @@ label ch5_ending_bad:
     mc "P-papa?! What’s going on?"
 
     play sound "audio/sfx/splash.mp3"
-    play sound "audio/underwater_current.mp3"
+    play sound "audio/ambience/underwater_current.mp3"
 
     scene bg tsunami_approaching
     with vpunch
@@ -1196,7 +1196,7 @@ label ch5_ending_true:
     scene white
     with Dissolve(2.0)
 
-    play music "audio/ambianceprologue.mp3" fadein 2.0
+    play music "audio/ambience/ambianceprologue.mp3" fadein 2.0
     scene prologue_day
     with Dissolve(1.5)
 
@@ -1240,7 +1240,7 @@ label ch5_ending_feral:
 
     leo "Yeeees~! Hehe great choice!"
 
-    play sound "audio/mysterious_golden_looking.ogg"
+    play sound "audio/ambience/mysterious_golden_looking.ogg"
     "The golden fish melts in my hands."
 
     show mc shock at mc_left
