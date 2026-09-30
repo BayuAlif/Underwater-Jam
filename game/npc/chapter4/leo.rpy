@@ -35,42 +35,71 @@ label ch4_talk_leo:
         #posisi kalau leo bersama 1 karkater lg  di screen 
         show mc shock at mc_left
         show leo default:
+            unpose
             full
             centerleft
-        show scy surprise:
+        with move
+        show shrimp surprise:
+            unpose
+            full
+            rightish
+        with moveinright
+
+        show shrimp surprise:
             unpose
             full
             rightish
             jump(windup=0.15, power=0.45, airtime=0.35)
-        with moveinright
+        with move
         scy "Careful now!"
 
         leo "Mmhehe my apologies for the spook, friend.."
         leo "You're searching for the golden fish, yes?"
         leo "Sparkling rainbow, lush tail.."
 
-        show mc excited at mc_left, jumpmc, vibrate
+        show mc excited:
+            unpose
+            full
+            mc_left
+            jumpmc
+            vibrate
         mc "Yes yes you're right!! Super spot on!"
 
         leo "I can be of your aid I assure you~!"
         leo "You just have to follow me!"
 
         show mc excited:
+            unpose
             full
             mc_left
             jump(windup=0.15, power=0.45, airtime=0.35)
-            #walkto(rightish, steps=3, walktime=1.0)
+            walkto(rightish, steps=3, walktime=1.0)
         pause 1.0
+
+        show leo niko:
+            full
+            unpose
+            leftish
+        with move
+
+        show shrimp default:
+            full
+            unpose
+            center
+        with move
+
+        show cory upset_hu:
+            full
+            unpose
+            right
+        with moveinright
+
+        pause 0.5
 
         cory "Hold your seahorses!"
 
         #posisi kalau trio dengan leo
-        show cory upset_hu:
-            full 
-            unpose
-            right
-        with moveinright
-        show scy default:
+        show shrimp default behind cory:
             full
             unpose
             center
@@ -93,7 +122,10 @@ label ch4_talk_leo:
                 leo "Like a little ballerina in a broken music box~"
                 leo "Round and round you go, same question, same steps, same tune.."
                 leo "Doesn't it make you dizzy?"
-                show mc default at mc_left
+                show mc default:
+                    unpose
+                    full
+                    mc_left
                 mc "mmn.. No! Because if I get dizzy.."
                 mc "Mr. Cory and Mr. Larus will help make it go away!"
                 mc "So I have nothing to worry about!"
@@ -104,12 +136,26 @@ label ch4_talk_leo:
                 cory "How do we know ya really know of the fish's whereabouts?"
                 leo "Mm but until now.. you've been blindly following clues from strangers too right?"
                 leo "What makes it different from what I said?"
-                show scy smile at npc_right, surprise
+                show shrimp smile behind cory:
+                    full
+                    unpose
+                    center
+                    jump(windup=0.15, power=0.45, airtime=0.35)
+                with move
+
                 scy "He's right my friend, Cory! We have each other, it'll all be fine!"
-                show mc happy at mc_left, surprise
+                show mc happy:
+                    unpose
+                    full
+                    mc_left
+                    surprise
                 mc "Mhm yaa mr Cory you worry too much"
                 mc "More than both of my parents combined.."
-                show cory upset at cory_left, sink
+                show cory upset:
+                    full
+                    unpose
+                    right
+                    sink
                 cory "Ugh.. maybe you're right my bad…"
                 cory "Dunno what got to me"
                 "Mr Cory looks like he's got a lot in mind"
@@ -118,16 +164,29 @@ label ch4_talk_leo:
         leo "I know it like the back of my hand..."
         leo "Which means i get to join your fun little party yes?"
 
-        show mc happy at mc_left, jumpmc
+        show mc happy:
+            unpose
+            full
+            mc_left
+            jumpmc
         mc "Yaa! Welcome aboard miss…?"
 
         leo "Leo is fine~! Leo Drurga"
 
-        show mc o at mc_left, surprise
+        show mc o:
+            unpose
+            full
+            mc_left
+            surprise
         mc "Drurga.. :o"
         "The surname tickles something familiar in the back of my brain. Yet I can't really pinpoint what"
 
-        show scy proud at npc_right, jump
+        show shrimp proud behind cory:
+            full
+            unpose
+            center
+            jump(windup=0.15, power=0.45, airtime=0.35)
+        with move
         scy "We welcome you to our thrilling little search party, comrade!"
 
         leo "My oh my this would be spiiine tingling~!"
@@ -142,8 +201,9 @@ label ch4_talk_leo:
         $ focus()
 
     hide cory
-    hide scy
+    hide shrimp
     hide mc
+    hide leo
     with dissolve
 
     jump ch4_npc_explore_hub
