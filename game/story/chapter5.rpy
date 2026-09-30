@@ -334,12 +334,28 @@ label chapter5_start:
     ".... alone."
     ".... will always be alone…….."
 
+
+    show fakecory default
     cory_fake "Don’t be scared guppy we’re here for ya…"
 
     show mc shock at mc_left
     mc "M- mr. Cory...?!"
 
     "I whipped around immediately, but found nothing."
+
+    # masalah saat scy di posisi selain tengah 
+    show fakescy default:
+        full 
+        unpose
+    show fakescy default:
+        leftish
+        float_idle
+    show fakecory default:
+        full
+        unpose
+    show fakecory default:
+        rightish
+        float_idle
 
     scy_fake "That’s right guppy, we’ll protect you! {font=DejaVuSans.ttf}K̷̺͗a̷̹̅ķ̷̋a̸̞͊k̵͆͜ä̴̫{/font}"
 
@@ -380,8 +396,12 @@ label ch5_scy_sequence:
     scene bg abyss_zone_left
     with dissolve
 
-    show scy_mirage at npc_right
-    with dissolve
+    show fakescy default:
+        full 
+        unpose
+    show fakescy default:
+        center
+        float_idle
 
     show mc excited at mc_left
     with dissolve
@@ -398,6 +418,12 @@ label ch5_scy_sequence:
     show mc happy at mc_left
     mc "Yes!! Then we did it! We just have to find a way back up and my mom can finally get better!"
 
+    show fakescy Covering:
+        full 
+        unpose
+    show fakescy Covering:
+        center
+        float_idle
     scy_fake "I can’t…"
     scy_fake "not yet…"
 
@@ -413,6 +439,13 @@ label ch5_scy_sequence:
 
     mc "Hear what?"
 
+    show fakescy default:
+        full 
+        unpose
+    show fakescy default:
+        center
+        float_idle
+
     scy_fake "Come closer guppy, you are too far away."
 
     "I swam closer."
@@ -422,14 +455,31 @@ label ch5_scy_sequence:
 
     "The voices grew louder the closer I got. They overlapped until I could no longer tell what they were saying."
 
+    show fakescy Covering:
+        full 
+        unpose
+    show fakescy Covering:
+        center
+        float_idle
     scy_fake "Please make them stop guppy..."
 
     "Mr. Larus holds out his hand to me, a crazed, desperate look in his eyes terrifies me."
 
+    show fakescy motion:
+        full 
+        unpose
+    show fakescy motion:
+        center
+        float_idle
     show mc holdcry at mc_left
     mc "I- I cant"
 
-    show scy_mirage burst at npc_right with vpunch
+    # kayak kurang animasi
+    show fakescy smash:
+        full 
+        unpose
+    show fakescy smash:
+        center
     scy_fake "{font=DejaVuSans.ttf}w̷̳̓ͅĥ̶̥̩̋y̷̒̓͜ ̶̦̣̔̕w̸̜̋o̴͎̪̭͆̌n̴̬͂ṫ̸̛͇̳̤ ̷͓̎̀͜͝y̵̙̦̣̔̂ö̸̩͈́ũ̴͚͐ ̴̱̰̗͐͊m̴̛̜̑̈́a̷̡̗͊̋͝k̵̰̻͕͆͊e̶͈͋̈́ ̴̱̦͑̈́̈́t̸͈̳̎h̸̢͎̟̿ê̸̘̕m̷͔͌̚̕ ̵̟̠̺̆́͘s̶̻͚̺̒̂t̶͓̃ŏ̶̟͕͐p̵̺̰̪̀̍̃{/font}"
     scy_fake "{font=DejaVuSans.ttf}M̵̢̼̦̩̝͙͈͖̟̞͚̟̿̉̿͐ȃ̶̡̧̗̜̩͕̖͚̦̬̟̮̾͑̏̓̈́͗̎͘̚͜k̴̙̽̒e̷̢̓ ̵̨͈͇̙̙̩̗̖͇͚̟̘̣̇̀͑̃̎͒̽̉͝͝t̵̛̥̟͐̄̿̿̌̾̽̌̎͆̄̅̈̕ȟ̸̢͎̭͉̤̖̝͍̤̇̒̆̈́̍̾͘ͅē̸͈̊̐͠m̶̨̟̬͎̬̔̋̐ͅ ̶̠̦̊̒̊̀̅ͅs̸̖͚̞̳̙͚͐͒̒̌̈̾̈́̿̃͛̚͘͝t̷̳̟̤͇̬͚͎̫̲̪͋͋̒͑̀̓͆̈͜͠͝o̴̲̥͉̅́p̸̺̬̠͈͎̥̖̝̲̼̱̱̠̖̌̓̈́̄̆{/font}"
     scy_fake "{font=DejaVuSans.ttf}Ȋ̶͎͂ ̶̛̗̇͝ń̷̝̘̦e̷̢̱̫͒̇e̵̫̹͌ͅḏ̶͋̂͜ ̵͔͕̗̏͑y̴̰͇̅̀̌o̸̫̝͚͒̆u̷̮̼͉̐ ̴̲̩̅t̸͚͗̇o̸̳̦͆̀͜ ̵̘͐̕m̸͎̋à̵̝̥̎͝k̴̳̪̀e̴͓̓͂ ̵͔̉́t̸̨̑̒̚ḩ̸̭̅ë̴̼̆͝m̸͎͉͛̾ ̶͕̱͎͗̀̒s̵̫͕̠͆ẗ̸̺̞̻́̽ô̴̢͙̬p̸̢̠̼̋͊{/font}"
@@ -448,7 +498,19 @@ label ch5_scy_sequence:
     "I hesitate, before slowly reaching out to grab his hand. Before I could, a voice screams out."
 
     play sound "audio/thump.mp3"
-    show scy surprise at farright
+    show fakescy default:
+        full 
+        unpose
+    show fakescy default:
+        leftish
+        float_idle
+    show scy surprise:
+        full
+        unpose
+    show scy surprise:
+        rightish
+        float_idle
+
     with vpunch
 
     scy "Stay away from it!"
@@ -460,13 +522,24 @@ label ch5_scy_sequence:
     show mc shock_hu at mc_left
     mc "T-Two M- Mr.Larus!? 0.0"
 
+    show scy default:
+        full
+        unpose
+    show scy default:
+        rightish
+        float_idle
     scy_fake "Guppy don’t be fooled, that buffoon isn’t me! It’s trying to stop you from helping me."
     scy_fake "Just take my hand and we can finally end this charade."
-
     scy "No! Don’t listen to it Guppy, it’s trying to fool you, I’m the real one! You mustn’t give yourself to it!"
 
     menu:
         "“If I give you my hand... will the voices stop?”":
+            show fakescy Covering:
+                full 
+                unpose
+            show fakescy Covering:
+                leftish
+                float_idle
             scy_fake "Yes."
             scy_fake "You will free me from these burdens."
             scy_fake "Then we can go back to our adventures.. with you as a fish."
@@ -475,19 +548,73 @@ label ch5_scy_sequence:
             "Before I could take his hand, Mr. Larus suddenly shoved me aside."
 
             play sound "audio/attack_3.mp3"
-            show scy default at center with vpunch
+            show scy default_om at center with vpunch
+            show fakescy default:
+                left
+            with move
             scy "Get away from her, you slugtardly thing!"
             "Mr. Larus charged forward, throwing a punch at the Mirage."
+
+            show scy surprise:
+                full 
+                unpose
+            show scy surprise:
+                rightish
+                float_idle
+            with move
             "The second Mr. Larus easily dodged."
 
+            show fakescy motion:
+                full 
+                unpose
+            show fakescy motion:
+                leftish
+                float_idle
+            with move
             scy_fake "There it is. Violence."
+            show scy default_om:
+                full 
+                unpose
+            show scy default_om:
+                rightish
+                float_idle
             scy "shut up!"
+            show fakescy default:
+                full 
+                unpose
+            show fakescy default:
+                leftish
+                float_idle
             scy_fake "That is all you know."
+            show scy default:
+                full
+                unpose
+            show scy default:
+                rightish
+                float_idle
             scy "You know nothing about me!"
+            show fakescy motion:
+                full 
+                unpose
+            show fakescy motion:
+                leftish
+                float_idle
             scy_fake "A soldier. A weapon. A murderer."
             scy "...No."
             scy_fake "No matter how hard you try to change, a murderer will always be a murderer."
+            show scy shy:
+                full
+                unpose
+            show scy shy:
+                rightish
+                float_idle
             scy "I’m not—"
+            show fakescy default:
+                leftish
+                float_idle
+            show scy sepet:
+                rightish
+                float_idle
             scy_fake "Then prove it."
             "The Mirage held out its hand."
             scy_fake "Give me your hand, Scyllarus. Give up your life. This is the only way you can atone for your sins."
@@ -495,28 +622,51 @@ label ch5_scy_sequence:
 
         "“No! I’m not giving you my hand!”":
             "I swim away and hide behind the new Mr. Larus."
-            show scy default at mc_center_left
-            show mc sad at farleft
+            show scy default_om:
+                rightish
+                float_idle
+            show mc sad at mc_left
             scy "Guppy, stay behind me!"
             scy_fake "Well, well, well..."
             scy_fake "If it isn’t the great hero of the sea!"
             scy_fake "The mighty Scyllarus. The Empress’s finest soldier."
+            show scy default:
+                rightish
+                float_idle
             scy "Shut up."
+            show fakescy Covering:
+                leftish
+                float_idle
             scy_fake "The loyal little weapon who did exactly as he was told."
             mc "Mr. Larus..."
             scy_fake "How many were there again?"
+            show scy default_om:
+                rightish
+                float_idle
             scy "Enough."
+            show fakescy motion:
+                leftish
+                float_idle
             scy_fake "How many did you kill?"
             scy "I said enough!"
             scy_fake "You remember them, don’t you?"
             scy_fake "All those innocent lives you took."
             "Mr. Larus clutched his head."
+            show scy shy:
+                rightish
+                float_idle
             scy "Stop..."
+            show fakescy default:
+                leftish
+                float_idle
             scy_fake "No matter what you do, you will always be a murderer."
             "The screams grew louder."
+            show scy sepet:
+                rightish
+                float_idle
             scy "It’s not my fault! I’m not a murderer!"
             scy "I only did what I was ordered to!"
-            show mc holdcry at farleft
+            show mc holdcry at mc_left
             mc "Mr. Larus! Don’t listen to it!"
             scy "Make them stop! Make them stop!"
             "He dropped to his knees, covering his ears to try and block out the voices."
@@ -549,7 +699,7 @@ label ch5_cory_sequence:
     scene bg abyss_zone_center
     with dissolve
 
-    show cory_mirage at npc_right
+    show fakecory at npc_right
     with dissolve
 
     show mc excited at mc_left
