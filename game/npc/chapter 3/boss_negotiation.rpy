@@ -19,22 +19,17 @@ label ch3_boss_negotiation:
         jump ch3_boss_negotiate_as_scyllarus
 
 label ch3_boss_negotiate_as_mc:
-    $ focus ()
     show mc happy:
-        full
         unpose
-        offscreenleft
-    show mc happy:
+        full
         right
         walkloop
     with moveinleft
     mc "Hi!! Your highness goby fish!"
 
     show goby default:
-        full
         unpose
-        offscreenright
-    show goby default:
+        full
         center
     with moveinright
     gob "You have 10 seconds to speak your lies"
@@ -52,7 +47,6 @@ label ch3_boss_negotiate_as_mc:
     gob "There goes your two seconds."
     hide mc
     hide goby
-    $ focus ()
     show screen ch3_boss_negotiation_timer(8.0)
 
     menu:
@@ -70,7 +64,6 @@ label ch3_boss_negotiate_as_mc:
 
 label ch3_boss_negotiate_mc_timeout:
     hide screen ch3_boss_negotiation_timer
-    $ focus ()
     show goby annoy:
         full
         center
@@ -79,25 +72,19 @@ label ch3_boss_negotiate_mc_timeout:
         right
     gob "Time's up! You hesitated, dirtwater!"
     mc "W-wait! I have an answer! Don't poke me with the spear!"
-    $ focus ()
     hide mc
     hide goby
     jump ch3_boss_negotiate_mc_opt1
 
 label ch3_boss_negotiate_mc_opt1:
-    $ focus ()
     show mc default:
-        full
         unpose
-        offscreenleft
-    show mc default:
+        full
         right
     with moveinleft
     show goby default:
-        full
         unpose
-        offscreenright
-    show goby default:
+        full
         center
     with moveinright
     gob "..."
@@ -139,25 +126,19 @@ label ch3_boss_negotiate_mc_opt1:
     gob "I'm not a part of that filthy kind."
     gob "You think you're so smart because you've read a few books?"
     gob "Save those futile fun facts for afterlife"
-    $ focus ()
     hide goby
     hide mc
     jump ch3_boss_negotiate_mc_after
 
 label ch3_boss_negotiate_mc_opt2:
-    $ focus ()
     show mc o:
-        full
         unpose
-        offscreenleft
-    show mc o:
+        full
         right
     with moveinleft
     show goby default:
-        full
         unpose
-        offscreenright
-    show goby default:
+        full
         center
     with moveinright
     mc "Everyone we met seemed really sad because of what the crustaceans did.."
@@ -186,13 +167,11 @@ label ch3_boss_negotiate_mc_opt2:
         full
         center
     gob "What the sea thinks is never worth our concern!"
-    $ focus ()
     hide goby
     hide mc
     jump ch3_boss_negotiate_mc_after
 
 label ch3_boss_negotiate_mc_opt3:
-    $ focus ()
     show mc happy:
         full
         unpose
@@ -201,20 +180,16 @@ label ch3_boss_negotiate_mc_opt3:
         right
     with moveinleft
     show goby surprise:
-        full
         unpose
-        offscreenright
-    show goby surprise:
+        full
         center
     with moveinright
     gob "...!"
     gob "That's.. The great empress' favorite!"
 
     show teto laugh:
-        full
         unpose
-        offscreenright
-    show teto laugh:
+        full
         centerleft
         surprise
     with moveinright
@@ -283,26 +258,20 @@ label ch3_boss_negotiate_mc_opt3:
     hide goby
     hide teto
     hide mc
-    $ focus ()
     
     jump ch3_boss_negotiate_mc_after
 
 label ch3_boss_negotiate_mc_after:
-    $ focus ()
     show goby surprise:
-        full
         unpose
-        offscreenright
-    show goby surprise:
+        full
         centerright
     with moveinright
     gob "We have to obliterate these scums at once, Your Majesty"
 
     show teto gun_smirk:
-        full
         unpose
-        offscreenright
-    show teto gun_smirk:
+        full
         centerleft
     with moveinright
     emp "Hah! Count me in on the fun! I've got to test my new found!"
@@ -321,10 +290,8 @@ label ch3_boss_negotiate_mc_after:
     "Ms Empress Shrimp pulls out what it seems a golden scale from under her robe. Its shimmer glistens in rainbows under the light."
 
     show mc shock:
-        full
         unpose
-        offscreenleft
-    show mc shock:
+        full
         right
     with moveinleft
     mc "The golden scale.. she really has it"
@@ -338,10 +305,8 @@ label ch3_boss_negotiate_mc_after:
     gob "Then unleash nightmares that follows them to hell, Your Majestic Majesty"
 
     show cory side_close:
-        full
         unpose
-        offscreenleft
-    show cory side_close:
+        full
         leftish
     with moveinleft
     show teto gun_smirk:
@@ -363,7 +328,6 @@ label ch3_boss_battle:
     emp "Oh-ho! Well that makes it the more interesting…!"
     emp "May the best gold bearer wins! Spoiler: it is I, most obviously!"
 
-    $ focus ()
     hide mc
     hide cory
     hide teto
@@ -378,19 +342,14 @@ label ch3_boss_battle:
     jump ch3_ending
 
 label ch3_boss_negotiate_as_cory:
-    $ focus ()
     show cory talk:
-        full
         unpose
-        offscreenleft
-    show cory talk:
+        full
         leftish
     with moveinleft
     show goby default:
-        full
         unpose
-        offscreenright
-    show goby default:
+        full
         centerright
     with moveinright
     gob "You got exactly 1.8 seconds."
@@ -416,10 +375,8 @@ label ch3_boss_negotiate_as_cory:
     cory "Guh-!"
 
     show mc shock_hu:
-        full
         unpose
-        offscreenleft
-    show mc shock_hu:
+        full
         right
     with moveinleft
     mc "Mr. Cory…!!"
@@ -431,10 +388,8 @@ label ch3_boss_negotiate_as_cory:
     mc "WHY WOULD YOU SAY THAAAT MR CORYYY!!"
 
     show teto default:
-        full
         unpose
-        offscreenright
-    show teto default:
+        full
         center
     with moveinright
     emp "Oooh a rebel I sense?!"
@@ -448,10 +403,8 @@ label ch3_boss_negotiate_as_cory:
     hide goby with moveoutright
 
     show scy sepet:
-        full
         unpose
-        offscreenleft
-    show scy sepet:
+        full
         rightish
     with moveinleft
     scyllarus "Frankly! I don't think I can defend you on this one, my questionable friend!"
@@ -459,19 +412,14 @@ label ch3_boss_negotiate_as_cory:
     jump ch3_boss_battle
 
 label ch3_boss_negotiate_as_scyllarus:
-    $ focus ()
     show goby surprise:
-        full
         unpose
-        offscreenright
-    show goby surprise:
+        full
         centerright
     with moveinright
     show scy default:
-        full
         unpose
-        offscreenleft
-    show scy default:
+        full
         leftish
     with moveinleft
     gob "Make it count, Scyllarus."
@@ -486,7 +434,6 @@ label ch3_boss_negotiate_as_scyllarus:
         full
         leftish
     scyllarus "I'll make it justifiable!"
-    $ focus ()
     hide scy
     hide goby
     menu:
@@ -500,21 +447,16 @@ label ch3_boss_negotiate_as_scyllarus:
             jump ch3_boss_scy_opt3
 
 label ch3_boss_scy_opt1:
-    $ focus ()
     show goby default:
-        full
         unpose
-        offscreenright
-    show goby default:
+        full
         centerright
     with moveinright
     gob "Oh? You'd bring numbers to a fight, Scyllarus?"
 
     show scy default_om:
-        full
         unpose
-        offscreenleft
-    show scy default_om:
+        full
         leftish
     with moveinleft
     scyllarus "By statistics! Seafolks' crime rates are still higher than the freshwater immigrants!"
@@ -544,25 +486,19 @@ label ch3_boss_scy_opt1:
         leftish
     scyllarus "So don't tell me they're all the villains in this story!"
     scyllarus "I refuse to believe that anymore!"
-    $ focus ()
     hide scy
     hide goby
     jump ch3_boss_negotiate_scy_after
 
 label ch3_boss_scy_opt2:
-    $ focus ()
     show goby default:
-        full
         unpose
-        offscreenright
-    show goby default:
+        full
         centerright
     with moveinright
     show scy shy:
-        full
         unpose
-        offscreenleft
-    show scy shy:
+        full
         leftish
     with moveinleft
     scyllarus "It truly pains me to say this but…!"
@@ -616,10 +552,8 @@ label ch3_boss_scy_opt2:
     scyllarus "..."
 
     show mc pout:
-        full
         unpose
-        offscreenleft
-    show mc pout:
+        full
         right
     with moveinleft
     mc "YOU'RE WRONG!!"
@@ -636,10 +570,8 @@ label ch3_boss_scy_opt2:
     mc "Mr. shrimp- Mr.. Mr Sc... Cy.. Clarus has never once hurt me!"
 
     show cory talk:
-        full
         unpose
-        offscreenleft
-    show cory talk:
+        full
         leftish
     with moveinleft
     show scy sepet:
@@ -692,7 +624,6 @@ label ch3_boss_scy_opt2:
         full
         right
     mc "Maybe so! But.. I trust the side of him I have seen!"
-    $ focus ()
     hide goby
     hide scy
     hide mc
@@ -700,31 +631,24 @@ label ch3_boss_scy_opt2:
     jump ch3_boss_negotiate_scy_after
 
 label ch3_boss_scy_opt3:
-    $ focus ()
     show scy smile:
-        full
         unpose
-        offscreenleft
-    show scy smile:
+        full
         leftish
     with moveinleft
     scyllarus "My friend here picked out the brightest, freshest red seaweed for you to feast!"
 
     show teto laugh:
-        full
         unpose
-        offscreenright
-    show teto laugh:
+        full
         centerright
     with moveinright
     emp "Oh ho ho don't mind if I do~!!"
     emp "Mmmn.. this is why you're the best Scyllarus..!"
 
     show goby surprise:
-        full
         unpose
-        offscreenright
-    show goby surprise:
+        full
         rightish
     with moveinright
     gob "He's the best…? But your highness you told me that I'm-"
@@ -782,20 +706,16 @@ label ch3_boss_scy_opt3:
         centerright
         vibrate
     emp "CRUSTACEANS!! Detain them at once!"
-    $ focus()
     hide teto
     hide scy
     hide goby
     jump ch3_boss_negotiate_scy_after
 
 label ch3_boss_negotiate_scy_after:
-    $ focus ()
     hide teto
     show goby default:
-        full
         unpose
-        offscreenright
-    show goby default:
+        full
         centerright
     with moveinright
     gob "This is exactly why you were never fit to be a general."
@@ -803,30 +723,24 @@ label ch3_boss_negotiate_scy_after:
     gob "That's not honor, Scyllarus. That's just being easy to manipulate."
 
     show scy default_om:
-        full
         unpose
-        offscreenleft
-    show scy default_om:
+        full
         leftish
     with moveinleft
     scyllarus "I'd rather be wrong for believing in people than right for fearing them!"
 
     hide goby with moveoutright
     show teto default:
-        full
         unpose
-        offscreenright
-    show teto default:
+        full
         centerright
     with moveinright
     emp "Heh! Time to answer the most asked question then!"
     emp "The ultimate showdown…!!"
 
     show mc excited:
-        full
         unpose
-        offscreenleft
-    show mc excited:
+        full
         right
     with moveinleft
     mc "Oh my oh my!"
@@ -839,14 +753,11 @@ label ch3_boss_negotiate_scy_after:
     emp "KEKEKEKE!! Oh how I adore you! Too bad I gotta kill you now!"
 
     show cory upset:
-        full
         unpose
-        offscreenleft
-    show cory upset:
+        full
         right
     with moveinleft
     cory "Aye! This is no play guppy! Get your ass ready for a fight!"
-    $ focus ()
     hide mc
     hide scy
     hide cory
@@ -862,26 +773,20 @@ label ch3_boss_negotiate_scy_after:
 
 label ch3_boss_battle_lose:
     hide scy
-    $ focus ()
     show teto gun_smirk:
-        full
         unpose
-        offscreenright
-    show teto gun_smirk:
+        full
         centerleft
     with moveinright
     emp "KEKEKE!! I thought you would've last longer!"
     emp "I'm too overpowered for insignificant freshies!"
 
     show goby default:
-        full
         unpose
-        offscreenright
-    show goby default:
+        full
         centerright
     with moveinright
     gob "None other shall dare defy the great crustacean empress regime, anymore"
-    $ focus ()
 
     menu:
         "Try again?":

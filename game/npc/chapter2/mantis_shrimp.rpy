@@ -634,7 +634,7 @@ label mantis_as_cory:
     $ focus()
     hide mc with dissolve
 
-    show cory anon:
+    show cory smile_hu:
         full
         unpose
         duo_left
@@ -654,14 +654,14 @@ label mantis_as_cory:
         toleft
     shrimp "no!"
 
-    show cory anon:
+    show cory upset:
         unpose
         full
         duo_left
         vibrate
     cory "fugu you mean no?!"
 
-    show cory anon:
+    show cory smile:
         unpose
         full
         duo_left
@@ -680,7 +680,7 @@ label mantis_as_cory:
     shrimp "They call me sweet names and caress me without permission!"
     shrimp "And they think they can pass with that!"
 
-    show cory anon:
+    show cory side:
         unpose
         full
         duo_left

@@ -1,30 +1,23 @@
 label hawk_encounter:
     hide mc
     scene ch3_day with dissolve
-    $ focus()
 
     show hawk default:
-        full
         unpose
-        offscreenright
-    show hawk default:
+        full
         center
         walkloop
     with moveinright
     show mc o:
-        full
         unpose
-        offscreenright
-    show mc o:
+        full
         right
     with moveinright
     "A seaturtle sways haphazardly above us. It suddenly throws a rock at mr.shrimp"
 
     show scy surprise:
-        full
         unpose
-        offscreenright
-    show scy surprise:
+        full
         centerright
         walkloop
     with moveinright
@@ -38,10 +31,8 @@ label hawk_encounter:
     hawk "We've got enough of ya bullshrimp"
 
     show cory smile_hu:
-        full
         unpose
-        offscreenright
-    show cory smile_hu:
+        full
         right
         walkloop
     with moveinright
@@ -60,15 +51,12 @@ label hawk_encounter:
         full
         right
     show mc o:
-        full
         unpose
-        offscreenright
-    show mc o:
+        full
         right
     with moveinright
     mc "mmm it seems like the problem delve deeper than a simple hate…"
     mc "let's try asking her out!"
-    $ focus ()
 
     hide mc
     hide cory
@@ -91,42 +79,33 @@ label hawk_encounter:
 
 label ch3_turtle_as_mc:
 label ch3_hawk_as_mc:
-    $ focus ()
     show hawk default:
-        full
         unpose
-        offscreenright
-    show hawk default:
+        full
         center
         walkloop
     with moveinright
     show mc o:
-        full
         unpose
-        offscreenright
-    show mc o:
+        full
         right
     with moveinright
     hawk "Get away from that red freak guppy.."
     hawk "they can't be trusted with"
-    $ focus ()
     hide mc
     hide hawk
     hide scy
     hide cory
     menu:
         "Why do you hate mr. shrimp so much?":
-            $ focus ()
             show hawk default:
+                unpose
                 full
-                offscreenright
-            show hawk default:
                 center
             with moveinright
             show mc o:
+                unpose
                 full
-                offscreenright
-            show mc o:
                 right
             with moveinright
             hawk "I remember faces, that shrimp's gate guarding one!"
@@ -186,12 +165,10 @@ label ch3_hawk_as_mc:
                 full
                 center
             hawk "Crikey, good luck with that"
-            $ focus ()
             $ ch3_visited_turtle = True
             jump ch3_day_explore_continue
 
         "What have the crustaceans done?":
-            $ focus ()
             show mc o:
                 full
                 right
@@ -247,24 +224,20 @@ label ch3_hawk_as_mc:
                 center
             hawk "Hah right! They don't call me gran hawk for none!"
             hawk "Can't bring an empress down alone though"
-            $ focus ()
             $ ch3_visited_turtle = True
             jump ch3_day_explore_continue
     
 label ch3_turtle_as_cory:
 label ch3_hawk_as_cory:
-    $ focus ()
 
     show cory side:
+        unpose
         full
-        offscreenright
-    show cory side:
         leftish
     with moveinright
     show hawk default:
+        unpose
         full
-        offscreenright
-    show hawk default:
         centerright
     with moveinright
     hawk "You! You're a freshwater aren't ya?"
@@ -276,16 +249,13 @@ label ch3_hawk_as_cory:
         full
         leftish
     cory "But my man, tis shrimp is ain't like others"
-    $ focus ()
     hide cory
     hide hawk
     menu:
         "What ya got going with the shrimp?":
-            $ focus ()
             show cory talk_hu:
+                unpose
                 full
-                offscreenright
-            show cory talk_hu:
                 leftish
             with moveinright
             show hawk default:
@@ -365,22 +335,18 @@ label ch3_hawk_as_cory:
                 centerright
             hawk "hah you a better fish than I am then"
             hawk "Just stay vigilant alright?"
-            $ focus ()
             $ ch3_visited_turtle = True
             jump ch3_day_explore_continue
 
         "Is it because of the crustacean empress?":
-            $ focus ()
             show cory talk_hu:
+                unpose
                 full
-                offscreenright
-            show cory talk_hu:
                 leftish
             with moveinright
             show hawk default:
+                unpose
                 full
-                offscreenright
-            show hawk default:
                 centerright
             with moveinright
             hawk "Be real careful of that empress alright"
@@ -430,49 +396,39 @@ label ch3_hawk_as_cory:
                 full
                 centerright
             hawk "Anything to bring her down"
-            $ focus ()
             $ clue_empress_weakness = True
             $ ch3_visited_turtle = True
             jump ch3_day_explore_continue
 
 label ch3_turtle_as_scyllarus:
 label ch3_hawk_as_scyllarus:
-    $ focus ()
 
     show hawk default:
+        unpose
         full
-        offscreenright
-    show hawk default:
         leftish
     with moveinright
     hawk "Get ya stank dirty claws outta here red shell!"
 
     show scy default:
-        full
         unpose
-        offscreenright
-    show scy default:
+        full
         centerright
     with moveinright
     scyllarus "I wipe my claws hourly! I can assure you that I'm not dirty!"
-    $ focus ()
     hide scy
     hide hawk
 
     menu:
         "I apologize in advance":
-            $ focus ()
             show hawk default:
+                unpose
                 full
-                offscreenright
-            show hawk default:
                 leftish
             with moveinright
             show scy default:
-                full
                 unpose
-                offscreenright
-            show scy default:
+                full
                 centerright
             with moveinright
             hawk "hawk tuah! fugu off with that apology of yours!"
@@ -514,6 +470,5 @@ label ch3_hawk_as_scyllarus:
             hawk "hahahah!"
             hawk "Hate to admit it! But you pass the vibe check"
             hawk "Still ain't forgiving you though"
-            $ focus ()
             $ ch3_visited_turtle = True
             jump ch3_day_explore_continue

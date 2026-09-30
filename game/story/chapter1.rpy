@@ -29,7 +29,7 @@ label chapter1_start:
     show cory anon:
         unpose
         full
-        centerright
+        center
     anon "You take one more step..."
     anon "...And you'd be a goner."
     "{i}The image of the darkness beyond is burned crisp into my mind.{/i}"
@@ -139,25 +139,13 @@ label chapter1_start:
         surprise
     cory "Holy {b}SHRIMP{/b} you still need air huh? I think I have just what ya need"
 
+    hide mc
+    hide cory
     show cutchap1 with Dissolve(0.5)
     mc "Huh-? Whoaaah.. I can see better now!"
     cory "You sure do! Good thing river's full of unexpected junks like these"
-
-    show cory smile:
-        unpose
-        full
-        center
     cory "But.. huh is that a first.. alien guppy of two legs speaks under water.. you a witch?"
-
-    show mc pout:
-        unpose
-        full
-        right
     mc "am no witch! am fish! it's my dream ever!!"
-    show mc o:
-        unpose
-        full
-        right
     mc "Ah but I couldn't do any of this before... maybe it's because of.."
     show cutchap2 with Dissolve(0.5)
     "{i}My gaze fell down to the translucent scale I didn't realize was clutched tight in my palm the entire time.{/i}" 
@@ -179,12 +167,11 @@ label chapter1_start:
         unpose
         full
         center
-    cory "---, –in't ya one step closer to a dream come true, little guppy?"
-
     show mc shock:
         unpose
         full
         right
+    cory "---, –in't ya one step closer to a dream come true, little guppy?"
     "{i}This is the power of only one scale. Imagine what a whole fish can do…{/i}"
     show mc default:
         unpose

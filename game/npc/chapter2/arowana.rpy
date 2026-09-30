@@ -195,7 +195,7 @@ label arowana_as_mc:
             show arowana default:
                 unpose
                 full
-                duo_left
+                center
             with move
             arowana "Unfortunately I do not."
 
@@ -208,7 +208,7 @@ label arowana_as_mc:
             show arowana squint:
                 unpose
                 full
-                duo_left
+                center
                 sink
             arowana "I’m sorry but I don’t think I want to entertain a child right now.."
 
@@ -230,7 +230,7 @@ label arowana_as_mc:
             show arowana default:
                 unpose
                 full
-                duo_left
+                center
             with move
             mc "Mr Wana, if work is so important"
             mc "Why don't you just leap up through the cave?"
@@ -247,13 +247,13 @@ label arowana_as_mc:
             show arowana squint:
                 unpose
                 full
-                duo_left
+                center
             arowana "..."
 
             show arowana mad:
                 unpose
                 full
-                duo_left
+                center
                 vibrate
             arowana "HAH! Yes! How wonderful I should've just tried that!."
 
@@ -267,13 +267,13 @@ label arowana_as_mc:
             show arowana default:
                 unpose
                 full
-                duo_left
+                center
             arowana "..."
 
             show arowana squint:
                 unpose
                 full
-                duo_left
+                center
             arowana "... Young fish."
 
             show mc default:
@@ -286,13 +286,13 @@ label arowana_as_mc:
             show arowana default:
                 unpose
                 full
-                duo_left
+                center
             arowana "I have a meeting. I have a boss. I have a career."
 
             show arowana squint:
                 unpose
                 full
-                duo_left
+                center
                 sink
             arowana "And now I have a headache."
 

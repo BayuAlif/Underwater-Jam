@@ -436,6 +436,6 @@ label dunge_battle_start(cory_start_hp=3):
     else:
         $ duel_boss = "dunge"
 
-    call run_duel
+    call run_duel(duel_boss)
 
     return

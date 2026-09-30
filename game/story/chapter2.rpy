@@ -390,21 +390,36 @@ label chapter2_night_start:
 label chapter2_coal_tar:
 
     $ focus()
-    show mc o at mc_center_left
+    show mc o:
+        unpose
+        full
+        duo_right
     mc "Mr. Cory, do you know what this black lump is?"
 
-    show cory talk_hu at cory_center_right
+    show cory talk_hu:
+        unpose
+        full
+        duo_left
     cory "Mmmn.. no clue."
 
-    show cory unimpressed2 at cory_center_right
+    show cory unimpressed2:
+        unpose
+        full
+        duo_left
     cory "Almost looks like poo to me, you better drop that thing guppy."
 
-    show mc shock at mc_center_left
+    show mc shock:
+        unpose
+        full
+        duo_right
     mc "Yuck! it smells… weird."
 
     call ghost_coal_tar_encounter
 
-    show cory upset at cory_left
+    show cory upset:
+        unpose
+        full
+        duo_left
     cory "What the eel even was that?!"
     cory "Straight out of deep sea I swear!"
 
@@ -468,7 +483,7 @@ label chapter2_ending:
             unpose
             full
             right
-        cory "And we only have one 50% effective saltwater device.."
+        cory "And we only have one 50%% effective saltwater device.."
 
     show mc shock:
         unpose
@@ -698,6 +713,3 @@ label chapter2_ending:
     menu:
         "Continue to Chapter 3":
             jump chapter3_start
-
-        "End":
-            return

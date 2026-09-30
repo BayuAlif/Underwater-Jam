@@ -44,8 +44,7 @@ define FOCUS_BACK = True
 # default value: 1.0
 define FOCUS_ANIMATION_TIME = 1.0 
 
-# List all your character sprite names here. This makes sure the bars can be correctly positioned behind them when needed.
-define FOCUS_CHARAS = ["mc", "cory"]
+define FOCUS_CHARAS = ["mc", "cory", "pcory", "bass", "uceng", "lele", "gator", "salmon", "arowana", "ghost", "shrimp", "scy", "dunge", "crab", "hawk", "turtle", "teto", "goby", "bunny", "seabunny", "leo", "orin", "rin", "fakecory", "fakeleo", "fakescy", "mama", "papa", "empress"]
 
 
 ###############################################################################################################
