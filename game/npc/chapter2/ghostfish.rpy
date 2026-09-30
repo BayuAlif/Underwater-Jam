@@ -775,6 +775,7 @@ label ghost_as_cory:
                 surprise
             with vpunch
             show cutjumpscare with vpunch
+            play sound "audio/sfx/jumpscare_01.mp3" volume 0.5
             ghost "{size=+8}boo…{/size}"
 
             show ghost mweheh:
