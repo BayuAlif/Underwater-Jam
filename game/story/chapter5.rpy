@@ -699,7 +699,10 @@ label ch5_cory_sequence:
     scene bg abyss_zone_center
     with dissolve
 
-    show fakecory at npc_right
+    show fakecory default:
+        center
+        unpose
+        full
     with dissolve
 
     show mc excited at mc_left
@@ -713,14 +716,16 @@ label ch5_cory_sequence:
 
     show mc happy at mc_left
     mc "mhm! We'll surely find her Mr.Cory!"
-
+    show fakecory speak 
     cory_fake "Yeah.. I'll drag her back home by my own fins.. back to freshwater.. back where.. Family is…"
 
     show mc o at mc_left
     mc "huh…?"
     mc "but..! But your sister isn't made for-"
 
+    show fakecory wide
     cory_fake "Shut up..! I’ll keep her safe.. I'll keep her by my side… even if it kills her.."
+    show fakecory default
     cory_fake "So I can focus on taking care of her…"
     cory_fake "At least Im good at taking care of guppies ay..?"
     cory_fake "Even when I don’t have zillions of clams or.. a job in ocean-"
@@ -728,7 +733,7 @@ label ch5_cory_sequence:
 
     show mc shock at mc_left
     mc "I.. I don't want to play with.. a deadbody…"
-
+    show fakecory speak
     cory_fake "Then we can all hit up the samba festival at amazon together."
     cory_fake "Tomorrow, and tomorrow, and tomorrow..."
     cory_fake "The future is suffocatingly beautiful."
@@ -740,19 +745,28 @@ label ch5_cory_sequence:
     show mc holdcry at mc_left
     mc ".... mr. cory…."
 
+    show fakecory default
     cory_fake "Just take my hand, guppy…"
     cory_fake "Help me search for her.."
+    show fakecory wide
     cory_fake "{font=DejaVuSans.ttf}Y̸̩͗o̵̱͝u̷̼̾’̴̻͌l̶̳͠l̵̰͘ ̴̰͂n̵̛̳ẹ̴̇v̸͓̓e̵̘͛r̴̬̋ ̸̬̂b̷̼͋e̷̘̍ ̷̢̿a̴̜͊l̵̳̈́o̴̙͛ņ̶̇e̶̠̐ ̸̢̋a̶̼̋g̸̝͝a̷̫͗i̵͉͊n̶̗͑,̶̞̊ ̴͍̏{/font}"
 
     play sound "audio/splash.mp3"
-    show cory upset at farright with vpunch
+    show cory upset:
+        rightish
+        full
+        unpose
+    with vpunch
+    show fakecory default at leftish
+    with move
     cory "Guppy, That ain't me-!!"
 
     "I was suddenly swept away from him."
     mc "...?!"
-
+    show cory upset_hu at rightish
     cory "what in the eel..?? Sthat supposed to be me?!"
 
+    show fakecory speak
     cory_fake "Hah.. well look what we got here…"
 
     show mc shock_hu at mc_left
@@ -760,43 +774,60 @@ label ch5_cory_sequence:
 
     cory_fake "How much longer are you going to keep her waiting?"
 
+    show cory netral
     cory "I ain’t know what you talking about.."
 
+    show fakecory wide
+    show cory upset
     cory_fake "Don’t play fool with me, I know you."
     cory_fake "I know you better than you’ll ever know yourself."
     cory_fake "And I know you want your sunshine of a little sister back more than anything."
-
+    show cory upset_hu
     cory "Don’t you dare.. talk about her…!"
 
+    show fakecory default
     cory_fake "Poor little thing eh? Had to be separated from her precious brother"
 
     menu:
         "“Mr. Cory don’t listen to the other Mr.Cory..!”":
+            show fakecory speak
             cory_fake "Are ya really going to let a one minute old kid dictate your life choices?"
             cory_fake "Aye, we’re better than that Cara…"
             cory_fake "Besides, she’s more worth the hassle than some random guppy would ever be.."
+            show cory side
             cory "...!!"
+            show fakecory default
             cory_fake "They didn’t help you through the toughest time in your life like she did.."
+            show fakecory speak
             cory "They did..! I learnt a lot from the little guppy"
             cory_fake "Ah but did they shield you from your familia’s expectations..?"
+            show fakecory wide
             cory_fake "Were they there when you were thinkin about.. how worthless you are?"
+            show fakecory speak
             cory_fake "And what did you do to repay her, huh?"
+            show cory side_close
             cory "I didn’t.. have any choice..!"
+            show fakecory wide
             cory_fake "I bet she cried for days.. havin to defend herself in a brand new world"
             cory_fake "How could ya, even after hearin how dangerous sea is at night.. You still—"
-            show cory_mirage scream at npc_right with vpunch
+            show cory upset with vpunch
             cory "SHUT THE FUGU UP…!"
 
         "“Mr. Cory.. Mr Cory’s right.. we should search for your sister!”":
+            show fakecory speak
             cory_fake "See even the guppy agreed.."
             cory_fake "They’re basically givin you free pass to abandon them, cara"
             cory_fake "All for your precious little sister"
             show mc pout at mc_left
             mc "Hey! That’s not what I said-!"
+            show cory side
             cory "... No! I can’t.. I can’t face her anymore..!"
             cory "I left her.. Even after she was beggin to stay.."
+            show fakecory default
             cory_fake "Then why are ya wastin’ time here?"
+            show cory upset_hu
             cory "...What?"
+            show fakecory wide
             cory_fake "Our sister’s out there, Cory. She’s been waitin’ for you all this time."
             cory_fake "You can’t fix what happened by babysittin’ some guppy."
             cory_fake "Come on, Cory. How many more times are ya gonna choose someone else before you finally choose your own familia?"
@@ -822,7 +853,11 @@ label ch5_leo_sequence:
     scene bg abyss_zone_right
     with dissolve
 
-    show leo_mirage at npc_right
+    show fakeleo default:
+        center
+        full
+        unpose
+        float_idle
     with dissolve
 
     show mc o at mc_left
@@ -848,6 +883,7 @@ label ch5_leo_sequence:
 
     mc "me…?"
 
+    show fakeleo speak 
     leo_fake "The hunger to become something greater than what you are."
     leo_fake "To finally become the creature you always wished you could be."
 
@@ -856,6 +892,7 @@ label ch5_leo_sequence:
     mc "mn.. I think I get it..?"
     mc "If I were to become a fish, I’d wanna be the coolest fish ever!"
 
+    show fakeleo blink
     leo_fake "Hah.. but will everything really be as beautiful as you imagined..?"
     leo_fake "Will it really be worth it..?"
     leo_fake "To become a prisoner of your own body"
@@ -865,9 +902,27 @@ label ch5_leo_sequence:
     show mc pout at mc_left
     mc "nnn.. I’ll.."
 
+    show leo default:
+        full
+        unpose
+    show leo default:
+        rightish
+        float_idle
+    with dissolve
+
+    show fakeleo default:
+        leftish
+        float_idle
+    with move
+
     "A second miss Leo steps between us, studying her reflection with piqued interest."
 
-    show leo default at center
+    show leo smile:
+        full
+        unpose
+    show leo smile:
+        rightish
+        float_idle
     with dissolve
 
     leo "Oh? Heh.. Are you supposed to be me? Interesting~!"
@@ -875,20 +930,24 @@ label ch5_leo_sequence:
     show mc shock at mc_left
     mc "Two miss leos…?"
 
-    show leo_mirage scream at npc_right with dissolve
+    show fakeleo speak
     leo_fake "It’s like looking into your own unsightly reflection doesn’t it?"
 
+    show leo default
     leo "Nah, for something that’s imitating me, you sure look pretty ugly~!"
     leo "What, are you supposed to cast depression upon me?"
 
+    show fakeleo default
     leo_fake "You’ve lost so much-"
 
+    show leo ehe
     leo "Oh no~! Woe is me~! I'm just a misunderstood biiiig leopard seal who needs some reaaaal love~!"
     leo "Especially when I have grown so big and scaaary and ugly and everybody leaaaaves me~!"
     leo "And that I hurt eeeveryone around me even when I waaaant them to staaay~!"
 
     leo_fake "Not only that but you’ve-"
 
+    show leo feral
     leo "I’ve killed my friends, with my own teeth and claws.."
 
     show mc shock_hu at mc_left
@@ -898,6 +957,7 @@ label ch5_leo_sequence:
 
     leo_fake "I...."
 
+    show leo default
     leo "Mhm, exactly what I thought~!"
     leo "Come on Guppy, let’s leave this chopped mimic alone."
     leo "Their words aren’t worth paying attention to."
@@ -912,9 +972,16 @@ label ch5_leo_sequence:
 
     "Her flippers hastily gripped my hand, tugging me as she start to swam."
 
+    show mc shock:
+        full
+        unpose
+        mc_left
+        surprise
     mc "Is it.. true that you’ve.. killed…?"
 
+    show leo ehe
     leo "... what of it? Don’t tell me you’re scared~?"
+    show leo niko
     leo "Don’t worry I’m not going to kill you~!"
     leo "You’re more than a friend to me, little guppy"
 
@@ -931,7 +998,11 @@ label ch5_chase_real_gold:
     with fade
 
     show mc serious at mc_left
-    show leo default at center
+    show leo default:
+        center
+        full
+        unpose
+        float_idle
     with dissolve
 
     mc "Let's go miss Leo..! we need to hurry.. before the real gold slips away!"
@@ -945,9 +1016,11 @@ label ch5_chase_real_gold:
 
     "We swam further down through the trench, until a radiant, genuine rainbow glow pierced through the darkness."
 
-    show mc excited at mc_left
+    show mc excited:
+        mc_left
+        surprise
     mc "Miss Leo is that?!"
-
+    show leo niko
     leo "Oh why yes, it sure looks like the real-"
 
     stop music fadeout 1.0
@@ -958,11 +1031,14 @@ label ch5_chase_real_gold:
     play sound "audio/unsettling_moment.wav"
 
     ban_unknown "{size=+12}{b}THOU SHALT NOT PASSETH…!{/b}{/size}"
-
+    hide mc excited
+    hide leo niko
+    show banishedone with vpunch
     "A cracking roar tears through the darkness, loud enough to deafen me."
     "The pressure climbs so high it’s almost bone crushing."
     "It became a sensation that one would describe as close to death."
 
+    
     show mc shock_hu at mc_left
     mc "guh…!"
 
@@ -978,26 +1054,47 @@ label ch5_chase_real_gold:
     ban "The fish thou chase… is no gift. ‘Tis the last scream of the deep."
     ban "I wonneth't alloweth a youth blind'd by gre'd maketh useth of the gold yond couldst end the greatest of wars.."
 
+    show leo ehe:
+        farleft
+        full
+        unpose
+        float_idle
+    with dissolve
+
+    show leo ehe at farright
+    with move
     leo "I'm riiiight over here too you know~!"
     leo "My apologies for interfering with your grand speech, your highness.."
     leo "But everyone has their right to pursue the golden fish…"
     leo "Besides.. you can't make use of the golden fish’s power yourself.. can you, O banished one?"
+    show leo default
 
     show mc o at mc_left
     mc "Banished one…?"
+
+    scene banishedoneangry
+    show leo default:
+        full
+        unpose
+    show leo default:
+        farright
+        float_idle
 
     ban "{size=+6}{b}BANISHED?{/b}{/size} Child… I was unwritten. The waves scrubbed my name from their pathetic hymns…"
     ban "I'm acknown, therefore i shall useth the young to maketh the divine wish."
     ban "One yond shall finally free us from this centuries of torment.."
 
+    
     show mc holdcry at mc_left
     mc "You want me to make a wish for you and your kind…?"
     mc "But I need to save my friends.. I need to save mama and papa.. I need to fix the sea.. I need to be a fish..!"
 
+    show leo niko
     leo "Personal opinion but I think you should narrow down those wishes~"
     leo "You’re too greedy for your own good, little guppy."
     leo "And I don’t think favoring his wish is a good idea.."
     leo "They’re banished by the Goddess for a reason.."
+    show leo default
 
     ban "A goddess' crown doth not a saint make. Nay, her justice is but pageantry while we rot in her shadow!"
     ban "That wicked golden fish.. she toys with our agony as though it were sport! Are we clowns in her circus of suffering?!"
@@ -1011,24 +1108,35 @@ label ch5_chase_real_gold:
     show mc o at mc_left
     mc "Are you saying.. That the goddess is.. Not being fair?"
 
+    scene banishedone
+    show leo default:
+        full
+        unpose
+    show leo default:
+        farright
+        float_idle
     ban "Precisely what I’ve been saying.."
     ban "If thou won’t lend us its power.."
 
     "Enormous shadowy tentacles rise like colossi from the seabed."
-    leo "Brace yourself, Guppy! We have to fight our way through!"
 
     play music "audio/a_battle.wav" volume 0.85
-    call banished_duel
 
     stop music fadeout 1.5
     scene bg abyss_depths
     with vpunch
-
+    scene banishedoneangry:
+        zoom 1.3
+    
+    
     "One of its strong limbs curls around me bringing me close to it."
 
-    show mc shock_hu at mc_left
-    mc "waough-!"
+    show mc shock_hu:
+        mc_left
+        surprise
 
+    mc "waough-!"
+    
     ban "Then I shalt walketh thee to thy deepest nightmare.."
 
     jump ch5_nightmare_bedroom
@@ -1046,6 +1154,9 @@ label ch5_nightmare_bedroom:
     scene bg bedroom_dream
     with Dissolve(1.2)
 
+    $ focus()
+    show mama default 
+    with dissolve
     mama "sweetheart.."
 
     show mc shock at mc_left
@@ -1058,6 +1169,7 @@ label ch5_nightmare_bedroom:
     "My instincts brought me close to her into a hug."
     "She felt… warmer than the last time I held her."
 
+    show mama smile
     mama_fake "What kind of herbs did you bring for me today?"
 
     show mc o at mc_left
@@ -1073,11 +1185,13 @@ label ch5_nightmare_bedroom:
 
     mc "I want you to get better. Then… we can all be together again."
 
+    show mama smile_s
     mama_fake "All of us?"
 
     mc "Mhm! You, me, and Papa."
     mc "Mama? Do you think Papa is coming home soon?"
 
+    show mama sad
     mama_fake "I don't know, sweetheart."
 
     show mc serious at mc_left
@@ -1085,13 +1199,16 @@ label ch5_nightmare_bedroom:
     mc "That's why I'm going to catch the shiny golden fish! And if it really can grant wishes…I'll wish for you to get better."
     mc "I'll wish for Papa to come home. And I’ll save my friends. And maybe I can even finally become a fish like I've always dreamed of!"
 
+    show mama smile
     mama_fake "Then perhaps you could use it to help Mr. Banished one too."
+
 
     show mc o at mc_left
     mc "But why are the deepseafolks banished by the Goddess.."
     mc "The Goddess wouldn’t just banish good people would she..?"
     mc "Wouldn’t that mean they did something wrong..?"
 
+    show mama smile_s
     mama_fake "FALSITIES! Ahem No, sweetheart, they were banished because people feared what they don’t understand."
     mama_fake "Perhaps they were never the monsters everyone believed them to be."
     mama_fake "But who would believe them now? Who would go all the way down here to help them?"
@@ -1100,6 +1217,7 @@ label ch5_nightmare_bedroom:
     show mc shock at mc_left
     mc "huh..? But it can grant wishes! I can wish for the sea to be great again!"
 
+    show mama scold
     mama_fake "You see.. when something so powerful only appears when the situation is at its peak of havoc."
     mama_fake "Wouldn’t it cause more trouble?"
     mama_fake "If it fell to the wrong hands.. It could turn the sea upside down."
@@ -1107,6 +1225,7 @@ label ch5_nightmare_bedroom:
     show mc o at mc_left
     mc "Then.. wouldn’t it be better if such a thing were to never exist..?"
 
+    show mama smile
     mama_fake "Good kid! You’re so smart aren’t you."
     mama_fake "Not just that.. But having one wish be granted.. Doesn’t ensure all goes well."
     mama_fake "It’s not that easy to prevent disasters.."
@@ -1116,13 +1235,19 @@ label ch5_nightmare_bedroom:
     mama_fake "And You’re the only one who can help him, my dear."
     mama_fake "All you have to do… is make the wish."
 
-    show leo default at npc_right
+    show leo default:
+        rightish
+        full
+        unpose
     with dissolve
+    show mama smile at leftish
+    with move
 
     leo "Mmm but I say, fulfilling your biggest dream would be more rewarding, no?"
 
     "Miss Leo suddenly made an appearance on the opposite of mama’s bed."
 
+    show mama scold
     mama_fake "Impudent! Nobody invited the likes of you to this house-!"
 
     leo "As if i need permission to enter my own house."
@@ -1131,22 +1256,26 @@ label ch5_nightmare_bedroom:
     mc "Huh? Your house? This is my house miss leo."
     mc "I don’t remember having a sealbling?"
 
+    show leo niko
     leo "Oh did I say that? You must’ve heard me wrong~"
     leo "Mmn that aside~ would you really let this pathetic imitation of your mother hinder you from acquiring your dream life?"
     leo "There’s only one golden fish in the world, little guppy. You can’t be making the wrong decision now."
 
+    show mama smile_s
     mama_fake "That’s right, sweetheart… you only get one wish."
     mama_fake "You can’t ask it to heal me, bring your father home, and save those friends you care about."
 
     show mc holdcry at mc_left
     mc "Then… what am I supposed to do?"
 
+    show mama smile
     mama_fake "Help the banished one, and he can free your friends."
     mama_fake "Maybe he can even cure me too."
 
     show mc o at mc_left
     mc "really? How do you know of that, mama? Are you friends with the banished one?"
 
+    show mama smile_s
     mama_fake "Mm, of course I am, we were.. once friends back in the glory days of the city before it was banished down here."
 
     mc "But mama you can’t swim let alone dive!"
@@ -1155,6 +1284,7 @@ label ch5_nightmare_bedroom:
 
     mc "You’ve never told me that before."
 
+    show mama default_s
     mama_fake "There are many things you don’t know about me my dear."
 
     show mc serious at mc_left
@@ -1165,13 +1295,25 @@ label ch5_nightmare_bedroom:
     mc "I thought everything finally went back to normal but.."
     mc "You’re definitely the banished one huh..?"
 
+    show leo smile
     leo "Finally! Took you long enough, little guppy!"
 
     stop music fadeout 1.0
     play sound "audio/thump.mp3"
     with vpunch
 
+    show leo default:
+        farright
+        full
+        unpose
+    with move
+    scene banishedoneangry
+    show leo default:
+        farright
+        full
+        unpose
     mama_fake "{size=+8}{b}ENOW OF THIS NO MORE BRAIN THAN STONE GAME!{/b}{/size}"
+    $ focus()
 
     jump ch5_the_final_choice
 
@@ -1183,6 +1325,7 @@ label ch5_the_final_choice:
     scene bg abyss_depths
     with Dissolve(1.5)
 
+    scene chooseendingsmall
     "The golden fish appears yet again but within the dark engulf of the banished one."
     "It floats toward me, futilely flopping about within my hand."
 
@@ -1216,6 +1359,7 @@ label ch5_ending_bad:
 
     mc "I…I wish for mama to get better and papa to come home!"
 
+    scene white
     play sound "audio/mysterious_golden_looking.wav"
     "The golden fish suddenly shines brighter."
     "The entire ocean is engulfed in golden light."
@@ -1241,13 +1385,17 @@ label ch5_ending_bad:
 
     "I run toward mama who’s up right, humming as she made my favorite soup."
 
+    show mama smile
     mama "Hello my darling, how have you been?"
 
     mc "You wouldn’t believe the last few days i’ve had so there’s this–"
+    hide mama smile
+    with dissolve
 
     play sound "audio/thump.mp3"
     with vpunch
-
+    show papa default
+    
     "The front door suddenly flings open in haste."
     "And at the door, I see papa standing.."
     "He looked exactly the same as I remembered.. It’s as if he never left in the first place."
@@ -1257,11 +1405,12 @@ label ch5_ending_bad:
 
     show mc shock at mc_left
     mc "P-papa?! What’s going on?"
-
+    hide mc shock
+    with dissolve
     play sound "audio/splash.mp3"
     play sound "audio/underwater_current.mp3"
 
-    scene bg tsunami_approaching
+    scene tsunamiending
     with vpunch
 
     "As i ran hand in hand with mama and papa, i turn back to see the ocean had begun to rise and an enormous wave is forming in the distance."
@@ -1355,7 +1504,10 @@ label ch5_ending_true:
 
     show mc happy at center
     with dissolve
+    hide mc happy
+    with dissolve
 
+    scene delfish 4
     mc "Good precious morning mr carpado! Morning ms betta! Hello to silly eely billy! And Mr. Cory!"
     mc "You know guys, I had a reaaally strange dream last night!!"
     mc "I went to an adventure in the sea! And I met lots of fishes and they can talk!!"
@@ -1367,7 +1519,9 @@ label ch5_ending_true:
     mc "Aww! Thank you Mr. Cory! Don’t worry I’ll be fine!"
     mc "Just means that I have to work extra hard to fix everything."
     mc "Maybe I’ll.. be a doctor to help cure mama.. or or a marine biologist!"
+    scene delfish 6
     mc "So I can help save the endangered sea creatures.. maybe!"
+    scene delfish 5
     mc "As long as I have the sea with me… I think I can do it.."
 
     pause 1.5
@@ -1389,35 +1543,42 @@ label ch5_ending_feral:
     mc "I…I wish to finally become one with the sea!"
 
     leo "Yeeees~! Hehe great choice!"
-
+    show turnfish 1
     play sound "audio/mysterious_golden_looking.wav"
     "The golden fish melts in my hands."
 
     show mc shock at mc_left
     mc "w-waugh-??"
-
     "Its golden scale fusing with my own skin in a grotesque way."
     "A surge of golden heat runs up my veins, rewiring my DNA in real time."
 
-    play sound "audio/attack_2.mp3"
     show mc holdcry at mc_left with vpunch
+    hide mc holdcry 
+    show turnfish 2
+    play sound "audio/attack_2.mp3"
     mc "it hurts.. it huuuurts..!! MAMAA..!!"
 
+    show turnfish 3
     "My vision starts to blur from the overwhelming pain of it all."
     "Once everything clears out.. I.. looked down to my hands to notice that I’ve.."
     "Been.. turned into a leopard seal."
 
+    show turnfish 4
+    show mc silumankaget at mc_left
     mc "A leopard seal..?"
 
     leo "what do ya thiiiink? A human as curious as you.."
     leo "of course you'd turn into a creature of the same trait~!"
 
-    show mc happy at mc_left
+    show turnfish 5
+    show mc silumansenyum at mc_left
     mc "I.. it feels.. Awesome..!!"
     mc "Hahah! I can finally swim! And and I’m so big and!"
+    hide mc silumansenyum
 
     stop music fadeout 1.0
     play sound "audio/thump.mp3"
+    show banishedonevsfurrylaut
     with vpunch
 
     ban "{size=+6}{b}Foolish greedy mortals….!!{/b}{/size}"
