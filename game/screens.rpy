@@ -502,7 +502,7 @@ screen credits():
                         color "#7ae5cf"
                         outlines [ (2, "#052229", 0, 0) ]
                         xalign 0.5
-                    text "pantotato, haxziun, Aurabentol, Vanta, Nanachii, Payjax":
+                    text "pantotato, haxziun, Aurabentol, Vanta, Nanachii, Payjax, LynetteBaguette":
                         size 24
                         color "#ffffff"
                         outlines [ (2, "#03151b", 0, 0) ]
