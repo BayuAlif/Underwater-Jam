@@ -467,8 +467,15 @@ image scy sepet-happy = "images/cutscenes/chapter4/DEEPTALKSCYLLARUS/sepet-happy
 image scy sepet-o = "images/cutscenes/chapter4/DEEPTALKSCYLLARUS/sepet-o.png"
 
 
-image goldfall = "images/cutscenes/chapter4/goldfall.jpg"
-image mcfall = "images/cutscenes/chapter4/mcfall.png"
+image goldfall:
+    "images/cutscenes/chapter4/goldfall.jpg"
+    xsize 1920
+    ysize 1080
+
+image mcfall:
+    "images/cutscenes/chapter4/mcfall.png"
+    xsize 1920
+    ysize 1080
 
 # --- Chapter 5: 
 image banishedone = "images/cutscenes/chapter 5/banishedone.png"

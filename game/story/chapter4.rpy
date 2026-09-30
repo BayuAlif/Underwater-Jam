@@ -550,7 +550,7 @@ label ch4_night_explore:
             show mc shock at mc_left
             mc "waouh-! Leo!"
             show leo niko 
-            with ease 0.1
+            with ease
             leo "mhm, yes it is i~"
             leo "I see you made a little friend"
             show leo sad
@@ -695,7 +695,7 @@ label ch4_festival_night:
     cory "GYAH-!! Don't just sneak up on us!"
 
     show leo niko
-    with ease 0.2
+    with ease
     leo "Aw, have some whimsy would you?"
     show leo default
     leo "Ah, also look forward to the end of this festival~!"
@@ -750,9 +750,14 @@ label ch4_climax:
     with dissolve
     $ focus()
 
-    show goldfall
+    window hide
+    scene goldfall
+    with dissolve
+    pause 2.5
+
+    scene black with fade
+
     "At the ledge of the great abyss, multiple glowing effigies are cast into the dark void by the seafolks, tumbling downward into the deep sea."
-    show goldfall with zoom 0.5
     "Then suddenly, amongst the multiple thrown effigies I noticed something glows a bright gold."
     "Not the kind of gold that Mr. Rin uses.."
     "Not the kind of gold that the effigy has"
@@ -762,13 +767,15 @@ label ch4_climax:
     play sound "audio/ambience/mysterious_golden_looking.ogg"
 
     "But that rainbow radiant.. shimmering glow"
-    show scene black
+    scene black with dissolve
     "In that moment, everything else were a blur."
-    
 
-    show mc serious at mc_left
+    show mc serious:
+        unpose
+        full
+        mc_left
     with dissolve
-    show mcfall
+
     mc "I must get it.. I must get it, I must have it, no matter.. what!"
 
     "Papa always told me to catch anything that looks interesting"
@@ -778,6 +785,11 @@ label ch4_climax:
     play sound "audio/sfx/splash.mp3"
     hide mc
     with dissolve
+
+    window hide
+    scene mcfall
+    with dissolve
+    pause 2.5
 
     scene black with fade
     stop music fadeout 2.0
