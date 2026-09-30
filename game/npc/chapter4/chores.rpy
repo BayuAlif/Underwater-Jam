@@ -8,19 +8,19 @@ label ch4_chore1_seaweed:
     $ focus()
     $ focus()
 
-    show rin talk
+    show rin talk at center
     rin "May you be of aid with gathering seaweeds and corals young one?"
 
     show mc excited at mc_left
     mc "Sure! Are the colors up to us to pick?"
 
-    show rin smile
+    show rin smile at center
     rin "Yes, yes whatever pigment caught your eyes most.."
     rin "We need them to decorate the sacred statue"
 
     mc "Yaaay okay! I'll bring lots for you!"
 
-    show rin o
+    show rin o at center
     rin "Keep it balanced yes? We don't want to anger the ocean more than we already have.."
 
     $ focus()
@@ -47,13 +47,13 @@ label ch4_chore1_scy:
     show screen ch4_affection_hud("scy")
     $ focus()
     $ focus()
-    show scy proud at npc_right
+    show scy proud at center
     scy "Lay it on me!! My eyes are good at picking the freshest of seaweeds!"
 
     show mc o at mc_left
     mc "I've always been curious.. How do you see the with your super revolutionary 12 colored vision?"
 
-    show scy smile at npc_right
+    show scy smile at center
     scy "It's Scyllarus! And.. hmm!"
     scy "Perhaps we can play a little game, my comrade"
 
@@ -64,9 +64,9 @@ label ch4_chore1_scy:
     scy "I spy with my little eyes!"
     scy "I believe it would be easier for you to understand!"
 
-    show scy smile at npc_right, walkto(rightish, steps=2, walktime=0.7, bounce=0.2, sway=0.15)
+    show scy smile at center, walkto(center, steps=2, walktime=0.7, bounce=0.2, sway=0.15)
     pause 0.7
-    show scy smile at npc_right
+    show scy smile at center
 
     mc "ooo okay! I go first"
     mc "I spyyyy with my little eyeeees..!"
@@ -76,15 +76,15 @@ label ch4_chore1_scy:
     menu:
         "A bunch of swaaaying red branch-y guys":
             $ focus()
-            show scy surprise at npc_right, jumpmc(windup=0.15, power=0.5, airtime=0.5)
+            show scy surprise at center, jumpmc(windup=0.15, power=0.5, airtime=0.5)
             pause 0.5
             scy "Hm! A plumose coraline!"
             show mc happy at mc_left
             mc "ding ding ding you're spot on! So cool o.o"
-            show scy proud at npc_right
+            show scy proud at center
             scy "Through these eyes of mine, red is a very prominent contrast color!"
             scy "It's all lustrous and shiny for me!"
-            show scy proud at npc_right
+            show scy proud at center
             mc "Like… in a kaleidoscope?"
             scy "I'm not sure of this kaleidoscope you speak of!"
             scy "But if it reminds you of said thing perhaps you're right KAKAKA!"
@@ -92,11 +92,11 @@ label ch4_chore1_scy:
             "I wonder if he'll get dizzy and faint if he were to see a kaleidoscope from the overwhelming colors he would see.. Can shrimps faint from eyestrain I wonder… :o"
             scy "Even so.. I can't distinguish between what others call.. yellow orange and orange.."
             scy "Most of my vision goes to UV sightings!"
-            show scy default at npc_right, walkto(rightish, steps=2, walktime=0.8, bounce=0.15, sway=0.1)
+            show scy default at center, walkto(center, steps=2, walktime=0.8, bounce=0.15, sway=0.1)
             pause 0.8
-            show scy default at npc_right
+            show scy default at center
             "Mr Scyllarus then looks over to the queued dancing corals. Grazing them with a careful gentle sway of his claw."
-            show scy default at npc_right
+            show scy default at center
             scy "And! this coral in particular is my mom's favorite.."
             show mc o at mc_left
             mc "really? :o"
@@ -104,25 +104,25 @@ label ch4_chore1_scy:
             scy "And she always put them up on the walls like medals.. each and everyone of them"
             show mc pout at mc_left
             mc "Mnn.. but when I do it you scold me! >:T"
-            show scy default at npc_right
+            show scy default at center
             scy "Now, now! Back then corals were overgrown! And I didn't know any better either!"
             scy "We're at the time of scarcity little guppy! Everyone's greedy!"
 
         "A big… strooong colorful hard shelled creature with a super strong punch!":
             $ focus()
             $ ch4_add_affection("scy")
-            show scy surprise at npc_right
+            show scy surprise at center
             scy "Big.. colorful hard shelled.. Super strong…"
             scy "It can't be…!"
             scy "Is mother sea so concerned about my superior kind they invent a new special worth of becoming our true rival?!"
             scy "Where is it?! I must see this for myself!"
             show mc happy at mc_left
             mc "pfft hehe nonono! It is you Mr Scyllarus!"
-            show scy proud at npc_right
+            show scy proud at center
             scy "Oh…!"
             scy "Hah! Well I must say I'm quite the charming and strong mantis shrimp myself!"
 
-    show scy default at npc_right
+    show scy default at center
     scy "We're getting a little sidetracked here! Come on guppy fetch the glowing red ones!"
 
     show mc pout at mc_left, jumpmc(windup=0.2, power=0.35, airtime=0.5)
@@ -146,14 +146,14 @@ label ch4_chore1_cory:
     $ focus()
     $ focus()
 
-    show cory talk at cory_left
+    show cory talk at center
     cory "Plucking seaweeds? I got ya guppy!"
     cory "Which colors are we pickin?"
 
     show mc excited at mc_left
     mc "Mmm I like orange..! And blue.. Oh oh pink coral too! And a little bit of pastel purple.."
 
-    show cory smile at cory_left
+    show cory smile at center
     cory "Woah you got a whole palette over there…!"
     cory "But hey I dig orange too"
 
@@ -165,10 +165,10 @@ label ch4_chore1_cory:
     "Me and Mr. Cory took our time in picking the best fluorescent color of the seaweeds"
 
     show mc happy at mc_left
-    show cory smile at cory_left
-    show cory side at cory_left, walkto(centerleft, steps=2, walktime=0.8, bounce=0.1, sway=0.1)
+    show cory smile at center
+    show cory side at center, walkto(center, steps=2, walktime=0.8, bounce=0.1, sway=0.1)
     pause 0.8
-    show cory side at cory_left
+    show cory side at center
     cory "You know.. pickin corals and seaweeds like this"
     cory "Is it quite comforting yeah?"
     $ focus()
@@ -176,7 +176,7 @@ label ch4_chore1_cory:
     menu:
         "Mm! It's like… plucking fleas from a wild cat.":
             $ focus()
-            show cory unimpressed2 at cory_left
+            show cory unimpressed2 at center
             cory "Flea plucking? Mane you're into bizarre hobbies aren't ya?"
             cory "what the eel is even a flea?"
             show mc pout at mc_left
@@ -184,30 +184,30 @@ label ch4_chore1_cory:
             mc "And and you also get to torture the little mean fleas! So they don't do more harm"
             show mc o at mc_left
             mc "Is it really odd..?"
-            show cory side at cory_left
+            show cory side at center
             cory "Ay don't with that face.. I meant good!"
-            show cory smile at cory_left
+            show cory smile at center
             cory "The weird in people is what makes the world challengin and fun"
-            show cory smile_hu at cory_left
+            show cory smile_hu at center
             cory "And as long as you're doin it for good.. I ain't got a problem with"
             mc "Mm.. I get called weird lots.."
             mc "You're the first to tell me that weird is good, Mr Cory!"
             cory "Those jerks are just envyin ya, they dont have as much \"personality\" as you do"
             cory "Being the norm is boring anyway, livin the same way everyone does.."
             cory "Way about a dead monochrome world.."
-            show cory fond at cory_left, walkto(centerleft, steps=1, walktime=0.5, bounce=0.1, sway=0.1)
+            show cory fond at center, walkto(center, steps=1, walktime=0.5, bounce=0.1, sway=0.1)
             pause 0.5
-            show cory fond at cory_left
+            show cory fond at center
             cory "Stay weird little guppy, I mean it."
 
         "Mm! It's like drawing!":
             $ focus()
             $ ch4_add_affection("cory")
-            show cory talk at cory_left
+            show cory talk at center
             cory "Drawing huh..? You an artist?"
             show mc happy at mc_left
             mc "Mhmm! I draw in my free time! I draw the fishes I see and document them! Their behavior and details like that"
-            show cory proud at cory_left
+            show cory proud at center
             cory "*whistle* You never cease to amaze me"
             show mc excited at mc_left, jumpmc(windup=0.2, power=0.6, airtime=0.6)
             pause 0.6
@@ -215,11 +215,11 @@ label ch4_chore1_cory:
             show mc excited at mc_left
             mc "I wanna document all my finds and draw them myself"
             mc "So people can appreciate water creatures more!"
-            show cory side at cory_left
+            show cory side at center
             cory "The more I realize just how well you'd get along with her"
             show mc o at mc_left
             mc "her? :o mm ms gator?"
-            show cory side_close at cory_left
+            show cory side_close at center
             cory "Nah ain't her.. I know a sunshine little fishie just like you"
             cory "She loves makin stuff with seaweeds like these"
             show mc excited at mc_left
@@ -232,14 +232,14 @@ label ch4_chore1_cory:
             mc "If she means that much to you then I think she'll appreciate seeing you again?"
             cory "hah.. what do ya know guppy.. appreciate it though"
 
-    show cory talk at cory_left
+    show cory talk at center
     cory "Alright I think this much's plenty!"
 
     show mc happy at mc_left
     mc "Mhm! We got oraaange and pink and yellow and"
     mc "Can we get the 30 of the purple ones oo Mr.Cory?"
 
-    show cory unimpressed at cory_left
+    show cory unimpressed at center
     cory "No can't do, guppy that's enough"
 
     $ focus()
@@ -254,9 +254,9 @@ label ch4_chore1_leo:
 
     show screen ch4_affection_hud("leo")
 
-    show leo default at npc_right, walkto(rightish, steps=2, walktime=0.8, bounce=0.15, sway=0.2)
+    show leo default at center, walkto(center, steps=2, walktime=0.8, bounce=0.15, sway=0.2)
     pause 0.8
-    show leo default at npc_right
+    show leo default at center
     $ focus()
     leo "Ooo hehe how fun~! I like picking flowers"
     leo "Tell me what's your favorite flower, little guppy?"
@@ -313,9 +313,9 @@ label ch4_chore1_leo:
     show mc sad_hu
     mc "But but the golden fish! It'll stray super far too if we take long :("
 
-    show leo default at npc_right, walkto(rightish, steps=2, walktime=0.8, bounce=0.1, sway=0.1)
+    show leo default at center, walkto(center, steps=2, walktime=0.8, bounce=0.1, sway=0.1)
     pause 0.8
-    show leo default at npc_right
+    show leo default at center
     leo "Would you believe me If I were to say that.."
     show leo smile
     leo "The goldenfish.. It moves only when you move."
@@ -343,13 +343,13 @@ label ch4_chore2_stand:
     with dissolve
     $ focus()
 
-    show rin talk
+    show rin talk at center
     rin "Can I trust your hands on assembling these materials into stalls, young one?"
 
     show mc o at mc_left
     mc "mm I can try..! But I'm going to need a hand from my friends."
 
-    show rin smile
+    show rin smile at center
     rin "Do whatever shall make this easier for you."
     rin "If you need anything, I'll be around the corner, do be careful."
     hide rin
@@ -378,7 +378,7 @@ label ch4_chore2_scy:
     show screen ch4_affection_hud("scy")
     $ focus()
 
-    show scy laugh at npc_right
+    show scy laugh at center
     scy "Kakaka, deal then, guppy!"
 
     show mc happy at mc_left
@@ -387,47 +387,47 @@ label ch4_chore2_scy:
     show scy default_om 
     scy "I'll set up the stall, you handle the decorations, understood!!"
 
-    show scy proud at npc_right, walkloop
+    show scy proud at center, walkloop
     show mc excited at mc_left, jumpmc(windup=0.15, power=0.5, airtime=0.5)
     pause 0.5
     show mc excited at mc_left
     mc "Ay ay captain!!"
 
     "Mr. Shrimp worked insanely efficient. Like machines, even."
-    show scy proud at npc_right
+    show scy proud at center
 
     show mc shock at mc_left, jumpmc(windup=0.1, power=0.8, airtime=0.5)
     pause 0.5
     mc "WOAH that's zippy!!"
     show mc shock at mc_left
 
-    show scy proud at npc_right
+    show scy proud at center
     scy "Ha! Of course, I've been drilling under her highness since I was a mere kid!"
     scy "This is nothing… but duck soup!"
 
-    show scy sepet at npc_right
+    show scy sepet at center
     scy "...."
 
-    show scy sepet at npc_right, vibrate(intensity=1)
+    show scy sepet at center, vibrate(intensity=1)
     pause 0.4
-    show scy sepet at npc_right
+    show scy sepet at center
     "Despite his boastful words, I could catch him… less energized?"
 
     show mc o at mc_left
     mc "... Um you don't seem like yourself, Mr. Shrimp.."
 
-    show scy surprise at npc_right, jumpmc(windup=0.15, power=0.45, airtime=0.5)
+    show scy surprise at center, jumpmc(windup=0.15, power=0.45, airtime=0.5)
     pause 0.5
     scy "...? Am I?"
     scy "I'm running on all cylinders!!"
-    show scy surprise at npc_right
+    show scy surprise at center
 
     show mc pout at mc_left
     mc "No, no, that's not what I meant at all."
 
     "Mr. Shrimp pauses, his movement coming into a sudden halt."
 
-    show scy sepet at npc_right
+    show scy sepet at center
     scy "I don't know. Feels like.. I'm losing my drift sometimes!"
     show scy shy 
     scy "Guess what im trying to say is…  it feels strange when im no longer in duty?"
@@ -436,7 +436,7 @@ label ch4_chore2_scy:
     show mc o at mc_left
     mc "Oooo…."
 
-    show scy shy at npc_right, sink
+    show scy shy at center, sink
     scy "Once this journey ends, I got no clue where the current's supposed to take me.."
     $ focus()
 
@@ -454,9 +454,9 @@ label ch4_chore2_scy:
             mc "Maybe what you need to do is… finding out what you actually like doing."
             show mc excited at mc_left, jumpmc
             mc "Or maybe you could just stick around with me forever! Problem solved :D"
-            show scy surprise at npc_right
+            show scy surprise at center
             scy "...! THATS A BRILLIANT OBSERVATION GUPPY!"
-            show scy laugh at npc_right
+            show scy laugh at center
             scy "Kakaka! I'll bear that in mind."
 
         "You should be grateful, Mr.Shrimp!":
@@ -467,7 +467,7 @@ label ch4_chore2_scy:
             mc "Other grown ups have to work every single day and they look suuuper tired,"
             show mc happy
             mc "So you should be grateful and happy :D"
-            show scy smile at npc_right
+            show scy smile at center
             scy ".. yeah. Yeah, you're right!"
             show scy laugh
             scy "Guess I'm just out of the line of fire and complaining about the weather!"
@@ -480,9 +480,9 @@ label ch4_chore2_scy:
     pause 0.7
     mc "WOAHH this turned out way cooler than i thought!"
 
-    show scy proud at npc_right, jumpmc(windup=0.15, power=0.35, airtime=0.45)
+    show scy proud at center, jumpmc(windup=0.15, power=0.35, airtime=0.45)
     pause 0.45
-    show scy proud at npc_right
+    show scy proud at center
     scy "Hmph!! I'll call this… a crustaseanship!!"
 
     show mc happy at mc_left
@@ -500,7 +500,7 @@ label ch4_chore2_cory:
 
     show screen ch4_affection_hud("cory")
     $ focus()
-    show cory talk at cory_left
+    show cory talk at center
     cory "Ay, gimme a hand with this frame, guppy!!"
 
     show mc excited at mc_left
@@ -508,13 +508,13 @@ label ch4_chore2_cory:
     show mc excited at mc_left
     mc "Waouh on it!"
 
-    show cory smile at cory_left
+    show cory smile at center
     cory "Aand here. Hold this ends steady when i tie the knots."
 
     show mc excited at mc_left, jumpmc
     mc "Moremoremore mr. Cory!!"
 
-    show cory smile_hu at cory_left, surprise
+    show cory smile_hu at center, surprise
     cory "Woah easy there, you're really excited, huh?"
 
     show mc happy at mc_left, jumpmc(windup=0.15, power=0.45, airtime=0.5)
@@ -523,13 +523,13 @@ label ch4_chore2_cory:
     show mc happy at mc_left
     mc "Have you ever been to a festival, Mr Cory?"
 
-    show cory side at cory_left
+    show cory side at center
     cory "Ay… used to spend days around the Samba festival…"
 
     show mc o at mc_left
     mc "Samba festival? What's that??"
 
-    show cory talk at cory_left
+    show cory talk at center
     cory "Ah, it's an annual celebration back Down in the Southern Reefs."
     cory "Wild stuff. You got fishfolks dancing around in these massive glowing anemone suits.."
 
@@ -547,7 +547,7 @@ label ch4_chore2_cory:
     show mc happy at mc_left
     mc "Oooh I'd like to visit your house someday! :D"
 
-    show cory side_close at cory_left
+    show cory side_close at center
     cory "Well… aint sure about that, guppy."
     cory "Truth is, I haven't stepped back home in a long while."
 
@@ -561,7 +561,7 @@ label ch4_chore2_cory:
     cory "My siblings… they all made something big of themselves."
     show cory talk_hu
     cory "One's a freshwater guard commander, another runs a pearl merchant."
-    show cory side_close at cory_left, sink
+    show cory side_close at center, sink
     cory "And there's me, just drifting around, taking whatever odd jobs I can find."
     cory "Feels like if i show my face back home like this… I'd be just a disappointment… "
     $ focus()
@@ -572,9 +572,9 @@ label ch4_chore2_cory:
             show mc o at mc_left
             mc "If you siblings are doing great and you're just doing odd jobs.."
             mc ".. it's natural that you feel a bit disappointed, right?"
-            show cory side at cory_left
+            show cory side at center
             cory ".....yeah."
-            show cory side_close at cory_left, vibrate
+            show cory side_close at center, vibrate
             cory "Hearing this straight from a little kid hits hard…"
             cory "But you aint wrong, guppy."
 
@@ -584,15 +584,15 @@ label ch4_chore2_cory:
             show mc happy at mc_left
             mc "I don't think your family cares about your job, Mr. Cory."
             mc "If it were me, I'd just be happy to see you come home safe and sound."
-            show cory surprise at cory_left
+            show cory surprise at center
             cory "....!"
             show mc excited at mc_left
             mc "AND! I want to go dance at that Samba festival with you someday…"
             mc "..so you have to go make up with your family first!"
-            show cory side_close at cory_left, vibrate
+            show cory side_close at center, vibrate
             cory "............"
             cory "HIC, guppy my little baby guppy…"
-            show cory fond at cory_left
+            show cory fond at center
             cory "*Sniff* Thank you.. I needed to hear that.."
 
     "The stand is finally completed."
@@ -602,7 +602,7 @@ label ch4_chore2_cory:
     show mc happy at mc_left
     mc "Phew! My arms are completely dead… but we actually pulled it off!"
 
-    show cory smile at cory_left
+    show cory smile at center
     cory "Ay, we are the dream team, guppy."
     $ focus()
 
@@ -618,7 +618,7 @@ label ch4_chore2_leo:
     show screen ch4_affection_hud("leo")
     $ focus()
 
-    show leo niko
+    show leo niko at center
     leo "Hee hee! Lets construct this stand together~"
 
     show mc excited at mc_left, jumpmc(windup=0.15, power=0.45, airtime=0.5)
@@ -628,7 +628,7 @@ label ch4_chore2_leo:
 
     "We set to work side-by-side, joining the timber as the midday light filtered through the festival grounds."
 
-    show leo default at npc_right
+    show leo default at center
     show mc o at mc_left
     mc "Just a fleeting thought…"
     show mc serious_hu
@@ -644,14 +644,14 @@ label ch4_chore2_leo:
     show leo ehe
     leo "Hee-hee~ never overlook my knowledge, twin~"
 
-    show leo default at npc_right, walkloop
+    show leo default at center, walkloop
     pause 1.0
-    show leo default at npc_right
+    show leo default at center
     "Leo glides into action with sleek grace.. With surprising power in those long flippers."
     "Joint pegs are hammered and heavy timber snaps into place."
-    show leo default at npc_right, jumpmc(windup=0.1, power=0.3, airtime=0.4)
+    show leo default at center, jumpmc(windup=0.1, power=0.3, airtime=0.4)
     pause 0.4
-    show leo default at npc_right
+    show leo default at center
     "I guess this isn't the first time for Leo building the stand?"
     $ focus()
 
