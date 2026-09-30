@@ -890,6 +890,11 @@ screen preferences():
                         hbox:
                             bar value Preference("music volume")
 
+                        label _("Ambience Volume")
+
+                        hbox:
+                            bar value Preference("mixer ambience volume")
+
                     if config.has_sound:
 
                         label _("Sound Volume")

@@ -265,6 +265,7 @@ init python:
     def duel_press_z():
         if store.duel_z_taps < store.duel_z_target:
             store.duel_z_taps += 1
+            renpy.sound.play("audio/sfx/click.mp3")
 
     def get_battle_tracks():
         tracks = []
@@ -1066,6 +1067,13 @@ label run_duel(boss_target="mantis", custom_hp=None, custom_threshold=None):
         )
 
         if duel_round_result == "win":
+            play sound "audio/sfx/attack_1.mp3"
+        elif duel_round_result == "lose":
+            play sound "audio/sfx/attack_2.mp3"
+        else:
+            play sound "audio/sfx/tin_metal.mp3"
+
+        if duel_round_result == "win":
             if duel_boss_hp <= duel_boss_low_threshold:
                 $ duel_current_boss_sprite = duel_boss_dmg_low
                 $ empress_current_sprite = duel_boss_dmg_low
@@ -1081,6 +1089,7 @@ label run_duel(boss_target="mantis", custom_hp=None, custom_threshold=None):
         )
 
         if duel_round_result == "lose":
+            play wind_sfx "audio/sfx/wind_spell_3.mp3"
             if duel_boss == "dunge":
                 $ dodge_result = False
             else:
@@ -1093,6 +1102,8 @@ label run_duel(boss_target="mantis", custom_hp=None, custom_threshold=None):
                 call screen mantis_spamz_screen(duel_player_choice, duel_shrimp_choice)
                 $ dodge_result = _return   # True = spam success, False = spam fail
                 $ duel_is_dodging = False
+                if dodge_result:
+                    play sound "audio/sfx/wind_spin_1.mp3"
 
         # Record round result for tactical HUD
         $ _outcome = "dodged" if (duel_round_result == "lose" and dodge_result) else duel_round_result
@@ -1113,7 +1124,10 @@ label run_duel(boss_target="mantis", custom_hp=None, custom_threshold=None):
         elif duel_round_result == "lose":
             if not dodge_result:
                 if duel_boss != "dunge":
+                    play sound "audio/sfx/punch_01.mp3"
                     call screen mantis_punch_effect(duel_shrimp_choice)
+                else:
+                    play sound "audio/sfx/tin_metal.mp3"
                 $ duel_player_hp = max(0, duel_player_hp - 1)
                 $ duel_shrimp_wins += 1
             else:
@@ -1141,11 +1155,13 @@ label run_duel(boss_target="mantis", custom_hp=None, custom_threshold=None):
     if duel_boss_hp <= 0 or (duel_player_hp > 0 and duel_boss_hp < duel_boss_max_hp):
         $ duel_result = "win"
         $ dunge_battle_result = "victory"
+        play sound "audio/sfx/attack_release.mp3"
         window auto
         return "win"
 
     $ duel_result = "lose"
     $ dunge_battle_result = "defeat"
+    play sound "audio/sfx/pixel_death.mp3"
     window auto
     return "lose"
 

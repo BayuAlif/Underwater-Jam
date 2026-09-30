@@ -73,7 +73,8 @@ label ch3_start:
 
     hide mc
     scene ch3_day with Dissolve (0.5)
-    play music chap_3_day volume 0.5
+    play music "audio/bgm/chap_3_day.ogg" volume 0.5
+    play ambience "audio/ambience/ambience_day_beach.mp3" loop fadein 1.0 volume 0.3
 
     "The sea fills my line of sight with overwhelmingly bright pretty colors."
     "My gaze erratically jumps from one color to another as we continue to swim further."
@@ -440,7 +441,8 @@ label ch3_night_explore:
     hide scy
     hide hawk
     scene ch3_night with Dissolve (0.5)
-    play music chap_3_night volume 0.5
+    play music "audio/bgm/chap_3_night.ogg" volume 0.5
+    play ambience "audio/ambience/ambience_night_2.mp3" loop fadein 1.0 volume 0.35
 
     show scy smile:
         unpose
@@ -911,9 +913,9 @@ label ch3_boss_intro:
         full
         unpose
         centerright
-    play sound "audio/sfx/attack_2.mp3"
+    play sound "audio/sfx/shoot_tin.mp3"
     $ renpy.pause(0.2)
-    play sound "audio/sfx/attack_1.mp3"
+    play sound "audio/sfx/shoot_tin.mp3"
 
     show cory surprise:
         full

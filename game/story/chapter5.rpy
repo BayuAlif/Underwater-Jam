@@ -311,9 +311,12 @@ label chapter5_start:
     with fade
     stop music fadeout 2.0
     play music "audio/bgm/unsettling_moment.ogg" volume 0.7 fadein 2.0
+    play ambience "audio/ambience/unsettling_creepier.mp3" loop fadein 2.0 volume 0.35
 
     $ focus()
     $ focus() 
+    play sound "audio/sfx/breath_male.mp3" volume 0.35
+    play ambience "audio/ambience/pulsating_heartbeat.mp3" loop volume 0.3
     "It’s dark.."
     "it’s so dark in here.."
     "I can't be scared now..!"
@@ -378,6 +381,7 @@ label ch5_exploration_hub:
     scene bg abyss_depths
     with dissolve
     play music "audio/bgm/chap_5_exploration.ogg" volume 0.7
+    play ambience "audio/ambience/ambience_underwater_deep_2.mp3" loop fadein 1.5 volume 0.4
 
     if ch5_scy_explored and ch5_cory_explored and ch5_leo_explored:
         jump ch5_chase_real_gold
@@ -398,6 +402,7 @@ label ch5_scy_sequence:
 
     scene bg abyss_zone_left
     with dissolve
+    play ambience "audio/ambience/ambience_underwater_deep_1.mp3" loop fadein 1.0 volume 0.35
 
     $ focus() 
     show fakescy default:
@@ -435,6 +440,7 @@ label ch5_scy_sequence:
     mc "But why Mr. Larus?"
 
     scy_fake "It’s them. I can still hear them."
+    play ambience "audio/ambience/ambience_radio_1.mp3" noloop volume 0.4
 
     show mc o at mc_left
     mc "Who..?"
@@ -454,7 +460,7 @@ label ch5_scy_sequence:
 
     "I swam closer."
 
-    play sound "audio/sfx/attack_1.mp3"
+    play sound "audio/sfx/whispering.mp3" volume 0.6
     "Audio effect bisikan bisikan (\"No please dont...\" *knife slice* \"I have a family.\" *screams of pain*)"
 
     "The voices grew louder the closer I got. They overlapped until I could no longer tell what they were saying."
@@ -486,6 +492,7 @@ label ch5_scy_sequence:
     show fakescy smash:
         center
     with vpunch
+    play sound "audio/sfx/jumpscare_01.mp3" volume 0.65
     scy_fake "{font=DejaVuSans.ttf}w̷̳̓ͅĥ̶̥̩̋y̷̒̓͜ ̶̦̣̔̕w̸̜̋o̴͎̪̭͆̌n̴̬͂ṫ̸̛͇̳̤ ̷͓̎̀͜͝y̵̙̦̣̔̂ö̸̩͈́ũ̴͚͐ ̴̱̰̗͐͊m̴̛̜̑̈́a̷̡̗͊̋͝k̵̰̻͕͆͊e̶͈͋̈́ ̴̱̦͑̈́̈́t̸͈̳̎h̸̢͎̟̿ê̸̘̕m̷͔͌̚̕ ̵̟̠̺̆́͘s̶̻͚̺̒̂t̶͓̃ŏ̶̟͕͐p̵̺̰̪̀̍̃{/font}"
     scy_fake "{font=DejaVuSans.ttf}M̵̢̼̦̩̝͙͈͖̟̞͚̟̿̉̿͐ȃ̶̡̧̗̜̩͕̖͚̦̬̟̮̾͑̏̓̈́͗̎͘̚͜k̴̙̽̒e̷̢̓ ̵̨͈͇̙̙̩̗̖͇͚̟̘̣̇̀͑̃̎͒̽̉͝͝t̵̛̥̟͐̄̿̿̌̾̽̌̎͆̄̅̈̕ȟ̸̢͎̭͉̤̖̝͍̤̇̒̆̈́̍̾͘ͅē̸͈̊̐͠m̶̨̟̬͎̬̔̋̐ͅ ̶̠̦̊̒̊̀̅ͅs̸̖͚̞̳̙͚͐͒̒̌̈̾̈́̿̃͛̚͘͝t̷̳̟̤͇̬͚͎̫̲̪͋͋̒͑̀̓͆̈͜͠͝o̴̲̥͉̅́p̸̺̬̠͈͎̥̖̝̲̼̱̱̠̖̌̓̈́̄̆{/font}"
     scy_fake "{font=DejaVuSans.ttf}Ȋ̶͎͂ ̶̛̗̇͝ń̷̝̘̦e̷̢̱̫͒̇e̵̫̹͌ͅḏ̶͋̂͜ ̵͔͕̗̏͑y̴̰͇̅̀̌o̸̫̝͚͒̆u̷̮̼͉̐ ̴̲̩̅t̸͚͗̇o̸̳̦͆̀͜ ̵̘͐̕m̸͎̋à̵̝̥̎͝k̴̳̪̀e̴͓̓͂ ̵͔̉́t̸̨̑̒̚ḩ̸̭̅ë̴̼̆͝m̸͎͉͛̾ ̶͕̱͎͗̀̒s̵̫͕̠͆ẗ̸̺̞̻́̽ô̴̢͙̬p̸̢̠̼̋͊{/font}"
@@ -554,7 +561,7 @@ label ch5_scy_sequence:
             scy_fake "That’s right, Guppy. Just a little closer..."
             "Before I could take his hand, Mr. Larus suddenly shoved me aside."
 
-            play sound "audio/sfx/attack_3.mp3"
+            play sound "audio/sfx/punch_01.mp3"
             show scy default_om at center with vpunch
             show fakescy default:
                 left
@@ -716,6 +723,8 @@ label ch5_cory_sequence:
 
     scene bg abyss_zone_center
     with dissolve
+    play ambience "audio/ambience/ambience_underwater_deep_2.mp3" loop fadein 1.0 volume 0.3
+    play ambience "audio/ambience/ambience_radio_2.mp3" noloop volume 0.4
 
     show fakecory default:
         center
@@ -773,7 +782,7 @@ label ch5_cory_sequence:
     with vpunch
     cory_fake "{font=DejaVuSans.ttf}Y̸̩͗o̵̱͝u̷̼̾’̴̻͌l̶̳͠l̵̰͘ ̴̰͂n̵̛̳ẹ̴̇v̸͓̓e̵̘͛r̴̬̋ ̸̬̂b̷̼͋e̷̘̍ ̷̢̿a̴̜͊l̵̳̈́o̴̙͛ņ̶̇e̶̠̐ ̸̢̋a̶̼̋g̸̝͝a̷̫͗i̵͉͊n̶̗͑,̶̞̊ ̴͍̏{/font}"
 
-    play sound "audio/sfx/splash.mp3"
+    play sound "audio/sfx/jumpscare_02.mp3" volume 0.6
     show cory upset:
         rightish
         full
@@ -882,6 +891,7 @@ label ch5_leo_sequence:
 
     scene bg abyss_zone_right
     with dissolve
+    play ambience "audio/ambience/ambience_radio_3.mp3" noloop volume 0.4
 
     show fakeleo default:
         center
@@ -1059,10 +1069,11 @@ label ch5_chase_real_gold:
 
     stop music fadeout 1.0
     "Before I can swim any closer, the water around us starts to quake violently without warning."
+    play ambience "audio/ambience/gemuruh_1.mp3" loop fadein 0.3 volume 0.5
 
     play sound "audio/sfx/thump.mp3"
     with vpunch
-    play sound "audio/ambience/unsettling_moment.ogg"
+    play ambience "audio/ambience/highscreech_1.mp3" noloop volume 0.7
 
     ban_unknown "{size=+12}{b}THOU SHALT NOT PASSETH…!{/b}{/size}"
     hide mc excited
@@ -1152,6 +1163,7 @@ label ch5_chase_real_gold:
     ban "If thou won’t lend us its power.."
 
     "Enormous shadowy tentacles rise like colossi from the seabed."
+    play ambience "audio/ambience/BIG_MOVEMENT_1.mp3" noloop volume 0.65
 
     play music "audio/bgm/battle/a_battle.ogg" volume 0.85
 
@@ -1178,7 +1190,8 @@ label ch5_nightmare_bedroom:
 
     scene black
     with fade
-    play music "audio/ambience/ambianceprologue.mp3" volume 0.5 fadein 2.0
+    stop ambience fadeout 1.0
+    play ambience "audio/ambience/ambianceprologue.mp3" loop volume 0.5 fadein 2.0
 
     "My vision is suddenly engulfed in pitch black leaving me and Mr banished one in a surreal scene."
     "It's as if we're on a whole different dimension.."
@@ -1354,8 +1367,9 @@ label ch5_nightmare_bedroom:
 
 label ch5_the_final_choice:
 
-    play sound "audio/ambience/unsettling_moment.ogg"
+    play ambience "audio/ambience/unsettling_02.mp3" loop volume 0.45
     "The walls starts to melt, the perfect picture of home demolished."
+    play ambience "audio/ambience/unsettling_moment_cut.wav" noloop volume 0.6
 
     scene bg abyss_depths
     with Dissolve(1.5)
@@ -1396,7 +1410,7 @@ label ch5_ending_bad:
 
 
     scene white
-    play sound "audio/ambience/mysterious_golden_looking.ogg"
+    play ambience "audio/ambience/mysterious_golden_looking.mp3" noloop volume 0.65
 
     "The golden fish suddenly shines brighter."
     "The entire ocean is engulfed in golden light."
@@ -1446,13 +1460,16 @@ label ch5_ending_bad:
     hide mc shock
     with dissolve
     play sound "audio/sfx/splash.mp3"
-    play sound "audio/ambience/underwater_current.mp3"
+    play ambience "audio/ambience/underwater_current.mp3" loop fadein 0.5 volume 0.4
 
     scene tsunamiending
     with vpunch
 
     "As i ran hand in hand with mama and papa, i turn back to see the ocean had begun to rise and an enormous wave is forming in the distance."
     "The wave surges toward the shore."
+    play ambience "audio/ambience/gemuruh_2.mp3" loop volume 0.55
+    play ambience "audio/ambience/BIG_MOVEMENT_2.mp3" noloop volume 0.65
+    play sound "audio/sfx/underwater current.mp3" volume 0.5
 
     scene black
     with fade
@@ -1507,7 +1524,8 @@ label ch5_ending_true:
     scene white
     with Dissolve(2.0)
 
-    play music "audio/ambience/ambianceprologue.mp3" fadein 2.0
+    stop ambience fadeout 1.0
+    play ambience "audio/ambience/ambianceprologue.mp3" loop fadein 2.0
     scene prologue_day
     with Dissolve(1.5)
 
@@ -1562,7 +1580,8 @@ label ch5_ending_feral:
     leo "Yeeees~! Hehe great choice!"
 
     show turnfish 1
-    play sound "audio/ambience/mysterious_golden_looking.ogg"
+    play ambience "audio/ambience/pulsating_1.mp3" noloop volume 0.65
+    play ambience "audio/ambience/mysterious_golden_looking.mp3" noloop volume 0.7
 
     "The golden fish melts in my hands."
 
@@ -1575,10 +1594,10 @@ label ch5_ending_feral:
     play sound "audio/sfx/attack_2.mp3"
     show mc holdcry at mc_left with vpunch
     hide mc holdcry 
-    show turnfish 2
-    mc "it hurts.. it huuuurts..!! MAMAA..!!"
+    show turnfish 1
 
     "My vision starts to blur from the overwhelming pain of it all."
+    play ambience "audio/ambience/pulsating_1.mp3" noloop volume 0.65
     "Once everything clears out.. I.. looked down to my hands to notice that I’ve.."
     show turnfish 3
     "Been.. turned into a leopard seal."

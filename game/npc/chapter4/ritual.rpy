@@ -5,6 +5,7 @@ label ch4_night_ritual:
     hide mc
     scene ch4_night
     with dissolve
+    play ambience "audio/ambience/crowd_01.mp3" loop fadein 1.0 volume 0.3
 
     "Mr whale shark chief stepped into a small podium, behind him stood a giant statue made of gold, its sculpture resembles a scary uncanny unknown deep sea monster perhaps?"
     "It looks like it came out straight from a horror book."
@@ -17,11 +18,13 @@ label ch4_night_ritual:
     rin "For years, we, as the goldensea Council, have upheld this tradition. These little vessels shall carry what weighs upon us. Anger. Fear. Regret. Grief. Words left unsaid and thoughts we have carried for far too long."
     rin "Tonight, we give those burdens to the sea. Speak what you wish to leave behind. Let the Abyssal Effigy hear it. Then, when the time comes, we shall send them into the deep together."
 
+    play ambience "audio/ambience/crowd_cheer.mp3" noloop volume 0.6
     "The crowd merrily cheers at Mr chief's opening speech"
 
     rin "Settle down. Before we proceed to the final rite, there is one tradition left to observe."
     rin "Tonight, we have come to lay our burdens before the sea, however, no one should have to face this ritual alone. Each of you may choose one person to accompany them through the peak of the festival."
 
+    play sound "audio/sfx/mad_crowd_shortver.mp3" volume 0.35
     "Uninteligable murmur from the crowds"
 
     rin "Once you've chosen your companion, we may begin the first part of our rite. Each of our attendants have been given with a replica of the Abyssal Effigy. Through it, you may channel all the deepest sorrows you carry within. Be it regrets that weigh upon your heart, the fears that haunt you or the worries you hold for what lies ahead."
@@ -273,7 +276,7 @@ label ch4_rite_leo:
             mc "And you're my sister! You know so much about the sea. We're like… twins!"
             mc "And besides-"
 
-    play sound "audio/ambience/unsettling_moment.ogg"
+    play ambience "audio/ambience/unsettling_moment.mp3" noloop volume 0.6
     with vpunch
     leo "{glitch=60.0}{sc}{size=+6}SHUT UP, you really dont understand!!{/size}{/sc}{/glitch}"
 

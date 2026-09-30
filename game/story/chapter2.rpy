@@ -6,7 +6,8 @@ label chapter2_start:
 
     hide mc
     scene ch2_day with Dissolve(0.5)
-    play music chap_2_day volume 0.5
+    play music "audio/bgm/chap_2_day.ogg" volume 0.5
+    play ambience "audio/ambience/ambience_day_beach.mp3" loop fadein 1.0 volume 0.6
     "The river flowed faster, slowly giving way to larger stones."
     "The sunlight above grew softer, hiding themself behind layers of drifting water plants as we continue to swim."
     $ focus()
@@ -83,6 +84,7 @@ label chapter2_start:
         toleft
     cory "Huh..?"
 
+    play sound "audio/sfx/mad_crowd_longver.mp3" loop volume 0.35
     "Several tens of fishes crowd at what looks like a border built out of tall reefs, a small cave sits in the middle where a speckle of colorful creature stands firm guarding the entrance."
 
     show cory talk:
@@ -319,7 +321,8 @@ label chapter2_night_start:
     hide mc
     scene ch2_night
     with fade
-    play music chap_2_night volume 0.5
+    play music "audio/bgm/chap_2_night.ogg" volume 0.5
+    play ambience "audio/ambience/ambience_night_1.mp3" loop fadein 1.0 volume 0.35
 
     $ setup_exploration(
         [
