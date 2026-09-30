@@ -5,7 +5,6 @@ label ch4_talk_rin:
 
     if not ch4_rin_talked:
         $ focus()
-        #posisi kalau rin+mc sendiri di screen
         "An enormous whale shark towers the three of us."
         show mc excited:
             unpose
@@ -97,7 +96,6 @@ label ch4_talk_rin:
         rin "Oh why of course a big feast will occur!"
         rin "It's only fitting for a festival this important."
 
-        #posisi kalau rin bedua + mc di screen
         show cory smile_hu:
             full
             unpose
@@ -144,7 +142,6 @@ label ch4_talk_rin:
             leftish
         cory "About time we fill our stomachs.."
 
-        #posisi kalau rin betiga + mc di screen
         show cory smile2:
             full
             unpose

@@ -348,7 +348,6 @@ label chapter5_start:
 
     "I whipped around immediately, but found nothing."
 
-    # masalah saat scy di posisi selain tengah 
     show fakescy default:
         full 
         unpose

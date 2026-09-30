@@ -62,6 +62,7 @@ image cory smile = "images/characters/cory/00FIXXX/CoryTalkSmile.png"
 image cory smile_hu = "images/characters/cory/00FIXXX/CoryTalkSmileHU.png"
 image cory upset = "images/characters/cory/00FIXXX/CoryUpset.png"
 image cory upset_hu = "images/characters/cory/00FIXXX/CoryUpsetHU.png"
+image cory hurt = "images/characters/cory/00FIXXX/CoryUpset.png"
 
 image pcory surprise = "images/characters/cory/00FIXXX/PCorySurprise.png"
 image pcory talk = "images/characters/cory/00FIXXX/PCoryTalkNetral.png"

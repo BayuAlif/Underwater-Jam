@@ -7,7 +7,6 @@ label ch4_talk_leo:
         $ focus()
         play sound "audio/sfx/bush_rustling.mp3"
 
-        #posisi kalau leo dan mc sendiri di screen 
         show mc default:
             unpose
             full
@@ -31,7 +30,6 @@ label ch4_talk_leo:
 
         "I stumbled backwards for Mr Larus to catch me, a super tall figure cast shadows over us."
 
-        #posisi kalau leo bersama 1 karkater lg  di screen 
         show mc shock at mc_left
         show leo default:
             unpose
@@ -97,7 +95,6 @@ label ch4_talk_leo:
 
         cory "Hold your seahorses!"
 
-        #posisi kalau trio dengan leo
         show shrimp default behind cory:
             full
             unpose
