@@ -1,21 +1,23 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/story/chapter5.rpy", line 1294, in script
-Exception: Could not find return label ('game/story/chapter3.rpy', 804041729, 3375).
+  File "game/systems/duel_manager.rpy", line 942, in script
+    return _return
+Exception: Could not find return label ('game/story/chapter3.rpy', 804041729, 4518).
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/story/chapter5.rpy", line 1294, in script
+  File "game/systems/duel_manager.rpy", line 942, in script
+    return _return
   File "renpy/ast.py", line 1710, in execute
     next_node(renpy.game.context().lookup_return(pop=True))
               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^ 
   File "renpy/execution.py", line 812, in lookup_return
     raise Exception("Could not find return label {!r}.".format(self.return_stack[-1]))
-Exception: Could not find return label ('game/story/chapter3.rpy', 804041729, 3375).
+Exception: Could not find return label ('game/story/chapter3.rpy', 804041729, 4518).
 
 Windows-11-10.0.26200-SP0 AMD64
 Ren'Py 8.5.3.26051504
 One with the Sea 1.0
-Sun Sep 27 04:34:09 2026
+Thu Oct  1 02:20:09 2026

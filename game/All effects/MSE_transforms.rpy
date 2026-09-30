@@ -477,7 +477,7 @@ transform seesaw_right:
 ## Pickup ##############################
 
 transform sink(depth=1):
-    ease 0.3 yoffset 100*depth
+    ease 0.3 yoffset 70*depth
 
 transform pickup(depth=1):
     ease 0.5 yoffset 100*depth
