@@ -1,13 +1,25 @@
-# Ren'Py generated files
+# Ren'Py generated & compiled files
 *.rpyc
-cache/
+*.rpyb
+*.rpymc
+
+# Ren'Py Cache & Saves
+game/cache/
 game/saves/
+**/cache/
+**/saves/
+
+# Logs & temp
 log.txt
 errors.txt
-
-# Scratch and temporary work
+traceback.txt
 scratch/
+
+# Drafts & office documents
+*.docx
+*.xlsx
+*.pptx
 
 # OS files
 .DS_Store
-Thumbs.db
+Thumbs.db
