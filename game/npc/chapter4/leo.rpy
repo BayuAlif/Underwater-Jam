@@ -7,26 +7,32 @@ label ch4_talk_leo:
         play sound "audio/sfx/bush_rustling.mp3"
         leo "Greetings~!"
 
-        show mc shock at mc_left
+        show mc shock at mc_left, walkto(leftish, steps=2, walktime=0.5, bounce=0.2, sway=0.2)
+        pause 0.5
         mc "waouh-!"
 
         "I stumbled backwards for Mr Larus to catch me, a super tall figure cast shadows over us."
 
-        show scy surprise at npc_right
+        show mc shock at mc_left
+        show scy surprise at npc_right, surprise
         scy "Careful now!"
 
         leo "Mmhehe my apologies for the spook, friend.."
         leo "You're searching for the golden fish, yes?"
         leo "Sparkling rainbow, lush tail.."
 
-        show mc excited at mc_left
+        show mc excited at mc_left, jumpmc, vibrate
         mc "Yes yes you're right!! Super spot on!"
 
         leo "I can be of your aid I assure you~!"
         leo "You just have to follow me!"
 
+        show mc excited at mc_left, walkto(rightish, steps=3, walktime=1.0)
+        pause 1.0
+
         show cory side at cory_left
         cory "Hold your seahorses!"
+        show mc excited at mc_left
 
         menu:
             "How did ya know we're lookin for it?":
@@ -45,12 +51,12 @@ label ch4_talk_leo:
                 cory "How do we know ya really know of the fish's whereabouts?"
                 leo "Mm but until now.. you've been blindly following clues from strangers too right?"
                 leo "What makes it different from what I said?"
-                show scy smile at npc_right
+                show scy smile at npc_right, surprise
                 scy "He's right my friend, Cory! We have each other, it'll all be fine!"
-                show mc happy at mc_left
+                show mc happy at mc_left, surprise
                 mc "Mhm yaa mr Cory you worry too much"
                 mc "More than both of my parents combined.."
-                show cory upset at cory_left
+                show cory upset at cory_left, sink
                 cory "Ugh.. maybe you're right my bad…"
                 cory "Dunno what got to me"
                 "Mr Cory looks like he's got a lot in mind"
@@ -59,16 +65,16 @@ label ch4_talk_leo:
         leo "I know it like the back of my hand..."
         leo "Which means i get to join your fun little party yes?"
 
-        show mc happy at mc_left
+        show mc happy at mc_left, jumpmc
         mc "Yaa! Welcome aboard miss…?"
 
         leo "Leo is fine~! Leo Drurga"
 
-        show mc o at mc_left
+        show mc o at mc_left, surprise
         mc "Drurga.. :o"
         "The surname tickles something familiar in the back of my brain. Yet I can't really pinpoint what"
 
-        show scy proud at npc_right
+        show scy proud at npc_right, jump
         scy "We welcome you to our thrilling little search party, comrade!"
 
         leo "My oh my this would be spiiine tingling~!"

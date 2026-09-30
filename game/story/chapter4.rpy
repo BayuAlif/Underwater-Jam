@@ -19,7 +19,7 @@ label chapter4_start:
 
     fish2 "THANK YOU FOR BRINGING HER DOWN SCYLLARUS!!"
 
-    show scy surprise at npc_right
+    show scy surprise at npc_right, jump(windup=0.15, power=0.45, airtime=0.35)
     scy "HUH-! Oh! Yes, why of course the pleasure is mine, dear seafolks!"
 
     fish1 "Good luck on whatever you're doing scyllaruus!!"
@@ -33,7 +33,7 @@ label chapter4_start:
     show cory smile at cory_left
     cory "hah someone's getting famous ay?"
 
-    show mc happy at mc_left
+    show mc happy at mc_left, jumpmc(windup=0.1, power=0.55, airtime=0.4)
     mc "hehe people love you now Mr. Slarus!"
 
     show scy proud at npc_right
@@ -48,10 +48,10 @@ label chapter4_start:
     show scy smile at npc_right
     scy "Yea! There's no way it could be right behind us.."
 
-    show cory surprise at cory_left
-    cory "Speaking of… isn't that the golden fish? "
+    show cory surprise at cory_left, jump(windup=0.1, power=0.6, airtime=0.4)
+    cory "Speaking of… isn't that the golden fish?"
 
-    show mc shock at mc_left
+    show mc shock at mc_left, jumpmc(windup=0.1, power=0.5, airtime=0.35)
     mc "whauh?! Where?"
 
     show cory talk at cory_left
@@ -63,6 +63,9 @@ label chapter4_start:
     show mc excited at mc_left
     mc "ah! c'mon sir fishes! after it!!"
 
+    show mc excited at mc_left, walkto(offscreenright, steps=5, walktime=1.5)
+    pause 1.5
+
     jump ch4_day_explore
 
 label ch4_day_explore:
@@ -73,19 +76,20 @@ label ch4_day_explore:
     scene ch4_festival_day
     with dissolve
 
-    show cory upset at cory_left
+    show cory upset at cory_left, shake
     cory "aw shrimp! Damn fish must be Usailfish Bolt or something"
 
-    show mc happy at mc_left
+    show mc happy at mc_left, jumpmc(windup=0.1, power=0.45, airtime=0.35)
     mc "it's okayy mr Cory :DDD, We'll get it next time!!"
 
-    show scy sepet at npc_right
+    show scy sepet at npc_right, bowleft(depth=1)
     scy "How are we supposed to find the damn fish among all these gold… wait.. hold on.. Where are we??"
+    show scy sepet at npc_right, unpose
 
     show cory side at cory_left
     cory "I don't know but this place gives me the heebie-jeebies, stay close guppy we don't know what's ahead of us"
 
-    show mc excited at mc_left
+    show mc excited at mc_left, vibrate(intensity=2)
     mc "Look! Maybe those mr fishes would know where we are, let's ask them! :DD"
 
     hide cory
@@ -165,7 +169,7 @@ label ch4_dinner_incident:
     scene ch4_festival_day
     with dissolve
 
-    show mc happy at mc_left
+    show mc happy at mc_left, surprise
     mc "Mr whaaale, we're done! :D"
 
     rin "Oh praise the mother of sea.. Aren't you as swift as an arrow?"
@@ -184,6 +188,7 @@ label ch4_dinner_incident:
     "I nodded gleefully, drooling at the mouth while skipping behind mr whale's enormous tail"
     "We then arrive at a super big table, it looks like it could serve two whale sharks!"
     "Yet as my gaze fell down to the contents, I scrunched up in disappointment."
+    show mc pout at mc_left
 
     show cory proud at cory_left
     cory "bloodworms?! Didn't know you were fancy like that mr chief sir."
@@ -196,8 +201,11 @@ label ch4_dinner_incident:
     show mc o at mc_left
     mc "Are there.. any.. fried fishes?"
 
+    show cory surprise at cory_left, jumpmc(windup=0.1, power=0.45, airtime=0.45)
+    pause 0.45
     show cory surprise at cory_left
     cory "...???"
+    show cory surprise at cory_left
 
     leo "Oh dear the cat's out of the bag~"
 
@@ -209,8 +217,10 @@ label ch4_dinner_incident:
 
     leo "Mhm that's right, whale sharks eat baby fishes too.. As well shrimps"
 
-    show scy surprise at npc_right
+    show scy surprise at npc_right, jumpmc(windup=0.1, power=0.7, airtime=0.5)
+    pause 0.5
     scy "Did someone say shrimp?!"
+    show scy surprise at npc_right
 
     show mc pout at mc_left
     mc "and mr.. mr scyllarus too you.. you eat crabs.. Supposedly!"
@@ -264,6 +274,9 @@ label ch4_dinner_incident:
     mc "I.. *sniff* I'm not hungry anymore…"
 
     play sound "audio/sfx/splash.mp3"
+    show mc holdcry at mc_left, walkto(offscreenleft, steps=6, walktime=1.2, bounce=0.25, sway=0.2)
+    pause 1.2
+    hide mc
     "Stands up and runs away."
 
     leo "Hmm, folded too fast."
