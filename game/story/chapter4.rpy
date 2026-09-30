@@ -7,40 +7,88 @@ label chapter4_start:
     hide mc
     scene ch4_day
     with fade
-
-    show cory talk at cory_left
+    
+    $ focus()
+    $ focus()
+    show cory smile:
+        full
+        unpose
+    show cory smile:
+        unpose
+        rightish
+        toleft
+        walkloop(0.5, 0.5, 1)
+    with moveinleft
+    show shrimp default:
+        unpose
+        full
+        leftish
+        walkloop(1, 1, 1)
+    with moveinleft
     cory "The water sure feels easier to breathe now that she's gone huh?"
+    hide shrimp default
 
-    show scy default at npc_right
+    show shrimp sepet:
+        unpose
+        full
+        leftish
+        walkloop(1, 1, 1)
     scy "Really?! *sniff sniff* I feel the quality of water remains the same!"
-
     fish1 "SCYLLARUS!!! IM A BIG FAN HI"
-
     fish2 "THANK YOU FOR BRINGING HER DOWN SCYLLARUS!!"
 
-    show scy surprise at npc_right, jump(windup=0.15, power=0.45, airtime=0.35)
+    show cory smile2:
+        full
+        rightish
+    show scy surprise:
+        unpose
+        full
+    show scy surprise:
+        leftish
+        jump(windup=0.15, power=0.45, airtime=0.35)
     scy "HUH-! Oh! Yes, why of course the pleasure is mine, dear seafolks!"
 
     fish1 "Good luck on whatever you're doing scyllaruus!!"
-
     fish2 "Yeah!! We love you!"
 
+    show scy shy:
+        unpose
+        full
+    show scy shy:
+        leftish
     scy "R-right..! Good luck to all of you too!"
 
     "The two fishes swims away, giggling to themselves after greeting Mr Larus."
 
-    show cory smile at cory_left
+    show cory smile_hu:
+        full
+        unpose
+        rightish
     cory "hah someone's getting famous ay?"
 
     show mc happy at mc_left, jumpmc(windup=0.1, power=0.55, airtime=0.4)
     mc "hehe people love you now Mr. Slarus!"
 
-    show scy proud at npc_right
-    scy "It's Mr.Slarus! And.. I'm still trying to get used to it..!"
+    show scy default_om:
+        unpose
+        full
+        leftish
+    scy "It's Mr.Scyllarus! And.. I'm still trying to get used to it..!"
+    show scy sepet:
+        unpose
+        full
+        leftish
     scy "It's odd having strangers wave at you.."
 
-    show cory side at cory_left
+    show cory smile:
+        full
+        unpose
+        rightish
     cory "Yeah the seafolks' have been all the more peaceful.."
+    show cory talk_hu:
+        full
+        unpose
+        rightish
     cory "We still oughta keep our eyes for the golden fish though"
     cory "Could be anywhere in this vast ocean"
 
@@ -62,6 +110,7 @@ label chapter4_start:
     show mc excited at mc_left
     mc "ah! c'mon sir fishes! after it!!"
 
+    $ focus()
     show mc excited at mc_left, walkto(offscreenright, steps=5, walktime=1.5)
     pause 1.5
 
@@ -74,7 +123,7 @@ label ch4_day_explore:
     hide mc
     scene ch4_festival_day
     with dissolve
-
+    $ focus()
     show cory upset at cory_left, shake
     cory "aw shrimp! Damn fish must be Usailfish Bolt or something"
 
@@ -90,6 +139,7 @@ label ch4_day_explore:
 
     show mc excited at mc_left, vibrate(intensity=2)
     mc "Look! Maybe those mr fishes would know where we are, let's ask them! :DD"
+    $ focus()
 
     hide cory
     hide scy
@@ -118,12 +168,14 @@ label ch4_start_chores:
     scene ch4_festival_day
     with dissolve
 
+    $ focus()
     show mc happy at mc_left
     mc "Okay! Let's help out with the festival chores so we can find the golden fish tonight!"
 
     show cory talk at cory_left
     cory "Sounds like a plan. Let's see what needs fixin' or gatherin' around here."
 
+    $ focus()
     hide cory
     hide mc
     with dissolve
@@ -168,6 +220,7 @@ label ch4_dinner_incident:
     scene ch4_festival_day
     with dissolve
 
+    $ focus()
     show mc happy at mc_left, surprise
     mc "Mr whaaale, we're done! :D"
 
@@ -227,20 +280,27 @@ label ch4_dinner_incident:
     scy "A-are you suggesting I would eat my own comrades..?!"
 
     mc "But it's how nature is…!"
-
+    
+    show rin surprise
     rin "…"
     "My confused stare bore back into my own at tenfolds. Meanwhile Leo just sits there in the corner unbothered."
     "Her unreadable smile felt like a wash of relief and support amongst the overwhelmingly rigid tension."
 
+    show rin o
     rin "My apologies young one.. Our village had long forbid such extreme practice…"
     rin "While there are fishes that are still… what I would describe as crassly primitive"
+    show rin o #with sink animation??? idk whichever fits this best
     rin "We do not condone of such unvirtuous behavior around here"
+    
+    show rin smile
     rin "The best we can provide for your appetites are.. Jellies made algaes"
 
     show mc pout at mc_left
     mc "....okay."
 
+    show rin talk
     rin "Do… rest yourselves until tonight. Before the parade begins."
+    show rin o
     rin "Please excuse me."
 
     ".............................."
@@ -280,6 +340,7 @@ label ch4_dinner_incident:
 
     leo "Hmm, folded too fast."
 
+    $ focus()
     jump ch4_night_explore
 
 label ch4_night_explore:
@@ -288,9 +349,11 @@ label ch4_night_explore:
     $ current_area = "isolated_coral_corner"
 
     hide mc
-    scene ch4_dialogue_night
+    scene ch4_deeptalk
     with fade
 
+    $ focus()
+    $ focus()
     "I managed to find myself a quiet space to pond over everything."
     "The swaying of anemones and glowing corals calms me down a little."
     "I sat somewhere far from where my friends are to calm myself down"
@@ -384,8 +447,12 @@ label ch4_night_explore:
 
     ori "bizarre.."
 
+    $ focus()
+
     menu:
         "Is eating fishes the reason you're all chained up?":
+
+            $ focus()
             ori "it's-"
             leo "why helloooo there friends~!"
             show mc shock at mc_left
@@ -401,6 +468,7 @@ label ch4_night_explore:
             leo "Oho? Another friend? How exciting~!"
 
         "can I pet you misster cat shark":
+            $ focus()
             ori "you may"
             show mc happy at mc_left
             mc "really?? You're okay with it? No hard feelings?"
@@ -420,6 +488,7 @@ label ch4_night_explore:
             leo "I eat fishes, penguins on a daily basis too, you know~!"
             leo "don't let anyone stop you from eating what you want, little guppy."
             ori "bad advice…"
+            
 
     "Leo closely inspects the cat shark, twirling a 360 around it with an inquisitive hum"
 
@@ -431,7 +500,6 @@ label ch4_night_explore:
     mc "???"
 
     ori "that's hyperbole.. and I've changed."
-
     leo "You can't change what you've been born with kitty~!"
 
     ori "I wasn't…! Condition made me do-"
@@ -447,6 +515,7 @@ label ch4_night_explore:
 
     leo "To your friends, you silly eely billy. They've been worried"
 
+    $ focus()
     jump ch4_festival_night
 
 label ch4_festival_night:
@@ -457,6 +526,7 @@ label ch4_festival_night:
     scene ch4_night
     with dissolve
 
+    $ focus()
     show cory upset at cory_left
     cory "Guppy! Where the eel have ya been??"
 
@@ -546,6 +616,7 @@ label ch4_festival_night:
     show mc excited at mc_left
     mc "Waouh, really?? Can't wait to see!"
 
+    $ focus()
     jump ch4_festival_hub
 
 label ch4_festival_hub:
@@ -590,7 +661,7 @@ label ch4_climax:
     hide mc
     scene ch4_night
     with dissolve
-
+    $ focus()
     "At the ledge of the great abyss, multiple glowing effigies are cast into the dark void by the seafolks, tumbling downward into the deep sea."
 
     "Then suddenly, amongst the multiple thrown effigies I noticed something glows a bright gold."
@@ -623,6 +694,8 @@ label ch4_climax:
     "There were faint shouts ringing in the back of my head."
     "Amidst all of them, the loudest ones sounded familiar"
     "Before I knew it, I was already falling"
+
+    $ focus()
 
     $ ch4_chapter_complete = True
 
