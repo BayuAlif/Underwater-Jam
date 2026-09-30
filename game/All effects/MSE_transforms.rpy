@@ -102,7 +102,7 @@ transform rightish:
 
 transform right: # ^
     anchor (0.5,1.0)
-    xpos 0.85
+    xpos 0.84
 
 transform farright:
     anchor (0.5,1.0)
@@ -119,7 +119,7 @@ transform duo_left:
 
 transform duo_right:
     anchor (0.5, 1.0)
-    xpos 0.85
+    xpos 0.84
 
 transform duo_left_mantis:
     anchor (0.5, 1.0)
@@ -155,7 +155,7 @@ transform trio_right_mantis:
 
 transform trio_right:
     anchor (0.5, 1.0)
-    xpos 0.90
+    xpos 0.84
 
 ################################################################################
 ## Movement between positions

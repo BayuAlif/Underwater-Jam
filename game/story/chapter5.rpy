@@ -1131,6 +1131,7 @@ label ch5_ending_bad:
 
     "{size=+8}{color=#e63946}{b}BAD ENDING: THE RISING TIDE{/b}{/color}{/size}"
 
+    $ MainMenu(confirm=False)()
     return
 
 label ch5_ending_true:
@@ -1225,6 +1226,7 @@ label ch5_ending_true:
 
     "{size=+8}{color=#06d6a0}{b}TRUE ENDING: ONE WITH THE SEA{/b}{/color}{/size}"
 
+    $ MainMenu(confirm=False)()
     return
 
 label ch5_ending_feral:
@@ -1293,4 +1295,5 @@ label ch5_ending_feral:
 
     "{size=+8}{color=#f72585}{b}ENDING: FERAL EMBRACE{/b}{/color}{/size}"
 
+    $ MainMenu(confirm=False)()
     return
