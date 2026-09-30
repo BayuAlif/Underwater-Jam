@@ -48,11 +48,17 @@ label ch4_talk_rin:
                 rin "A Golden fish, you say..?"
                 "Mr Whale Shark's great eye drifts slowly toward the mountain of gold ornaments piled around him, as though sifting through decades of memory rather than metal."
                 rin "Mm. I believe... I may have seen such a thing"
-                show mc excited at mc_left, walkto(centerleft, steps=2, walktime=0.6, bounce=0.5, sway=0.3)
-                pause 0.6
+                show mc excited:
+                    unpose
+                    full
+                    mc_left
+                    jumpmc(windup=0.1, power=0.5, airtime=0.35)
                 mc "Really?! Can you tell us?"
                 rin "Now, now. Need not to hurry young one."
-                show mc pout at mc_left, sink
+                show mc pout:
+                    unpose
+                    full
+                    mc_left
                 mc "Mnn but I need to know now.. Before it goes further :("
                 rin "Patience will reward you grand.."
                 rin "We're currently having trouble with a festival that's going to occur tonight.."
