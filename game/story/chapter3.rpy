@@ -911,9 +911,9 @@ label ch3_boss_intro:
         full
         unpose
         centerright
-    play sound "audio/attack_2.mp3"
+    play sound "audio/sfx/attack_2.mp3"
     $ renpy.pause(0.2)
-    play sound "audio/attack_1.mp3"
+    play sound "audio/sfx/attack_1.mp3"
 
     show cory surprise:
         full

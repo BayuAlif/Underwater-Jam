@@ -7,7 +7,8 @@ label chapter4_start:
     hide mc
     scene ch4_day
     with fade
-
+    
+    play music "audio/bgm/chap_2_day.ogg" volume 0.4
     show cory talk at cory_left
     cory "The water sure feels easier to breathe now that she's gone huh?"
 
@@ -56,7 +57,7 @@ label chapter4_start:
     show cory talk at cory_left
     cory "right behind you guppy"
 
-    play sound "audio/splash.mp3"
+    play sound "audio/sfx/splash.mp3"
     "A brilliant rainbow-golden glimmer flashes right behind us, darting through the water at impossible speed towards a massive golden gate ahead!"
 
     show mc excited at mc_left
@@ -272,7 +273,7 @@ label ch4_dinner_incident:
     show mc holdcry at mc_left
     mc "I.. *sniff* I'm not hungry anymore…"
 
-    play sound "audio/splash.mp3"
+    play sound "audio/sfx/splash.mp3"
     show mc holdcry at mc_left, walkto(offscreenleft, steps=6, walktime=1.2, bounce=0.25, sway=0.2)
     pause 1.2
     hide mc
@@ -290,6 +291,7 @@ label ch4_night_explore:
     hide mc
     scene ch4_dialogue_night
     with fade
+    play music "audio/bgm/chap_4_night.ogg" volume 0.4
 
     "I managed to find myself a quiet space to pond over everything."
     "The swaying of anemones and glowing corals calms me down a little."
@@ -599,7 +601,7 @@ label ch4_climax:
 
     show expression Transform("ch4_dialogue_night", zoom=1.5, xalign=0.5, yalign=0.8) as zoomed_abyss
     with dissolve
-    play sound "audio/mysterious_golden_looking.wav"
+    play sound "audio/ambience/mysterious_golden_looking.ogg"
 
     "But that rainbow radiant.. shimmering glow"
     "In that moment, everything else were a blur."
@@ -613,7 +615,7 @@ label ch4_climax:
     "He always brings back home cool fishes"
     "So maybe if I bring it home, this time he'll-!"
 
-    play sound "audio/splash.mp3"
+    play sound "audio/sfx/splash.mp3"
     hide mc
     with dissolve
 

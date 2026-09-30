@@ -51,8 +51,8 @@ screen ch5_anomaly_exploration():
                 hover "ch5_mantis_hover"
                 at ch5_mirage_hub_scy
                 action Return("scy")
-                hover_sound "audio/pixel_ui_1.mp3"
-                activate_sound "audio/pixel_ui_2.mp3"
+                hover_sound "audio/sfx/pixel_ui_1.mp3"
+                activate_sound "audio/sfx/pixel_ui_2.mp3"
 
             textbutton _("✦ Inspect Mirage ✦"):
                 xcenter 960
@@ -63,8 +63,8 @@ screen ch5_anomaly_exploration():
                 text_color "#ffd166"
                 text_hover_color "#ffffff"
                 text_outlines [(2, "#000000", 0, 0)]
-                hover_sound "audio/pixel_ui_1.mp3"
-                activate_sound "audio/pixel_ui_2.mp3"
+                hover_sound "audio/sfx/pixel_ui_1.mp3"
+                activate_sound "audio/sfx/pixel_ui_2.mp3"
                 action Return("scy")
 
     elif ch5_exploration_zone == "right":
@@ -104,8 +104,8 @@ screen ch5_anomaly_exploration():
                 hover "ch5_leo_hover"
                 at ch5_mirage_hub_leo
                 action Return("leo")
-                hover_sound "audio/pixel_ui_1.mp3"
-                activate_sound "audio/pixel_ui_2.mp3"
+                hover_sound "audio/sfx/pixel_ui_1.mp3"
+                activate_sound "audio/sfx/pixel_ui_2.mp3"
 
             textbutton _("✦ Inspect Mirage ✦"):
                 xcenter 960
@@ -116,8 +116,8 @@ screen ch5_anomaly_exploration():
                 text_color "#ffd166"
                 text_hover_color "#ffffff"
                 text_outlines [(2, "#000000", 0, 0)]
-                hover_sound "audio/pixel_ui_1.mp3"
-                activate_sound "audio/pixel_ui_2.mp3"
+                hover_sound "audio/sfx/pixel_ui_1.mp3"
+                activate_sound "audio/sfx/pixel_ui_2.mp3"
                 action Return("leo")
 
     else:
@@ -157,8 +157,8 @@ screen ch5_anomaly_exploration():
                 hover "ch5_cory_hover"
                 at ch5_mirage_hub_cory
                 action Return("cory")
-                hover_sound "audio/pixel_ui_1.mp3"
-                activate_sound "audio/pixel_ui_2.mp3"
+                hover_sound "audio/sfx/pixel_ui_1.mp3"
+                activate_sound "audio/sfx/pixel_ui_2.mp3"
 
             textbutton _("✦ Inspect Mirage ✦"):
                 xcenter 960
@@ -169,8 +169,8 @@ screen ch5_anomaly_exploration():
                 text_color "#ffd166"
                 text_hover_color "#ffffff"
                 text_outlines [(2, "#000000", 0, 0)]
-                hover_sound "audio/pixel_ui_1.mp3"
-                activate_sound "audio/pixel_ui_2.mp3"
+                hover_sound "audio/sfx/pixel_ui_1.mp3"
+                activate_sound "audio/sfx/pixel_ui_2.mp3"
                 action Return("cory")
 
         # When all 3 explored: path deeper unlocks in Center!
@@ -187,8 +187,8 @@ screen ch5_anomaly_exploration():
                     text_color "#ffd700"
                     text_hover_color "#ffffff"
                     text_outlines [(2, "#000000", 0, 0)]
-                    hover_sound "audio/pixel_ui_1.mp3"
-                    activate_sound "audio/pixel_ui_2.mp3"
+                    hover_sound "audio/sfx/pixel_ui_1.mp3"
+                    activate_sound "audio/sfx/pixel_ui_2.mp3"
                     action Return("proceed")
 
     # =================================================================
@@ -270,8 +270,8 @@ screen ch5_anomaly_exploration():
                 idle "ch5_arrow_left"
                 hover Transform("ch5_arrow_left", zoom=1.08)
                 action If(ch5_exploration_zone == "right", SetVariable("ch5_exploration_zone", "center"), SetVariable("ch5_exploration_zone", "left"))
-                hover_sound "audio/pixel_ui_1.mp3"
-                activate_sound "audio/pixel_ui_2.mp3"
+                hover_sound "audio/sfx/pixel_ui_1.mp3"
+                activate_sound "audio/sfx/pixel_ui_2.mp3"
 
             text ("◄ Mr. Cory" if ch5_exploration_zone == "right" else "◄ Mr. Scyllarus"):
                 xalign 0.5
@@ -292,8 +292,8 @@ screen ch5_anomaly_exploration():
                 idle "ch5_arrow_right"
                 hover Transform("ch5_arrow_right", zoom=1.08)
                 action If(ch5_exploration_zone == "left", SetVariable("ch5_exploration_zone", "center"), SetVariable("ch5_exploration_zone", "right"))
-                hover_sound "audio/pixel_ui_1.mp3"
-                activate_sound "audio/pixel_ui_2.mp3"
+                hover_sound "audio/sfx/pixel_ui_1.mp3"
+                activate_sound "audio/sfx/pixel_ui_2.mp3"
 
             text ("Mr. Cory ►" if ch5_exploration_zone == "left" else "Miss Leo ►"):
                 xalign 0.5
@@ -310,7 +310,7 @@ label chapter5_start:
     scene black
     with fade
     stop music fadeout 2.0
-    play music "audio/unsettling_moment.wav" volume 0.7 fadein 2.0
+    play music "audio/bgm/unsettling_moment.ogg" volume 0.7 fadein 2.0
 
     "It’s dark.."
     "it’s so dark in here.."
@@ -375,6 +375,7 @@ label ch5_exploration_hub:
 
     scene bg abyss_depths
     with dissolve
+    play music "audio/bgm/chap_5_exploration.ogg" volume 0.7
 
     if ch5_scy_explored and ch5_cory_explored and ch5_leo_explored:
         jump ch5_chase_real_gold
@@ -450,7 +451,7 @@ label ch5_scy_sequence:
 
     "I swam closer."
 
-    play sound "audio/attack_1.mp3"
+    play sound "audio/sfx/attack_1.mp3"
     "Audio effect bisikan bisikan (\"No please dont...\" *knife slice* \"I have a family.\" *screams of pain*)"
 
     "The voices grew louder the closer I got. They overlapped until I could no longer tell what they were saying."
@@ -497,7 +498,7 @@ label ch5_scy_sequence:
 
     "I hesitate, before slowly reaching out to grab his hand. Before I could, a voice screams out."
 
-    play sound "audio/thump.mp3"
+play sound "audio/sfx/thump.mp3"
     show fakescy default:
         full 
         unpose
@@ -510,7 +511,6 @@ label ch5_scy_sequence:
     show scy surprise:
         rightish
         float_idle
-
     with vpunch
 
     scy "Stay away from it!"
@@ -547,7 +547,7 @@ label ch5_scy_sequence:
             scy_fake "That’s right, Guppy. Just a little closer..."
             "Before I could take his hand, Mr. Larus suddenly shoved me aside."
 
-            play sound "audio/attack_3.mp3"
+play sound "audio/sfx/attack_3.mp3"
             show scy default_om at center with vpunch
             show fakescy default:
                 left
@@ -751,7 +751,7 @@ label ch5_cory_sequence:
     show fakecory wide
     cory_fake "{font=DejaVuSans.ttf}Y̸̩͗o̵̱͝u̷̼̾’̴̻͌l̶̳͠l̵̰͘ ̴̰͂n̵̛̳ẹ̴̇v̸͓̓e̵̘͛r̴̬̋ ̸̬̂b̷̼͋e̷̘̍ ̷̢̿a̴̜͊l̵̳̈́o̴̙͛ņ̶̇e̶̠̐ ̸̢̋a̶̼̋g̸̝͝a̷̫͗i̵͉͊n̶̗͑,̶̞̊ ̴͍̏{/font}"
 
-    play sound "audio/splash.mp3"
+play sound "audio/sfx/splash.mp3"
     show cory upset:
         rightish
         full
@@ -1026,9 +1026,9 @@ label ch5_chase_real_gold:
     stop music fadeout 1.0
     "Before I can swim any closer, the water around us starts to quake violently without warning."
 
-    play sound "audio/thump.mp3"
+    play sound "audio/sfx/thump.mp3"
     with vpunch
-    play sound "audio/unsettling_moment.wav"
+    play sound "audio/ambience/unsettling_moment.ogg"
 
     ban_unknown "{size=+12}{b}THOU SHALT NOT PASSETH…!{/b}{/size}"
     hide mc excited
@@ -1120,7 +1120,8 @@ label ch5_chase_real_gold:
 
     "Enormous shadowy tentacles rise like colossi from the seabed."
 
-    play music "audio/a_battle.wav" volume 0.85
+    play music "audio/bgm/battle/a_battle.ogg" volume 0.85
+    call banished_duel
 
     stop music fadeout 1.5
     scene bg abyss_depths
@@ -1145,7 +1146,7 @@ label ch5_nightmare_bedroom:
 
     scene black
     with fade
-    play music "audio/ambianceprologue.mp3" volume 0.5 fadein 2.0
+    play music "audio/ambience/ambianceprologue.mp3" volume 0.5 fadein 2.0
 
     "My vision is suddenly engulfed in pitch black leaving me and Mr banished one in a surreal scene."
     "It's as if we're on a whole different dimension.."
@@ -1299,7 +1300,7 @@ label ch5_nightmare_bedroom:
     leo "Finally! Took you long enough, little guppy!"
 
     stop music fadeout 1.0
-    play sound "audio/thump.mp3"
+    play sound "audio/sfx/thump.mp3"
     with vpunch
 
     show leo default:
@@ -1319,7 +1320,7 @@ label ch5_nightmare_bedroom:
 
 label ch5_the_final_choice:
 
-    play sound "audio/unsettling_moment.wav"
+    play sound "audio/ambience/unsettling_moment.ogg"
     "The walls starts to melt, the perfect picture of home demolished."
 
     scene bg abyss_depths
@@ -1359,8 +1360,10 @@ label ch5_ending_bad:
 
     mc "I…I wish for mama to get better and papa to come home!"
 
+
     scene white
-    play sound "audio/mysterious_golden_looking.wav"
+    play sound "audio/ambience/mysterious_golden_looking.ogg"
+
     "The golden fish suddenly shines brighter."
     "The entire ocean is engulfed in golden light."
 
@@ -1392,7 +1395,7 @@ label ch5_ending_bad:
     hide mama smile
     with dissolve
 
-    play sound "audio/thump.mp3"
+    play sound "audio/sfx/thump.mp3"
     with vpunch
     show papa default
     
@@ -1405,10 +1408,11 @@ label ch5_ending_bad:
 
     show mc shock at mc_left
     mc "P-papa?! What’s going on?"
+
     hide mc shock
     with dissolve
-    play sound "audio/splash.mp3"
-    play sound "audio/underwater_current.mp3"
+    play sound "audio/sfx/splash.mp3"
+    play sound "audio/ambience/underwater_current.mp3"
 
     scene tsunamiending
     with vpunch
@@ -1454,7 +1458,7 @@ label ch5_ending_true:
 
     mc "I wish for the golden fish to be gone once and for all!!"
 
-    play sound "audio/pixel_death.mp3"
+    play sound "audio/sfx/pixel_death.mp3"
     with vpunch
 
     "{size=+10}{b}CRACK!{/b}{/size}"
@@ -1495,7 +1499,7 @@ label ch5_ending_true:
     scene white
     with Dissolve(2.0)
 
-    play music "audio/ambianceprologue.mp3" fadein 2.0
+    play music "audio/ambience/ambianceprologue.mp3" fadein 2.0
     scene prologue_day
     with Dissolve(1.5)
 
@@ -1543,8 +1547,10 @@ label ch5_ending_feral:
     mc "I…I wish to finally become one with the sea!"
 
     leo "Yeeees~! Hehe great choice!"
+
     show turnfish 1
-    play sound "audio/mysterious_golden_looking.wav"
+    play sound "audio/ambience/mysterious_golden_looking.ogg"
+
     "The golden fish melts in my hands."
 
     show mc shock at mc_left
@@ -1552,10 +1558,11 @@ label ch5_ending_feral:
     "Its golden scale fusing with my own skin in a grotesque way."
     "A surge of golden heat runs up my veins, rewiring my DNA in real time."
 
+
+    play sound "audio/sfx/attack_2.mp3"
     show mc holdcry at mc_left with vpunch
     hide mc holdcry 
     show turnfish 2
-    play sound "audio/attack_2.mp3"
     mc "it hurts.. it huuuurts..!! MAMAA..!!"
 
     show turnfish 3
@@ -1577,8 +1584,10 @@ label ch5_ending_feral:
     hide mc silumansenyum
 
     stop music fadeout 1.0
-    play sound "audio/thump.mp3"
+
+    play sound "audio/sfx/thump.mp3"
     show banishedonevsfurrylaut
+
     with vpunch
 
     ban "{size=+6}{b}Foolish greedy mortals….!!{/b}{/size}"

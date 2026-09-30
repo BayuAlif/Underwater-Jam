@@ -266,6 +266,44 @@ init python:
         if store.duel_z_taps < store.duel_z_target:
             store.duel_z_taps += 1
 
+    def get_battle_tracks():
+        tracks = []
+        try:
+            for f in renpy.list_files():
+                if f.startswith("audio/bgm/battle/") and f.lower().endswith((".ogg", ".wav", ".mp3", ".opus")):
+                    tracks.append(f)
+        except Exception:
+            pass
+
+        if not tracks:
+            import os
+            battle_dir = os.path.join(renpy.config.gamedir, "audio", "bgm", "battle")
+            if os.path.isdir(battle_dir):
+                for fname in os.listdir(battle_dir):
+                    if fname.lower().endswith((".ogg", ".wav", ".mp3", ".opus")):
+                        tracks.append("audio/bgm/battle/" + fname)
+
+        if not tracks:
+            tracks = [
+                "audio/bgm/battle/a_battle.ogg",
+                "audio/bgm/battle/jankenpon.ogg",
+                "audio/bgm/battle/mysterious golden looking.ogg"
+            ]
+        return tracks
+
+    def get_random_battle_music():
+        tracks = get_battle_tracks()
+        if tracks:
+            return random.choice(tracks)
+        return None
+
+    def play_random_battle_music(volume=0.5):
+        selected = get_random_battle_music()
+        if selected:
+            renpy.music.play(selected, channel="music", loop=True, if_changed=True, relative_volume=volume)
+            return selected
+        return None
+
     DUEL_STRATEGY_DATA = {
         "mantis": {
             "name": "Mantis Shrimp",
@@ -760,8 +798,8 @@ screen mantis_rps_screen():
             xalign 0.5
             idle "jankenpon button rock"
             focus_mask True
-            hovered Play("sound", "audio/pixel_ui_1.mp3")
-            action [Play("sound", "audio/pixel_ui_2.mp3"), Return("rock")]
+            hovered Play("sound", "audio/sfx/pixel_ui_1.mp3")
+            action [Play("sound", "audio/sfx/pixel_ui_2.mp3"), Return("rock")]
         frame:
             xalign 0.5
             background Solid("#011627dd")
@@ -780,8 +818,8 @@ screen mantis_rps_screen():
             xalign 0.5
             idle "jankenpon button scissors"
             focus_mask True
-            hovered Play("sound", "audio/pixel_ui_1.mp3")
-            action [Play("sound", "audio/pixel_ui_2.mp3"), Return("scissors")]
+            hovered Play("sound", "audio/sfx/pixel_ui_1.mp3")
+            action [Play("sound", "audio/sfx/pixel_ui_2.mp3"), Return("scissors")]
         frame:
             xalign 0.5
             background Solid("#011627dd")
@@ -800,8 +838,8 @@ screen mantis_rps_screen():
             xalign 0.5
             idle "jankenpon button paper"
             focus_mask True
-            hovered Play("sound", "audio/pixel_ui_1.mp3")
-            action [Play("sound", "audio/pixel_ui_2.mp3"), Return("paper")]
+            hovered Play("sound", "audio/sfx/pixel_ui_1.mp3")
+            action [Play("sound", "audio/sfx/pixel_ui_2.mp3"), Return("paper")]
         frame:
             xalign 0.5
             background Solid("#011627dd")
@@ -926,6 +964,8 @@ label run_duel(boss_target="mantis", custom_hp=None, custom_threshold=None):
     hide empress
 
     window hide
+
+    $ play_random_battle_music(0.5)
 
     $ duel_boss = boss_target if boss_target else getattr(store, "duel_boss", "mantis")
     $ _bcfg = DUEL_BOSS_REGISTRY.get(duel_boss, DUEL_BOSS_REGISTRY["mantis"])
@@ -1083,7 +1123,8 @@ label run_duel(boss_target="mantis", custom_hp=None, custom_threshold=None):
 
     hide screen duel_battle_stage
     hide screen mantis_battle_stage
-
+    stop music fadeout 1.0
+    
     python:
         renpy.stop_predict(
             "images/jankenpon/Idle1.png",
