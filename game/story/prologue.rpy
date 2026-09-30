@@ -8,14 +8,18 @@ label prologue:
     "{i}Ah, the rivershore.. A serene calming scene adorned by the rustling wind of leaves.{/i}" 
     "{i}Gentle applauses are carried by the trees of forest in celebration for yet another day of the sun's blessing.{/i}" 
     hide mc
+    window hide
     scene cutpro1 with Dissolve(0.5)
     play sound "audio/sfx/bush_rustling.mp3" volume 0.25
     stop music fadeout 1.0
+    pause 2.0
     "An absolute perfect scene for{cps=0.5}...{/cps}"
 
     hide mc
+    window hide
     scene cutpro2 with Dissolve(0.5)
     play music "audio/bgm/prologue_funny_underwater.ogg" fadein 1.0 volume 0.5
+    pause 2.0
     mc "Weee~! For practicing my flying fish jump of course! Haha!"
 
     "{i}I soared through the sky, my arms and legs held up by the encouraging carry of gravity.{/i}"
@@ -66,35 +70,51 @@ label prologue:
     $ focus()
 
     hide mc
+    window hide
     scene cutpro3 with Dissolve(0.5)
+    pause 2.0
     "{i}Levelling down with my friends on the ground, I have my best grin on display ready to greet them. They stay longer when I do that.{/i}" 
     "{i}My finger gently twirls creating a small friendly swirl against the riverwater. One by one, they all turned toward the middle of the river.{/i}"
     mc "Good precious morning mr carpado! Morning ms betta! Hello to silly eely billy! and..."
 
     hide mc
+    window hide
     scene cutpro4 with Dissolve(0.5)
     stop music fadeout 5.0
+    pause 2.0
     "{i}A majestic mysterious fish made its great entrance.{/i}"
     mc "Huh...?"
 
     hide mc
+    window hide
     scene cutpro5 with Dissolve(0.5)
     play music mysterious_golden_looking fadein 1.0 volume 0.5
+    pause 2.0
     mc "I don't think I've seen you before..."
     "{i}Its beauty was like nothing I've ever seen. Not even in my wildest dreams... or in the thickest fish encyclopedia with my favorite illustrator in charge.{/i}"
 
     hide mc
+    window hide
     scene cutpro6 with Dissolve(0.5)
+    pause 2.0
     "{i}Stuck in trance I now realize, that I can only picture its tail now.{/i}"
     mc "Ah! Wait up!!"
 
     hide mc
+    window hide
     scene lari1 with Dissolve(0.5)
     with vpunch
+    pause 1.5
     "{i}Before I knew it my feet brought me up in a speed bolt. I ran along the river. Eyes locked onto the mysterious golden fish.{/i}"
+    hide mc
+    window hide
     scene lari2 with Dissolve(0.5)
+    pause 1.5
     "{i}Every time I thought I was close enough to reach it… It drifted just a little farther away.{/i}"
+    hide mc
+    window hide
     scene lari3 with Dissolve(0.5)
+    pause 1.5
     "{i}My feet stopped me at the edge of the river, where the grassy path came to an abrupt end.{/i}"
     scene prologue_day with Dissolve(0.5)
     show mc shock:
@@ -116,33 +136,43 @@ label prologue:
     stop music
     play sound "audio/sfx/splash.mp3"
     mc "...!"
+    window hide
     show cutpro8 as wave_overlay:
         alpha 0.5
         function WaveShader(amp = 0, melt="both", melt_params=(10.0,1.0,0.1))
     with Dissolve(0.5)
+    pause 1.5
     "{i}A cold paralyzing splash embraces me tight.{/i}"
     play music unsettling_moment
     "{i}For a brief moment my vision is surrounded by pitch black. The only guidance a blur flicker of shimmery gold.{/i}"
 
+    window hide
     show cutpro9 as wave_overlay:
         alpha 0.5
         function WaveShader(amp = 0, melt="both", melt_params=(10.0,1.0,0.1))
     with Dissolve(0.5) 
+    pause 1.5
     "{i}Yet, for some reason... I'm not at all scared.{/i}"
+    window hide
     show cutpro10 as wave_overlay:
         alpha 0.5
         function WaveShader(amp = 0, melt="both", melt_params=(10.0,1.0,0.1))
     with Dissolve(0.5) 
+    pause 1.5
     "{i}The overwhelming need to see more of it cancels out all emotions{/i}"
+    window hide
     show cutpro11 as wave_overlay:
         alpha 0.5
         function WaveShader(amp = 0, melt="both", melt_params=(10.0,1.0,0.1))
     with Dissolve(0.5) 
+    pause 1.5
     "{i}Then— just for a heartbeat— something broke away from it.{/i}"
+    window hide
     show cutpro12 as wave_overlay:
         alpha 0.5
         function WaveShader(amp = 0, melt="both", melt_params=(10.0,1.0,0.1))
     with Dissolve(0.5) 
+    pause 1.5
     "{i}It landed square in my palm. Warm. Impossibly warm for something that just came off a fish underwater.{/i}"
 
     stop music 

@@ -1,9 +1,9 @@
 transform mc_two:
     xanchor 0.5
-    xpos 0.88
+    xpos 0.84
     yanchor 1.0
     ypos 1.0
-    zoom 0.82
+    zoom 1.0 / scale
 
 transform cory_two:
     xanchor 0.34
@@ -14,10 +14,10 @@ transform cory_two:
 
 transform mc_npc:
     xanchor 0.5
-    xpos 0.90
+    xpos 0.84
     yanchor 1.0
-    ypos 1.02
-    zoom 0.98
+    ypos 1.0
+    zoom 1.0 / scale
 
 transform cory_npc:
     xanchor 0.5
@@ -91,17 +91,17 @@ transform shrimp_right:
 
 transform mc_left:
     xanchor 0.5
-    xpos 0.90
+    xpos 0.84
     yanchor 1.0
-    ypos 1.02
-    zoom 0.98
+    ypos 1.0
+    zoom 1.0 / scale
 
 transform mc_center_left:
     xanchor 0.5
-    xpos 0.90
+    xpos 0.84
     yanchor 1.0
-    ypos 1.02
-    zoom 0.98
+    ypos 1.0
+    zoom 1.0 / scale
 
 transform cory_left:
     xanchor 0.5

@@ -1065,9 +1065,12 @@ label ch5_chase_real_gold:
     play sound "audio/ambience/unsettling_moment.ogg"
 
     ban_unknown "{size=+12}{b}THOU SHALT NOT PASSETH…!{/b}{/size}"
-    hide mc excited
-    hide leo niko
-    show banishedone with vpunch
+    hide mc
+    hide leo
+    window hide
+    scene banishedone with vpunch
+    pause 2.5
+
     "A cracking roar tears through the darkness, loud enough to deafen me."
     "The pressure climbs so high it’s almost bone crushing."
     "It became a sensation that one would describe as close to death."
@@ -1095,7 +1098,6 @@ label ch5_chase_real_gold:
         float_idle
     with dissolve
 
-    show leo ehe at farright
     leo "I'm riiiight over here too you know~!"
     leo "My apologies for interfering with your grand speech, your highness.."
     leo "But everyone has their right to pursue the golden fish…"
@@ -1105,13 +1107,11 @@ label ch5_chase_real_gold:
     show mc o at mc_left
     mc "Banished one…?"
 
-    scene banishedoneangry
-    show leo default:
-        full
-        unpose
-    show leo default:
-        farright
-        float_idle
+    hide mc
+    hide leo
+    window hide
+    scene banishedoneangry with vpunch
+    pause 2.0
 
     ban "{size=+6}{b}BANISHED?{/b}{/size} Child… I was unwritten. The waves scrubbed my name from their pathetic hymns…"
     ban "I'm acknown, therefore i shall useth the young to maketh the divine wish."
@@ -1122,7 +1122,11 @@ label ch5_chase_real_gold:
     mc "You want me to make a wish for you and your kind…?"
     mc "But I need to save my friends.. I need to save mama and papa.. I need to fix the sea.. I need to be a fish..!"
 
-    show leo niko
+    show leo niko:
+        full
+        unpose
+        farright
+        float_idle
     leo "Personal opinion but I think you should narrow down those wishes~"
     leo "You’re too greedy for your own good, little guppy."
     leo "And I don’t think favoring his wish is a good idea.."
@@ -1141,13 +1145,9 @@ label ch5_chase_real_gold:
     show mc o at mc_left
     mc "Are you saying.. That the goddess is.. Not being fair?"
 
-    scene banishedone
-    show leo default:
-        full
-        unpose
-    show leo default:
-        farright
-        float_idle
+    hide mc
+    hide leo
+    scene banishedone with dissolve
     ban "Precisely what I’ve been saying.."
     ban "If thou won’t lend us its power.."
 
@@ -1156,15 +1156,23 @@ label ch5_chase_real_gold:
     play music "audio/bgm/battle/a_battle.ogg" volume 0.85
 
     stop music fadeout 1.5
+    hide mc
+    hide leo
     scene bg abyss_depths
     with vpunch
+    window hide
     scene banishedoneangry:
+        xalign 0.5
+        yalign 0.5
         zoom 1.3
-    
-    
+    with vpunch
+    pause 2.0
+
     "One of its strong limbs curls around me bringing me close to it."
 
     show mc shock_hu:
+        unpose
+        full
         mc_left
         surprise
 
@@ -1337,16 +1345,12 @@ label ch5_nightmare_bedroom:
     play sound "audio/sfx/thump.mp3"
     with vpunch
 
-    show leo default:
-        farright
-        full
-        unpose
-    with move
-    scene banishedoneangry
-    show leo default:
-        farright
-        full
-        unpose
+    hide mc
+    hide leo
+    window hide
+    scene banishedoneangry with vpunch
+    pause 2.0
+
     mama_fake "{size=+8}{b}ENOW OF THIS NO MORE BRAIN THAN STONE GAME!{/b}{/size}"
     
 
@@ -1360,7 +1364,11 @@ label ch5_the_final_choice:
     scene bg abyss_depths
     with Dissolve(1.5)
 
+    window hide
     scene chooseendingfinal
+    with dissolve
+    pause 2.5
+
     "The golden fish appears yet again but within the dark engulf of the banished one."
     "It floats toward me, futilely flopping about within my hand."
 
@@ -1443,13 +1451,15 @@ label ch5_ending_bad:
     show mc shock at mc_left
     mc "P-papa?! What’s going on?"
 
-    hide mc shock
+    hide mc
     with dissolve
     play sound "audio/sfx/splash.mp3"
     play sound "audio/ambience/underwater_current.mp3"
 
+    window hide
     scene tsunamiending
     with vpunch
+    pause 2.5
 
     "As i ran hand in hand with mama and papa, i turn back to see the ocean had begun to rise and an enormous wave is forming in the distance."
     "The wave surges toward the shore."
@@ -1483,7 +1493,12 @@ label ch5_ending_true:
     "But I have to make my own choice now.."
     "I need to grow up and decide things on my own for the better.."
 
-    scene delfish1
+    hide mc
+    with dissolve
+    window hide
+    scene delfish1 with dissolve
+    pause 2.5
+
     mc "If.. the golden fish is really a tool that could cause chaos…"
     
     mc "Then.. I.. I wish for the golden fish to never ever exist..!"
@@ -1491,54 +1506,65 @@ label ch5_ending_true:
     play sound "audio/sfx/pixel_death.mp3"
     with vpunch
 
-    scene delfish 2
+    window hide
+    scene delfish 2 with vpunch
+    pause 2.0
+
     "{size=+10}{b}CRACK!{/b}{/size}"
     
     "The golden fish dissolves into countless shimmering particles, scattering into the surrounding waters."
-    scene delfish 3
+
+    window hide
+    scene delfish 3 with dissolve
+    pause 2.0
+
     "The suffocating darkness that had consumed the sea begins to fade."
-    scene white
-    show mc o at mc_left
+
+    scene white with dissolve
     "For a brief second, I could see Miss Leo dissipating into the light and…"
     "Mr. Cory and Mr. Scyllarus again, they seemed to have gained their…."
-
-
 
     scene white
     with Dissolve(2.0)
 
     play music "audio/ambience/ambianceprologue.mp3" fadein 2.0
+    window hide
     scene prologue_day
     with Dissolve(1.5)
+    pause 2.0
 
     "Ah, the rivershore. A serene calming scene adorned by the rustling wind of leaves."
     "I lowered myself to the ground, having my best grin on display ready to greet my fish friends."
 
+    window hide
     scene delfish 4
-    show mc happy at mc_left
+    with dissolve
+    pause 2.0
+
     mc "Good precious morning mr carpado! Morning ms betta! Hello to silly eely billy! And Mr. Cory!"
-    show mc excited
     mc "You know guys, I had a reaaally strange dream last night!!"
-    show mc happy
     mc "I went to an adventure in the sea! And I met lots of fishes and they can talk!!"
-    show mc dizzy
     mc "mnn I was also chasing something.. But I couldn’t.. really remember what.."
-    show mc sad
     mc "I wish I can actually.. meet something that could take all my problems away"
 
     "The corydoras nudges me on the finger, as if it’s offering comfort."
 
-    show mc happy
     mc "Aww! Thank you Mr. Cory! Don’t worry I’ll be fine!"
-    show mc default
     mc "Just means that I have to work extra hard to fix everything."
-    show mc excited
     mc "Maybe I’ll.. be a doctor to help cure mama.. or or a marine biologist!"
+
+    window hide
     scene delfish 6
-    show mc default
+    with dissolve
+    pause 2.0
+
     mc "So I can help save the endangered sea creatures.. maybe!"
+
+    window hide
     scene delfish 5
-    show mc happy
+    with dissolve
+    pause 2.0
+
     mc "As long as I have the sea with me… I think I can do it.."
 
     pause 1.5
