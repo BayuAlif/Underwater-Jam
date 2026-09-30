@@ -218,6 +218,7 @@ screen dunge_jankenpon_screen():
 screen dunge_countdown_screen(number, count_delay=0.6):
 
     modal True
+    on "show" action Play("sound", "audio/sfx/pixel_ui_3.mp3")
 
     if number == 3:
         add "jankenpon countdown 3":

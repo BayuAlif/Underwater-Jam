@@ -1,3 +1,7 @@
+init -10 python:
+    renpy.music.register_channel("ambience", mixer="ambience", loop=False)
+    renpy.music.register_channel("wind_sfx", mixer="sfx", loop=False)
+
 init -2 python:
     if "dialogue" not in config.layers:
         config.layers.insert(config.layers.index("screens"), "dialogue")

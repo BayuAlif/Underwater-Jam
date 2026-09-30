@@ -9,6 +9,8 @@ label chapter4_start:
     with fade
     
     play music "audio/bgm/chap_2_day.ogg" volume 0.4
+    play ambience "audio/ambience/crowd_01.mp3" loop fadein 1.0 volume 0.3
+
     $ focus()
     show mc default:
         full
@@ -589,9 +591,10 @@ label ch4_night_explore:
     scene ch4_deeptalk
     with fade
     play music "audio/bgm/chap_4_night.ogg" volume 0.4
+    play ambience "audio/ambience/ambience_windy_night.mp3" loop fadein 1.0 volume 0.3
 
     $ focus()
-    $ focus()
+    play sound "audio/sfx/sigh_01.mp3" volume 0.4
     show mc holdcry at mc_left, vibrate
     "I managed to find myself a quiet space to pond over everything."
     "The swaying of anemones and glowing corals calms me down a little."
@@ -978,6 +981,7 @@ label ch4_festival_night:
     hide leo
     scene ch4_night
     with dissolve
+    play ambience "audio/ambience/crowd_01.mp3" loop fadein 1.0 volume 0.3
 
     $ focus()
     show cory upset:
@@ -1215,7 +1219,9 @@ label ch4_climax:
     hide screen ch4_affection_hud
     hide mc
     with dissolve
+    stop ambience fadeout 1.0
     $ focus()
+    play ambience "audio/ambience/gemuruh_3.mp3" noloop volume 0.45
 
     window hide
     scene goldfall
@@ -1226,12 +1232,13 @@ label ch4_climax:
 
     "At the ledge of the great abyss, multiple glowing effigies are cast into the dark void by the seafolks, tumbling downward into the deep sea."
     "Then suddenly, amongst the multiple thrown effigies I noticed something glows a bright gold."
+    play ambience "audio/ambience/riser_gemuruhketinggi.mp3" noloop volume 0.5
     "Not the kind of gold that Mr. Rin uses.."
     "Not the kind of gold that the effigy has"
 
     show expression Transform("ch4_dialogue_night", zoom=1.5, xalign=0.5, yalign=0.8) as zoomed_abyss
     with dissolve
-    play sound "audio/ambience/mysterious_golden_looking.ogg"
+    play ambience "audio/ambience/mysterious_golden_looking.mp3" loop fadein 0.5 volume 0.65
 
     "But that rainbow radiant.. shimmering glow"
     scene black with dissolve
@@ -1250,6 +1257,7 @@ label ch4_climax:
     "So maybe if I bring it home, this time he'll-!"
 
     play sound "audio/sfx/splash.mp3"
+    play sound "audio/sfx/wind_riser.mp3" volume 0.5
     hide mc
     with dissolve
 

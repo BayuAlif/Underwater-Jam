@@ -349,7 +349,7 @@ label ch4_shoot_cory:
     cory "Imagine those clams are the ones who called ya weird."
 
     "Mr Cory tilted the pistol toward the nearest clam, taking a brief aim before squeezing the trigger."
-    play sound "audio/sfx/attack_3.mp3"
+    play sound "audio/sfx/shoot_tin.mp3"
     "KLANG!"
     "The shot ricocheted off the sea rock, missing the target entirely."
     "Mr. Cory's grin instantly vanished into a frown."
@@ -359,7 +359,7 @@ label ch4_shoot_cory:
 
     "I raised my pistol, lining up the sights of the exact same clam."
     "I held my breath, squeezed."
-    play sound "audio/sfx/attack_1.mp3"
+    play sound "audio/sfx/tin_metal.mp3"
     "CLANG!"
     "The shell shattered from its perch, tumbling onto the seabed below."
 
@@ -391,7 +391,7 @@ label ch4_shoot_cory:
             show cory side at center
             cory "Aight… imma try."
             "Mr Cory squared his shoulders, locking his sight onto the target."
-            play sound "audio/sfx/attack_1.mp3"
+            play sound "audio/sfx/shoot_tin.mp3"
             "CLANG!!!"
             "The clam fractures on impact, falling from its perch."
             show mc yay at mc_left
@@ -414,7 +414,7 @@ label ch4_shoot_cory:
             show cory upset at rightish
             cory "Aight AIGHT KIDS, back off, I caught yer drift."
             "Mr Corry pushed the trigger again."
-            play sound "audio/sfx/attack_2.mp3"
+            play sound "audio/sfx/shoot_tin.mp3"
             "BANG-KLANG!"
             "The round strays wild, skipping harmlessly across the rockface. Another miss."
             show mc sad at mc_left
@@ -505,7 +505,7 @@ label ch4_shoot_scy:
             show mc excited at mc_left
             mc "Aough yessir!"
             "I pressed the trigger."
-            play sound "audio/sfx/attack_1.mp3"
+            play sound "audio/sfx/shoot_tin.mp3"
             "KLANG! The clam shell shatters off the stall, rumbling backward into the slit below."
             show mc happy at mc_left
             mc "I.. I nailed it!"
@@ -522,7 +522,7 @@ label ch4_shoot_scy:
             show scy smile at rightish
             scy "Of course, who do you think I am, Guppy?"
             "With practiced, mechanical perfection, he fired off five consecutive shots."
-            play sound "audio/sfx/attack_1.mp3"
+            play sound "audio/sfx/shoot_tin.mp3"
             "BANG-KLANG. BANG-KLANG. BANG-KLANG"
             "Five clams shattered off their perches in instant succession "
             show scy sepet at rightish
@@ -560,7 +560,7 @@ label ch4_shoot_leo:
     show leo ehe
     "Leo takes the pistol with lazy elegance, tilting the grip sideways at a completely nonchalant angle."
     "Without even closing an eye to aim, she booped the trigger with her head."
-    play sound "audio/sfx/attack_3.mp3"
+    play sound "audio/sfx/shoot_tin.mp3"
     "KLANG!"
     "The clam shell target shuddered violently, but refused to drop."
 
@@ -575,7 +575,7 @@ label ch4_shoot_leo:
 
     show leo niko
     leo "Your turn, guppy~"
-    play sound "audio/sfx/attack_3.mp3"
+    play sound "audio/sfx/shoot_tin.mp3"
     "KLANG! The pearl bullet hit the same clam. But it won't fall."
 
     show mc pout at mc_left
@@ -631,7 +631,7 @@ label ch4_shoot_leo:
             leo "Is that so? Well then, let's see that aim in action ~"
             show mc excited at mc_left
             mc "Mmmhm. Here I go!"
-            play sound "audio/sfx/attack_1.mp3"
+            play sound "audio/sfx/shoot_tin.mp3"
             "BANG! BANG! BANG! BANG!"
             "Four rapid shots ring out in perfect sequence."
             "Every single remaining clam target shatters clean off the shelf."

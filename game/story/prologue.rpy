@@ -3,7 +3,8 @@ label prologue:
     hide mc
     scene prologue_day
     with fade
-    play music ambianceprologue volume 1.0
+    play ambience "audio/ambience/ambianceprologue.mp3" loop volume 1.0
+    play sound "audio/sfx/wind_soft.mp3" volume 0.3
     
     "{i}Ah, the rivershore.. A serene calming scene adorned by the rustling wind of leaves.{/i}" 
     "{i}Gentle applauses are carried by the trees of forest in celebration for yet another day of the sun's blessing.{/i}" 
@@ -11,7 +12,7 @@ label prologue:
     window hide
     scene cutpro1 with Dissolve(0.5)
     play sound "audio/sfx/bush_rustling.mp3" volume 0.25
-    stop music fadeout 1.0
+    stop ambience fadeout 1.0
     pause 2.0
     "An absolute perfect scene for{cps=0.5}...{/cps}"
 
@@ -88,7 +89,7 @@ label prologue:
     hide mc
     window hide
     scene cutpro5 with Dissolve(0.5)
-    play music mysterious_golden_looking fadein 1.0 volume 0.5
+    play ambience "audio/ambience/mysterious_golden_looking.mp3" loop fadein 1.0 volume 0.5
     pause 2.0
     mc "I don't think I've seen you before..."
     "{i}Its beauty was like nothing I've ever seen. Not even in my wildest dreams... or in the thickest fish encyclopedia with my favorite illustrator in charge.{/i}"
@@ -104,6 +105,7 @@ label prologue:
     window hide
     scene lari1 with Dissolve(0.5)
     with vpunch
+    play sound "audio/sfx/wind_hard_2.mp3" volume 0.35
     pause 1.5
     "{i}Before I knew it my feet brought me up in a speed bolt. I ran along the river. Eyes locked onto the mysterious golden fish.{/i}"
     hide mc
@@ -133,7 +135,7 @@ label prologue:
 
     hide mc
     scene black
-    stop music
+    stop ambience
     play sound "audio/sfx/splash.mp3"
     mc "...!"
     window hide
@@ -143,7 +145,7 @@ label prologue:
     with Dissolve(0.5)
     pause 1.5
     "{i}A cold paralyzing splash embraces me tight.{/i}"
-    play music unsettling_moment
+    play ambience "audio/ambience/unsettling_moment.mp3" loop fadein 0.5
     "{i}For a brief moment my vision is surrounded by pitch black. The only guidance a blur flicker of shimmery gold.{/i}"
 
     window hide
@@ -175,10 +177,10 @@ label prologue:
     pause 1.5
     "{i}It landed square in my palm. Warm. Impossibly warm for something that just came off a fish underwater.{/i}"
 
-    stop music 
+    stop ambience
     hide mc
     scene black
-    play sound "audio/ambience/underwater_current.mp3"
+    play ambience "audio/ambience/underwater_current.mp3" loop fadein 0.5
     "{i}I barely had time to look at it before the current dragged me under again.{/i}"
     show cory anon:
         unpose
@@ -186,7 +188,7 @@ label prologue:
         centerright
     anon "ay ay ay! Where do ya think you're going guppy?! That's the end of the line!"
 
-    stop sound fadeout 1.0
+    stop ambience fadeout 1.0
     show mc shock:
         unpose
         full

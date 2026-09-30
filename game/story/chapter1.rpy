@@ -6,13 +6,14 @@ label chapter1_start:
 
     hide mc
     scene ch1_day with Dissolve(0.5)
+    play ambience "audio/ambience/ambience_1.mp3" loop fadein 1.0 volume 0.35
     show mc shock:
         unpose
         full
         right
     "An unknown brazen voice pulled me out of a trance."
     $ focus()
-    play sound "audio/ambience/unsettling_moment.ogg" fadein 1.0
+    play ambience "audio/ambience/unsettling_moment.mp3" loop fadein 1.0 volume 0.55
     "my gaze dropped down to be unexpectedly met with a bottomless pit right before my toes, flinching back in instinct."
     mc "...!"
 
@@ -35,7 +36,8 @@ label chapter1_start:
     "{i}The image of the darkness beyond is burned crisp into my mind.{/i}"
     "{i}The current below twisted slowly as if alive, taunting those who stare long enough.{/i}"
 
-    stop sound fadeout 0.5
+    # play sound "audio/sfx/breath_light.mp3" volume 0.45
+    stop ambience fadeout 0.5
     $ focus()
     anon "Not exactly the kinda place ya wanna stumble into.."
 
@@ -52,7 +54,7 @@ label chapter1_start:
     "{i}Before my mind could curiously wonder more to the depth of said cliff, I looked up to the source of voice.{/i}"
 
     $ focus()
-    play music chap_1_day volume 0.5
+    play music "audio/bgm/chap_1_day.ogg" volume 0.5
     show cory talk_hu:
         unpose
         full
@@ -138,7 +140,7 @@ label chapter1_start:
         center
         surprise
     cory "Holy {b}SHRIMP{/b} you still need air huh? I think I have just what ya need"
-
+    play sound "audio/sfx/breath_light.mp3" volume 0.35
     hide mc
     hide cory
     show cutchap1 with Dissolve(0.5)
@@ -151,10 +153,12 @@ label chapter1_start:
     "{i}My gaze fell down to the translucent scale I didn't realize was clutched tight in my palm the entire time.{/i}" 
     show cutchap3 with Dissolve(0.5)
     stop music fadeout 0.5
-    play sound "audio/ambience/underwater_current.mp3"
+    play ambience "audio/ambience/underwater_current.mp3" loop fadein 0.5 volume 0.4
     "{i}Curious, I let go of it just for one millisecond.{/i}"
+    play sound "audio/sfx/wind_spell_3.mp3" volume 0.35
     "{i}True to my hypothesis, in that frozen moment everything went silent. Save for the tranquil current whirring in my ears.{/i}"
-    play music chap_1_day volume 0.5
+    stop ambience fadeout 0.5
+    play music "audio/bgm/chap_1_day.ogg" volume 0.5
     show cutchap2 with Dissolve(0.5)
     "{i}But as soon as I made contact with the magical scale. It all became lively. Voices, distant and nearby, fill in the atmosphere.{/i}" 
     "{i}It’s like shopping at a market on a sunny sunday!{/i}"
@@ -455,7 +459,7 @@ label chapter1_night:
     hide mc
     scene ch1_dark
     stop music 
-    play music chap_1_night
+    play music "audio/bgm/chap_1_night.ogg"
 
     "{i}The last traces of sunlight slowly disappeared behind the surface.{/i}"
 
