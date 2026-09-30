@@ -31,7 +31,7 @@ define config.has_voice = True
 
 
 ## Audio file played at the main menu.
-define config.main_menu_music = "audio/ambianceprologue.mp3"
+define config.main_menu_music = "audio/bgm/hajimestartnew.ogg"
 
 
 

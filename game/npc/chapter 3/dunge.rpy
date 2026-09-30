@@ -342,6 +342,7 @@ label ch3_crab_as_cory:
             call dunge_duel
 
             if _return != "win" and duel_result != "win":
+                play music "audio/bgm/chap_3_night.ogg"
                 show dun mad:
                     unpose
                     full
@@ -473,6 +474,7 @@ label ch3_crab_as_cory:
             call dunge_duel
 
             if _return != "win" and duel_result != "win":
+                play music "audio/bgm/chap_3_night.ogg"
                 show dun mad:
                     unpose
                     full

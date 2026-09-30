@@ -4,25 +4,25 @@ label prologue:
     scene prologue_day
     with fade
     play music ambianceprologue volume 1.0
-
+    
     "{i}Ah, the rivershore.. A serene calming scene adorned by the rustling wind of leaves.{/i}" 
     "{i}Gentle applauses are carried by the trees of forest in celebration for yet another day of the sun's blessing.{/i}" 
     hide mc
     scene cutpro1 with Dissolve(0.5)
-    play sound "audio/bush_rustling.mp3" volume 0.25
+    play sound "audio/sfx/bush_rustling.mp3" volume 0.25
     stop music fadeout 1.0
     "An absolute perfect scene for{cps=0.5}...{/cps}"
 
     hide mc
     scene cutpro2 with Dissolve(0.5)
-    play music prologue_funny_underwater fadein 1.0 volume 0.5
+    play music "audio/bgm/prologue_funny_underwater.ogg" fadein 1.0 volume 0.5
     mc "Weee~! For practicing my flying fish jump of course! Haha!"
 
     "{i}I soared through the sky, my arms and legs held up by the encouraging carry of gravity.{/i}"
     "{i}It felt like I had finally achieved the true nature of those magical fishes.{/i}"
     hide mc
     scene prologue_day
-    play sound "audio/thump.mp3"
+    play sound "audio/sfx/thump.mp3"
     show mc dizzy:
         unpose
         full
@@ -114,7 +114,7 @@ label prologue:
     hide mc
     scene black
     stop music
-    play sound splash
+    play sound "audio/sfx/splash.mp3"
     mc "...!"
     show cutpro8 as wave_overlay:
         alpha 0.5
@@ -148,7 +148,7 @@ label prologue:
     stop music 
     hide mc
     scene black
-    play sound underwater_current
+    play sound "audio/ambience/underwater_current.mp3"
     "{i}I barely had time to look at it before the current dragged me under again.{/i}"
     show cory anon:
         unpose

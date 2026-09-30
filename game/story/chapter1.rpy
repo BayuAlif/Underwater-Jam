@@ -12,7 +12,7 @@ label chapter1_start:
         right
     "An unknown brazen voice pulled me out of a trance."
     $ focus()
-    play sound unsettling_moment fadein 1.0
+    play sound "audio/ambience/unsettling_moment.ogg" fadein 1.0
     "my gaze dropped down to be unexpectedly met with a bottomless pit right before my toes, flinching back in instinct."
     mc "...!"
 
@@ -151,7 +151,7 @@ label chapter1_start:
     "{i}My gaze fell down to the translucent scale I didn't realize was clutched tight in my palm the entire time.{/i}" 
     show cutchap3 with Dissolve(0.5)
     stop music fadeout 0.5
-    play sound underwater_current
+    play sound "audio/ambience/underwater_current.mp3"
     "{i}Curious, I let go of it just for one millisecond.{/i}"
     "{i}True to my hypothesis, in that frozen moment everything went silent. Save for the tranquil current whirring in my ears.{/i}"
     play music chap_1_day volume 0.5
