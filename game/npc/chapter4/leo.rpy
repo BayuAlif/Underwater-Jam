@@ -4,17 +4,45 @@ label ch4_talk_leo:
     with dissolve
 
     if not ch4_leo_talked:
+        $ focus()
+        $ focus()
         play sound "audio/sfx/bush_rustling.mp3"
+
+        #posisi kalau leo dan mc sendiri di screen 
+        show mc default:
+            unpose
+            full
+            mc_left
+        show leo default:
+            unpose
+            medium
+            center
+        with moveinbottom
         leo "Greetings~!"
 
-        show mc shock at mc_left, walkto(leftish, steps=2, walktime=0.5, bounce=0.2, sway=0.2)
-        pause 0.5
+        show mc shock:
+            unpose
+            full
+            mc_left
+            jump(windup=0.15, power=0.45, airtime=0.35)
+        show leo default:
+            ease 0.1 full
+            center
         mc "waouh-!"
 
         "I stumbled backwards for Mr Larus to catch me, a super tall figure cast shadows over us."
 
+        #posisi kalau leo bersama 1 karkater lg  di screen 
         show mc shock at mc_left
-        show scy surprise at npc_right, surprise
+        show leo default:
+            full
+            centerleft
+        show scy surprise:
+            unpose
+            full
+            rightish
+            jump(windup=0.15, power=0.45, airtime=0.35)
+        with moveinright
         scy "Careful now!"
 
         leo "Mmhehe my apologies for the spook, friend.."
@@ -27,15 +55,39 @@ label ch4_talk_leo:
         leo "I can be of your aid I assure you~!"
         leo "You just have to follow me!"
 
-        show mc excited at mc_left, walkto(rightish, steps=3, walktime=1.0)
+        show mc excited:
+            full
+            mc_left
+            jump(windup=0.15, power=0.45, airtime=0.35)
+            #walkto(rightish, steps=3, walktime=1.0)
         pause 1.0
 
-        show cory side at cory_left
         cory "Hold your seahorses!"
-        show mc excited at mc_left
+
+        #posisi kalau trio dengan leo
+        show cory upset_hu:
+            full 
+            unpose
+            right
+        with moveinright
+        show scy default:
+            full
+            unpose
+            center
+        with move
+        show leo niko:
+            full
+            unpose
+            leftish
+        with move
+        show mc shock:
+            full
+            mc_left
+        $ focus()
 
         menu:
             "How did ya know we're lookin for it?":
+                $ focus()
                 cory "How did ya know we're lookin for it?"
                 leo "Mmm.. it's no science, I've seen you go around asking about it.."
                 leo "Like a little ballerina in a broken music box~"
@@ -48,6 +100,7 @@ label ch4_talk_leo:
                 leo "I like your answer~!! Always so refreshing!"
 
             "How do we know ya really know of the fish's whereabouts?":
+                $ focus()
                 cory "How do we know ya really know of the fish's whereabouts?"
                 leo "Mm but until now.. you've been blindly following clues from strangers too right?"
                 leo "What makes it different from what I said?"
@@ -81,10 +134,12 @@ label ch4_talk_leo:
         leo "Ah but I doubt we can go into searching right away.."
         leo "Not when the chief's having trouble.."
         leo "He'll go whiny about how much help they require for the festival…"
+        $ focus()
 
         $ ch4_leo_talked = True
     else:
         leo "My, my, aren't you an eager little guppy~ Don't keep the chief waiting too long, hm?"
+        $ focus()
 
     hide cory
     hide scy

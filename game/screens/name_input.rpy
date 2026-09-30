@@ -6,12 +6,14 @@ label name_input_start:
     stop music fadeout 1.0
     scene black
 
+    "Oh my, a player? Hi there~!"
     hide mc
 
     scene bg name_input with dissolve
     show mc_name_input at mc_name_pos onlayer master with dissolve
 
-    "Oh my, a player? Hi there~! You're going to live for the next few hours in this cute adventurous little vessel..."
+    "You're going to live for the next few hours in this cute adventurous little vessel..."
+    "Pick a name that suits them~! Or do you want to go as their original name? Mmn not a very creative name I tell you.."
 
 label name_input_prompt:
     $ default_name = player_name if player_name else NAME_INPUT_DEFAULT

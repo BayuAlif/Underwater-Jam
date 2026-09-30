@@ -17,6 +17,7 @@ label chapter2_start:
         unpose
         right
         toleft
+        walkloop
     with moveinright
     show cory netral:
         full
@@ -25,6 +26,7 @@ label chapter2_start:
         unpose
         center
         toleft
+        walkloop
     with moveinright
     mc "Have you been to the sea mr. Cory?"
 
@@ -33,6 +35,7 @@ label chapter2_start:
         full
         center
         toleft
+        walkloop
     cory "Sea? Nah that's waaay past my territory"
     cory "Nearest I've been at is meters before saltwater and freshwater collides"
 
@@ -41,6 +44,7 @@ label chapter2_start:
         full
         center
         toleft
+        walkloop
     cory "Besides, I'm a freshwater fish guppy, one step into sea, and I explode"
 
     show mc shock:

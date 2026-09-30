@@ -4,21 +4,45 @@ label ch4_talk_rin:
     with dissolve
 
     if not ch4_rin_talked:
+        $ focus()
+        $ focus()
+        #posisi kalau rin+mc sendiri di screen
         "An enormous whale shark towers the three of us."
-
-        show mc happy at mc_left, jumpmc
+        show mc excited:
+            unpose
+            mc_left
+            jump(windup=0.15, power=0.45, airtime=0.35)
+        with moveinright
         mc "Helloooo!! Good morning sir :D wao you're so biiiiig!!"
 
+        show rin surprise:
+            unpose
+            full
+            center
+            jump(windup=0.15, power=0.45, airtime=0.35)
+        with moveinleft
         rin "Ah-! Goodness Gracious!"
+        show rin o:
+            unpose
+            full
+            center
+            sink
         rin "Oh just a guppy aren't you.. Scared the teeth out of old me.."
 
         show mc o at mc_left
         mc "oops hehe my bad..!"
 
+        show rin smile:
+            unpose
+            ease 0.2
+            full
+            center
         rin "No matter, Youth need not apologize for simply... being young"
+        $ focus()
 
         menu:
             "Have you seen a golden fish around?":
+                $ focus()
                 show mc o at mc_left
                 mc "We saw it but we lost it amongst these.. Golds you have piled up!"
                 rin "A Golden fish, you say..?"
@@ -32,14 +56,17 @@ label ch4_talk_rin:
                 mc "Mnn but I need to know now.. Before it goes further :("
                 rin "Patience will reward you grand.."
                 rin "We're currently having trouble with a festival that's going to occur tonight.."
+                
 
             "Why's there so many gold here? Are you a gold thief :o":
+                $ focus()
                 show mc o at mc_left
                 mc "Why's there so many gold here? Are you a gold thief :o"
                 rin "Thief? Oh no, no you have it wrong.."
                 rin "I'm too old to be fretting about wealth.."
                 rin "These golds will be used for an upcoming festival."
                 rin "Golds are believed to stray away evil and bad omens, young one"
+                
 
         show mc o at mc_left
         mc "A festival..?"
@@ -50,14 +77,34 @@ label ch4_talk_rin:
         rin "Oh why of course a big feast will occur!"
         rin "It's only fitting for a festival this important."
 
-        show cory talk at cory_left
+        #posisi kalau rin bedua + mc di screen
+        show cory smile_hu:
+            full
+            unpose
+            leftish
+        with moveinleft
+        show rin default:
+            full
+            centerright
+        with move
         cory "What's the festival about if we may know, sir?"
 
-        rin "Yes, a dire one."
+        show rin talk:
+            full
+            centerright
         rin "It's a festival that we held up once a year to ward off evil and bad luck"
         rin "It's the least we can do to repay the ocean.."
+        show rin o:
+            full
+            unpose
+            centerright
         rin "However, the sea has been quite turbulent lately, so we were forced to change plans and decided to host it twice a year instead."
         rin "But we completely underestimated how long gathering materials would take…"
+        show rin o:
+            full
+            unpose
+            centerright
+            sink
         rin "... now we're worried we won't finish in time if the festival is held tonight."
         rin "That's why, as much as I'd love to help with you search, I can't assist you."
 
@@ -67,18 +114,50 @@ label ch4_talk_rin:
         rin "Oh how wonderful! The people thank you for your benevolence."
         rin "Rest assured travelers, we will be preparing the best of meals for your help."
 
-        show cory smile at cory_left, surprise
+        show rin smile:
+            full
+            unpose
+            centerright
+        show cory side:
+            full
+            leftish
         cory "About time we fill our stomachs.."
 
-        show scy proud at npc_right, jump
+        #posisi kalau rin betiga + mc di screen
+        show cory smile2:
+            full
+            unpose
+            centerright
+        with move
+        show shrimp laugh:
+            full
+            unpose
+            leftish
+        with moveinleft
+        show rin smile:
+            full
+            unpose
+            right
+        with move
         scy "Don't fret my friend we shall be of assistance! As much as we can!"
+        show cory upset:
+            full
+            unpose
+            centerright
+            jump(windup=0.15, power=0.45, airtime=0.35)
+        cory "aye! watch your claws mano!"
+        $ focus()
 
         $ ch4_rin_talked = True
     else:
         rin "Take your time, young travelers. Lending a hand with the festival materials will ensure our celebration succeeds tonight."
 
+    hide rin
+    with dissolve
     hide cory
+    with dissolve
     hide scy
+    with dissolve
     hide mc
     with dissolve
 
