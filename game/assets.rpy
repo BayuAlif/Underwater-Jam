@@ -1,7 +1,17 @@
 init -2 python:
+    if "dialogue" not in config.layers:
+        config.layers.insert(config.layers.index("screens"), "dialogue")
     if "mc_front" not in config.layers:
-        config.layers.insert(config.layers.index("screens") + 1, "mc_front")
+        config.layers.insert(config.layers.index("screens"), "mc_front")
+    elif config.layers.index("mc_front") < config.layers.index("dialogue"):
+        config.layers.remove("mc_front")
+        config.layers.insert(config.layers.index("screens"), "mc_front")
     config.tag_layer["mc"] = "mc_front"
+    if "mc_front" not in config.menu_clear_layers:
+        config.menu_clear_layers.append("mc_front")
+    if "dialogue" not in config.context_clear_layers:
+        config.context_clear_layers.append("dialogue")
+    config.say_layer = "dialogue"
 
 image mc default = "images/characters/mc/McDefault.png"
 image mc o = "images/characters/mc/McO.png"
@@ -85,12 +95,12 @@ image gator upset = "images/npc/chapter1/aligator/GatorUpset_.png"
 #CHAP 2 SPRITES ----------------------------------------------------------------------
 image salmon idle = "images/npc/chapter2/Salmon/salmon_idle.png"
 image salmon hover = "images/npc/chapter2/Salmon/salmon_hover.png"
-image salmon default = "images/npc/chapter2/Salmon/SalDefault.png"
-image salmon happy = "images/npc/chapter2/Salmon/SalSmile.png"
-image salmon smile = "images/npc/chapter2/Salmon/SalSmile.png"
-image salmon pien = "images/npc/chapter2/Salmon/SalPien.png"
-image salmon pout = "images/npc/chapter2/Salmon/SalPout.png"
-image salmon hug = "images/npc/chapter2/Salmon/SalHug.png"
+image salmon default = Transform("images/npc/chapter2/Salmon/SalDefault.png", zoom=1.15)
+image salmon happy = Transform("images/npc/chapter2/Salmon/SalSmile.png", zoom=1.15)
+image salmon smile = Transform("images/npc/chapter2/Salmon/SalSmile.png", zoom=1.15)
+image salmon pien = Transform("images/npc/chapter2/Salmon/SalPien.png", zoom=1.15)
+image salmon pout = Transform("images/npc/chapter2/Salmon/SalPout.png", zoom=1.15)
+image salmon hug = Transform("images/npc/chapter2/Salmon/SalHug.png", zoom=1.15)
 
 image arowana idle = "images/npc/chapter2/Arowana/arowana_idle.png"
 image arowana hover = "images/npc/chapter2/Arowana/arowana_hover.png"
@@ -144,6 +154,11 @@ image hawk default = "images/npc/chapter3/hawk/HawkDefault.png"
 image hawk laugh = "images/npc/chapter3/hawk/HawkLaugh.png"
 image hawk sigh = "images/npc/chapter3/hawk/HawkSigh.png"
 image hawk smile = "images/npc/chapter3/hawk/HawkSmile.png"
+
+image dun default = "images/npc/chapter3/dunge/DunDefault.png"
+image dun mad = "images/npc/chapter3/dunge/DunMad.png"
+image dun smile = "images/npc/chapter3/dunge/DunSmile.png"
+image dun yeesh = "images/npc/chapter3/dunge/DunYeesh.png"
 
 image teto idle = "images/npc/chapter3/teto/teto_idle.png"
 image teto hover = "images/npc/chapter3/teto/teto_hover.png"

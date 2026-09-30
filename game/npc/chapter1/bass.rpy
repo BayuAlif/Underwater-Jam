@@ -4,41 +4,49 @@ label bass_interaction:
     scene ch1_day
     $ focus()
     show mc default:
+        unpose
         full
         right
     show bass default:
+        unpose
         full 
         center
     "{i}A bass drifted lazily with the current.{/i}"
     "{i}It looked like it had completely forgotten what it was doing.{/i}"
 
     show mc happy:
+        unpose
         full
         right
     mc "Hi, Mr. Bass!"
 
     show bass thinking:
+        unpose
         full 
         center
     bass "...Hm..?"
 
     show bass oh:
+        unpose
         full 
         center
         surprise
     bass "Oh."
 
     show bass default:
+        unpose
         full 
         center
     bass "...Hi."
 
     show bass thinking:
+        unpose
         full 
         center
     bass "and it's.. Ms. bass"
 
     show mc shock:
+        unpose
         full
         right
         surprise
@@ -50,15 +58,18 @@ label bass_interaction:
         "I'm looking for a golden shiny diamond fish. Half the size of you!":
             $ focus()
             show bass default:
+                unpose
                 full 
                 center
             show mc o:
+                unpose
                 full
                 right
             mc "Have you seen one?"
             "The bass stared blankly."
 
             show bass thinking:
+                unpose
                 full 
                 center
             bass "...Golden..."
@@ -67,6 +78,7 @@ label bass_interaction:
             bass "..."
 
             show bass oh:
+                unpose
                 full 
                 center
                 surprise
@@ -74,12 +86,14 @@ label bass_interaction:
             bass "The shiny one!"
 
             show mc happy:
+                unpose
                 full
                 right
                 surprise
             mc "Mhm!"
 
             show bass default:
+                unpose
                 full 
                 center
             bass "...Yeah."
@@ -87,18 +101,21 @@ label bass_interaction:
             bass "...Maybe"
 
             show bass thinking:
+                unpose
                 full 
                 center
             bass "...Pretty sure."
             bass "...Unless I'm remembering yesterday."
 
             show mc happy:
+                unpose
                 full
                 right
                 surprise
             mc "...Thank you Ms Bass!"
 
             show bass default:
+                unpose
                 full 
                 center
             bass "No problem..."
@@ -110,19 +127,23 @@ label bass_interaction:
         "Ms Bass can you sing us a song? :o":
             $ focus()
             show mc o:
+                unpose
                 full
                 right
             show bass default:
+                unpose
                 full 
                 center
             bass "sing..?"
 
             show mc default:
+                unpose
                 full
                 right
             mc "yeah! Anything is fine.. maybe something about the river?"
 
             show bass thinking:
+                unpose
                 full 
                 center
             bass "....."
@@ -131,6 +152,7 @@ label bass_interaction:
             bass "river.. River..."
 
             show bass oh:
+                unpose
                 full 
                 center
                 surprise
@@ -139,6 +161,7 @@ label bass_interaction:
             bass "gotta put big mouth's name back in business huh...?"
 
             show bass default:
+                unpose
                 full 
                 center
             bass "thanks guppy"

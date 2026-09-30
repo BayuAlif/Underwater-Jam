@@ -1072,7 +1072,8 @@ label run_duel(boss_target="mantis", custom_hp=None, custom_threshold=None):
 
         elif duel_round_result == "lose":
             if not dodge_result:
-                call screen mantis_punch_effect(duel_shrimp_choice)
+                if duel_boss != "dunge":
+                    call screen mantis_punch_effect(duel_shrimp_choice)
                 $ duel_player_hp = max(0, duel_player_hp - 1)
                 $ duel_shrimp_wins += 1
             else:

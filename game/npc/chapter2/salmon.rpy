@@ -3,12 +3,14 @@ label salmon_interaction:
     scene ch2_day
     $ focus()
     show salmon pien:
+        unpose
         full
         center
         toright
         pacing
         vibrate
     show mc shock:
+        unpose
         full
         right
 
@@ -18,17 +20,20 @@ label salmon_interaction:
     salmon "{cps=20}{bt=5}Sniff.......oouuugh....{/bt}{/cps}"
 
     show mc sad_hu:
+        unpose
         full
         right
         surprise
     mc "... Ma'am? Why are you crying :("
 
     show salmon default:
+        unpose
         full
         center
     salmon "....? huh??"
 
     show salmon pien:
+        unpose
         full
         center
         vibrate
@@ -37,17 +42,20 @@ label salmon_interaction:
     salmon "but i bloody well can't..."
 
     show salmon pout:
+        unpose
         full
         center
     salmon "It's all... because... of that God awful selfish wank-....."
 
     show salmon pien:
+        unpose
         full
         center
         vibrate
     salmon "{cps=20}{size=65}{bt=5}UEEEEHHH………{/bt}{/size}{/cps}"
 
     show mc sad_hu:
+        unpose
         full
         right
         surprise
@@ -55,6 +63,7 @@ label salmon_interaction:
     "I wrapped my arms around mrs salmon in an attempt to calm her down."
 
     show salmon pien:
+        unpose
         full
         center
         jumpmc
@@ -68,11 +77,13 @@ label salmon_interaction:
     mc "If the mama is sad, the baby gets sad, too."
 
     show salmon default:
+        unpose
         full
         center
     salmon "...... how on ocean does a tiny you know that, love?"
 
     show mc default:
+        unpose
         full
         right
         surprise
@@ -80,6 +91,7 @@ label salmon_interaction:
     mc "Mama salmon swims really far to lay their eggs, right?"
 
     show salmon happy:
+        unpose
         full
         center
         surprise
@@ -87,46 +99,54 @@ label salmon_interaction:
     salmon "You're a very lovely little thing, aren't you?"
 
     show salmon default:
+        unpose
         full
         center
     salmon "Though i haven't a clue what this \"YouTube\" is...."
     salmon "Must be a helpful source of information.."
 
     show salmon happy:
+        unpose
         full
         center
     salmon "Tell me love, are there any sort of.. Pregnancy tips in there?"
     salmon "Or what a salmon parent must prepare to leave their young..."
 
     show mc happy:
+        unpose
         full
         right
         surprise
     mc "I think so! YouTube's got everything you'd want to see!"
 
     show salmon happy:
+        unpose
         full
         center
         surprise
     salmon "Oh that sounds about perfect!"
 
     show cory side:
+        unpose
         full
         leftish
     with moveinleft
 
     show salmon default:
+        unpose
         full
         centerright
     with move
     "Mrs. Salmon stares at Cory."
     show salmon default:
+        unpose
         full
         centerright
         surprise
     salmon "Go back to your father now. He must be worried for you"
 
     show mc shock:
+        unpose
         full
         right
         surprise
@@ -134,12 +154,14 @@ label salmon_interaction:
     mc "I only met him yesterday!"
 
     show salmon pout:
+        unpose
         full
         centerright
     salmon "..........???"
     "Salmon glares at Cory suspiciously."
 
     show cory side_close:
+        unpose
         full
         leftish
     cory "Ay.. no need to look at me like that ma'am.."
@@ -150,6 +172,7 @@ label salmon_interaction:
     salmon "...."
 
     show cory side_close:
+        unpose
         full
         leftish
         sink
@@ -177,14 +200,17 @@ label salmon_as_mc:
         "What's stopping you from going down there, ma'am??":
             $ focus()
             show mc o:
+                unpose
                 full
                 right
             show salmon default:
+                unpose
                 full
                 center
             salmon "There's only one path down to the sea from here, innit,"
 
             show salmon pout:
+                unpose
                 full
                 center
                 vibrate
@@ -192,12 +218,14 @@ label salmon_as_mc:
             salmon "So I can't get past, love."
 
             show mc o:
+                unpose
                 full
                 right
                 surprise
             mc "But... why does the mantis shrimp block the way???"
 
             show salmon default:
+                unpose
                 full
                 center
             salmon "I haven't the foggiest idea, love."
@@ -205,9 +233,11 @@ label salmon_as_mc:
         "Can't you just push past the river, ma'am?":
             $ focus()
             show mc o:
+                unpose
                 full
                 right
             show salmon default:
+                unpose
                 full
                 center
             salmon "Push past it??"
@@ -216,6 +246,7 @@ label salmon_as_mc:
             salmon "Whacking great claws and all."
 
             show salmon pout:
+                unpose
                 full
                 center
                 vibrate
@@ -223,6 +254,7 @@ label salmon_as_mc:
             salmon "Tried to ask nicely, but he shooed me right off..."
 
             show mc sad_hu:
+                unpose
                 full
                 right
                 surprise
@@ -230,6 +262,7 @@ label salmon_as_mc:
             mc "but why would mr mantis do that?"
 
             show salmon default:
+                unpose
                 full
                 center
             salmon "I haven't a clue dear, he looks like he lost his mind"
@@ -237,20 +270,24 @@ label salmon_as_mc:
 
         "I found a tiny krill!" if has_item("tiny_krill"):
             show mc happy:
+                unpose
                 full
                 right
             show salmon happy:
+                unpose
                 full
                 center
                 surprise
             salmon "Oh how lovely! For me, sweet guppy?"
 
             show mc happy:
+                unpose
                 full
                 right
                 surprise
             mc "Mhm! It can be your tiny companion to keep you safe or-"
             show mc shock:
+                unpose
                 full
                 right
                 surprise
@@ -261,27 +298,32 @@ label salmon_as_mc:
             "Mrs. Salmon pulls me into a sudden hug. I can faintly hear the tiny eggs shuffling under her scales."
 
             show salmon happy:
+                unpose
                 full
                 center
                 surprise
 
             show salmon hug:
+                unpose
                 full
                 center
 
             salmon "Thank you, thank you.. I can't remember the last time I had a meal.."
             show mc shock:
+                unpose
                 full
                 right
                 surprise
             "Her voice trembles in sincere gratitude, so soft it's enough to lull me to sleep. It was akin to mama's voice when she sings. But it's not the same.."
             show mc holdcry:
+                unpose
                 full
                 right
                 sink
             "It's not her..."
 
             show mc cry:
+                unpose
                 full
                 right
                 vibrate
@@ -289,12 +331,14 @@ label salmon_as_mc:
             mc "{bt=5}Mama...{/bt}"
 
             show salmon default:
+                unpose
                 full
                 center
                 surprise
             salmon "...!"
 
             show salmon happy:
+                unpose
                 full
                 center
                 surprise
@@ -303,6 +347,7 @@ label salmon_as_mc:
             $ remove_item("tiny_krill")
 
     show salmon pien:
+        unpose
         full
         centerright
     with move
@@ -310,12 +355,14 @@ label salmon_as_mc:
     salmon "-even it'll take me aeons."
 
     show cory talk_hu:
+        unpose
         full
         leftish
     with moveinleft
     cory "A detour.... whaddya think, guppy?"
 
     show mc pout:
+        unpose
         full
         right
         surprise
@@ -323,11 +370,13 @@ label salmon_as_mc:
     mc "The golden fish will be gone farther by then :("
 
     show salmon default:
+                unpose
                 full
                 centerright
     salmon "Haven't a clue about any other way, unfortunately."
 
     show salmon happy:
+                unpose
                 full
                 centerright
                 surprise
@@ -342,9 +391,11 @@ label salmon_as_mc:
 label salmon_as_cory:
     $ focus()
     show cory talk_hu:
+        unpose
         full
         leftish
     show salmon pout:
+                unpose
                 full
                 centerright
     salmon "What on ocean are you doing with that guppy?"
@@ -362,23 +413,27 @@ label salmon_as_cory:
             salmon "not until you tell the truth about the little one."
 
             show cory side:
+                unpose
                 full
                 leftish
             "Mr. Cory approached Mrs. Salmon with a sigh, lowering his voice to a whisper. Though I can still make out the words quite clear."
             cory "I haven't got a full picture of the guppy's story but..."
             show cory side_close:
+                unpose
                 full
                 leftish
                 sink
             cory "To me, it looks like their parents somewhat abandoned 'em."
 
             show salmon default:
+                unpose
                 full
                 centerright
                 surprise
             salmon "......!"
 
             show salmon pout:
+                unpose
                 full
                 centerright
                 vibrate
@@ -386,16 +441,19 @@ label salmon_as_cory:
             salmon "You'd know how bloody dangerous the sea can be for a fry..."
 
             show cory talk:
+                unpose
                 full
                 leftish
             cory "I'm well aware ma'am.."
             cory "they almost fell a deep river hole where I first found em.."
 
             show cory talk_hu:
+                unpose
                 full
                 leftish
             cory "But withholding a guppy's dream from coming true?"
             show cory side_close:
+                unpose
                 full
                 leftish
             cory "I'd be too evil for that"
@@ -404,12 +462,14 @@ label salmon_as_cory:
         "Maam, why can't you go down to the sea?":
             $ focus()
             show salmon pout:
+                unpose
                 full
                 centerright
                 vibrate
             salmon "... are you sure he's not up to anything dodgy, dear?"
 
             show mc happy:
+                unpose
                 full
                 right
                 surprise
@@ -417,17 +477,20 @@ label salmon_as_cory:
             mc "He's been helping me lots!"
 
             show salmon default:
+                unpose
                 full
                 centerright
             salmon "Hm, if you say so then..."
 
             show salmon pout:
+                unpose
                 full
                 centerright
                 vibrate
             salmon "But! you watch your back around him anyway, love."
 
             show cory side_close:
+                unpose
                 full
                 leftish
                 surprise
@@ -442,28 +505,33 @@ label salmon_as_cory:
             salmon "...!"
 
             show salmon pout:
+                unpose
                 full
                 centerright
                 vibrate
             salmon "... Hmph"
 
             show cory side_close:
+                unpose
                 full
                 leftish
             cory "I'll just... leave it here for you ma'am."
 
             show salmon default:
+                unpose
                 full
                 centerright
                 surprise
             salmon "Wait!"
 
             show cory talk_hu:
+                unpose
                 full
                 leftish
             cory "... hm? What is it ma'am?"
 
             show salmon default:
+                unpose
                 full
                 centerright
                 surprise
@@ -472,31 +540,37 @@ label salmon_as_cory:
             salmon "That was rude of me, My deepest apologies.."
 
             show cory smile:
+                unpose
                 full
                 leftish
             cory "Nay ma'am it's chill I'm used to it.."
             show cory smile_hu:
+                unpose
                 full
                 leftish
             cory "Besides, a carrying mother needs to have their guard up yeah?"
 
             show salmon pout:
+                unpose
                 full
                 centerright
                 sink
             salmon "Fair enough.. I can't help it"
             salmon "You better take a dainty great care of the little fry, okay?"
             show salmon default:
+                unpose
                 full
                 centerright
                 sink
             salmon "I'm bloody worried for them.."
 
             show cory proud:
+                unpose
                 full
                 leftish
             cory "Don't worry ma'am I had a little sibling just their age"
             show cory proud_hu:
+                unpose
                 full
                 leftish
             cory "I know what I'm doing alright!"

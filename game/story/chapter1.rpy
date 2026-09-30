@@ -7,6 +7,7 @@ label chapter1_start:
     hide mc
     scene ch1_day with Dissolve(0.5)
     show mc shock:
+        unpose
         full
         right
     "An unknown brazen voice pulled me out of a trance."
@@ -21,12 +22,14 @@ label chapter1_start:
     with Dissolve(0.5)
 
     show mc shock:
+        unpose
         full
         right
 
     show cory anon:
+        unpose
         full
-        centerright
+        center
     anon "You take one more step..."
     anon "...And you'd be a goner."
     "{i}The image of the darkness beyond is burned crisp into my mind.{/i}"
@@ -37,6 +40,7 @@ label chapter1_start:
     anon "Not exactly the kinda place ya wanna stumble into.."
 
     show mc o:
+        unpose
         full
         right
     "{i}I slowly nodded in agreement.{/i}" 
@@ -50,21 +54,25 @@ label chapter1_start:
     $ focus()
     play music chap_1_day volume 0.5
     show cory talk_hu:
+        unpose
         full
         center
     show mc shock:
+        unpose
         full 
         right
         surprise
     "{i}What I expected was a kind mr human. I was instead met with a fish!{/i}"
 
     show mc excited:
+        unpose
         full 
         right
         vibrate
     "{i}A Corydoras perhaps? My eyes lit up with unbridled enthusiasm{/i}"
     "{i}I mustn't forget to express my gratitude to those who saved my life.{/i}"
     show mc dance:
+        unpose
         full
         right
         toleft
@@ -72,10 +80,12 @@ label chapter1_start:
     "{i}I start to wiggle my body in an interpretative dance of gratitude.{/i}"
 
     show cory unimpressed:
+        unpose
         full 
         center
     cory "{cps=10}...{/cps}"
     show cory unimpressed2:
+        unpose
         full 
         center
     cory "Mane just what the {b}fugu{/b} is you doing..?!"
@@ -88,23 +98,27 @@ label chapter1_start:
     mc "{cps=45}Fishes communicate through gestures and and visual as well as colors I'm trying to express my gratitude through-{/cps}"
 
     show mc shock:
+        unpose
         full
         right
     mc "{cps=20}Wait..{/cps} I just spoke in water..."
 
     show mc excited:
+        unpose
         full 
         right
         vibrate
     mc "{size=45}ARE YOU GETTING ME, MR FISH?? :D{/size}"
 
     show cory surprise:
+        unpose
         full
         center
         surprise
     cory "chill the carp out! Yes and yes I'm understanding all the word you saying"
 
     show mc excited:
+        unpose
         full 
         right
         vibrate
@@ -112,33 +126,26 @@ label chapter1_start:
 
     "Struck with a thunder of explosive excitement a loud squeak pushed through me. At the same time my mouth is wide open-"
     show mc dizzy:
+        unpose
         full 
         right
         vibrate
     mc "{i}COUGHCOUCHCOUGHBLURURHRGHUGUHRH-!{/i}"
 
     show cory surprise:
+        unpose
         full
         center
         surprise
     cory "Holy {b}SHRIMP{/b} you still need air huh? I think I have just what ya need"
 
+    hide mc
+    hide cory
     show cutchap1 with Dissolve(0.5)
     mc "Huh-? Whoaaah.. I can see better now!"
     cory "You sure do! Good thing river's full of unexpected junks like these"
-
-    show cory smile:
-        full
-        center
     cory "But.. huh is that a first.. alien guppy of two legs speaks under water.. you a witch?"
-
-    show mc pout:
-        full
-        right
     mc "am no witch! am fish! it's my dream ever!!"
-    show mc o:
-        full
-        right
     mc "Ah but I couldn't do any of this before... maybe it's because of.."
     show cutchap2 with Dissolve(0.5)
     "{i}My gaze fell down to the translucent scale I didn't realize was clutched tight in my palm the entire time.{/i}" 
@@ -157,84 +164,101 @@ label chapter1_start:
     hide cutchap2
     hide cutchap1 
     show cory smile:
+        unpose
         full
         center
-    cory "---, –in't ya one step closer to a dream come true, little guppy?"
-
     show mc shock:
+        unpose
         full
         right
+    cory "---, –in't ya one step closer to a dream come true, little guppy?"
     "{i}This is the power of only one scale. Imagine what a whole fish can do…{/i}"
     show mc default:
+        unpose
         full
         right
         surprise
     mc "Mr kind fish did you see a shiny golden fish that passed by?"
     show cory smile_hu:
+        unpose
         full
         center
     cory "Golden fish? I ain't see no gold, what I saw was straight DIAMOND."
     cory "Visceral beauty struck me tantalized. type shrimp."
     show cory side:
+        unpose
         full
         center
     cory "Didn’t bother following it though. That and ion remember where it went."
     show mc o:
+        unpose
         full
         right
         surprise
     mc "Whuh? Why? :o"
     show cory side_close:
+        unpose
         full
         center
     cory "Ay.. how should I be telling you this.. Pretty things usually mean trouble around here."
     show mc excited:
+        unpose
         full
         right
         surprise
     mc "Yeah! I know! Like blue dragons and and lionfish and-"
     show cory smile:
+        unpose
         full
         center
     cory "{bt}*whistle*{/bt} Well ain't you done your research.."
     show mc happy:
+        unpose
         full
         right
     mc "Mhm! won't make me not touch them though!"
     show cory unimpressed:
+        unpose
         full
         center
     "{i}Mr kind fish sighed.{/i}"
     show cory talk:
+        unpose
         full
         center
     cory "Point is just careful around yeah?"
     cory "And if you don't know your way to mystery fish."
     show cory smile:
+        unpose
         full
         center
     cory "Try exploring, ask around, riverfolks are one friendly neighborhood."
     show mc default:
+        unpose
         full
         right
     mc "Okay! :D"
 
     hide mc default
     show cory smile_hu:
+        unpose
         full
         center
         surprise
     cory "Alright, good. Have fun, weird guppy! Best prayers to ya adventure"
     cory "..."
     show cory side:
+        unpose
         full
         center
     cory "....."
     show cory side_close:
+        unpose
         full
         center
     cory "........"
     show cory unimpressed:
+        unpose
         full
         center
         sink
@@ -316,6 +340,8 @@ label chapter1_day_exploration:
             hide mc
             scene ch1_day
             show goldenrock_hover:
+                unpose
+                full
                 center
             with moveintop
             "{b}I got a golden rock!{/b}"
@@ -323,6 +349,7 @@ label chapter1_day_exploration:
 
             $ focus()
             show mc default:
+                unpose
                 full
                 right
             "{i}After spending some time exploring the area, I stuffed the last item into my little bag.{/i}"
@@ -330,18 +357,21 @@ label chapter1_day_exploration:
             mc "I think that's everything!"
 
             show cory smile:
+                unpose
                 full
                 center
             with moveinleft
             cory "find anything okay?"
 
             show mc happy:
+                unpose
                 full
                 right
                 surprise
             mc "Oh! Hi Mr kind fish.. :D"
 
             show mc o:
+                unpose
                 full
                 right
             "I peek through my bag."
@@ -350,6 +380,7 @@ label chapter1_day_exploration:
             mc "...But I found lots of cool stuff!"
 
             show cory talk:
+                unpose
                 full
                 center
             "Mr kind fish also takes a peek at my inventory."
@@ -357,11 +388,13 @@ label chapter1_day_exploration:
             mc "...?"
 
             show cory unimpressed:
+                unpose
                 full
                 center
             cory "Those are literally rocks."
 
             show mc happy:
+                unpose
                 full
                 right
                 surprise
@@ -369,34 +402,40 @@ label chapter1_day_exploration:
             cory "...Half of that's traaa..."
 
             show mc o:
+                unpose
                 full
                 right
             mc "traaa?...treasure?"
 
             show cory side:
+                unpose
                 full
                 center
 
             cory "...Sure..."
             show mc happy:
+                unpose
                 full
                 right
                 surprise
             mc "ya! One of a kind treasure indeed mr kind fish :D"
 
             show cory proud:
+                unpose
                 full
                 center
                 surprise
             cory "also save the adjective would ya? call me cory the great now, guppy!"
 
             show mc happy:
+                unpose
                 full
                 right
                 surprise
             mc "okay! Mr cory the great now guppy!"
 
             show cory side:
+                unpose
                 full
                 center
             cory "ya know what? Cory's fine.."
@@ -426,6 +465,7 @@ label chapter1_night:
 
     $ focus()
     show mc o:
+        unpose
         full
         right
     mc "..."
@@ -433,16 +473,19 @@ label chapter1_night:
     mc "Its getting dark.. is it night already?"
 
     show cory smile:
+        unpose
         full
         center
     cory "Time flies when yer busy picking up rocks."
     show cory talk:
+        unpose
         full
         center
     cory "Don't wander too far."
     cory "Night's a little different around here."
 
     show mc dizzy:
+        unpose
         full
         right
     mc "But it's so dark! Is there no light around here..?"
@@ -537,10 +580,12 @@ label chapter1_night_exploration:
 
             $ focus()
             show cory surprise:
+                unpose
                 full
                 center
 
             show mc o:
+                unpose
                 full
                 right
 
@@ -550,11 +595,13 @@ label chapter1_night_exploration:
             mc "what is it mr cory?"
 
             show cory disrespect:
+                unpose
                 full
                 center
             cory "eh, just a toy.. A very popular one"
 
             show cory smile_hu:
+                unpose
                 full
                 center
             cory "I might know who might like this... hah!"
@@ -574,21 +621,25 @@ label chapter1_dawn:
 
     $ focus()
     show cory talk:
+        unpose
         full
         center
     cory "So, what've we got from allat?"
 
     show mc default:
+        unpose
         full
         right
     mc "North!"
 
     show mc happy:
+        unpose
         full
         right
     mc "They all said north!"
 
     show cory smile:
+        unpose
         full
         center
     cory "north eh? The direction where the river ends.."
@@ -596,41 +647,49 @@ label chapter1_dawn:
     "{i}I looked toward the distant current. The water there flowed faster. The sunlight barely reached it.{/i}"
 
     show cory talk:
+        unpose
         full
         center
     cory "but uhh guppy.. ain't your parents worried..?"
     cory "it's been a full day since we got here.. ya don't wanna go back for a bit?"
 
     show mc serious_hu:
+        unpose
         full
         right
     mc "mm? No it's fine! My parents allow me to come back home whenever I want!"
     mc "I don't think I'm coming back before I see that fish again.."
 
     show mc happy:
+        unpose
         full
         right
     mc "aren't they just the kindest? To give freewill at my age!"
 
     show cory side:
+        unpose
         full
         center
     cory "free will ay..? Sounds worrying to me."
     show cory talk:
+        unpose
         full
         center
     cory "but you're right about one thing, guppy"
     show cory smile_hu:
+        unpose
         full
         center
     cory "we ain't going back until we catch that damn fish together!"
 
     show mc excited:
+        unpose
         full
         right
     mc "Let's go!"
 
     show cory fond:
+        unpose
         full
         center
     cory "Just don't make me save ya twice."

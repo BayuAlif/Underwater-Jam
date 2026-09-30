@@ -45,7 +45,7 @@ init python:
     renpy.image(("cory", "talk_netral_hu"), "images/characters/cory/CoryTalkNetralHU.png")
     renpy.image(("cory", "hurt"), "images/characters/cory/CoryUpsetHU.png")
 
-    renpy.image(("scy", "default_om"), "images/npc/chapter2/Mantis/ScyDefaultOM_.png")
+    renpy.image(("scy", "default_om"), "images/npc/chapter2/Mantis/ScyDefaultOM.png")
     renpy.image(("scy", "pout"), "images/npc/chapter2/Mantis/ScySepet.png")
     renpy.image(("scy", "excited"), "images/npc/chapter2/Mantis/ScyLaugh.png")
 
@@ -54,7 +54,7 @@ init python:
     renpy.image(("dun", "smile"), "images/npc/chapter3/dunge/DunSmile.png")
     renpy.image(("dun", "yeesh"), "images/npc/chapter3/dunge/DunYeesh.png")
 
-    renpy.image(("gob", "default"), "images/npc/chapter3/GOBY/TetoGunSmirk.png")
+    renpy.image(("gob", "default"), "images/npc/chapter3/GOBY/GobyDefault.png")
     renpy.image(("item_algae",), "images/items/chapter3/algae_idle.png")
     renpy.image(("item_algae_hover",), "images/items/chapter3/algae_hover.png")
     renpy.image(("item_seaweed",), "images/items/chapter3/seaweed_idle.png")
@@ -69,6 +69,7 @@ label chapter3_start:
 label ch3_start:
     $ current_chapter = 3
     $ current_cycle = "day"
+    $ focus_off(False)
 
     hide mc
     scene ch3_day with Dissolve (0.5)
@@ -77,7 +78,6 @@ label ch3_start:
     "The sea fills my line of sight with overwhelmingly bright pretty colors."
     "My gaze erratically jumps from one color to another as we continue to swim further."
     "From parrot fishes, sparkly elvis worms to rainbow open brain corals. There's way too many stuff to focus on!"
-    $ focus ()
 
     show mc excited:
         unpose
@@ -203,13 +203,13 @@ label ch3_start:
         full
         leftish
     cory "Everybody's been gloomy lately huh"
-    $ focus()
 
     jump ch3_day_explore
 
 label ch3_day_explore:
     $ current_chapter = 3
     $ current_cycle = "day"
+    $ focus_off(False)
 
     $ setup_exploration(
         [
@@ -305,7 +305,6 @@ label ch3_day_explore:
         jump .loop
 
 label ch3_item_rainbow_algae:
-    $ focus ()
     show mc excited:
         unpose
         full
@@ -423,7 +422,6 @@ label ch3_item_rainbow_algae:
         full
         leftish
     cory "Ay, let's just take 2 and go guppy"
-    $ focus ()
     $ has_rainbow_algae = True
     $ add_item("rainbow_algae")
     return
@@ -444,7 +442,6 @@ label ch3_night_explore:
     scene ch3_night with Dissolve (0.5)
     play music chap_3_night volume 0.5
 
-    $ focus ()
     show scy smile:
         unpose
         full
@@ -537,7 +534,6 @@ label ch3_night_explore:
         right
         surprise
     mc "Look, there are figures stationed near the coral formations! Let's explore before we step inside!"
-    $ focus ()
 
     $ current_chapter = 3
     $ current_cycle = "night"
@@ -619,14 +615,12 @@ label ch3_night_explore:
 
         if result in ("dunge", "crab"):
             if ch3_dunge_defeated:
-                $ focus ()
                 show dun default:
                     unpose
                     full
                     center
                 with moveinright
                 dun "The path is clear. Go on ahead into the lair before I change my mind."
-                $ focus ()
                 menu:
                     "Enter the Empress's Lair":
                         jump ch3_boss_intro
@@ -638,7 +632,6 @@ label ch3_night_explore:
         elif result in ("teto", "goby"):
             $ mark_npc_explored("teto")
             if not ch3_dunge_defeated:
-                $ focus ()
                 show dun mad:
                     unpose
                     full
@@ -651,7 +644,6 @@ label ch3_night_explore:
                     rightish
                 with moveinright
                 cory "Looks like Big Dunge down there is blockin' the cavern entrance. We gotta deal with him first."
-                $ focus ()
                 call ch3_teto_encounter
                 jump .loop
             else:
@@ -669,12 +661,16 @@ label ch3_night_explore:
 
         elif result == "continue":
             if not ch3_dunge_defeated:
-                $ focus ()
-                show dun mad at npc_right
+                show dun mad:
+                    unpose
+                    full
+                    rightish
                 dun "Where do you think you're goin'? No one passes through without permission!"
-                show cory side at cory_left
+                show cory side:
+                    unpose
+                    full
+                    leftish
                 cory "Looks like we gotta deal with Big Dunge first."
-                $ focus ()
                 hide dun
                 hide cory
                 jump ch3_crab_encounter
@@ -684,7 +680,6 @@ label ch3_night_explore:
         jump .loop
 
 label ch3_item_red_seaweed:
-    $ focus ()
     show mc excited:
         unpose
         full
@@ -733,7 +728,6 @@ label ch3_item_red_seaweed:
         right
     mc "aw.. okay :("
     mc "one more for mama because she likes red…"
-    $ focus ()
     $ has_red_seaweed = True
     return
 
@@ -744,7 +738,6 @@ label ch3_teto_encounter:
         $ ch3_teto_visited = True
         hide dun
         hide cory
-        $ focus ()
         show mc o:
             unpose
             full
@@ -782,18 +775,15 @@ label ch3_teto_encounter:
             rightish
         gob "Keep your whiskers to yourself, catfish! Talk to Dunge down there first if you want any hope of passing through!"
         mc "They look very fierce... We should probably speak to Mr. Crab first!"
-        $ focus ()
     else:
         hide cory
         hide dun
-        $ focus ()
         show goby annoy:
             unpose
             full
             rightish
         with moveinright
         gob "I told you already! Go speak to Dunge down there! The Empress doesn't entertain unannounced wanderers!"
-        $ focus ()
 
     return
 
@@ -804,7 +794,6 @@ label ch3_boss_intro:
     hide dun
     scene ch3_night with Dissolve (0.5)
 
-    $ focus ()
     show scy laugh:
         unpose
         full
@@ -974,7 +963,6 @@ label ch3_boss_intro:
         centerright
     emp "Hah! You be my filter, my highly regarded right hand."
     emp "I shall busy myself with my new golden toy!"
-    $ focus ()
     jump ch3_boss_negotiation
 
 
@@ -985,7 +973,6 @@ label ch3_ending:
     hide scy
     scene ch3_night with Dissolve (0.5)
 
-    $ focus ()
     show goby surprise:
         unpose
         full
@@ -1391,61 +1378,10 @@ label ch3_ending:
     mc "it's.. the waterbreathing time! It was only for a few minutes before"
     mc "now I can breathe just fine!"
 
-    show gator smile:
-        unpose
-        full
-        rightish
-    with moveinright
-    show scy laugh:
-        full
-        center
-    with move
-    gator "ouuu shiiii.."
-    gator "you all look nasty… need help?"
-
-    show mc excited:
-        full
-        right
-    mc "Ms. Gator!! We meet again!"
-    gator "mm yep what I say about catching that golden fish before you do"
-
-    show gator annoyed:
-        full
-        rightish
-    gator "but frankly? I just.. lost motivation midway.."
-    gator "waaaay too much of a hassle.."
-
-    show cory side:
-        full
-        leftish
-    cory "Gatha.."
-
-    show gator default:
-        full
-        rightish
-    gator "But I did get this.."
-    gator "As a proof that I did get to it hmph!"
-    gator "you can't be saying shrimp like I was too slow or anythin now"
-
-    show mc o:
-        full
-        right
-    mc "wait! Where did you get this and when?"
-    mc "We haven't seen the fish lately.."
-
-    gator "it's just riiiight there"
-
-    show gator surprised:
-        full
-        rightish
-    gator "I don't get why you're so adamant on getting it guppy.."
-    gator "But best of luck to ya alright"
-    $ focus ()
     $ ch3_chapter_complete = True
 
     hide mc
     hide scy
-    hide gator
     hide cory
     with dissolve
 
@@ -1453,3 +1389,4 @@ label ch3_ending:
     "END OF CHAPTER 3"
 
     jump chapter4_start
+

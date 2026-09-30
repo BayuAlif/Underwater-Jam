@@ -2,7 +2,6 @@ label seabunny_encounter:
     hide mc
     scene ch3_day
     "A seabunny is found crying behind luscious corals. I wonder what made it cry that loud?"
-    $ focus()
 
     show mc o:
         full
@@ -10,9 +9,8 @@ label seabunny_encounter:
         toleft
     with moveinright
     show bunny cry:
-        full
         unpose
-    show bunny cry:
+        full
         center
         vibrate
     with moveinright
@@ -31,10 +29,8 @@ label seabunny_encounter:
         leftish
     with move
     show shrimp default_om:
-        full
         unpose
-        offscreenleft
-    show shrimp default_om:
+        full
         centerright
         walkloop
     with moveinright
@@ -70,7 +66,6 @@ label seabunny_encounter:
         full
         leftish
     "The sea bunny seems to refuse to answer anything with Mr Shrimp nearby"
-    $ focus()
 
     hide mc
     hide cory
@@ -92,22 +87,17 @@ label seabunny_encounter:
         jump ch3_seabunny_as_scyllarus
 
 label ch3_seabunny_as_mc:
-    $ focus ()
     show mc happy:
-        full
         unpose
-        offscreenright
-    show mc happy:
+        full
         right
         walkto(right)
         toleft
         walkloop
     with moveinright
     show bunny scared:
-        full
         unpose
-        offscreenright
-    show bunny scared:
+        full
         center
         vibrate
     with moveinright
@@ -123,23 +113,18 @@ label ch3_seabunny_as_mc:
         full
         center
     bunny "Nguu.. okay I trust you…"
-    $ focus ()
     hide mc
     hide bunny
     menu:
         "What happened to your family?":
-            $ focus ()
             show mc happy:
+                unpose
                 full
-                offscreenright
-            show mc happy:
                 right
             with moveinright
             show bunny sad:
-                full
                 unpose
-                offscreenright
-            show bunny sad:
+                full
                 center
             with moveinright
             bunny "They were taken away.. by a big brute crab.."
@@ -188,22 +173,18 @@ label ch3_seabunny_as_mc:
                 right
                 surprise
             mc "Don't worry we'll make them understand!!"
-            $ focus ()
             $ ch3_visited_seabunny = True
             jump ch3_day_explore_continue
 
         "Why are you scared of Mr Shrimp?":
-            $ focus ()
             show mc o:
+                unpose
                 full
-                offscreenright
-            show mc o:
-                right 
+                right
             with moveinright
             show bunny scared:
+                unpose
                 full
-                offscreenright
-            show bunny scared:
                 center
                 vibrate
             with moveinright
@@ -274,21 +255,17 @@ label ch3_seabunny_as_mc:
                 center
                 surprise
             bunny "Yes!! Ah finally someone that gets it!!"
-            $ focus ()
             $ ch3_visited_seabunny = True
             jump ch3_day_explore_continue
         "Do you need a hug? (Give rainbow algae)" if has_rainbow_algae:
-            $ focus ()
             show mc o:
+                unpose
                 full
-                offscreenright
-            show mc o:
                 right
             with moveinright
             show bunny scared:
+                unpose
                 full
-                offscreenright
-            show bunny scared:
                 center
                 surprise
             with moveinright
@@ -385,7 +362,6 @@ label ch3_seabunny_as_mc:
                 center
             bunny "Promise…?"
             mc "Mhm! Pinky promise!!"
-            $ focus ()
             $ gave_algae_to_seabunny = True
             $ has_rainbow_algae = False
             $ ch3_seabunny_helped = True
@@ -393,22 +369,17 @@ label ch3_seabunny_as_mc:
             jump ch3_day_explore_continue
 
 label ch3_seabunny_as_cory:
-    $ focus ()
     show cory smile_hu:
-        full
         unpose
-        offscreenright
-    show cory smile_hu:
+        full
         leftish
         walkto(leftish)
         toleft
         walkloop
     with moveinright
     show bunny scared:
-        full
         unpose
-        offscreenright
-    show bunny scared:
+        full
         centerright
         vibrate
     with moveinright
@@ -447,22 +418,18 @@ label ch3_seabunny_as_cory:
         full
         centerright
     bunny "Sea bunny or nudibranch is fine.."
-    $ focus ()
     hide cory
     hide bunny
     menu:
         "Mind telling us what happened?":
-            $ focus ()
             show cory talk_hu:
+                unpose
                 full
-                offscreenright
-            show cory talk_hu:
                 leftish
             with moveinright
             show bunny default:
+                unpose
                 full
-                offscreenright
-            show bunny default:
                 centerright
             with moveinright
             bunny "Me and my family were just having a nice sunny picnic.. under the pink acropora coral…"
@@ -548,22 +515,18 @@ label ch3_seabunny_as_cory:
                 leftish
             cory "Don't worry we'll get him"
             cory "We're planning to overthrow this whole crustacean dictator bullshrimp"
-            $ focus ()
             $ ch3_visited_seabunny = True
             jump ch3_day_explore_continue
 
         "I'm sorry to hear about your family.. must be tough on ya.. (Give rainbow algae)" if has_rainbow_algae:
-            $ focus ()
             show cory side:
+                unpose
                 full
-                offscreenright
-            show cory side:
                 leftish
             with moveinright
             show bunny sad:
+                unpose
                 full
-                offscreenright
-            show bunny sad:
                 centerright
             with moveinright
             bunny "Mm.."
@@ -636,7 +599,6 @@ label ch3_seabunny_as_cory:
                 full
                 centerright
             bunny "You're right.. Thank you.."
-            $ focus ()
             $ gave_algae_to_seabunny = True
             $ has_rainbow_algae = False
             $ ch3_seabunny_helped = True
@@ -645,22 +607,17 @@ label ch3_seabunny_as_cory:
 
 label ch3_seabunny_as_scyllarus:
     "The sea bunny stands at a reasonably far distance"
-    $ focus ()
     show bunny scared:
-        full
         unpose
-        offscreenright
-    show bunny scared:
+        full
         leftish
         walkto(leftish)
         toleft
         vibrate
     with moveinright
     show scy default_om:
-        full
         unpose
-        offscreenright
-    show scy default_om:
+        full
         centerright
         walkloop
     with moveinright
@@ -676,24 +633,19 @@ label ch3_seabunny_as_scyllarus:
         centerright
         surprise
     scy "Oh! It's probably one of the crustaceans doing!"
-    $ focus ()
     hide scy
     hide bunny
     menu:
         "Apologize in advance":
             "Mr Shrimp took a few steps forward to properly bow down in an apologetical manner"
-            $ focus ()
             show scy default_om:
-                full
                 unpose
-                offscreenright
-            show scy default_om:
+                full
                 centerright
             with moveinright
             show bunny scared:
+                unpose
                 full
-                offscreenright
-            show bunny scared:
                 leftish
                 vibrate
             with moveinright
@@ -720,23 +672,18 @@ label ch3_seabunny_as_scyllarus:
                 leftish
                 surprise
             bunny "T-that's not enough distance!"
-            $ focus ()
             $ ch3_visited_seabunny = True
             jump ch3_day_explore_continue
 
         "Please accept this algae as a token of apology!" if has_rainbow_algae:
-            $ focus ()
             show scy shy:
-                full
                 unpose
-                offscreenright
-            show scy shy:
+                full
                 centerright
             with moveinright
             show bunny scared:
+                unpose
                 full
-                offscreenright
-            show bunny scared:
                 leftish
                 vibrate
             with moveinright
@@ -780,6 +727,5 @@ label ch3_seabunny_as_scyllarus:
             scy "I'll search for one if it makes you forgive us!"
 
             "The sea bunny refuses to take the sea algae"
-            $ focus ()
             $ ch3_visited_seabunny = True
             jump ch3_day_explore_continue

@@ -1,19 +1,14 @@
 label ch3_crab_encounter:
     $ mark_npc_explored("dunge")
-    $ focus ()
     show mc o:
-        full
         unpose
-        offscreenright
-    show mc o:
+        full
         right
         walkloop
     with moveinright
     show dun smile:
-        full
         unpose
-        offscreenright
-    show dun smile:
+        full
         center
         walkloop
     with moveinright
@@ -25,10 +20,8 @@ label ch3_crab_encounter:
         leftish
     with move
     show scy smile:
-        full
         unpose
-        offscreenright
-    show scy smile:
+        full
         centerright
         walkloop
     with moveinright
@@ -38,10 +31,8 @@ label ch3_crab_encounter:
     dun "Larus! Hows it hangin', you ol' bottom-feeder?"
 
     show cory talk:
-        full
         unpose
-        offscreenright
-    show cory talk:
+        full
         right
         walkloop
     with moveinright
@@ -87,7 +78,6 @@ label ch3_crab_encounter:
         vibrate
     dun "Dont tell me you're rollin' with these filthy freshies??"
     dun "A guppy… and and!"
-    $ focus ()
     hide mc
     hide cory
     hide scy
@@ -112,20 +102,15 @@ label ch3_crab_encounter:
 label ch3_crab_as_mc:
     menu:
         "Mr. Crab can you help us talk to the Empress?":
-            $ focus ()
             show mc o:
-                full
                 unpose
-                offscreenright
-            show mc o:
+                full
                 right
                 walkloop
             with moveinright
             show dun default:
-                full
                 unpose
-                offscreenright
-            show dun default:
+                full
                 center
                 walkloop
             with moveinright
@@ -166,10 +151,8 @@ label ch3_crab_as_mc:
             mc "Um we dont have one….. is it alright, mr shrimp?"
 
             show scy default:
-                full
                 unpose
-                offscreenright
-            show scy default:
+                full
                 centerright
                 walkloop
             with moveinright
@@ -201,10 +184,8 @@ label ch3_crab_as_mc:
                 right
             mc "Aw... Mr. Crab really won't let us through..."
             show cory side:
-                full
                 unpose
-                offscreenright
-            show cory side:
+                full
                 right
             with moveinright
             show scy default_om:
@@ -220,24 +201,18 @@ label ch3_crab_as_mc:
             hide cory
             hide scy 
             hide dun
-            $ focus ()
             jump ch3_crab_interactor_retry
 
         "Do you hate freshwater creatures? :0":
-            $ focus ()
             show mc o:
-                full
                 unpose
-                offscreenright
-            show mc o:
+                full
                 right
                 walkloop
             with moveinright
             show dun default:
-                full
                 unpose
-                offscreenright
-            show dun default:
+                full
                 center
                 walkloop
             with moveinright
@@ -292,7 +267,6 @@ label ch3_crab_as_mc:
             hide dun
             hide cory
             hide mc
-            $ focus ()
             jump ch3_crab_interactor_retry
     
 
@@ -308,20 +282,15 @@ label ch3_crab_interactor_retry:
 label ch3_crab_as_cory:
     menu:
         "Can you help us talk to the empress?":
-            $ focus ()
             show dun default:
-                full
                 unpose
-                offscreenright
-            show dun default:
+                full
                 leftish
                 walkloop
             with moveinright
             show cory talk_hu:
-                full
                 unpose
-                offscreenright
-            show cory talk_hu:
+                full
                 rightish
                 walkloop
             with moveinright
@@ -370,34 +339,26 @@ label ch3_crab_as_cory:
             dun "My job is to block anyone tryin' to set claws or fins in here."
             hide cory
             hide dun
-            $ focus ()
             call dunge_duel
 
             if _return != "win" and duel_result != "win":
-                $ focus ()
                 show dun mad:
-                    full
                     unpose
-                    offscreenright
-                show dun mad:
+                    full
                     leftish
                 with moveinright
                 dun "Hah! Ya got a lot of nerve, but my claws are harder than your head, freshie!"
 
                 show cory hurt:
-                    full
                     unpose
-                    offscreenright
-                show cory hurt:
+                    full
                     centerright
                 with moveinright
                 cory "Guh... that crab's tough..."
 
                 show scy default:
-                    full
                     unpose
-                    offscreenright
-                show scy default:
+                    full
                     right
                 with moveinright
                 show cory hurt:
@@ -409,26 +370,20 @@ label ch3_crab_as_cory:
                     left
                 with moveinright
                 scyllarus "Do not fret, comrades! We can regroup and try again!"
-                $ focus ()
                 jump ch3_night_explore.loop
 
             jump ch3_crab_cory_duel_won
 
         "Hold on, did you kidnap the sea bunny's family?":
-            $ focus ()
             show cory unimpressed:
-                full
                 unpose
-                offscreenright
-            show cory unimpressed:
+                full
                 rightish
                 walkloop
             with moveinright
             show dun yeesh:
-                full
                 unpose
-                offscreenright
-            show dun yeesh:
+                full
                 leftish
                 walkloop
             with moveinright
@@ -515,34 +470,26 @@ label ch3_crab_as_cory:
             dun "Bless your heart, Larus, but I gotta fight anyone who threatens to take down the regime!"
             hide cory
             hide dun
-            $ focus ()
             call dunge_duel
 
             if _return != "win" and duel_result != "win":
-                $ focus ()
                 show dun mad:
-                    full
                     unpose
-                    offscreenright
-                show dun mad:
+                    full
                     leftish
                 with moveinright
                 dun "Hah! Ya got a lot of nerve, but my claws are harder than your head, freshie!"
 
                 show cory hurt:
-                    full
                     unpose
-                    offscreenright
-                show cory hurt:
+                    full
                     centerright
                 with moveinright
                 cory "Guh... that crab's tough..."
 
                 show scy default:
-                    full
                     unpose
-                    offscreenright
-                show scy default:
+                    full
                     right
                 with moveinright
                 show cory hurt:
@@ -554,7 +501,6 @@ label ch3_crab_as_cory:
                     left
                 with moveinright
                 scyllarus "Do not fret, comrades! We can regroup and try again!"
-                $ focus ()
                 jump ch3_night_explore.loop
 
             jump ch3_crab_cory_duel_won
@@ -562,12 +508,9 @@ label ch3_crab_as_cory:
 
 
 label ch3_crab_cory_duel_won:
-    $ focus ()
     show dun yeesh:
-        full
         unpose
-        offscreenright
-    show dun yeesh:
+        full
         leftish
         walkloop
     with moveinright
@@ -579,20 +522,16 @@ label ch3_crab_cory_duel_won:
     dun "Aight, aight! I yield! You beat me fair and square."
 
     show cory smile_hu:
-        full
         unpose
-        offscreenright
-    show cory smile_hu:
+        full
         centerright
         walkloop
     with moveinright
     cory "Heh. Told ya, amigo. Never underestimate freshwater folks."
 
     show scy smile:
-        full
         unpose
-        offscreenright
-    show scy smile:
+        full
         right
         walkloop
     with moveinright
@@ -616,7 +555,6 @@ label ch3_crab_cory_duel_won:
     "...! the golden scale?"
 
     scyllarus "We are deeply grateful for your cooperation, Dunge!"
-    $ focus ()
 
     $ clue_golden_scale = True
     $ ch3_dunge_defeated = True
@@ -630,20 +568,15 @@ label ch3_crab_cory_duel_won:
 label ch3_crab_as_scyllarus:
     menu:
         "Did you kidnap the seabunny's family?":
-            $ focus ()
             show dun default:
-                full
                 unpose
-                offscreenright
-            show dun default:
+                full
                 leftish
                 walkloop
             with moveinright
             show scy default_om:
-                full
                 unpose
-                offscreenright
-            show scy default_om:
+                full
                 rightish
                 walkloop
             with moveinright
@@ -730,7 +663,6 @@ label ch3_crab_as_scyllarus:
             "Dunge just nods."
             hide dun
             hide scy
-            $ focus ()
             $ clue_golden_scale = True
             $ ch3_dunge_defeated = True
             $ mark_npc_explored("dunge")
@@ -739,20 +671,15 @@ label ch3_crab_as_scyllarus:
             jump ch3_crab_post_resolution
 
         "We need to stop the empress!":
-            $ focus ()
             show dun default:
-                full
                 unpose
-                offscreenright
-            show dun default:
+                full
                 leftish
                 walkloop
             with moveinright
             show scy default:
-                full
                 unpose
-                offscreenright
-            show scy default:
+                full
                 rightish
                 walkloop
             with moveinright
@@ -830,7 +757,6 @@ label ch3_crab_as_scyllarus:
             scyllarus "We deeply appreciate it, Dunge!"
             hide dun
             hide scy
-            $ focus ()
 
             $ clue_golden_scale = True
             $ ch3_dunge_defeated = True
@@ -841,27 +767,21 @@ label ch3_crab_as_scyllarus:
 
 label ch3_crab_post_resolution:
     if not item_collected:
-        $ focus ()
         show mc o:
-            full
             unpose
-            offscreenright
-        show mc o:
+            full
             right
             walkloop
         with moveinright
         show cory fond:
-            full
             unpose
-            offscreenright
-        show cory fond:
+            full
             center
             walkloop
         with moveinright
         mc "Look, Mr. Cory! There's some bright red seaweed over by the reef!"
         mc "We should take a look around the reef before going inside!"
         "The path to the Empress's lair is open, but we should explore the reef and collect the red seaweed first."
-        $ focus ()
         jump ch3_night_explore.loop
     else:
         "The path to the Empress's lair is open."

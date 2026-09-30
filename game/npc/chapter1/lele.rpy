@@ -4,37 +4,44 @@ label lele_interaction:
     scene ch1_night
     $ focus()
     show mc default:
+        unpose
         full
         right
     show lele curiga:
+        unpose
         full
         offscreenright
     "A catfish quietly watches from behind some seaweed."
 
     show mc happy:
+        unpose
         full
         right
     mc "I see you Mr catfish!"
 
     show lele curiga:
+        unpose
         full
         offscreenright
         vibrate
     lele "..."
 
     show mc o:
+        unpose
         full
         right
     "The catfish eyes me for a long second before going back into hiding. It appears to be somewhat shy?"
     "But as soon as Mr Cory swam forward its head peek in interest, like seeing an old friend."
 
     show cory smile:
+        unpose
         full 
         leftish
     with moveinleft
     cory "ay.. Good pal, catfish."
 
     show lele default:
+        unpose
         full
         centerright
     with move
@@ -58,15 +65,18 @@ label lele_interaction:
 
 label lele_as_mc:
     show mc o:
+        unpose
         full
         right
     show lele curiga:
+        unpose
         full
         center
 
     mc "Do you know where the golden fish went?"
 
     show lele default:
+        unpose
         full
         center
     lele "..."
@@ -74,6 +84,7 @@ label lele_as_mc:
     "It watches me with a very serious judging look."
 
     show lele tidur:
+        unpose
         full
         center
     lele "😹"
@@ -82,9 +93,11 @@ label lele_as_mc:
 
         "😹 Give Ambalabu" if has_item("ambalabu"):
             show mc default:
+                unpose
                 full
                 right
             show lele default:
+                unpose
                 full
                 center
             "The catfish saw an opportunity and took the ambalabu from my hand."
@@ -92,40 +105,47 @@ label lele_as_mc:
             $ remove_item("ambalabu")
 
             show mc pout:
+                unpose
                 full
                 right
                 surprise
             mc "Ah! I was going to give it nicely.."
 
             show lele default:
+                unpose
                 full
                 center
                 surprise
             lele "gokil"
 
             show mc o:
+                unpose
                 full
                 right
                 surprise
             mc "gokil...?"
 
             show lele tidur:
+                unpose
                 full
                 center
             lele "super mega gokil"
 
             show mc o:
+                unpose
                 full
                 right
                 surprise
             mc "super mega gokil... :o"
             show mc happy:
+                unpose
                 full
                 right
                 surprise
             mc "gokil pro max!! :D"
 
             show lele depan:
+                unpose
                 full
                 center
             lele "The sacred golden fish wields power enough to dry out all the water on this planet."
@@ -136,17 +156,20 @@ label lele_as_mc:
             lele "Repeating Fate only awaits by the hand of our God"
 
             show lele depan:
+                unpose
                 full
                 center
             lele "You should understand that better than anyone"
 
             show mc shock:
+                unpose
                 full
                 right
                 surprise
             mc "woah.. That's a lot to take in.."
 
             show lele default:
+                unpose
                 full
                 center
             lele "mreow.. :3"
@@ -155,33 +178,39 @@ label lele_as_mc:
 
         "What does that mean?":
             show mc o:
+                unpose
                 full
                 right
                 surprise
 
             show lele default:
+                unpose
                 full
                 center
             lele "That's why you should read more information"
 
             show mc shock:
+                unpose
                 full
                 right
                 surprise
             mc "i uh, okay...?"
 
             show mc default:
+                unpose
                 full
                 right
                 surprise
             mc "We were looking for the golden fish!"
 
             show lele tidur:
+                unpose
                 full
                 center
             lele "The fish headed y-axis (or \(+y\))"
 
             show mc shock:
+                unpose
                 full
                 right
                 surprise
@@ -194,23 +223,27 @@ label lele_as_mc:
         "How do I even say that...":
             $ focus()
             show mc shock:
+                unpose
                 full
                 right
                 surprise
 
             show lele curiga:
+                unpose
                 full
                 center
             lele "..."
             lele "Suki..."
 
             show mc o:
+                unpose
                 full
                 right
                 surprise
             mc "...?"
 
             show lele curiga:
+                unpose
                 full
                 center
                 vibrate
@@ -220,6 +253,7 @@ label lele_as_mc:
             lele "Go away."
 
             show lele curiga:
+                unpose
                 full
                 center
             with moveoutleft
@@ -230,9 +264,11 @@ label lele_as_mc:
 
 label lele_as_cory:
     show cory smile:
+        unpose
         full 
         leftish
     show lele default:
+        unpose
         full
         centerright
     menu:   
@@ -241,58 +277,69 @@ label lele_as_cory:
 
             $ focus()
             show cory talk:
+                unpose
                 full 
                 leftish
             cory "which way is it pal?, i needa find out"
 
             show lele curiga:
+                unpose
                 full
                 centerright 
             lele "North Antartica"
 
             show cory upset:
+                unpose
                 full 
                 leftish
             cory "is what a public liar woulda say!"
 
             show cory talk_hu:
+                unpose
                 full 
                 leftish
             cory "ay, spare me some real information would ya"
 
             show lele tidur:
+                unpose
                 full
                 centerright 
             lele "i'll tell ya tomorrow"
 
             show cory smile:
+                unpose
                 full 
                 leftish
             cory "Even with tempe goreng on the line?"
 
             show lele default:
+                unpose
                 full
                 centerright 
                 surprise
             lele "tempting."
 
             show lele tidur:
+                unpose
                 full
                 centerright
             lele "but nah."
 
             show cory smile_hu:
+                unpose
                 full 
                 leftish
             cory "Even with tempe goreng on the line?"
 
             show lele default:
+                unpose
                 full
                 centerright 
                 surprise
             lele "Appetizing.."
 
             show cory smile_hu:
+                unpose
                 full 
                 leftish
                 surprise
@@ -300,39 +347,46 @@ label lele_as_cory:
             cory "and spice"
 
             show lele tidur:
+                unpose
                 full
                 centerright
             lele "that's what i'm talking about!"
 
             show cory proud_hu:
+                unpose
                 full 
                 leftish
             cory "smart choice"
 
             show lele default:
+                unpose
                 full
                 centerright 
                 surprise
             lele "but i want 10 of each of them"
 
             show cory unimpressed:
+                unpose
                 full 
                 leftish
                 sink
             cory "oh well what can i do,, we have a deal"
 
             show lele default:
+                unpose
                 full
                 centerright 
                 surprise
             lele "awesome"
 
             show lele tidur:
+                unpose
                 full
                 centerright
             lele "The fish headed north"
 
             show cory unimpressed2:
+                unpose
                 full 
                 leftish
             cory "Mane, all that trouble for a single worded answer?"
@@ -345,31 +399,37 @@ label lele_as_cory:
             $ remove_item("ambalabu")
             $ focus()
             show cory smile_hu:
+                unpose
                 full 
                 leftish
             show lele default:
+                unpose
                 full
                 centerright
                 surprise
             lele "gokil"
 
             show cory disrespect:
+                unpose
                 full 
                 leftish
             cory "super gokil"
 
             show lele tidur:
+                unpose
                 full
                 centerright
             lele "super mega gokil"
 
             show cory smile_hu:
+                unpose
                 full 
                 leftish
                 surprise
             cory "super mega gokil pro max"
 
             show lele depan:
+                unpose
                 full
                 centerright
             lele "The sacred golden fish wields power enough to dry out all the water on this planet."
@@ -380,12 +440,14 @@ label lele_as_cory:
             lele "Repeating Fate only awaits by the hand of our God"
 
             show cory surprise:
+                unpose
                 full 
                 leftish
                 surprise
             cory "... i uhh.. I'm not.. sure whatta say to that."
 
             show cory smile:
+                unpose
                 full 
                 leftish
             cory "but thanks pal..."

@@ -40,6 +40,7 @@ transform toright:
 transform full:
     ypos 1.0
     zoom 1/scale
+    xzoom 1
     offset (0,0)
     rotate 0
 
@@ -101,7 +102,7 @@ transform rightish:
 
 transform right: # ^
     anchor (0.5,1.0)
-    xpos 0.9
+    xpos 0.84
 
 transform farright:
     anchor (0.5,1.0)
@@ -118,19 +119,19 @@ transform duo_left:
 
 transform duo_right:
     anchor (0.5, 1.0)
-    xpos 0.74
+    xpos 0.84
 
 transform duo_left_mantis:
     anchor (0.5, 1.0)
     xpos 0.28
     ypos 1.0
-    zoom (0.80 / scale)
+    zoom (1.0 / scale)
 
 transform duo_right_mantis:
     anchor (0.5, 1.0)
     xpos 0.72
     ypos 1.0
-    zoom (0.80 / scale)
+    zoom (1.0 / scale)
 
 transform trio_left:
     anchor (0.5, 1.0)
@@ -144,17 +145,17 @@ transform trio_center_mantis:
     anchor (0.5, 1.0)
     xpos 0.58
     ypos 1.0
-    zoom (0.80 / scale)
+    zoom (1.0 / scale)
 
 transform trio_right_mantis:
     anchor (0.5, 1.0)
     xpos 0.74
     ypos 1.0
-    zoom (0.78 / scale)
+    zoom (1.0 / scale)
 
 transform trio_right:
     anchor (0.5, 1.0)
-    xpos 0.90
+    xpos 0.84
 
 ################################################################################
 ## Movement between positions
@@ -205,6 +206,7 @@ transform bowright(depth=1):
 
 transform unpose: ## Return to default
     transform_anchor True
+    xzoom 1
     offset (0,0)
     rotate 0
 

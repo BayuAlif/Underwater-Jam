@@ -96,6 +96,7 @@ init -1 python:
         return max(min_size, min(base_size, scaled_size))
 
 screen say(who, what):
+    layer "dialogue"
 
     window:
         id "window"
@@ -347,89 +348,46 @@ screen main_menu():
 
     tag menu
 
-    ## Clean background (siap diisi ilustrasi/BG final nanti)
-    add Solid("#122333")
+    ## Underwater artwork background scaled to fill screen
+    add Transform("images/backgrounds/main_menu.png", size=(config.screen_width, config.screen_height))
 
-    ## Left Side: Title & Menu Navigation (sesuai sketsa konsep)
+    ## Navigation Buttons (positioned neatly in the lower-left area below the illustrated title)
     vbox:
         xpos 140
-        ypos 100
-        spacing 28
+        ypos 480
+        spacing 10
 
-        ## Title Block ("One with the Sea" + Fish doodle)
-        vbox:
-            spacing 2
-            at mm_title_wave
+        textbutton _("Start"):
+            action Start()
+            style "sea_nav_button"
+            hover_sound "audio/pixel_ui_1.mp3"
+            activate_sound "audio/pixel_ui_2.mp3"
 
-            text "One":
-                font "fonts/ItalianTempesta-Italic.ttf"
-                size 86
-                color "#e0f7fa"
-                outlines [ (3, "#0077b6", 0, 0), (6, "#03045e", 0, 0), (1, "#90e0ef", 0, 0) ]
+        textbutton _("Load"):
+            action ShowMenu("load")
+            style "sea_nav_button"
+            hover_sound "audio/pixel_ui_1.mp3"
+            activate_sound "audio/pixel_ui_2.mp3"
 
-            hbox:
-                spacing 16
-                yalign 0.5
+        textbutton _("Credits"):
+            action ShowMenu("credits")
+            style "sea_nav_button"
+            hover_sound "audio/pixel_ui_1.mp3"
+            activate_sound "audio/pixel_ui_2.mp3"
 
-                text "with the":
-                    font "fonts/ItalianTempesta-Italic.ttf"
-                    size 52
-                    color "#90e0ef"
-                    outlines [ (2, "#0077b6", 0, 0), (4, "#03045e", 0, 0) ]
-                    yoffset 12
-
-                text "Sea":
-                    font "fonts/ItalianTempesta-Italic.ttf"
-                    size 108
-                    color "#ffffff"
-                    outlines [ (4, "#0096c7", 0, 0), (7, "#023e8a", 0, 0), (1, "#caf0f8", 0, 0) ]
-
-                # Doodle Ikan kecil seperti di sketsa
-                text "><(((('>":
-                    size 34
-                    bold True
-                    color "#48cae4"
-                    outlines [ (2, "#0077b6", 0, 0) ]
-                    yoffset -18
-                    at mm_fish_swim
-
-        ## Navigation Buttons (Posisi di bawah judul sesuai sketsa)
-        vbox:
-            spacing 10
-
-            vbox:
-                spacing -6
-                textbutton _("Start"):
-                    action Start()
-                    style "sea_nav_button"
-                    hover_sound "audio/pixel_ui_1.mp3"
-                    activate_sound "audio/pixel_ui_2.mp3"
-                # Garis bergelombang di bawah Start seperti sketsa
-                text "  ~~~~~~~~~~":
-                    size 30
-                    bold True
-                    color "#48cae4"
-                    outlines [ (2, "#0077b6", 0, 0) ]
-
-            textbutton _("Load"):
-                action ShowMenu("load")
+        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+            textbutton _("Help"):
+                action ShowMenu("help")
                 style "sea_nav_button"
                 hover_sound "audio/pixel_ui_1.mp3"
                 activate_sound "audio/pixel_ui_2.mp3"
 
-            if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-                textbutton _("Help"):
-                    action ShowMenu("help")
-                    style "sea_nav_button"
-                    hover_sound "audio/pixel_ui_1.mp3"
-                    activate_sound "audio/pixel_ui_2.mp3"
-
-            if renpy.variant("pc"):
-                textbutton _("Quit"):
-                    action Quit(confirm=False)
-                    style "sea_nav_button"
-                    hover_sound "audio/pixel_ui_1.mp3"
-                    activate_sound "audio/pixel_ui_2.mp3"
+        if renpy.variant("pc"):
+            textbutton _("Quit"):
+                action Quit(confirm=False)
+                style "sea_nav_button"
+                hover_sound "audio/pixel_ui_1.mp3"
+                activate_sound "audio/pixel_ui_2.mp3"
 
     ## Version text di pojok kanan bawah
     text "[config.name] v[config.version]":
@@ -443,7 +401,7 @@ screen main_menu():
 ## Custom Styles for Sea Main Menu Buttons
 style sea_nav_button is button:
     xoffset 0
-    hover_xoffset 20
+    hover_xoffset 16
     ypadding 2
     xpadding 4
     background None
@@ -451,12 +409,160 @@ style sea_nav_button is button:
 
 style sea_nav_button_text is gui_text:
     font "fonts/ItalianTempesta-Italic.ttf"
-    size 68
-    idle_color "#d4f1f9"
-    hover_color "#48cae4"
+    size 58
+    idle_color "#e2f7f4"
+    hover_color "#64dfdf"
     selected_color "#ffffff"
-    outlines [ (2, "#005f73", 0, 0), (5, "#001219", 0, 0) ]
-    hover_outlines [ (2, "#00b4d8", 0, 0), (6, "#0077b6", 0, 0), (1, "#caf0f8", 0, 0) ]
+    outlines [ (2, "#09323a", 0, 0), (5, "#02161b", 0, 0) ]
+    hover_outlines [ (2, "#0077b6", 0, 0), (5, "#023e8a", 0, 0), (1, "#caf0f8", 0, 0) ]
+
+
+## Credits Screen ##############################################################
+##
+## Visually matches the main menu underwater aesthetic with full team credits
+##
+
+screen credits():
+
+    tag menu
+
+    add Transform("images/backgrounds/main_menu.png", size=(config.screen_width, config.screen_height))
+    add Solid("#020b1088")
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xsize 1160
+        ysize 880
+        background Frame(Solid("#061720dd"), 10, 10)
+        padding (50, 40)
+
+        vbox:
+            xalign 0.5
+            yalign 0.5
+            spacing 18
+
+            vbox:
+                xalign 0.5
+                spacing 4
+                text _("Credits"):
+                    font "fonts/ItalianTempesta-Italic.ttf"
+                    size 64
+                    color "#caf0f8"
+                    outlines [ (3, "#0077b6", 0, 0), (6, "#03045e", 0, 0), (1, "#90e0ef", 0, 0) ]
+                    xalign 0.5
+
+                text "~~~~~~~~~~~~~~~~~~~~":
+                    size 22
+                    bold True
+                    color "#48cae4"
+                    outlines [ (2, "#0077b6", 0, 0) ]
+                    xalign 0.5
+
+            vbox:
+                xalign 0.5
+                spacing 14
+
+                vbox:
+                    xalign 0.5
+                    spacing 1
+                    text _("Game Director"):
+                        font "fonts/ItalianTempesta-Italic.ttf"
+                        size 30
+                        color "#7ae5cf"
+                        outlines [ (2, "#052229", 0, 0) ]
+                        xalign 0.5
+                    text "Fartmastarr87":
+                        size 24
+                        color "#ffffff"
+                        outlines [ (2, "#03151b", 0, 0) ]
+                        xalign 0.5
+
+                vbox:
+                    xalign 0.5
+                    spacing 1
+                    text _("Programmer"):
+                        font "fonts/ItalianTempesta-Italic.ttf"
+                        size 30
+                        color "#7ae5cf"
+                        outlines [ (2, "#052229", 0, 0) ]
+                        xalign 0.5
+                    text "Dexterous, ISeria (Evil), LonelyHina, syanshine":
+                        size 24
+                        color "#ffffff"
+                        outlines [ (2, "#03151b", 0, 0) ]
+                        xalign 0.5
+
+                vbox:
+                    xalign 0.5
+                    spacing 1
+                    text _("Artist"):
+                        font "fonts/ItalianTempesta-Italic.ttf"
+                        size 30
+                        color "#7ae5cf"
+                        outlines [ (2, "#052229", 0, 0) ]
+                        xalign 0.5
+                    text "pantotato, haxziun, Aurabentol, Vanta, Nanachii, Payjax":
+                        size 24
+                        color "#ffffff"
+                        outlines [ (2, "#03151b", 0, 0) ]
+                        xalign 0.5
+
+                vbox:
+                    xalign 0.5
+                    spacing 1
+                    text _("Audio"):
+                        font "fonts/ItalianTempesta-Italic.ttf"
+                        size 30
+                        color "#7ae5cf"
+                        outlines [ (2, "#052229", 0, 0) ]
+                        xalign 0.5
+                    text "Necrawldia, 1chi":
+                        size 24
+                        color "#ffffff"
+                        outlines [ (2, "#03151b", 0, 0) ]
+                        xalign 0.5
+
+                vbox:
+                    xalign 0.5
+                    spacing 1
+                    text _("Writer"):
+                        font "fonts/ItalianTempesta-Italic.ttf"
+                        size 30
+                        color "#7ae5cf"
+                        outlines [ (2, "#052229", 0, 0) ]
+                        xalign 0.5
+                    text "Aurabentol, Payjax":
+                        size 24
+                        color "#ffffff"
+                        outlines [ (2, "#03151b", 0, 0) ]
+                        xalign 0.5
+
+                vbox:
+                    xalign 0.5
+                    spacing 1
+                    text _("Beta Reader"):
+                        font "fonts/ItalianTempesta-Italic.ttf"
+                        size 30
+                        color "#7ae5cf"
+                        outlines [ (2, "#052229", 0, 0) ]
+                        xalign 0.5
+                    text "Lulu":
+                        size 24
+                        color "#ffffff"
+                        outlines [ (2, "#03151b", 0, 0) ]
+                        xalign 0.5
+
+            null height 6
+
+            textbutton _("Back"):
+                action Return()
+                style "sea_nav_button"
+                hover_sound "audio/pixel_ui_1.mp3"
+                activate_sound "audio/pixel_ui_2.mp3"
+                xalign 0.5
+
+    key "game_menu" action Return()
 
 
 

@@ -7,11 +7,13 @@ label arowana_interaction:
     "A silver arowana kicks big rocks with a loud grumble. I wonder what it's mad about.."
 
     show mc happy:
+        unpose
         full
         trio_right
     mc "Good morning si-"
 
     show arowana mad:
+        unpose
         full
         trio_center
         vibrate
@@ -21,10 +23,12 @@ label arowana_interaction:
     "Mr Cory takes a step forward, shielding me behind his taller frame"
 
     show arowana mad:
+        unpose
         full
         trio_center
         vibrate
     show cory talk_hu:
+        unpose
         full
         trio_left
     with moveinleft
@@ -32,11 +36,13 @@ label arowana_interaction:
     cory "Those rocks can hurt a ton"
 
     show arowana squint:
+        unpose
         full
         trio_center
     arowana "Oh. A fish."
 
     show arowana default:
+        unpose
         full
         trio_center
         bowleft(0.6)
@@ -48,6 +54,7 @@ label arowana_interaction:
         unpose
 
     show cory surprise:
+        unpose
         full
         trio_left
         surprise
@@ -56,6 +63,7 @@ label arowana_interaction:
     cory "From Amazon?"
 
     show arowana smile:
+        unpose
         full
         trio_center
         surprise
@@ -63,6 +71,7 @@ label arowana_interaction:
     arowana "Eel yeah I am! From which side are you on brother?"
 
     show cory smile:
+        unpose
         full
         trio_left
     cory "Nay, I ain’t exactly from there, it’s maranhao for me"
@@ -70,11 +79,13 @@ label arowana_interaction:
     arowana "Ouuu shii that’s where vovo at!"
 
     show arowana default:
+        unpose
         full
         trio_center
     arowana "I mean! How fortunate. My grandma.. also lives in that. State."
 
     show cory smile_hu:
+        unpose
         full
         trio_left
         surprise
@@ -104,15 +115,18 @@ label arowana_as_mc:
     $ focus()
     hide cory
     show mc o:
+        unpose
         full
         trio_right
         surprise
     show cory side:
+        unpose
         full
         trio_left
     with dissolve
     "I peek behind of Mr. Cory"
     show arowana default:
+        unpose
         full
         trio_center
     with moveinright
@@ -122,17 +136,20 @@ label arowana_as_mc:
     arowana "I have a crucial meeting in less than an hour…"
 
     show arowana squint:
+        unpose
         full
         trio_center
     arowana "My boss EXPECTS me to be there. My colleagues EXPECTS me to be there. My entire career EXPECTS me to be there."
     arowana "The office’s slug expects me to be there…"
 
     show mc o:
+        unpose
         full
         trio_right
     mc "But you’re still here…"
 
     show arowana mad:
+        unpose
         full
         trio_center
         vibrate
@@ -141,22 +158,26 @@ label arowana_as_mc:
     arowana "Because of that stupid- egregious mantis shrimp!"
 
     show arowana default:
+        unpose
         full
         trio_center
     arowana "My apologies that was unprofessional of me."
 
     show mc happy:
+        unpose
         full
         trio_right
         surprise
     mc "It’s okay :D"
 
     show cory talk_hu:
+        unpose
         full
         trio_left
     cory "So he's been blocking all day now?"
 
     show arowana squint:
+        unpose
         full
         trio_center
     arowana "Precisely. That's what the crowd's about."
@@ -168,26 +189,31 @@ label arowana_as_mc:
             $ focus()
             hide cory with dissolve
             show mc o:
+                unpose
                 full
                 duo_right
             show arowana default:
+                unpose
                 full
-                duo_left
+                center
             with move
             arowana "Unfortunately I do not."
 
             show mc o:
+                unpose
                 full
                 duo_right
             mc "Not a thing?"
 
             show arowana squint:
+                unpose
                 full
-                duo_left
+                center
                 sink
             arowana "I’m sorry but I don’t think I want to entertain a child right now.."
 
             show mc pout:
+                unpose
                 full
                 duo_right
             mc "Awww…"
@@ -198,11 +224,13 @@ label arowana_as_mc:
             $ focus()
             hide cory with dissolve
             show mc o:
+                unpose
                 full
                 duo_right
             show arowana default:
+                unpose
                 full
-                duo_left
+                center
             with move
             mc "Mr Wana, if work is so important"
             mc "Why don't you just leap up through the cave?"
@@ -210,56 +238,66 @@ label arowana_as_mc:
             arowana "..."
 
             show mc excited:
+                unpose
                 full
                 duo_right
                 jumpmc
             mc "Just like how a flying fish would!"
 
             show arowana squint:
+                unpose
                 full
-                duo_left
+                center
             arowana "..."
 
             show arowana mad:
+                unpose
                 full
-                duo_left
+                center
                 vibrate
             arowana "HAH! Yes! How wonderful I should've just tried that!."
 
             show mc happy:
+                unpose
                 full
                 duo_right
                 surprise
             mc "Right?! So you can just go!"
 
             show arowana default:
+                unpose
                 full
-                duo_left
+                center
             arowana "..."
 
             show arowana squint:
+                unpose
                 full
-                duo_left
+                center
             arowana "... Young fish."
 
             show mc default:
+                unpose
                 full
                 duo_right
                 surprise
             mc "Yes? Do you need a push? Me and Mr Cory can help!"
 
             show arowana default:
+                unpose
                 full
-                duo_left
+                center
             arowana "I have a meeting. I have a boss. I have a career."
 
             show arowana squint:
+                unpose
                 full
-                duo_left
+                center
                 sink
             arowana "And now I have a headache."
 
             show mc shock:
+                unpose
                 full
                 duo_right
             mc "Huh? But why…"
@@ -269,14 +307,17 @@ label arowana_as_mc:
             "Mr. Cory quietly steps in beside me, bending down to murmur something."
 
             show arowana squint:
+                unpose
                 full
                 trio_center
             with move
             show mc pout:
+                unpose
                 full
                 trio_right
                 surprise
             show cory side:
+                unpose
                 full
                 trio_left
             with moveinleft
@@ -286,21 +327,25 @@ label arowana_as_mc:
             mc "But I wanna help!!"
 
             show cory side_close:
+                unpose
                 full
                 trio_left
             "Mr Cory sighed and proceeds to escort me away"
 
             show arowana smile:
+                unpose
                 full
                 trio_center
             arowana "I admire your patience in tending to the young one, Corydoras."
 
             show cory fond:
+                unpose
                 full
                 trio_left
             cory "Heh, I'm starting to get the hang of it"
 
             show mc pout:
+                unpose
                 full
                 trio_right
             mc "hnnrhhgh!!"
@@ -313,18 +358,21 @@ label arowana_as_cory:
     $ focus()
     hide mc
     show cory smile_hu:
+        unpose
         full
         duo_left
     cory "Ay mano, care to tell us what's up?"
     cory "We needa cross the border too."
 
     show arowana smile:
+        unpose
         full
         duo_right
     arowana "Ay cara, of course I'll tell you everything "
     arowana "I need him sober asap."
 
     show arowana squint:
+        unpose
         full
         duo_right
     arowana "Can't risk getting fired now"
@@ -335,20 +383,24 @@ label arowana_as_cory:
         "Got an idea why shrimp’s gatekeepin?":
             $ focus()
             show cory talk_hu:
+                unpose
                 full
                 duo_left
             show arowana default:
+                unpose
                 full
                 duo_right
             arowana "Not a clue, unfortunately"
             arowana "All i know is, you have to win in some kind of duel against him."
 
             show arowana squint:
+                unpose
                 full
                 duo_right
             arowana "And another thing that I know is that I’m not a fighter."
 
             show cory smile:
+                unpose
                 full
                 duo_left
             cory "Heh, you look tough though, why not give it a try?"
@@ -357,16 +409,19 @@ label arowana_as_cory:
             arowana "When it’s going to be absolutely clapped by the end of the day"
 
             show arowana default:
+                unpose
                 full
                 duo_right
             arowana "As in, from the amount of work my boss gave me."
 
             show cory disrespect:
+                unpose
                 full
                 duo_left
             cory "Pfft, ya boss sure love yer hardworking ass huh"
 
             show arowana squint:
+                unpose
                 full
                 duo_right
             arowana "I’m going to pretend I didn’t hear that."
@@ -378,9 +433,11 @@ label arowana_as_cory:
         "You know what's up with his bizarre act?":
             $ focus()
             show cory talk:
+                unpose
                 full
                 duo_left
             show arowana default:
+                unpose
                 full
                 duo_right
             arowana "No, He’s usually not this strict. I pass him on the daily."
@@ -389,32 +446,38 @@ label arowana_as_cory:
             arowana "\"I mustn’t repeat what i did\" is what i caught most clear.."
 
             show cory talk_hu:
+                unpose
                 full
                 duo_left
             cory "Huh.. something must’ve happened to him then"
 
             show arowana mad:
+                unpose
                 full
                 duo_right
                 vibrate
             arowana "How unprofessional of him! He shouldn’t be letting personal matters fiddle his work!"
 
             show arowana squint:
+                unpose
                 full
                 duo_right
             arowana "Ugh, this path is the only way I commute to work in the sea.. What should i do now"
 
             show cory surprise:
+                unpose
                 full
                 duo_left
             cory "Wait, you work at the sea? How are ya doing that?!"
 
             show arowana default:
+                unpose
                 full
                 duo_right
             arowana "Doing what exactly?"
 
             show cory talk_hu:
+                unpose
                 full
                 duo_left
             cory "Ya know! We're the freshwater kind.. how do ya brave the sea?"
@@ -423,16 +486,19 @@ label arowana_as_cory:
             "The inside is filled with an absurd amount of expensive-looking equipments."
 
             show cory smile:
+                unpose
                 full
                 duo_left
             cory "*whistle* sweet stuffs ya got!"
 
             show arowana default:
+                unpose
                 full
                 duo_right
             arowana "This device allows me to survive in saltwater."
 
             show arowana squint:
+                unpose
                 full
                 duo_right
             arowana "It cost me more money than I’m comfortable admitting."
@@ -443,55 +509,66 @@ label arowana_as_cory:
             arowana "But let’s say it cost me my nine lives."
 
             show cory side:
+                unpose
                 full
                 trio_left
             show arowana default:
+                unpose
                 full
                 trio_center
             with move
             show mc o:
+                unpose
                 full
                 trio_right
             with moveinright
             mc "But you’re not a cat, you’re a fish!"
 
             show arowana default:
+                unpose
                 full
                 trio_center
             arowana "Precisely. This device was handed down eight generations before me."
 
             show mc pout:
+                unpose
                 full
                 trio_right
             mc "Aww.. If only we could buy it from you…"
 
             show cory upset:
+                unpose
                 full
                 trio_left
             cory "Buy?! With whose clams are we talking buy?!"
 
             show mc happy:
+                unpose
                 full
                 trio_right
             mc "Hehe"
 
             show cory unimpressed:
+                unpose
                 full
                 trio_left
             cory "ay guppy clam’s tight on me too.."
 
             show arowana default:
+                unpose
                 full
                 trio_center
             arowana "Tell you what."
             arowana "If you're really planning to confront that shrimp…"
             show arowana smile:
+                unpose
                 full
                 trio_center
             arowana "You might as well take it."
             arowana "Here, have a spare."
 
             show cory surprise:
+                unpose
                 full
                 trio_left
             cory "For reals yo?!"
@@ -500,11 +577,13 @@ label arowana_as_cory:
             arowana "Take it or leave"
 
             show cory smile_hu:
+                unpose
                 full
                 trio_left
             cory "I'll gladly take it! Appreciate it mano!"
 
             show arowana smile:
+                unpose
                 full
                 trio_center
             arowana "You put some sense into the guy for me in exchange alright?"
