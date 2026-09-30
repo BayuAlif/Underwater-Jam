@@ -1,21 +1,33 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/story/chapter5.rpy", line 1294, in script
-Exception: Could not find return label ('game/story/chapter3.rpy', 804041729, 3375).
+AttributeError: 'Interface' object has no attribute 'surftree'
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/story/chapter5.rpy", line 1294, in script
-  File "renpy/ast.py", line 1710, in execute
-    next_node(renpy.game.context().lookup_return(pop=True))
-              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^ 
-  File "renpy/execution.py", line 812, in lookup_return
-    raise Exception("Could not find return label {!r}.".format(self.return_stack[-1]))
-Exception: Could not find return label ('game/story/chapter3.rpy', 804041729, 3375).
+  File "renpy/common/00keymap.rpy", line 504, in script
+    python hide:
+  File "renpy/ast.py", line 1193, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1276, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/00keymap.rpy", line 504, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 519, in _execute_python_hide
+    renpy.take_screenshot((config.thumbnail_width, config.thumbnail_height))
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/displayexports.py", line 617, in take_screenshot
+    renpy.game.interface.take_screenshot(scale, background=background, keep_existing=keep_existing)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/core.py", line 1341, in take_screenshot
+    surf = renpy.display.draw.screenshot(self.surftree)
+                                         ^^^^^^^^^^^^^ 
+AttributeError: 'Interface' object has no attribute 'surftree'
 
 Windows-11-10.0.26200-SP0 AMD64
 Ren'Py 8.5.3.26051504
 One with the Sea 1.0
-Sun Sep 27 04:34:09 2026
+Thu Oct  1 00:02:17 2026

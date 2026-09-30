@@ -5,8 +5,7 @@ label ch4_talk_leo:
 
     if not ch4_leo_talked:
         $ focus()
-        $ focus()
-        play sound "audio/bush_rustling.mp3"
+        play sound "audio/sfx/bush_rustling.mp3"
 
         #posisi kalau leo dan mc sendiri di screen 
         show mc default:

@@ -8,8 +8,13 @@ label chapter4_start:
     scene ch4_day
     with fade
     
+    play music "audio/bgm/chap_2_day.ogg" volume 0.4
     $ focus()
-    $ focus()
+    show mc default:
+        full
+        unpose
+        right
+    with moveinright
     show cory smile:
         full
         unpose
@@ -26,7 +31,7 @@ label chapter4_start:
         walkloop(1, 1, 1)
     with moveinleft
     cory "The water sure feels easier to breathe now that she's gone huh?"
-    hide shrimp default
+    hide shrimp
 
     show shrimp sepet:
         unpose
@@ -224,20 +229,28 @@ label ch4_dinner_incident:
     show mc happy at mc_left, surprise
     mc "Mr whaaale, we're done! :D"
 
+    show rin surprise
     rin "Oh praise the mother of sea.. Aren't you as swift as an arrow?"
+    show rin smile #dengan animasi bowleft
     rin "We are truly grateful for your assistance!"
 
+    show mc default 
     mc "Yaaa no problem!"
 
     show mc excited at mc_left
     mc "Soo when will the festival start? Is the food ready :o"
 
+    show rin smile
+    show mc pout
     rin "Fufu"
     "Mr whale slips out a tiny chuckle at my impatience. Is starvation something that amuses him? >:T"
 
+    show rin talk
     rin "Rest assured my child, we have prepared a forethoughtful spread for all of you, come."
 
+    show mc happy
     "I nodded gleefully, drooling at the mouth while skipping behind mr whale's enormous tail"
+    show mc o
     "We then arrive at a super big table, it looks like it could serve two whale sharks!"
     "Yet as my gaze fell down to the contents, I scrunched up in disappointment."
     show mc pout at mc_left
@@ -248,25 +261,29 @@ label ch4_dinner_incident:
     show scy proud at npc_right
     scy "Hah! Talk about a banquet!"
 
+    show rin talk
     rin "Yes of course, we prepare this with every species' likings in mind"
 
     show mc o at mc_left
     mc "Are there.. any.. fried fishes?"
 
     show cory surprise at cory_left, jumpmc(windup=0.1, power=0.45, airtime=0.45)
+    show scy surprise
     pause 0.45
     show cory surprise at cory_left
     cory "...???"
-    show cory surprise at cory_left
 
+    show leo smile
     leo "Oh dear the cat's out of the bag~"
 
+    show cory surprise #dengan posisi pindah ke left, bukan leftish menandakan dia mundur, dan dengan animasi vibrate
     cory "Guppy… you wouldn't eat me would ya?! I'm made of bones and pigments!"
 
     show mc shock at mc_left
     mc "mn nonono! I mean! Like.. tuna or.. Salmon or.. fried catfish maybe?"
     mc "Don't fishes eat other fishes too..? Mr whale shark your diet is small fishes right? Mackerel.. and.."
 
+    show leo niko
     leo "Mhm that's right, whale sharks eat baby fishes too.. As well shrimps"
 
     show scy surprise at npc_right, jumpmc(windup=0.1, power=0.7, airtime=0.5)
@@ -277,12 +294,16 @@ label ch4_dinner_incident:
     show mc pout at mc_left
     mc "and mr.. mr scyllarus too you.. you eat crabs.. Supposedly!"
 
+    show scy surprise #dengan animasi vibrate
     scy "A-are you suggesting I would eat my own comrades..?!"
 
+    show mc serious_hu
     mc "But it's how nature is…!"
     
     show rin surprise
     rin "…"
+    show mc shock
+    show leo smile
     "My confused stare bore back into my own at tenfolds. Meanwhile Leo just sits there in the corner unbothered."
     "Her unreadable smile felt like a wash of relief and support amongst the overwhelmingly rigid tension."
 
@@ -305,25 +326,31 @@ label ch4_dinner_incident:
 
     ".............................."
 
+    show leo niko
     leo "You know guppy, I can indulge you in some.. fishes that suits your taste"
 
     show cory upset at cory_left
     cory "In front of my bloodworms?!"
 
+    show leo ehe
     leo "Oh I might be talking about you, Corydoras.."
 
     show mc shock at mc_left
     mc "I wouldn't-! No, I wouldn't eat my friends!"
 
+    show leo feral
     leo "Would you now?"
+    show leo niko
     leo "Let's ask the consensus~!"
     leo "Starting from you, Doras~! Are you just now imagining our beloved protagonist's tiny sharp teeth chewing away on you?"
 
     show cory side at cory_left
     cory "Nah of course not! You're just trying to rile things up! I ain't falling for that"
 
+    show leo smile
     leo "Hmm~ But your fins.. I saw them tremble just now.."
 
+    show cory upset
     cory "They're just a kid! If they want anything from me I could still defend myself from-"
 
     show scy proud at npc_right
@@ -338,6 +365,7 @@ label ch4_dinner_incident:
     hide mc
     "Stands up and runs away."
 
+    show leo default
     leo "Hmm, folded too fast."
 
     $ focus()
@@ -354,24 +382,33 @@ label ch4_night_explore:
 
     $ focus()
     $ focus()
+    show mc holdcry #dengan animasi #vibrate
     "I managed to find myself a quiet space to pond over everything."
     "The swaying of anemones and glowing corals calms me down a little."
+    show mc holdcry #dengan animasi sink
     "I sat somewhere far from where my friends are to calm myself down"
+    show mc o 
+
+    show orin default
     "Until suddenly a fish sat down beside me. It's a catshark"
 
     show mc holdcry at mc_left
     mc "*sniffles* w-wauh?"
 
+    show orin happy
     ori "meow"
 
     show mc o at mc_left
     mc "m.. meow?"
     mc "hello.. Miss..ter cat shark..?"
 
+    show orin think
     ori "mhm."
-
+    show orin default at centerright
+    with move
     "The chained cat shark despite its scary jailbreak appearance offers me a square shaped jelly that looks like a failed assasination attempt of a character?"
 
+    show orin default
     ori "sepombop"
 
     mc "spongebob..?"
@@ -380,49 +417,66 @@ label ch4_night_explore:
 
     show mc happy at mc_left
     mc "is it for me…? Thank you…"
-
+    
+    show orin smile at center
+    with move
     ori "welcome."
 
     "I carefully took the wiggly jelly into my mouth. It tasted a little like strawberry and weird algae chemical"
-
+    show orin 
     ori "... I've been there.."
 
     show mc o at mc_left
     mc "mm? Been.. where exactly?"
-
+    
+    show orin think
     ori "been under."
 
+    show mc shock
     mc "under where? :o"
 
+    show orin smile
     ori "I made you said underwear."
 
+    show mc yay at vibrate
     mc "...??? Pfft- ahahahah! What was that!!"
-
+    
+    show orin happy
     ori "heh."
+    show orin think
     ori "Why are you alone? Saw you with friends. Big shrimp. and freshwater and smiley Seal."
 
-    show mc pout at mc_left
+    show mc sad at mc_left
     mc "I.. mn.. I said.. something that might've offended them.."
 
+    show orin default
     ori "...?"
 
     show mc o at mc_left
     mc "have you.. eaten fishes in your life?"
 
+    show orin default
     ori "mm. have…"
 
+    show mc sad_hu
     mc "Do you think it's wrong for predator fishes to eat other fishes?"
 
+    show orin think
     ori "..."
-
+    
+    show mc serious
     mc "well.. I don't think it's wrong.. because that is the way nature intended us to be.. the weak gets hunted."
-    mc "but it also doesn't mean.. we eat our friends because their species is in our diet.. like! If you had a pet chicken, you wouldn't eat it right? Even if.. chickens are considered food to a lot of predators.. even if we eat chickens often."
-
+    mc "but it also doesn't mean.. we eat our friends because their species is in our diet.." 
+    show mc serious_hu
+    mc "like! If you had a pet chicken, you wouldn't eat it right? Even if.. chickens are considered food to a lot of predators.. even if we eat chickens often."
+    
+    show orin default
     ori "mm.. chickens..? Some kind.. new fish?"
 
     show mc happy at mc_left
     mc "ah nono they're a living creature that's.. like a bird!"
 
+    show orin think
     ori "bird..?"
 
     show mc o at mc_left
@@ -433,18 +487,22 @@ label ch4_night_explore:
     mc "...?"
 
     ori "but if a pet sees you eat the same kind as what they are.."
+
+    show orin default
     ori "It would be scared of you too. Distrust."
     ori "will think. What if I'm next?"
 
     show mc pout at mc_left
     mc "mnnn… but I would never do thaaat! D:"
 
+    show orin think
     ori "mm even so. Will still think that. In the back of mind."
     ori "If I tell. I eat human daily. Would you.. think of me eating you in the back of mind?"
 
     show mc o at mc_left
     mc "....mn would but.. wouldn't make me scared of you"
 
+    show orin default
     ori "bizarre.."
 
     $ focus()
@@ -453,66 +511,91 @@ label ch4_night_explore:
         "Is eating fishes the reason you're all chained up?":
 
             $ focus()
+            show orin default
             ori "it's-"
+            show leo smile at medium 
             leo "why helloooo there friends~!"
             show mc shock at mc_left
             mc "waugh?! Leo!"
+            show leo niko
             leo "mhm yes yes it is i~"
+            show leo default
             leo "I've just been wooondering where you've been.."
             "A tiny boop to my nose"
+            show leo sad
             leo "After the whole debacle there.. I'm worried my friend here might fall into a deeeeep hole of overthinking and sadness.."
+            show leo default
             leo "so I came to check up~!"
             show mc default at mc_left
             mc "mmn.. am fine, leo."
             mc "I made a friend!"
+            show leo smile
             leo "Oho? Another friend? How exciting~!"
 
         "can I pet you misster cat shark":
             $ focus()
+            show orin think
             ori "you may"
             show mc happy at mc_left
             mc "really?? You're okay with it? No hard feelings?"
+            show leo smile
             ori "mean it."
             "as the cat shark lowers its head for me,"
             mc "hehehe you can purrrrrr~!! Good.. boy good girl good thing!"
+            show orin happy
             ori "meow"
+            show leo smile at medium
             leo "How fun~! May I join in on the pet fest?"
             show mc shock at mc_left
             mc "waouh-! Leo!"
+            show leo niko 
+            with ease 0.1
             leo "mhm, yes it is i~"
             leo "I see you made a little friend"
+            show leo sad
             leo "Are you feeling okay? No more hungry for fish?"
             show mc pout at mc_left
             mc "Mno.. I should be more.. Considerate"
+            show leo default
             leo "I don't think it's your fault, we all have our appetites"
+            show leo smile
             leo "I eat fishes, penguins on a daily basis too, you know~!"
+            show leo niko
             leo "don't let anyone stop you from eating what you want, little guppy."
+            show orin think 
             ori "bad advice…"
             
-
+    
     "Leo closely inspects the cat shark, twirling a 360 around it with an inquisitive hum"
-
+    show leo default #maju mendekati si orin
     leo "Hmm, those chains I've seen it before.."
     leo "Ah I remember now~! You're that one fugitive that went on a cannibalistic rampage~!"
+    show leo smile
     leo "Guess we all have something in common huh?"
 
     show mc shock at mc_left
     mc "???"
-
+    
+    show orin think 
     ori "that's hyperbole.. and I've changed."
+    show leo ehe
     leo "You can't change what you've been born with kitty~!"
 
+    show orin default #with vibrate
     ori "I wasn't…! Condition made me do-"
 
+    show leo default
     leo "now now, you hear that? Festival's about to start"
 
     "In a sudden moment I was ushered by the seal"
 
+    show leo smile
     leo "bye kitty shark we'll see you laaater~!"
 
     show mc shock at mc_left
     mc "wauh! Where are you taking me??"
 
+    show leo niko
     leo "To your friends, you silly eely billy. They've been worried"
 
     $ focus()
@@ -604,12 +687,16 @@ label ch4_festival_night:
     scy "Yes! But he told us to have fun and enjoy the festival!"
     scy "Maybe then he'll help us after the festival!"
 
+    show leo niko at medium
     leo "then fun we shall have~!"
 
     show cory surprise at cory_left
     cory "GYAH-!! Don't just sneak up on us!"
 
+    show leo niko
+    with ease 0.2
     leo "Aw, have some whimsy would you?"
+    show leo default
     leo "Ah, also look forward to the end of this festival~!"
     leo "They say a sacred ritual will be held"
 
@@ -659,11 +746,12 @@ label ch4_climax:
 
     hide screen ch4_affection_hud
     hide mc
-    scene ch4_night
     with dissolve
     $ focus()
-    "At the ledge of the great abyss, multiple glowing effigies are cast into the dark void by the seafolks, tumbling downward into the deep sea."
 
+    show goldfall
+    "At the ledge of the great abyss, multiple glowing effigies are cast into the dark void by the seafolks, tumbling downward into the deep sea."
+    show goldfall with zoom 0.5
     "Then suddenly, amongst the multiple thrown effigies I noticed something glows a bright gold."
     "Not the kind of gold that Mr. Rin uses.."
     "Not the kind of gold that the effigy has"
@@ -673,11 +761,13 @@ label ch4_climax:
     play sound "audio/mysterious_golden_looking.wav"
 
     "But that rainbow radiant.. shimmering glow"
+    show scene black
     "In that moment, everything else were a blur."
+    
 
     show mc serious at mc_left
     with dissolve
-
+    show mcfall
     mc "I must get it.. I must get it, I must have it, no matter.. what!"
 
     "Papa always told me to catch anything that looks interesting"
