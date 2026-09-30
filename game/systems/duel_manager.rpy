@@ -798,8 +798,8 @@ screen mantis_rps_screen():
             xalign 0.5
             idle "jankenpon button rock"
             focus_mask True
-            hovered Play("sound", "audio/pixel_ui_1.mp3")
-            action [Play("sound", "audio/pixel_ui_2.mp3"), Return("rock")]
+            hovered Play("sound", "audio/sfx/pixel_ui_1.mp3")
+            action [Play("sound", "audio/sfx/pixel_ui_2.mp3"), Return("rock")]
         frame:
             xalign 0.5
             background Solid("#011627dd")
@@ -818,8 +818,8 @@ screen mantis_rps_screen():
             xalign 0.5
             idle "jankenpon button scissors"
             focus_mask True
-            hovered Play("sound", "audio/pixel_ui_1.mp3")
-            action [Play("sound", "audio/pixel_ui_2.mp3"), Return("scissors")]
+            hovered Play("sound", "audio/sfx/pixel_ui_1.mp3")
+            action [Play("sound", "audio/sfx/pixel_ui_2.mp3"), Return("scissors")]
         frame:
             xalign 0.5
             background Solid("#011627dd")
@@ -838,8 +838,8 @@ screen mantis_rps_screen():
             xalign 0.5
             idle "jankenpon button paper"
             focus_mask True
-            hovered Play("sound", "audio/pixel_ui_1.mp3")
-            action [Play("sound", "audio/pixel_ui_2.mp3"), Return("paper")]
+            hovered Play("sound", "audio/sfx/pixel_ui_1.mp3")
+            action [Play("sound", "audio/sfx/pixel_ui_2.mp3"), Return("paper")]
         frame:
             xalign 0.5
             background Solid("#011627dd")

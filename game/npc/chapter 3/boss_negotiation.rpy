@@ -211,7 +211,7 @@ label ch3_boss_negotiate_mc_opt3:
         centerleft
     emp "How thoughtful! Gimme it!"
 
-    play sound "audio/attack_1.mp3"
+    play sound "audio/sfx/attack_1.mp3"
     "At the blink of an eye with a discreet bang! The seaweed vanished.. Now already a crushed victim under the shrimp's eager munch teeth"
 
     show goby annoy:
@@ -339,6 +339,7 @@ label ch3_boss_battle:
         jump ch3_boss_battle_lose
     
     $ ch3_empress_defeated = True
+    play music "audio/bgm/chap_3_night.ogg"
     jump ch3_ending
 
 label ch3_boss_negotiate_as_cory:
@@ -365,7 +366,7 @@ label ch3_boss_negotiate_as_cory:
         centerright
     gob "Enough! That was more than 3 seconds!"
 
-    play sound "audio/attack_3.mp3"
+    play sound "audio/sfx/attack_3.mp3"
     "My eyes widen into saucers as it registers a flash of red." 
     "The goby's spear grazes past Mr.Cory, tearing through flesh but missing anything vital. A warning, and nothing more."
 
@@ -769,6 +770,8 @@ label ch3_boss_negotiate_scy_after:
         jump ch3_boss_battle_lose
     
     $ ch3_empress_defeated = True
+    play music "audio/bgm/chap_3_night.ogg"
+    jump ch3_ending
     jump ch3_ending
 
 label ch3_boss_battle_lose:

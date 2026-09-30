@@ -135,9 +135,9 @@ screen exploration_screen():
                 yalign npc["y"]
 
             focus_mask True
-            hovered Play("sound", "audio/pixel_ui_1.mp3")
+            hovered Play("sound", "audio/sfx/pixel_ui_1.mp3")
 
-            action [Play("sound", "audio/pixel_ui_2.mp3"), Return(npc["id"])]
+            action [Play("sound", "audio/sfx/pixel_ui_2.mp3"), Return(npc["id"])]
 
         if npc["id"] in explored_npcs:
             if is_joined:

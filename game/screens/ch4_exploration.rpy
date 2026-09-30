@@ -72,7 +72,7 @@ screen ch4_npc_exploration():
         idle "rin_explore_idle"
         hover "rin_explore_hover"
         focus_mask True
-        hovered Play("sound", "audio/pixel_ui_1.mp3")
+        hovered Play("sound", "audio/sfx/pixel_ui_1.mp3")
         action Return("rin")
         at ch4_float_rin
 
@@ -99,7 +99,7 @@ screen ch4_npc_exploration():
         idle "leo_explore_idle"
         hover "leo_explore_hover"
         focus_mask True
-        hovered Play("sound", "audio/pixel_ui_1.mp3")
+        hovered Play("sound", "audio/sfx/pixel_ui_1.mp3")
         action Return("leo")
         at ch4_float_leo
 
@@ -132,7 +132,7 @@ screen ch4_npc_exploration():
                 text_bold True
                 text_color "#ffeaa7"
                 text_hover_color "#ffffff"
-                action [Play("sound", "audio/pixel_ui_2.mp3"), Return("proceed")]
+                action [Play("sound", "audio/sfx/pixel_ui_2.mp3"), Return("proceed")]
 
 screen ch4_chore_exploration():
     modal True
@@ -170,7 +170,7 @@ screen ch4_chore_exploration():
         idle "ch4_coral_idle"
         hover "ch4_coral_hover"
         focus_mask True
-        hovered Play("sound", "audio/pixel_ui_1.mp3")
+        hovered Play("sound", "audio/sfx/pixel_ui_1.mp3")
         action Return("chore1")
 
     if ch4_chore1_done:
@@ -196,7 +196,7 @@ screen ch4_chore_exploration():
         idle "ch4_woodbox_idle"
         hover "ch4_woodbox_hover"
         focus_mask True
-        hovered Play("sound", "audio/pixel_ui_1.mp3")
+        hovered Play("sound", "audio/sfx/pixel_ui_1.mp3")
         action Return("chore2")
 
     if ch4_chore2_done:
@@ -228,7 +228,7 @@ screen ch4_chore_exploration():
                 text_bold True
                 text_color "#ffeaa7"
                 text_hover_color "#ffffff"
-                action [Play("sound", "audio/pixel_ui_2.mp3"), Return("feast")]
+                action [Play("sound", "audio/sfx/pixel_ui_2.mp3"), Return("feast")]
 
 screen ch4_festival_night_exploration():
     modal True
@@ -266,8 +266,8 @@ screen ch4_festival_night_exploration():
         idle "krillstall_idle"
         hover "krillstall_hover"
         focus_mask True
-        hovered Play("sound", "audio/pixel_ui_1.mp3")
-        action [Play("sound", "audio/pixel_ui_2.mp3"), Return("game1")]
+        hovered Play("sound", "audio/sfx/pixel_ui_1.mp3")
+        action [Play("sound", "audio/sfx/pixel_ui_2.mp3"), Return("game1")]
 
     if ch4_game1_done:
         text _("Krill Catch Stall (Done)"):
@@ -292,8 +292,8 @@ screen ch4_festival_night_exploration():
         idle "shootstall_idle"
         hover "shootstall_hover"
         focus_mask True
-        hovered Play("sound", "audio/pixel_ui_1.mp3")
-        action [Play("sound", "audio/pixel_ui_2.mp3"), Return("game2")]
+        hovered Play("sound", "audio/sfx/pixel_ui_1.mp3")
+        action [Play("sound", "audio/sfx/pixel_ui_2.mp3"), Return("game2")]
 
     if ch4_game2_done:
         text _("Shell Shooter Booth (Done)"):
@@ -324,4 +324,4 @@ screen ch4_festival_night_exploration():
                 text_bold True
                 text_color "#ffeaa7"
                 text_hover_color "#ffffff"
-                action [Play("sound", "audio/pixel_ui_2.mp3"), Return("ritual")]
+                action [Play("sound", "audio/sfx/pixel_ui_2.mp3"), Return("ritual")]

@@ -4,7 +4,7 @@ label ch4_talk_leo:
     with dissolve
 
     if not ch4_leo_talked:
-        play sound "audio/bush_rustling.mp3"
+        play sound "audio/sfx/bush_rustling.mp3"
         leo "Greetings~!"
 
         show mc shock at mc_left

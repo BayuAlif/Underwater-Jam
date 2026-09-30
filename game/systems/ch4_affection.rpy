@@ -39,7 +39,7 @@ init python:
             if new_val > old_val:
                 renpy.notify(_("%s's affection increased! (+%d)") % (name, amount))
                 try:
-                    renpy.play("audio/pixel_save_game.mp3", channel="sound")
+                    renpy.play("audio/sfx/pixel_save_game.mp3", channel="sound")
                 except Exception:
                     pass
             elif new_val == 3 and old_val == 3 and amount > 0:

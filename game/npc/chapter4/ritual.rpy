@@ -273,7 +273,7 @@ label ch4_rite_leo:
             mc "And you're my sister! You know so much about the sea. We're like… twins!"
             mc "And besides-"
 
-    play sound "audio/unsettling_moment.wav"
+    play sound "audio/ambience/unsettling_moment.ogg"
     with vpunch
     leo "{glitch=60.0}{sc}{size=+6}SHUT UP, you really dont understand!!{/size}{/sc}{/glitch}"
 
