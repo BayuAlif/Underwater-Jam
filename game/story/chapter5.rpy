@@ -493,6 +493,7 @@ label ch5_scy_sequence:
         center
     with vpunch
     play sound "audio/sfx/jumpscare_01.mp3" volume 0.65
+    play sound "audio/sfx/blood_2.mp3" volume 0.65
     scy_fake "{font=DejaVuSans.ttf}w̷̳̓ͅĥ̶̥̩̋y̷̒̓͜ ̶̦̣̔̕w̸̜̋o̴͎̪̭͆̌n̴̬͂ṫ̸̛͇̳̤ ̷͓̎̀͜͝y̵̙̦̣̔̂ö̸̩͈́ũ̴͚͐ ̴̱̰̗͐͊m̴̛̜̑̈́a̷̡̗͊̋͝k̵̰̻͕͆͊e̶͈͋̈́ ̴̱̦͑̈́̈́t̸͈̳̎h̸̢͎̟̿ê̸̘̕m̷͔͌̚̕ ̵̟̠̺̆́͘s̶̻͚̺̒̂t̶͓̃ŏ̶̟͕͐p̵̺̰̪̀̍̃{/font}"
     scy_fake "{font=DejaVuSans.ttf}M̵̢̼̦̩̝͙͈͖̟̞͚̟̿̉̿͐ȃ̶̡̧̗̜̩͕̖͚̦̬̟̮̾͑̏̓̈́͗̎͘̚͜k̴̙̽̒e̷̢̓ ̵̨͈͇̙̙̩̗̖͇͚̟̘̣̇̀͑̃̎͒̽̉͝͝t̵̛̥̟͐̄̿̿̌̾̽̌̎͆̄̅̈̕ȟ̸̢͎̭͉̤̖̝͍̤̇̒̆̈́̍̾͘ͅē̸͈̊̐͠m̶̨̟̬͎̬̔̋̐ͅ ̶̠̦̊̒̊̀̅ͅs̸̖͚̞̳̙͚͐͒̒̌̈̾̈́̿̃͛̚͘͝t̷̳̟̤͇̬͚͎̫̲̪͋͋̒͑̀̓͆̈͜͠͝o̴̲̥͉̅́p̸̺̬̠͈͎̥̖̝̲̼̱̱̠̖̌̓̈́̄̆{/font}"
     scy_fake "{font=DejaVuSans.ttf}Ȋ̶͎͂ ̶̛̗̇͝ń̷̝̘̦e̷̢̱̫͒̇e̵̫̹͌ͅḏ̶͋̂͜ ̵͔͕̗̏͑y̴̰͇̅̀̌o̸̫̝͚͒̆u̷̮̼͉̐ ̴̲̩̅t̸͚͗̇o̸̳̦͆̀͜ ̵̘͐̕m̸͎̋à̵̝̥̎͝k̴̳̪̀e̴͓̓͂ ̵͔̉́t̸̨̑̒̚ḩ̸̭̅ë̴̼̆͝m̸͎͉͛̾ ̶͕̱͎͗̀̒s̵̫͕̠͆ẗ̸̺̞̻́̽ô̴̢͙̬p̸̢̠̼̋͊{/font}"
@@ -1057,6 +1058,7 @@ label ch5_chase_real_gold:
     mc "that's why we need to be fast, miss Leo!"
 
     leo "Hmm.. you're right, they won't budge even if we try to wake them up.."
+    play ambience ["audio/ambience/bas_1.mp3", "audio/ambience/bas_3.mp3"] noloop volume 0.3
 
     "We swam further down through the trench, until a radiant, genuine rainbow glow pierced through the darkness."
 
@@ -1069,11 +1071,10 @@ label ch5_chase_real_gold:
 
     stop music fadeout 1.0
     "Before I can swim any closer, the water around us starts to quake violently without warning."
-    play ambience "audio/ambience/gemuruh_1.mp3" loop fadein 0.3 volume 0.5
+    play ambience ["audio/ambience/gemuruh_1.mp3", "audio/ambience/bas_2.mp3", "audio/ambience/hard.wav", "audio/ambience/highscreech_1.mp3"] noloop volume 0.45
 
     play sound "audio/sfx/thump.mp3"
     with vpunch
-    play ambience "audio/ambience/highscreech_1.mp3" noloop volume 0.7
 
     ban_unknown "{size=+12}{b}THOU SHALT NOT PASSETH…!{/b}{/size}"
     hide mc excited
@@ -1367,9 +1368,8 @@ label ch5_nightmare_bedroom:
 
 label ch5_the_final_choice:
 
-    play ambience "audio/ambience/unsettling_02.mp3" loop volume 0.45
+    play ambience ["audio/ambience/unsettling_02.mp3", "audio/ambience/gemuruh_4.mp3", "audio/ambience/unsettling_moment_cut.wav"] noloop volume 0.45
     "The walls starts to melt, the perfect picture of home demolished."
-    play ambience "audio/ambience/unsettling_moment_cut.wav" noloop volume 0.6
 
     scene bg abyss_depths
     with Dissolve(1.5)
@@ -1467,8 +1467,7 @@ label ch5_ending_bad:
 
     "As i ran hand in hand with mama and papa, i turn back to see the ocean had begun to rise and an enormous wave is forming in the distance."
     "The wave surges toward the shore."
-    play ambience "audio/ambience/gemuruh_2.mp3" loop volume 0.55
-    play ambience "audio/ambience/BIG_MOVEMENT_2.mp3" noloop volume 0.65
+    play ambience ["audio/ambience/gemuruh_2.mp3", "audio/ambience/BIG_MOVEMENT_2.mp3"] noloop volume 0.55
     play sound "audio/sfx/underwater current.mp3" volume 0.5
 
     scene black
