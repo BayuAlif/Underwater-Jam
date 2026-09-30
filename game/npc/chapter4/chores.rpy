@@ -49,23 +49,31 @@ label ch4_chore1_scy:
     scy "It's Scyllarus! And.. hmm!"
     scy "Perhaps we can play a little game, my comrade"
 
-    show mc excited at mc_left
+    show mc excited at mc_left, jumpmc(windup=0.2, power=0.7, airtime=0.6)
+    pause 0.6
     mc "A game?! What game? I wanna play! :D"
 
     scy "I spy with my little eyes!"
     scy "I believe it would be easier for you to understand!"
+
+    show scy smile at npc_right, walkto(rightish, steps=2, walktime=0.7, bounce=0.2, sway=0.15)
+    pause 0.7
+    show scy smile at npc_right
 
     mc "ooo okay! I go first"
     mc "I spyyyy with my little eyeeees..!"
 
     menu:
         "A bunch of swaaaying red branch-y guys":
+            show scy surprise at npc_right, jumpmc(windup=0.15, power=0.5, airtime=0.5)
+            pause 0.5
             scy "Hm! A plumose coraline!"
             show mc happy at mc_left
             mc "ding ding ding you're spot on! So cool o.o"
             show scy proud at npc_right
             scy "Through these eyes of mine, red is a very prominent contrast color!"
             scy "It's all lustrous and shiny for me!"
+            show scy proud at npc_right
             mc "Like… in a kaleidoscope?"
             scy "I'm not sure of this kaleidoscope you speak of!"
             scy "But if it reminds you of said thing perhaps you're right KAKAKA!"
@@ -73,7 +81,11 @@ label ch4_chore1_scy:
             "I wonder if he'll get dizzy and faint if he were to see a kaleidoscope from the overwhelming colors he would see.. Can shrimps faint from eyestrain I wonder… :o"
             scy "Even so.. I can't distinguish between what others call.. yellow orange and orange.."
             scy "Most of my vision goes to UV sightings!"
+            show scy default at npc_right, walkto(rightish, steps=2, walktime=0.8, bounce=0.15, sway=0.1)
+            pause 0.8
+            show scy default at npc_right
             "Mr Scyllarus then looks over to the queued dancing corals. Grazing them with a careful gentle sway of his claw."
+            show scy default at npc_right
             scy "And! this coral in particular is my mom's favorite.."
             show mc o at mc_left
             mc "really? :o"
@@ -101,8 +113,10 @@ label ch4_chore1_scy:
     show scy default at npc_right
     scy "We're getting a little sidetracked here! Come on guppy fetch the glowing red ones!"
 
-    show mc pout at mc_left
+    show mc pout at mc_left, jumpmc(windup=0.2, power=0.35, airtime=0.5)
+    pause 0.5
     mc "glowing..? But I can't see the glooow Mr Larus! :("
+    show mc pout at mc_left
 
     scy "Oh right! Fine, I shall guide you through it then!"
 
@@ -128,11 +142,17 @@ label ch4_chore1_cory:
     cory "Woah you got a whole palette over there…!"
     cory "But hey I dig orange too"
 
+    show mc happy at mc_left, walkto(centerleft, steps=2, walktime=0.7, bounce=0.2, sway=0.15)
+    pause 0.7
     show mc happy at mc_left
     mc "yay! Let's pick on the oranges one first then :D"
 
     "Me and Mr. Cory took our time in picking the best fluorescent color of the seaweeds"
 
+    show mc happy at mc_left
+    show cory smile at cory_left
+    show cory side at cory_left, walkto(centerleft, steps=2, walktime=0.8, bounce=0.1, sway=0.1)
+    pause 0.8
     show cory side at cory_left
     cory "You know.. pickin corals and seaweeds like this"
     cory "Is it quite comforting yeah?"
@@ -158,6 +178,8 @@ label ch4_chore1_cory:
             cory "Those jerks are just envyin ya, they dont have as much \"personality\" as you do"
             cory "Being the norm is boring anyway, livin the same way everyone does.."
             cory "Way about a dead monochrome world.."
+            show cory fond at cory_left, walkto(centerleft, steps=1, walktime=0.5, bounce=0.1, sway=0.1)
+            pause 0.5
             show cory fond at cory_left
             cory "Stay weird little guppy, I mean it."
 
@@ -169,8 +191,10 @@ label ch4_chore1_cory:
             mc "Mhmm! I draw in my free time! I draw the fishes I see and document them! Their behavior and details like that"
             show cory proud at cory_left
             cory "*whistle* You never cease to amaze me"
-            show mc excited at mc_left
+            show mc excited at mc_left, jumpmc(windup=0.2, power=0.6, airtime=0.6)
+            pause 0.6
             mc "Yaa other than to be a fish, I also want to be a book author! And and a marine biologist!"
+            show mc excited at mc_left
             mc "I wanna document all my finds and draw them myself"
             mc "So people can appreciate water creatures more!"
             show cory side at cory_left
@@ -211,6 +235,9 @@ label ch4_chore1_leo:
 
     show screen ch4_affection_hud("leo")
 
+    show leo default at npc_right, walkto(rightish, steps=2, walktime=0.8, bounce=0.15, sway=0.2)
+    pause 0.8
+    show leo default at npc_right
     leo "Ooo hehe how fun~! I like picking flowers"
     leo "Tell me what's your favorite flower, little guppy?"
 
@@ -226,6 +253,7 @@ label ch4_chore1_leo:
             show mc o at mc_left
             mc "No I don't think I've heard of it.. What's it like?"
             leo "Ah it's a flower of gorgeous purple shade.. My favorite part? The little flecks of yellow in the center"
+            show leo smile at npc_right
             show mc happy at mc_left
             mc "Yellow and purple… it's complementary colors right? I can see why you find them pretty :D"
             leo "ding ding ding~! You're right! Very perceptive aren't you?"
@@ -254,6 +282,9 @@ label ch4_chore1_leo:
 
     mc "But but the golden fish! It'll stray super far too if we take long :("
 
+    show leo default at npc_right, walkto(rightish, steps=2, walktime=0.8, bounce=0.1, sway=0.1)
+    pause 0.8
+    show leo default at npc_right
     leo "Would you believe me If I were to say that.."
     leo "The goldenfish.. It moves only when you move."
 
@@ -314,13 +345,19 @@ label ch4_chore2_scy:
 
     scy "I'll set up the stall, you handle the decorations, understood!!"
 
+    show scy proud at npc_right, walkloop
+    show mc excited at mc_left, jumpmc(windup=0.15, power=0.5, airtime=0.5)
+    pause 0.5
     show mc excited at mc_left
     mc "Ay ay captain!!"
 
     "Mr. Shrimp worked insanely efficient. Like machines, even."
+    show scy proud at npc_right
 
-    show mc shock at mc_left
+    show mc shock at mc_left, jumpmc(windup=0.1, power=0.8, airtime=0.5)
+    pause 0.5
     mc "WOAH that's zippy!!"
+    show mc shock at mc_left
 
     show scy proud at npc_right
     scy "Ha! Of course, I've been drilling under her highness since I was a mere kid!"
@@ -329,14 +366,19 @@ label ch4_chore2_scy:
     show scy sepet at npc_right
     scy "...."
 
+    show scy sepet at npc_right, vibrate(intensity=1)
+    pause 0.4
+    show scy sepet at npc_right
     "Despite his boastful words, I could catch him… less energized?"
 
     show mc o at mc_left
     mc "... Um you don't seem like yourself, Mr. Shrimp.."
 
-    show scy surprise at npc_right
+    show scy surprise at npc_right, jumpmc(windup=0.15, power=0.45, airtime=0.5)
+    pause 0.5
     scy "...? Am I?"
     scy "I'm running on all cylinders!!"
+    show scy surprise at npc_right
 
     show mc pout at mc_left
     mc "No, no, that's not what I meant at all."
@@ -379,9 +421,12 @@ label ch4_chore2_scy:
 
     "The stand is finally completed."
 
-    show mc excited at mc_left
+    show mc excited at mc_left, walkto(centerleft, steps=2, walktime=0.7, bounce=0.2, sway=0.15)
+    pause 0.7
     mc "WOAHH this turned out way cooler than i thought!"
 
+    show scy proud at npc_right, jumpmc(windup=0.15, power=0.35, airtime=0.45)
+    pause 0.45
     show scy proud at npc_right
     scy "Hmph!! I'll call this… a crustaseanship!!"
 
@@ -402,6 +447,8 @@ label ch4_chore2_cory:
     show cory talk at cory_left
     cory "Ay, gimme a hand with this frame, guppy!!"
 
+    show mc excited at mc_left, walkto(centerleft, steps=2, walktime=0.7, bounce=0.2, sway=0.15)
+    pause 0.7
     show mc excited at mc_left
     mc "Waouh on it!"
 
@@ -412,8 +459,10 @@ label ch4_chore2_cory:
 
     cory "Woah easy there, you're really excited, huh?"
 
-    show mc happy at mc_left
+    show mc happy at mc_left, jumpmc(windup=0.15, power=0.45, airtime=0.5)
+    pause 0.5
     mc "Mhm! this is my first festival ever,"
+    show mc happy at mc_left
     mc "Have you ever been to a festival, Mr Cory?"
 
     show cory side at cory_left
@@ -426,8 +475,10 @@ label ch4_chore2_cory:
     cory "Ah, it's an annual celebration back Down in the Southern Reefs."
     cory "Wild stuff. You got fishfolks dancing around in these massive glowing anemone suits.."
 
-    show mc shock at mc_left
+    show mc shock at mc_left, jumpmc(windup=0.1, power=0.9, airtime=0.55)
+    pause 0.55
     mc "MASSIVE ANEMONES?"
+    show mc shock at mc_left
 
     cory "Yeah. Massive, vibrant, glowing anemones.."
     cory "And sea percussion pounding so hard you could feel the vibration through your fins."
@@ -476,6 +527,8 @@ label ch4_chore2_cory:
 
     "The stand is finally completed."
 
+    show mc happy at mc_left, vibrate(intensity=0.7)
+    pause 0.5
     show mc happy at mc_left
     mc "Phew! My arms are completely dead… but we actually pulled it off!"
 
@@ -495,11 +548,15 @@ label ch4_chore2_leo:
 
     leo "Hee hee! Lets construct this stand together~"
 
+    show leo default at npc_right, walkloop
+    show mc excited at mc_left, jumpmc(windup=0.15, power=0.45, airtime=0.5)
+    pause 0.5
     show mc excited at mc_left
     mc "Mhm. Time to roll!"
 
     "We set to work side-by-side, joining the timber as the midday light filtered through the festival grounds."
 
+    show leo default at npc_right
     show mc o at mc_left
     mc "Just a fleeting thought…"
     mc "... but isn't the name 'Leo' usually belonging to suuper famous people!?"
@@ -512,8 +569,14 @@ label ch4_chore2_leo:
 
     leo "Hee-hee~ never overlook my knowledge, twin~"
 
+    show leo default at npc_right, walkloop
+    pause 1.0
+    show leo default at npc_right
     "Leo glides into action with sleek grace.. With surprising power in those long flippers."
     "Joint pegs are hammered and heavy timber snaps into place."
+    show leo default at npc_right, jumpmc(windup=0.1, power=0.3, airtime=0.4)
+    pause 0.4
+    show leo default at npc_right
     "I guess this isn't the first time for Leo building the stand?"
 
     menu:
@@ -547,6 +610,8 @@ label ch4_chore2_leo:
 
     "The stand is finally established."
 
+    show mc happy at mc_left, jumpmc(windup=0.15, power=0.45, airtime=0.5)
+    pause 0.5
     show mc happy at mc_left
     mc "That's actually pretty easy!"
 
