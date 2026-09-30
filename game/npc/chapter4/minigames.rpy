@@ -122,7 +122,7 @@ label ch4_plankton_cory:
 
     show screen ch4_affection_hud("cory")
 
-    show cory ohiounimpressed at cory_left
+    show cory unimpressed at cory_left
     cory "There sure is a lot of stuff huh.. buncha nautical nonsense."
 
     show mc pout at mc_left
@@ -230,15 +230,15 @@ label ch4_plankton_leo:
             mc "gulps…"
             show leo default
             leo "now say ah~"
-            show mc shock #dengan animasi jump
+            show mc shock at mc_left, jumpmc
             mc "mnn…! wait!!"
             show leo sad
             leo "Hmm, are you backing out now?"
-            show mc pout
+            show mc pout at mc_left
             mc "I'm not scared..!!"
             show leo default
             leo "Then, where's that unbridled enthusiasm of yours, hm?"
-            show mc sad
+            show mc sad at mc_left
             mc "Can I at least try one or two first..?"
             show leo smile
             leo "Mmn no, you won't be able to feel them if it's just one or two"
@@ -251,11 +251,11 @@ label ch4_plankton_leo:
             mc "Mnhah-! I.. I drank it!"
             show leo niko
             leo "Yaay~! Congratulations to you!"
-            show mc shock #dengan animasi sink
+            show mc shock at mc_left, sink
             mc "Mnnngh.. they taste weeeeeird D:"
             show leo default
             leo "Humans actually benefit from eating these.. they're nutrient rich~!"
-            show mc shock #dengan jump
+            show mc shock at mc_left, jumpmc
             mc "Whauht..?! Really??"
             leo "The tiny critters.. They were just bluffing"
             show leo smile
@@ -289,7 +289,7 @@ label ch4_plankton_leo:
             leo "Planktons are among the nutrient richest sea food, this applies to humans too."
             show mc happy at mc_left
             mc "You know so much, Leo!"
-            show leo smile #dengan animasi jump
+            show leo smile at jump
             leo "Mm why of course I do~"
             show mc o at mc_left
             mc "Ah but now we don't have any planktons to catch.."
@@ -595,7 +595,7 @@ label ch4_shoot_leo:
             mc "Really? You can win me the bubble blower?"
             show leo smile 
             leo "Hmm-mm. Though you might want to look away for a second~"
-            show mc 0
+            show mc o at mc_left
             mc "Why, miss leo? :0"
             show leo niko
             leo "Because I wouldn't want you to see me doing something terribly improper~"
@@ -644,7 +644,7 @@ label ch4_shoot_leo:
     show leo default
     mc "WOO-HOO! We got the uh bioluminezdende seifenblaser!"
 
-    show leo niko #dengan animasi jump
+    show leo niko at jump
     leo "Mhehehe. Bioluminescent bubble blower~"
 
     "I dipped the wand into the glowing liquid and blew a gentle stream of air through the ring."

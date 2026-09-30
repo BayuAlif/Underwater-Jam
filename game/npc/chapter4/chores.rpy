@@ -279,7 +279,7 @@ label ch4_chore1_leo:
             leo "Ah it's a flower of gorgeous purple shade.. My favorite part? The little flecks of yellow in the center"
             show mc happy at mc_left
             mc "Yellow and purple… it's complementary colors right? I can see why you find them pretty :D"
-            show leo smile #dengan animasi jumpmc(windup=0.1, power=0.45, airtime=0.45)
+            show leo smile at jumpmc(windup=0.1, power=0.45, airtime=0.45)
             leo "ding ding ding~! You're right! Very perceptive aren't you?"
 
         "Are you going to eat me? :o":
@@ -384,7 +384,7 @@ label ch4_chore2_scy:
     show mc happy at mc_left
     mc "Yayay let's work together mr Cy–Clarus-"
     
-    show scy default om 
+    show scy default_om 
     scy "I'll set up the stall, you handle the decorations, understood!!"
 
     show scy proud at npc_right, walkloop
@@ -436,7 +436,7 @@ label ch4_chore2_scy:
     show mc o at mc_left
     mc "Oooo…."
 
-    show scy shy #dengan animasi sink
+    show scy shy at npc_right, sink
     scy "Once this journey ends, I got no clue where the current's supposed to take me.."
     $ focus()
 
@@ -446,13 +446,13 @@ label ch4_chore2_scy:
             $ ch4_add_affection("scy")
             show mc o at mc_left
             mc "I don't know how it feels… to lose your purpose,"
-            show mc sad 
+            show mc sad at mc_left
             mc "I don't know how you're feeling right now…"
-            show mc happy #with jumpmc
+            show mc happy at mc_left, jumpmc
             mc "But the ocean is huge! And we're travelling around right now."
-            show mc default
+            show mc default at mc_left
             mc "Maybe what you need to do is… finding out what you actually like doing."
-            show mc exited #with jumpmc
+            show mc excited at mc_left, jumpmc
             mc "Or maybe you could just stick around with me forever! Problem solved :D"
             show scy surprise at npc_right
             scy "...! THATS A BRILLIANT OBSERVATION GUPPY!"
@@ -461,7 +461,7 @@ label ch4_chore2_scy:
 
         "You should be grateful, Mr.Shrimp!":
             $ focus()
-            show mc happy at mc_left #dengan animasi jumpmc
+            show mc happy at mc_left, jumpmc
             mc "Not working means more time to play!"
             show mc sad
             mc "Other grown ups have to work every single day and they look suuuper tired,"
@@ -511,10 +511,10 @@ label ch4_chore2_cory:
     show cory smile at cory_left
     cory "Aand here. Hold this ends steady when i tie the knots."
 
-    show mc excited #dengan jumpmc
+    show mc excited at mc_left, jumpmc
     mc "Moremoremore mr. Cory!!"
 
-    show cory smile_hu #dengan surprise
+    show cory smile_hu at cory_left, surprise
     cory "Woah easy there, you're really excited, huh?"
 
     show mc happy at mc_left, jumpmc(windup=0.15, power=0.45, airtime=0.5)
@@ -561,7 +561,7 @@ label ch4_chore2_cory:
     cory "My siblings… they all made something big of themselves."
     show cory talk_hu
     cory "One's a freshwater guard commander, another runs a pearl merchant."
-    show cory side_close #dengan animasi sink
+    show cory side_close at cory_left, sink
     cory "And there's me, just drifting around, taking whatever odd jobs I can find."
     cory "Feels like if i show my face back home like this… I'd be just a disappointment… "
     $ focus()
@@ -574,7 +574,7 @@ label ch4_chore2_cory:
             mc ".. it's natural that you feel a bit disappointed, right?"
             show cory side at cory_left
             cory ".....yeah."
-            show cory side_close #dengan animasi vibrate
+            show cory side_close at cory_left, vibrate
             cory "Hearing this straight from a little kid hits hard…"
             cory "But you aint wrong, guppy."
 
@@ -589,7 +589,7 @@ label ch4_chore2_cory:
             show mc excited at mc_left
             mc "AND! I want to go dance at that Samba festival with you someday…"
             mc "..so you have to go make up with your family first!"
-            show cory side_close #dengan animasi vibrate
+            show cory side_close at cory_left, vibrate
             cory "............"
             cory "HIC, guppy my little baby guppy…"
             show cory fond at cory_left
@@ -674,7 +674,7 @@ label ch4_chore2_leo:
             leo "... is ultimately carving their path through their own current~."
             show mc sad at mc_left
             mc "mnn you mean that… everyone is living only for the things they like?"
-            show mc happy #dengan animasi jump
+            show mc happy at mc_left, jumpmc
             mc "That's not true, at all! You can clearly see how genuine my friends are with me :D"
             show leo niko
             leo "Hee hee. If you say so~"

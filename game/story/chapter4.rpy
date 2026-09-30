@@ -231,7 +231,7 @@ label ch4_dinner_incident:
 
     show rin surprise
     rin "Oh praise the mother of sea.. Aren't you as swift as an arrow?"
-    show rin smile #dengan animasi bowleft
+    show rin smile at bowleft(depth=1)
     rin "We are truly grateful for your assistance!"
 
     show mc default 
@@ -276,7 +276,7 @@ label ch4_dinner_incident:
     show leo smile
     leo "Oh dear the cat's out of the bag~"
 
-    show cory surprise #dengan posisi pindah ke left, bukan leftish menandakan dia mundur, dan dengan animasi vibrate
+    show cory surprise at left, vibrate
     cory "Guppy… you wouldn't eat me would ya?! I'm made of bones and pigments!"
 
     show mc shock at mc_left
@@ -294,7 +294,7 @@ label ch4_dinner_incident:
     show mc pout at mc_left
     mc "and mr.. mr scyllarus too you.. you eat crabs.. Supposedly!"
 
-    show scy surprise #dengan animasi vibrate
+    show scy surprise at npc_right, vibrate
     scy "A-are you suggesting I would eat my own comrades..?!"
 
     show mc serious_hu
@@ -310,7 +310,7 @@ label ch4_dinner_incident:
     show rin o
     rin "My apologies young one.. Our village had long forbid such extreme practice…"
     rin "While there are fishes that are still… what I would describe as crassly primitive"
-    show rin o #with sink animation??? idk whichever fits this best
+    show rin o at sink
     rin "We do not condone of such unvirtuous behavior around here"
     
     show rin smile
@@ -383,10 +383,10 @@ label ch4_night_explore:
 
     $ focus()
     $ focus()
-    show mc holdcry #dengan animasi #vibrate
+    show mc holdcry at mc_left, vibrate
     "I managed to find myself a quiet space to pond over everything."
     "The swaying of anemones and glowing corals calms me down a little."
-    show mc holdcry #dengan animasi sink
+    show mc holdcry at mc_left, sink
     "I sat somewhere far from where my friends are to calm myself down"
     show mc o 
 
@@ -424,7 +424,7 @@ label ch4_night_explore:
     ori "welcome."
 
     "I carefully took the wiggly jelly into my mouth. It tasted a little like strawberry and weird algae chemical"
-    show orin 
+    show orin default
     ori "... I've been there.."
 
     show mc o at mc_left
@@ -550,7 +550,7 @@ label ch4_night_explore:
             show mc shock at mc_left
             mc "waouh-! Leo!"
             show leo niko 
-            with ease 0.1
+            with ease
             leo "mhm, yes it is i~"
             leo "I see you made a little friend"
             show leo sad
@@ -568,7 +568,7 @@ label ch4_night_explore:
             
     
     "Leo closely inspects the cat shark, twirling a 360 around it with an inquisitive hum"
-    show leo default #maju mendekati si orin
+    show leo default at center with move
     leo "Hmm, those chains I've seen it before.."
     leo "Ah I remember now~! You're that one fugitive that went on a cannibalistic rampage~!"
     show leo smile
@@ -582,7 +582,7 @@ label ch4_night_explore:
     show leo ehe
     leo "You can't change what you've been born with kitty~!"
 
-    show orin default #with vibrate
+    show orin default at vibrate
     ori "I wasn't…! Condition made me do-"
 
     show leo default
@@ -695,7 +695,7 @@ label ch4_festival_night:
     cory "GYAH-!! Don't just sneak up on us!"
 
     show leo niko
-    with ease 0.2
+    with ease
     leo "Aw, have some whimsy would you?"
     show leo default
     leo "Ah, also look forward to the end of this festival~!"
@@ -750,9 +750,11 @@ label ch4_climax:
     with dissolve
     $ focus()
 
-    show goldfall
+    show goldfall:
+        zoom 0.5
     "At the ledge of the great abyss, multiple glowing effigies are cast into the dark void by the seafolks, tumbling downward into the deep sea."
-    show goldfall with zoom 0.5
+    show goldfall:
+        zoom 0.5
     "Then suddenly, amongst the multiple thrown effigies I noticed something glows a bright gold."
     "Not the kind of gold that Mr. Rin uses.."
     "Not the kind of gold that the effigy has"
@@ -762,7 +764,7 @@ label ch4_climax:
     play sound "audio/ambience/mysterious_golden_looking.ogg"
 
     "But that rainbow radiant.. shimmering glow"
-    show scene black
+    scene black
     "In that moment, everything else were a blur."
     
 
