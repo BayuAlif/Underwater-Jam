@@ -97,16 +97,16 @@ label chapter4_start:
     cory "We still oughta keep our eyes for the golden fish though"
     cory "Could be anywhere in this vast ocean"
 
-    show scy smile at npc_right
+    show scy smile at leftish
     scy "Yea! There's no way it could be right behind us.."
 
-    show cory surprise at cory_left, jump(windup=0.1, power=0.6, airtime=0.4)
+    show cory surprise at rightish, jump(windup=0.1, power=0.6, airtime=0.4)
     cory "Speaking of… isn't that the golden fish?"
 
     show mc shock at mc_left, jumpmc(windup=0.1, power=0.5, airtime=0.35)
     mc "whauh?! Where?"
 
-    show cory talk at cory_left
+    show cory talk at rightish
     cory "right behind you guppy"
 
     play sound "audio/sfx/splash.mp3"
@@ -129,17 +129,17 @@ label ch4_day_explore:
     scene ch4_festival_day
     with dissolve
     $ focus()
-    show cory upset at cory_left, shake
+    show cory upset at rightish, shake
     cory "aw shrimp! Damn fish must be Usailfish Bolt or something"
 
     show mc happy at mc_left, jumpmc(windup=0.1, power=0.45, airtime=0.35)
     mc "it's okayy mr Cory :DDD, We'll get it next time!!"
 
-    show scy sepet at npc_right, bowleft(depth=1)
+    show scy sepet at leftish, bowleft(depth=1)
     scy "How are we supposed to find the damn fish among all these gold… wait.. hold on.. Where are we??"
-    show scy sepet at npc_right, unpose
+    show scy sepet at leftish, unpose
 
-    show cory side at cory_left
+    show cory side at rightish
     cory "I don't know but this place gives me the heebie-jeebies, stay close guppy we don't know what's ahead of us"
 
     show mc excited at mc_left, vibrate(intensity=2)
@@ -177,7 +177,7 @@ label ch4_start_chores:
     show mc happy at mc_left
     mc "Okay! Let's help out with the festival chores so we can find the golden fish tonight!"
 
-    show cory talk at cory_left
+    show cory talk at center
     cory "Sounds like a plan. Let's see what needs fixin' or gatherin' around here."
 
     $ focus()
@@ -229,9 +229,9 @@ label ch4_dinner_incident:
     show mc happy at mc_left, surprise
     mc "Mr whaaale, we're done! :D"
 
-    show rin surprise
+    show rin surprise at center
     rin "Oh praise the mother of sea.. Aren't you as swift as an arrow?"
-    show rin smile #dengan animasi bowleft
+    show rin smile at center, bowleft(depth=1)
     rin "We are truly grateful for your assistance!"
 
     show mc default 
@@ -240,12 +240,12 @@ label ch4_dinner_incident:
     show mc excited at mc_left
     mc "Soo when will the festival start? Is the food ready :o"
 
-    show rin smile
+    show rin smile at center
     show mc pout
     rin "Fufu"
     "Mr whale slips out a tiny chuckle at my impatience. Is starvation something that amuses him? >:T"
 
-    show rin talk
+    show rin talk at center
     rin "Rest assured my child, we have prepared a forethoughtful spread for all of you, come."
 
     show mc happy
@@ -255,105 +255,105 @@ label ch4_dinner_incident:
     "Yet as my gaze fell down to the contents, I scrunched up in disappointment."
     show mc pout at mc_left
 
-    show cory proud at cory_left
+    show cory proud at rightish
     cory "bloodworms?! Didn't know you were fancy like that mr chief sir."
 
-    show scy proud at npc_right
+    show scy proud at leftish
     scy "Hah! Talk about a banquet!"
 
-    show rin talk
+    show rin talk at center
     rin "Yes of course, we prepare this with every species' likings in mind"
 
     show mc o at mc_left
     mc "Are there.. any.. fried fishes?"
 
-    show cory surprise at cory_left, jumpmc(windup=0.1, power=0.45, airtime=0.45)
-    show scy surprise
+    show cory surprise at rightish, jumpmc(windup=0.1, power=0.45, airtime=0.45)
+    show scy surprise at leftish
     pause 0.45
-    show cory surprise at cory_left
+    show cory surprise at rightish
     cory "...???"
 
-    show leo smile
+    show leo smile at center
     leo "Oh dear the cat's out of the bag~"
 
-    show cory surprise #dengan posisi pindah ke left, bukan leftish menandakan dia mundur, dan dengan animasi vibrate
+    show cory surprise at left, vibrate
     cory "Guppy… you wouldn't eat me would ya?! I'm made of bones and pigments!"
 
     show mc shock at mc_left
     mc "mn nonono! I mean! Like.. tuna or.. Salmon or.. fried catfish maybe?"
     mc "Don't fishes eat other fishes too..? Mr whale shark your diet is small fishes right? Mackerel.. and.."
 
-    show leo niko
+    show leo niko at center
     leo "Mhm that's right, whale sharks eat baby fishes too.. As well shrimps"
 
-    show scy surprise at npc_right, jumpmc(windup=0.1, power=0.7, airtime=0.5)
+    show scy surprise at leftish, jumpmc(windup=0.1, power=0.7, airtime=0.5)
     pause 0.5
     scy "Did someone say shrimp?!"
-    show scy surprise at npc_right
+    show scy surprise at leftish
 
     show mc pout at mc_left
     mc "and mr.. mr scyllarus too you.. you eat crabs.. Supposedly!"
 
-    show scy surprise #dengan animasi vibrate
+    show scy surprise at leftish, vibrate
     scy "A-are you suggesting I would eat my own comrades..?!"
 
     show mc serious_hu
     mc "But it's how nature is…!"
     
-    show rin surprise
+    show rin surprise at center
     rin "…"
     show mc shock
-    show leo smile
+    show leo smile at center
     "My confused stare bore back into my own at tenfolds. Meanwhile Leo just sits there in the corner unbothered."
     "Her unreadable smile felt like a wash of relief and support amongst the overwhelmingly rigid tension."
 
-    show rin o
+    show rin o at center
     rin "My apologies young one.. Our village had long forbid such extreme practice…"
     rin "While there are fishes that are still… what I would describe as crassly primitive"
-    show rin o #with sink animation??? idk whichever fits this best
+    show rin o at center, sink
     rin "We do not condone of such unvirtuous behavior around here"
     
-    show rin smile
+    show rin smile at center
     rin "The best we can provide for your appetites are.. Jellies made algaes"
 
     show mc pout at mc_left
     mc "....okay."
 
-    show rin talk
+    show rin talk at center
     rin "Do… rest yourselves until tonight. Before the parade begins."
-    show rin o
+    show rin o at center
     rin "Please excuse me."
 
     ".............................."
 
-    show leo niko
+    show leo niko at center
     leo "You know guppy, I can indulge you in some.. fishes that suits your taste"
 
-    show cory upset at cory_left
+    show cory upset at rightish
     cory "In front of my bloodworms?!"
 
-    show leo ehe
+    show leo ehe at center
     leo "Oh I might be talking about you, Corydoras.."
 
     show mc shock at mc_left
     mc "I wouldn't-! No, I wouldn't eat my friends!"
 
-    show leo feral
+    show leo feral at center
     leo "Would you now?"
-    show leo niko
+    show leo niko at center
     leo "Let's ask the consensus~!"
     leo "Starting from you, Doras~! Are you just now imagining our beloved protagonist's tiny sharp teeth chewing away on you?"
 
-    show cory side at cory_left
+    show cory side at rightish
     cory "Nah of course not! You're just trying to rile things up! I ain't falling for that"
 
-    show leo smile
+    show leo smile at center
     leo "Hmm~ But your fins.. I saw them tremble just now.."
 
-    show cory upset
+    show cory upset at rightish
     cory "They're just a kid! If they want anything from me I could still defend myself from-"
 
-    show scy proud at npc_right
+    show scy proud at leftish
     scy "That's right! If the situation came to that.. my claws are ready to stop your nibbles!"
 
     show mc holdcry at mc_left
@@ -383,10 +383,10 @@ label ch4_night_explore:
 
     $ focus()
     $ focus()
-    show mc holdcry #dengan animasi #vibrate
+    show mc holdcry at mc_left, vibrate
     "I managed to find myself a quiet space to pond over everything."
     "The swaying of anemones and glowing corals calms me down a little."
-    show mc holdcry #dengan animasi sink
+    show mc holdcry at mc_left, sink
     "I sat somewhere far from where my friends are to calm myself down"
     show mc o 
 
@@ -424,7 +424,7 @@ label ch4_night_explore:
     ori "welcome."
 
     "I carefully took the wiggly jelly into my mouth. It tasted a little like strawberry and weird algae chemical"
-    show orin 
+    show orin default
     ori "... I've been there.."
 
     show mc o at mc_left
@@ -568,7 +568,7 @@ label ch4_night_explore:
             
     
     "Leo closely inspects the cat shark, twirling a 360 around it with an inquisitive hum"
-    show leo default #maju mendekati si orin
+    show leo default at center with move
     leo "Hmm, those chains I've seen it before.."
     leo "Ah I remember now~! You're that one fugitive that went on a cannibalistic rampage~!"
     show leo smile
@@ -582,7 +582,7 @@ label ch4_night_explore:
     show leo ehe
     leo "You can't change what you've been born with kitty~!"
 
-    show orin default #with vibrate
+    show orin default at vibrate
     ori "I wasn't…! Condition made me do-"
 
     show leo default
@@ -611,53 +611,53 @@ label ch4_festival_night:
     with dissolve
 
     $ focus()
-    show cory upset at cory_left
+    show cory upset at rightish
     cory "Guppy! Where the eel have ya been??"
 
     show mc o at mc_left
     mc "Nowhere! I was just.. Staring at the glow in the dark anemones"
 
-    show scy surprise at npc_right
+    show scy surprise at leftish
     scy "Have you filled your stomach with anything?!"
 
     show mc default at mc_left
     mc "I ate.. some square jelly?"
 
-    show scy default at npc_right
+    show scy default at leftish
     scy "A jelly is not a proper diet for a developing guppy like you!"
 
-    show cory side at cory_left
+    show cory side at rightish
     cory "We brought you smashed krills…"
 
-    show scy proud at npc_right
+    show scy proud at leftish
     scy "Yes! I helped with the smashing of course!"
     scy "I made sure it's digestible for your throat!"
 
-    show cory talk at cory_left
+    show cory talk at rightish
     cory "It's the least we can do to fulfill your appetite.."
 
     show mc o at mc_left
     mc "... for me? You really didn't have to..! After what i.. said"
 
-    show scy smile at npc_right
+    show scy smile at leftish
     scy "Cory also said that he's sorry!"
     scy "But he didn't want to tell it yet before Preparing something grand or something along the line for a proper apology."
     scy "But I think you should know it guppy! I apologize too.."
 
-    show cory surprise at cory_left
+    show cory surprise at rightish
     cory "I'm right here?!"
 
-    show cory side at cory_left
+    show cory side at rightish
     cory "but.. *siiigh* exactly what he said"
 
-    show cory side_close at cory_left
+    show cory side_close at rightish
     cory "We're sorry for the way we reacted.."
     cory "We just wanna let you know that.. we're not afraid of ya guppy"
 
-    show cory fond at cory_left
+    show cory fond at rightish
     cory "You're our friend."
 
-    show scy laugh at npc_right
+    show scy laugh at leftish
     scy "KAKAKA That's right Cory! And Friends protect each other! Forever!"
 
     show mc shock at mc_left
@@ -678,23 +678,23 @@ label ch4_festival_night:
 
     "Mr Cory shrugged"
 
-    show cory side at cory_left
+    show cory side at rightish
     cory "Went somewhere, he looks busy"
 
     show mc pout at mc_left
     mc "But.. he promised he'll help with searching!"
 
-    show scy smile at npc_right
+    show scy smile at leftish
     scy "Yes! But he told us to have fun and enjoy the festival!"
     scy "Maybe then he'll help us after the festival!"
 
-    show leo niko at medium
+    show leo niko at center
     leo "then fun we shall have~!"
 
-    show cory surprise at cory_left
+    show cory surprise at rightish
     cory "GYAH-!! Don't just sneak up on us!"
 
-    show leo niko
+    show leo niko at center
     with ease
     leo "Aw, have some whimsy would you?"
     show leo default

@@ -34,19 +34,19 @@ label ch4_plankton_scy:
 
     show screen ch4_affection_hud("scy")
 
-    show scy proud at npc_right
+    show scy proud at center
     scy "Hah! Plankton catching is a discreet hobby of mine!"
     scy "We shall be victorious guppy!"
 
     show mc o at mc_left
     mc "Mn but can you catch them without crushing them with your big claws?"
 
-    show scy default at npc_right
+    show scy default at center
     scy "... I uh do you need them alive?"
 
     menu:
         "Ya I do! I want to show them off to everyone!":
-            show scy default_om at npc_right
+            show scy default_om at center
             scy "Hmm! I don't think letting these pesky critters out is a wise choice..!"
             planktons "we will krill everyone! World conquer!"
             show scy sepet 
@@ -61,7 +61,7 @@ label ch4_plankton_scy:
             show mc happy at mc_left
             mc "Mm.. But you're not who you were Mr larus!"
             mc "I don't sense anymore hate from you!"
-            show scy proud at npc_right
+            show scy proud at center
             scy "I'm grateful to have your trust!"
             show scy shy
             scy "But sometimes.. I still-"
@@ -75,18 +75,18 @@ label ch4_plankton_scy:
 
         "Mmno, I want to feed it to you!":
             $ ch4_add_affection("scy")
-            show scy surprise at npc_right
+            show scy surprise at center
             scy "For me…?!"
             show scy sepet
             scy "Well.. big shrimps like me don't eat critters like these anymore!"
             show mc o at mc_left
             mc "Ooo so you ate heaps of these when you were little..?"
-            show scy proud at npc_right
+            show scy proud at center
             scy "Yes! My trainers told me that they're full of nutrients to ensure a healthy strong body!"
             scy "They made me eat thousands of them everyday!"
             show mc shock at mc_left
             mc "Thousands..?! Wouldn't that be overfeeding..?"
-            show scy sepet at npc_right
+            show scy sepet at center
             scy "Uhh or was it hundreds! I don't remember too well"
             show scy default_om
             scy "But it all gets burned in the rigorous training I have to endure!"
@@ -97,12 +97,12 @@ label ch4_plankton_scy:
             show scy laugh
             scy "Hah! I won't let such measly little organisms haunt me! kakaka!"
             planktons "We're your worst nightmare!! Eat brains!"
-            show scy sepet at npc_right
+            show scy sepet at center
             scy "Maybe a tiny bit..!"
             show mc happy at mc_left
             mc "Oh okay.. I won't feed it to you then"
             mc "I'll get you something tastier later me Carus!"
-            show scy surprise at npc_right
+            show scy surprise at center
             scy "It's Scyllarus!! Why does it gets worse everytime?!"
 
     "Mr Scyllarus carefully scoops the vengeful tiny planktons, before tilting them into a plastic bag looking like jellyfish."
@@ -111,7 +111,7 @@ label ch4_plankton_scy:
     show mc happy at mc_left
     mc "Hehe I never thought you could be this gentle!"
 
-    show scy proud at npc_right
+    show scy proud at center
     scy "I.. try my best to!"
 
     $ ch4_game1_done = True
@@ -122,7 +122,7 @@ label ch4_plankton_cory:
 
     show screen ch4_affection_hud("cory")
 
-    show cory ohiounimpressed at cory_left
+    show cory unimpressed at center
     cory "There sure is a lot of stuff huh.. buncha nautical nonsense."
 
     show mc pout at mc_left
@@ -133,13 +133,13 @@ label ch4_plankton_cory:
     mc "And that over there are copepods, they filter out tiny algae and feed the larger krill!"
     mc "Plus, over in that corner, there's-"
 
-    show cory talk at cory_left
+    show cory talk at center
     cory "Yea yea yeah, just tell me which one's your favorite.."
 
     menu:
         "Get the jellyfish lookalike!":
             $ ch4_add_affection("cory")
-            show cory smile at cory_left
+            show cory smile at center
             cory "Fan of Jellyfishes I see."
             show mc happy at mc_left
             mc "Mhm! They're all so.. floaty and pretty"
@@ -150,42 +150,42 @@ label ch4_plankton_cory:
             mc "Oh no did you get stung??"
             cory "Damn right I did.. it left me a permanent imprint."
             planktons "serve you right freshie!! Get stung more!"
-            show cory unimpressed at cory_left
+            show cory unimpressed at center
             "Mr. Cory scoops up most of the planktons into his fin, topping it with his other fin."
             "The gesture reduced their complaints into tiny screams.. they sound like chipmunks trapped in a bottle."
-            show cory side_close at cory_left
+            show cory side_close at center
             cory "At that time I was cryin so loud it put a smile to my.. little sister who's been sick all week.. "
             cory "It was her first smile in a while.."
             cory "Hah.. and I couldn't help but think it's all worth it in the end."
             show mc happy at mc_left with jump
             mc "You're a great kind older brother, Mr.Cory!"
             mc "I wish you were my papa…"
-            show cory surprise at cory_left
+            show cory surprise at center
             cory "Hah.. if I'd known you sooner I probably would.."
             cory "Wait.. that sounded wrong"
             show mc excited at mc_left
             mc "yaa! Be my papa Mr. Cory! :D"
             "The tiny screeches from Mr. Cory's hands grew louder. It faintly sounded like \"Be their papa!\" chanted repeatedly"
-            show cory side_close at cory_left
+            show cory side_close at center
             cory "I'd.. have to think about it, guppy."
 
         "The cockroach looking plankton reminds me of you":
-            show cory surprise at cory_left
+            show cory surprise at center
             cory "Me??"
             show mc happy at mc_left
             mc "Ya! if you were a plankton you'd be an amphipod!"
-            show cory side at cory_left
+            show cory side at center
             cory "Aye, I ain't that chopped!"
             cory "Well if you were a plankton.. you'd be that one guppy"
             "Mr Cory points at the floating blue button. Its tentacle-like branches swaying peacefully"
             show mc o at mc_left
             mc "The porpita porpita? :o"
-            show cory talk at cory_left
+            show cory talk at center
             cory "Yep all bright and about.. A little odd looking, the name suits ya too in a way"
             planktons "if the word hate was engraved on every each nanoangstrom of those hundreds of millions of mi-"
             "Mr. Cory scoops up most of the planktons into his fin, topping it with his other fin."
             "The gesture reduced their complaints into tiny screams.. they sound like chipmunks trapped in a bottle."
-            show cory smile at cory_left
+            show cory smile at center
             cory "These tiny things sure have big mouths, ay?"
 
     $ ch4_game1_done = True
@@ -195,7 +195,7 @@ label ch4_plankton_cory:
 label ch4_plankton_leo:
     
     show screen ch4_affection_hud("leo")
-    show leo default
+    show leo default at center
     leo "Catching helpless little beings huh? I'm skilled at that~!"
     leo "We'll catch as many as we can, little guppy"
 
@@ -230,15 +230,15 @@ label ch4_plankton_leo:
             mc "gulps…"
             show leo default
             leo "now say ah~"
-            show mc shock #dengan animasi jump
+            show mc shock at mc_left, jumpmc
             mc "mnn…! wait!!"
             show leo sad
             leo "Hmm, are you backing out now?"
-            show mc pout
+            show mc pout at mc_left
             mc "I'm not scared..!!"
             show leo default
             leo "Then, where's that unbridled enthusiasm of yours, hm?"
-            show mc sad
+            show mc sad at mc_left
             mc "Can I at least try one or two first..?"
             show leo smile
             leo "Mmn no, you won't be able to feel them if it's just one or two"
@@ -251,11 +251,11 @@ label ch4_plankton_leo:
             mc "Mnhah-! I.. I drank it!"
             show leo niko
             leo "Yaay~! Congratulations to you!"
-            show mc shock #dengan animasi sink
+            show mc shock at mc_left, sink
             mc "Mnnngh.. they taste weeeeeird D:"
             show leo default
             leo "Humans actually benefit from eating these.. they're nutrient rich~!"
-            show mc shock #dengan jump
+            show mc shock at mc_left, jumpmc
             mc "Whauht..?! Really??"
             leo "The tiny critters.. They were just bluffing"
             show leo smile
@@ -289,7 +289,7 @@ label ch4_plankton_leo:
             leo "Planktons are among the nutrient richest sea food, this applies to humans too."
             show mc happy at mc_left
             mc "You know so much, Leo!"
-            show leo smile #dengan animasi jump
+            show leo smile at jump
             leo "Mm why of course I do~"
             show mc o at mc_left
             mc "Ah but now we don't have any planktons to catch.."
@@ -344,7 +344,7 @@ label ch4_shoot_cory:
 
     show screen ch4_affection_hud("cory")
 
-    show cory talk at cory_left
+    show cory talk at center
     cory "Here's the trick to winnin' this, guppy."
     cory "Imagine those clams are the ones who called ya weird."
 
@@ -354,7 +354,7 @@ label ch4_shoot_cory:
     "The shot ricocheted off the sea rock, missing the target entirely."
     "Mr. Cory's grin instantly vanished into a frown."
 
-    show cory upset at cory_left
+    show cory upset at center
     cory "Tch…"
 
     "I raised my pistol, lining up the sights of the exact same clam."
@@ -366,7 +366,7 @@ label ch4_shoot_cory:
     show mc happy at mc_left
     mc "Don't look back in anger, Mr. Cory :D"
 
-    show cory smile at cory_left
+    show cory smile at center
     cory "Ay… alright :D"
 
     show mc happy at mc_left
@@ -374,9 +374,9 @@ label ch4_shoot_cory:
 
     "Mr. Cory took aim once more, firing another shot... only for it to clip the edge and glance off into the sand."
 
-    show cory side at cory_left
+    show cory side at center
     cory "..... :D"
-    show cory upset at cory_left
+    show cory upset at center
     cory "GRRRR mane these sights must be off!"
 
     menu:
@@ -388,7 +388,7 @@ label ch4_shoot_cory:
             show mc happy
             mc "Try taking a shot with mine, Mr. Cory!"
             "I stepped aside, clearing space so Mr.Cory can commandeer my pistol shooter."
-            show cory side at cory_left
+            show cory side at center
             cory "Aight… imma try."
             "Mr Cory squared his shoulders, locking his sight onto the target."
             play sound "audio/sfx/attack_1.mp3"
@@ -396,13 +396,14 @@ label ch4_shoot_cory:
             "The clam fractures on impact, falling from its perch."
             show mc yay at mc_left
             mc "YEEHAW there we are, Mr. Cory!! :D"
-            show cory proud at cory_left
+            show cory proud at center
             cory "Heh. Heheh."
 
         "It's a pure skill issue in your part, Mr. Cory :p":
             show mc actually
             "I lean in close, taking his hands in mine to physically adjust his grip.."
-            show leo niko at medium
+            show leo niko at centerleft
+            show cory upset at rightish
             leo "Oh, look at you two~"
             "Leo suddenly appeared from behind, leaning right between us like a shadow."
             show mc shock at mc_left
@@ -410,7 +411,7 @@ label ch4_shoot_cory:
             show leo default
             leo "Fufufu~ here old man, let me help you too~"
             "Leo maneuvered his posture and re-aligned Mr. Cory's elbows with meticulous care."
-            show cory upset at cory_left
+            show cory upset at rightish
             cory "Aight AIGHT KIDS, back off, I caught yer drift."
             "Mr Corry pushed the trigger again."
             play sound "audio/sfx/attack_2.mp3"
@@ -422,7 +423,7 @@ label ch4_shoot_cory:
             with moveoutright
             leo "Ooof… well, my work here is done. Toodles~"
             "Leo disappeared."
-            show cory side at cory_left
+            show cory side at center
             cory ".. well, mane win some, lose some."
             show cory side_close
             cory "Can't all be sharpshooters out here in the deep, yeah?"
@@ -433,7 +434,7 @@ label ch4_shoot_cory:
     "He hands over a decorated box of dark seaweed sticks."
     "Baked crisp and shaped remarkably like Pocky."
 
-    show cory smile at cory_left
+    show cory smile at center
     cory "Eat up, guppy. You earned the lion's share of 'em, anyway."
 
     show mc happy at mc_left
@@ -447,7 +448,7 @@ label ch4_shoot_scy:
 
     show screen ch4_affection_hud("scy")
 
-    show scy laugh at npc_right
+    show scy laugh at center
     scy "I was trained directly under the Empress herself, KAKAKAKA!"
 
     show mc happy at mc_left
@@ -469,12 +470,13 @@ label ch4_shoot_scy:
     scy "Hah! It's a little unfair if a pro like me were to partake in this child play!"
     scy "Can you do the rest, guppy?"
 
-    show leo smile at medium
+    show leo smile at centerleft
+    show scy proud at rightish
     leo "Quitting halfway after only two shots~?"
     "Leo suddenly appeared from behind, leaning right between us like a shadow."
 
     show leo default
-    show scy surprise at npc_right
+    show scy surprise at rightish
     scy ".....!"
 
     show mc shock at mc_left
@@ -498,7 +500,7 @@ label ch4_shoot_scy:
             mc "... and the angle of refraction through the water column and and,"
             show leo smile
             leo "Also consider the margin percent for shell thickness, relative to the kinetic torque~!"
-            show scy default at npc_right
+            show scy default at rightish
             scy "I don't think you need to overthink it, guppy!"
             show mc excited at mc_left
             mc "Aough yessir!"
@@ -509,7 +511,7 @@ label ch4_shoot_scy:
             mc "I.. I nailed it!"
             show leo niko
             leo "That's supersonic, twin~!"
-            show scy laugh at npc_right
+            show scy laugh at rightish
             scy "Kakakaka! Splendid trajectory!"
 
         "Please Mr. Laurs, I want that plushie :’0!":
@@ -517,17 +519,17 @@ label ch4_shoot_scy:
             show scy default
             mc "Nu uh, I want that plushie, you'll get it for me wont you Mr Larus."
             "Mr. Laurs grimaces, his brow furrowing as he glances back at the pistol."
-            show scy smile at npc_right
+            show scy smile at rightish
             scy "Of course, who do you think I am, Guppy?"
             "With practiced, mechanical perfection, he fired off five consecutive shots."
             play sound "audio/sfx/attack_1.mp3"
             "BANG-KLANG. BANG-KLANG. BANG-KLANG"
             "Five clams shattered off their perches in instant succession "
-            show scy sepet at npc_right
+            show scy sepet at rightish
             "Mr. Shrimp looked away, breathing heavily."
             show mc shock at mc_left
             mc "Barnacle's eyes, mr. Clyarus!!"
-            show scy laugh at npc_right
+            show scy laugh at rightish
             scy "KAKAKAKA! This game poses no threat to a distinguished shrimp like me!"
 
     stall2 "Wunderbar! Wunderbar! Ach, that is a new record for ze booth!"
@@ -539,7 +541,7 @@ label ch4_shoot_scy:
     show leo smile
     leo "That's actually remarkable~"
 
-    show scy proud at npc_right
+    show scy proud at rightish
     scy "Kekeke! Today was gonna be the day that we brought it back to you, guppy!"
 
     $ ch4_game2_done = True
@@ -549,7 +551,7 @@ label ch4_shoot_scy:
 label ch4_shoot_leo:
 
     show screen ch4_affection_hud("leo")
-    show leo default
+    show leo default at center
     leo "Eight shiny little bullets total. Four for each of us, then~"
 
     show mc happy at mc_left
@@ -595,7 +597,7 @@ label ch4_shoot_leo:
             mc "Really? You can win me the bubble blower?"
             show leo smile 
             leo "Hmm-mm. Though you might want to look away for a second~"
-            show mc 0
+            show mc o at mc_left
             mc "Why, miss leo? :0"
             show leo niko
             leo "Because I wouldn't want you to see me doing something terribly improper~"
@@ -613,13 +615,14 @@ label ch4_shoot_leo:
             "CLATTER-BANG-KLANG!"
             scene ch4_night
             with fade
+            show leo default at center
             show mc shock at mc_left
             mc "Waouh, are we winning?!"
             "I snap my eyes open. Every single clam target on the shelf is now lying facedown on the seabed."
             stall2 "Huh Zhats weird, Must've been za current."
 
         "Noo it probably it isn't,":
-            show leo default
+            show leo default at center
             show mc serious at mc_left
             mc "Um the pistol gear is solid. The pearls seem okay."
             show mc serious_hu
@@ -644,7 +647,7 @@ label ch4_shoot_leo:
     show leo default
     mc "WOO-HOO! We got the uh bioluminezdende seifenblaser!"
 
-    show leo niko #dengan animasi jump
+    show leo niko at jump
     leo "Mhehehe. Bioluminescent bubble blower~"
 
     "I dipped the wand into the glowing liquid and blew a gentle stream of air through the ring."
