@@ -360,34 +360,34 @@ screen main_menu():
         textbutton _("Start"):
             action Start()
             style "sea_nav_button"
-            hover_sound "audio/pixel_ui_1.mp3"
-            activate_sound "audio/pixel_ui_2.mp3"
+            hover_sound "audio/sfx/pixel_ui_1.mp3"
+            activate_sound "audio/sfx/pixel_ui_2.mp3"
 
         textbutton _("Load"):
             action ShowMenu("load")
             style "sea_nav_button"
-            hover_sound "audio/pixel_ui_1.mp3"
-            activate_sound "audio/pixel_ui_2.mp3"
+            hover_sound "audio/sfx/pixel_ui_1.mp3"
+            activate_sound "audio/sfx/pixel_ui_2.mp3"
 
         textbutton _("Credits"):
             action ShowMenu("credits")
             style "sea_nav_button"
-            hover_sound "audio/pixel_ui_1.mp3"
-            activate_sound "audio/pixel_ui_2.mp3"
+            hover_sound "audio/sfx/pixel_ui_1.mp3"
+            activate_sound "audio/sfx/pixel_ui_2.mp3"
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
             textbutton _("Help"):
                 action ShowMenu("help")
                 style "sea_nav_button"
-                hover_sound "audio/pixel_ui_1.mp3"
-                activate_sound "audio/pixel_ui_2.mp3"
+                hover_sound "audio/sfx/pixel_ui_1.mp3"
+                activate_sound "audio/sfx/pixel_ui_2.mp3"
 
         if renpy.variant("pc"):
             textbutton _("Quit"):
                 action Quit(confirm=False)
                 style "sea_nav_button"
-                hover_sound "audio/pixel_ui_1.mp3"
-                activate_sound "audio/pixel_ui_2.mp3"
+                hover_sound "audio/sfx/pixel_ui_1.mp3"
+                activate_sound "audio/sfx/pixel_ui_2.mp3"
 
     ## Version text di pojok kanan bawah
     text "[config.name] v[config.version]":
@@ -558,8 +558,8 @@ screen credits():
             textbutton _("Back"):
                 action Return()
                 style "sea_nav_button"
-                hover_sound "audio/pixel_ui_1.mp3"
-                activate_sound "audio/pixel_ui_2.mp3"
+                hover_sound "audio/sfx/pixel_ui_1.mp3"
+                activate_sound "audio/sfx/pixel_ui_2.mp3"
                 xalign 0.5
 
     key "game_menu" action Return()

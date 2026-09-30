@@ -1036,6 +1036,7 @@ label mantis_pre_duel:
         call mantis_duel
         if _return == "win":
             jump mantis_win
+    play music "audio/bgm/chap_2_night.ogg"
 
     hide mc
     hide cory

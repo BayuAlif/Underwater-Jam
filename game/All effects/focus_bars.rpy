@@ -66,32 +66,34 @@ image focus_bar_base = Solid("#000000", xysize=(config.screen_width,config.scree
 ##
 ## EXAMPLE:
 
-label focus_test:
-    show eileen
-    "Eileen is just standing there."
-    $ focus()
-    "Now, bars appear."
-    $ focus()
-    "And they're gone again."
-
-    $ focus(ysize=100, time=0.5)
-    "Now, the bars got slimmer. You probably also want to shorten the time then."
-    $ focus()
-    "And they're hidden."
-
-    $ focus(alpha=0.3, back=not FOCUS_BACK)
-    "This time, the bars should be very transparent, and either in front of or behind the sprite, depending on your default setting."
-    $ focus(False)
-    "When the first parameter (smooth) is set to \"False\", the bars appear or disappear instantly."
-
-    $ focus(False)
-    with dissolve
-    "Let's try this again. You can also combine the show/hide with transitions if you like!"
-    $ focus_off(False)
-    with dissolve
-    "And if you ever need to, you can also hide the bars manually by using the \"focus_off()\" function."
-
-    "Now go out there and focus!"
+# NOTE: Demo disabled - it uses the 'eileen' image, which does not exist in this project
+# (caused lint warning: 'eileen' is not an image). Nothing calls focus_test.
+# label focus_test:
+#     show eileen
+#     "Eileen is just standing there."
+#     $ focus()
+#     "Now, bars appear."
+#     $ focus()
+#     "And they're gone again."
+#
+#     $ focus(ysize=100, time=0.5)
+#     "Now, the bars got slimmer. You probably also want to shorten the time then."
+#     $ focus()
+#     "And they're hidden."
+#
+#     $ focus(alpha=0.3, back=not FOCUS_BACK)
+#     "This time, the bars should be very transparent, and either in front of or behind the sprite, depending on your default setting."
+#     $ focus(False)
+#     "When the first parameter (smooth) is set to \"False\", the bars appear or disappear instantly."
+#
+#     $ focus(False)
+#     with dissolve
+#     "Let's try this again. You can also combine the show/hide with transitions if you like!"
+#     $ focus_off(False)
+#     with dissolve
+#     "And if you ever need to, you can also hide the bars manually by using the \"focus_off()\" function."
+#
+#     "Now go out there and focus!"
 
 
 ###############################################################################################################
