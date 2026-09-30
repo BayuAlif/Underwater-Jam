@@ -312,6 +312,8 @@ label chapter5_start:
     stop music fadeout 2.0
     play music "audio/bgm/unsettling_moment.ogg" volume 0.7 fadein 2.0
 
+    $ focus()
+    $ focus() 
     "It’s dark.."
     "it’s so dark in here.."
     "I can't be scared now..!"
@@ -365,7 +367,7 @@ label chapter5_start:
     cory_fake "Right here, guppy,"
 
     "Scrambling frantically to my feet, I sprinted straight toward the direction of Mr. Cory’s voice."
-
+    $ focus() 
     hide mc
     with dissolve
 
@@ -397,6 +399,7 @@ label ch5_scy_sequence:
     scene bg abyss_zone_left
     with dissolve
 
+    $ focus() 
     show fakescy default:
         full 
         unpose
@@ -476,11 +479,13 @@ label ch5_scy_sequence:
     mc "I- I cant"
 
     # kayak kurang animasi
+
     show fakescy smash:
         full 
         unpose
     show fakescy smash:
         center
+    with vpunch
     scy_fake "{font=DejaVuSans.ttf}w̷̳̓ͅĥ̶̥̩̋y̷̒̓͜ ̶̦̣̔̕w̸̜̋o̴͎̪̭͆̌n̴̬͂ṫ̸̛͇̳̤ ̷͓̎̀͜͝y̵̙̦̣̔̂ö̸̩͈́ũ̴͚͐ ̴̱̰̗͐͊m̴̛̜̑̈́a̷̡̗͊̋͝k̵̰̻͕͆͊e̶͈͋̈́ ̴̱̦͑̈́̈́t̸͈̳̎h̸̢͎̟̿ê̸̘̕m̷͔͌̚̕ ̵̟̠̺̆́͘s̶̻͚̺̒̂t̶͓̃ŏ̶̟͕͐p̵̺̰̪̀̍̃{/font}"
     scy_fake "{font=DejaVuSans.ttf}M̵̢̼̦̩̝͙͈͖̟̞͚̟̿̉̿͐ȃ̶̡̧̗̜̩͕̖͚̦̬̟̮̾͑̏̓̈́͗̎͘̚͜k̴̙̽̒e̷̢̓ ̵̨͈͇̙̙̩̗̖͇͚̟̘̣̇̀͑̃̎͒̽̉͝͝t̵̛̥̟͐̄̿̿̌̾̽̌̎͆̄̅̈̕ȟ̸̢͎̭͉̤̖̝͍̤̇̒̆̈́̍̾͘ͅē̸͈̊̐͠m̶̨̟̬͎̬̔̋̐ͅ ̶̠̦̊̒̊̀̅ͅs̸̖͚̞̳̙͚͐͒̒̌̈̾̈́̿̃͛̚͘͝t̷̳̟̤͇̬͚͎̫̲̪͋͋̒͑̀̓͆̈͜͠͝o̴̲̥͉̅́p̸̺̬̠͈͎̥̖̝̲̼̱̱̠̖̌̓̈́̄̆{/font}"
     scy_fake "{font=DejaVuSans.ttf}Ȋ̶͎͂ ̶̛̗̇͝ń̷̝̘̦e̷̢̱̫͒̇e̵̫̹͌ͅḏ̶͋̂͜ ̵͔͕̗̏͑y̴̰͇̅̀̌o̸̫̝͚͒̆u̷̮̼͉̐ ̴̲̩̅t̸͚͗̇o̸̳̦͆̀͜ ̵̘͐̕m̸͎̋à̵̝̥̎͝k̴̳̪̀e̴͓̓͂ ̵͔̉́t̸̨̑̒̚ḩ̸̭̅ë̴̼̆͝m̸͎͉͛̾ ̶͕̱͎͗̀̒s̵̫͕̠͆ẗ̸̺̞̻́̽ô̴̢͙̬p̸̢̠̼̋͊{/font}"
@@ -498,7 +503,7 @@ label ch5_scy_sequence:
 
     "I hesitate, before slowly reaching out to grab his hand. Before I could, a voice screams out."
 
-play sound "audio/sfx/thump.mp3"
+    play sound "audio/sfx/thump.mp3"
     show fakescy default:
         full 
         unpose
@@ -531,9 +536,11 @@ play sound "audio/sfx/thump.mp3"
     scy_fake "Guppy don’t be fooled, that buffoon isn’t me! It’s trying to stop you from helping me."
     scy_fake "Just take my hand and we can finally end this charade."
     scy "No! Don’t listen to it Guppy, it’s trying to fool you, I’m the real one! You mustn’t give yourself to it!"
+    $ focus()
 
     menu:
         "“If I give you my hand... will the voices stop?”":
+            $ focus()
             show fakescy Covering:
                 full 
                 unpose
@@ -547,7 +554,7 @@ play sound "audio/sfx/thump.mp3"
             scy_fake "That’s right, Guppy. Just a little closer..."
             "Before I could take his hand, Mr. Larus suddenly shoved me aside."
 
-play sound "audio/sfx/attack_3.mp3"
+            play sound "audio/sfx/attack_3.mp3"
             show scy default_om at center with vpunch
             show fakescy default:
                 left
@@ -571,7 +578,9 @@ play sound "audio/sfx/attack_3.mp3"
                 leftish
                 float_idle
             with move
+            with vpunch
             scy_fake "There it is. Violence."
+            show fakescy default
             show scy default_om:
                 full 
                 unpose
@@ -599,7 +608,9 @@ play sound "audio/sfx/attack_3.mp3"
             show fakescy motion:
                 leftish
                 float_idle
+            with vpunch
             scy_fake "A soldier. A weapon. A murderer."
+            show fakescy default
             scy "...No."
             scy_fake "No matter how hard you try to change, a murderer will always be a murderer."
             show scy shy:
@@ -619,8 +630,10 @@ play sound "audio/sfx/attack_3.mp3"
             "The Mirage held out its hand."
             scy_fake "Give me your hand, Scyllarus. Give up your life. This is the only way you can atone for your sins."
             "The moment their hands touched, his body went completely still and Mr.Larus’s eyes lost their focus."
+            $ focus()
 
-        "“No! I’m not giving you my hand!”":
+        "No! I’m not giving you my hand!":
+            $ focus()
             "I swim away and hide behind the new Mr. Larus."
             show scy default_om:
                 rightish
@@ -647,7 +660,10 @@ play sound "audio/sfx/attack_3.mp3"
             show fakescy motion:
                 leftish
                 float_idle
+            with vpunch
             scy_fake "How many did you kill?"
+
+            show fakescy default
             scy "I said enough!"
             scy_fake "You remember them, don’t you?"
             scy_fake "All those innocent lives you took."
@@ -671,11 +687,13 @@ play sound "audio/sfx/attack_3.mp3"
             scy "Make them stop! Make them stop!"
             "He dropped to his knees, covering his ears to try and block out the voices."
             scy "Please"
+            $ focus()
 
     hide scy_mirage
     with dissolve
 
     show mc holdcry at mc_left
+    $ focus()
     mc "Mr. Larus!"
     "Mr. Larus is clutching his head, trembling as the endless cries echoed around him."
 
@@ -686,7 +704,7 @@ play sound "audio/sfx/attack_3.mp3"
     mc "My voice can’t seem to reach him right now…"
     "I looked around desperately."
     mc "I need to find another way to bring him back."
-
+    $ focus() 
     $ ch5_scy_explored = True
     hide scy
     hide mc
@@ -703,11 +721,13 @@ label ch5_cory_sequence:
         center
         unpose
         full
+        float_idle
     with dissolve
 
     show mc excited at mc_left
     with dissolve
 
+    $ focus()
     "My eyes caught a familiar glow from Mr. Cory's hand."
     mc "Mr cory!! You found the golden fish!"
 
@@ -724,6 +744,7 @@ label ch5_cory_sequence:
     mc "but..! But your sister isn't made for-"
 
     show fakecory wide
+    with vpunch
     cory_fake "Shut up..! I’ll keep her safe.. I'll keep her by my side… even if it kills her.."
     show fakecory default
     cory_fake "So I can focus on taking care of her…"
@@ -749,9 +770,10 @@ label ch5_cory_sequence:
     cory_fake "Just take my hand, guppy…"
     cory_fake "Help me search for her.."
     show fakecory wide
+    with vpunch
     cory_fake "{font=DejaVuSans.ttf}Y̸̩͗o̵̱͝u̷̼̾’̴̻͌l̶̳͠l̵̰͘ ̴̰͂n̵̛̳ẹ̴̇v̸͓̓e̵̘͛r̴̬̋ ̸̬̂b̷̼͋e̷̘̍ ̷̢̿a̴̜͊l̵̳̈́o̴̙͛ņ̶̇e̶̠̐ ̸̢̋a̶̼̋g̸̝͝a̷̫͗i̵͉͊n̶̗͑,̶̞̊ ̴͍̏{/font}"
 
-play sound "audio/sfx/splash.mp3"
+    play sound "audio/sfx/splash.mp3"
     show cory upset:
         rightish
         full
@@ -778,6 +800,7 @@ play sound "audio/sfx/splash.mp3"
     cory "I ain’t know what you talking about.."
 
     show fakecory wide
+    with vpunch
     show cory upset
     cory_fake "Don’t play fool with me, I know you."
     cory_fake "I know you better than you’ll ever know yourself."
@@ -787,9 +810,11 @@ play sound "audio/sfx/splash.mp3"
 
     show fakecory default
     cory_fake "Poor little thing eh? Had to be separated from her precious brother"
+    $ focus()
 
     menu:
         "“Mr. Cory don’t listen to the other Mr.Cory..!”":
+            $ focus()
             show fakecory speak
             cory_fake "Are ya really going to let a one minute old kid dictate your life choices?"
             cory_fake "Aye, we’re better than that Cara…"
@@ -801,19 +826,22 @@ play sound "audio/sfx/splash.mp3"
             show fakecory speak
             cory "They did..! I learnt a lot from the little guppy"
             cory_fake "Ah but did they shield you from your familia’s expectations..?"
-            show fakecory wide
+            show fakecory default
             cory_fake "Were they there when you were thinkin about.. how worthless you are?"
             show fakecory speak
             cory_fake "And what did you do to repay her, huh?"
             show cory side_close
             cory "I didn’t.. have any choice..!"
             show fakecory wide
+            with vpunch
             cory_fake "I bet she cried for days.. havin to defend herself in a brand new world"
             cory_fake "How could ya, even after hearin how dangerous sea is at night.. You still—"
             show cory upset with vpunch
             cory "SHUT THE FUGU UP…!"
+            $ focus()
 
         "“Mr. Cory.. Mr Cory’s right.. we should search for your sister!”":
+            $ focus()
             show fakecory speak
             cory_fake "See even the guppy agreed.."
             cory_fake "They’re basically givin you free pass to abandon them, cara"
@@ -828,10 +856,12 @@ play sound "audio/sfx/splash.mp3"
             show cory upset_hu
             cory "...What?"
             show fakecory wide
+            with vpunch
             cory_fake "Our sister’s out there, Cory. She’s been waitin’ for you all this time."
             cory_fake "You can’t fix what happened by babysittin’ some guppy."
             cory_fake "Come on, Cory. How many more times are ya gonna choose someone else before you finally choose your own familia?"
             cory_fake "Leave the damn Guppy behind.."
+            $ focus()
 
     hide cory_mirage
     with dissolve
@@ -863,6 +893,7 @@ label ch5_leo_sequence:
     show mc o at mc_left
     with dissolve
 
+    $ focus()
     mc "Miss Leo..! Is that the.. Golden fish in your hand?"
 
     "A familiar glow of gold pulses in her flippers."
@@ -893,6 +924,7 @@ label ch5_leo_sequence:
     mc "If I were to become a fish, I’d wanna be the coolest fish ever!"
 
     show fakeleo blink
+    with vpunch
     leo_fake "Hah.. but will everything really be as beautiful as you imagined..?"
     leo_fake "Will it really be worth it..?"
     leo_fake "To become a prisoner of your own body"
@@ -948,6 +980,7 @@ label ch5_leo_sequence:
     leo_fake "Not only that but you’ve-"
 
     show leo feral
+    with vpunch
     leo "I’ve killed my friends, with my own teeth and claws.."
 
     show mc shock_hu at mc_left
@@ -984,6 +1017,7 @@ label ch5_leo_sequence:
     show leo niko
     leo "Don’t worry I’m not going to kill you~!"
     leo "You’re more than a friend to me, little guppy"
+    $ focus()
 
     $ ch5_leo_explored = True
     hide leo
@@ -1055,14 +1089,13 @@ label ch5_chase_real_gold:
     ban "I wonneth't alloweth a youth blind'd by gre'd maketh useth of the gold yond couldst end the greatest of wars.."
 
     show leo ehe:
-        farleft
+        farright
         full
         unpose
         float_idle
     with dissolve
 
     show leo ehe at farright
-    with move
     leo "I'm riiiight over here too you know~!"
     leo "My apologies for interfering with your grand speech, your highness.."
     leo "But everyone has their right to pursue the golden fish…"
@@ -1121,7 +1154,6 @@ label ch5_chase_real_gold:
     "Enormous shadowy tentacles rise like colossi from the seabed."
 
     play music "audio/bgm/battle/a_battle.ogg" volume 0.85
-    call banished_duel
 
     stop music fadeout 1.5
     scene bg abyss_depths
@@ -1155,9 +1187,10 @@ label ch5_nightmare_bedroom:
     scene bg bedroom_dream
     with Dissolve(1.2)
 
-    $ focus()
+    
     show mama default 
     with dissolve
+    $ focus()
     mama "sweetheart.."
 
     show mc shock at mc_left
@@ -1298,6 +1331,7 @@ label ch5_nightmare_bedroom:
 
     show leo smile
     leo "Finally! Took you long enough, little guppy!"
+    $ focus()
 
     stop music fadeout 1.0
     play sound "audio/sfx/thump.mp3"
@@ -1314,7 +1348,7 @@ label ch5_nightmare_bedroom:
         full
         unpose
     mama_fake "{size=+8}{b}ENOW OF THIS NO MORE BRAIN THAN STONE GAME!{/b}{/size}"
-    $ focus()
+    
 
     jump ch5_the_final_choice
 
@@ -1326,7 +1360,7 @@ label ch5_the_final_choice:
     scene bg abyss_depths
     with Dissolve(1.5)
 
-    scene chooseendingsmall
+    scene chooseendingfinal
     "The golden fish appears yet again but within the dark engulf of the banished one."
     "It floats toward me, futilely flopping about within my hand."
 
@@ -1449,52 +1483,26 @@ label ch5_ending_true:
     "But I have to make my own choice now.."
     "I need to grow up and decide things on my own for the better.."
 
+    scene delfish1
     mc "If.. the golden fish is really a tool that could cause chaos…"
+    
     mc "Then.. I.. I wish for the golden fish to never ever exist..!"
-
-    mc "I…I don’t wanna do this anymore!"
-
-    ban "What?"
-
-    mc "I wish for the golden fish to be gone once and for all!!"
 
     play sound "audio/sfx/pixel_death.mp3"
     with vpunch
 
+    scene delfish 2
     "{size=+10}{b}CRACK!{/b}{/size}"
-
+    
     "The golden fish dissolves into countless shimmering particles, scattering into the surrounding waters."
+    scene delfish 3
     "The suffocating darkness that had consumed the sea begins to fade."
-
+    scene white
     show mc o at mc_left
-    mc "It’s gone… It’s really gone…"
+    "For a brief second, I could see Miss Leo dissipating into the light and…"
+    "Mr. Cory and Mr. Scyllarus again, they seemed to have gained their…."
 
-    ban "Thank you..."
 
-    "I turned to face Mr. Banished one."
-
-    ban "We’ve been cursed down here for centuries, wrongly imprisoned by the goddess. Being down here for so long corrupted our minds. I apologise for how I went about things, and because of you, we can finally be free to return to the surface."
-
-    "I look around for Ms. Leo, but she seems to have disappeared into the shimmering light with a soft, peaceful smile."
-
-    show scy smile at farright
-    show cory proud at center
-    with dissolve
-
-    scy "You did it, little guppy!"
-    cory "Aye, you really did it, cara!"
-
-    show mc happy at mc_left
-    mc "You’re back! You’re safe!"
-
-    scy "Whatever you just did, I can feel it... the voices... the screams in my head... they've finally quieted."
-    cory "The sea is different now... peaceful..."
-
-    show mc sad at mc_left
-    mc "But… What about mama and papa…?"
-
-    cory "Sometimes, doing the right thing means accepting that you can't have everything."
-    scy "Indeed. But you possess a strength far greater than any wish, little guppy. You chose truth over an easy escape."
 
     scene white
     with Dissolve(2.0)
@@ -1506,26 +1514,31 @@ label ch5_ending_true:
     "Ah, the rivershore. A serene calming scene adorned by the rustling wind of leaves."
     "I lowered myself to the ground, having my best grin on display ready to greet my fish friends."
 
-    show mc happy at center
-    with dissolve
-    hide mc happy
-    with dissolve
-
     scene delfish 4
+    show mc happy at mc_left
     mc "Good precious morning mr carpado! Morning ms betta! Hello to silly eely billy! And Mr. Cory!"
+    show mc excited
     mc "You know guys, I had a reaaally strange dream last night!!"
+    show mc happy
     mc "I went to an adventure in the sea! And I met lots of fishes and they can talk!!"
+    show mc dizzy
     mc "mnn I was also chasing something.. But I couldn’t.. really remember what.."
+    show mc sad
     mc "I wish I can actually.. meet something that could take all my problems away"
 
     "The corydoras nudges me on the finger, as if it’s offering comfort."
 
+    show mc happy
     mc "Aww! Thank you Mr. Cory! Don’t worry I’ll be fine!"
+    show mc default
     mc "Just means that I have to work extra hard to fix everything."
+    show mc excited
     mc "Maybe I’ll.. be a doctor to help cure mama.. or or a marine biologist!"
     scene delfish 6
+    show mc default
     mc "So I can help save the endangered sea creatures.. maybe!"
     scene delfish 5
+    show mc happy
     mc "As long as I have the sea with me… I think I can do it.."
 
     pause 1.5
@@ -1565,9 +1578,9 @@ label ch5_ending_feral:
     show turnfish 2
     mc "it hurts.. it huuuurts..!! MAMAA..!!"
 
-    show turnfish 3
     "My vision starts to blur from the overwhelming pain of it all."
     "Once everything clears out.. I.. looked down to my hands to notice that I’ve.."
+    show turnfish 3
     "Been.. turned into a leopard seal."
 
     show turnfish 4
@@ -1598,6 +1611,7 @@ label ch5_ending_feral:
     leo "Well in my humble opinion-"
 
     ban "{size=+8}{b}SILENCE!{/b}{/size} No more of honeyed words shall pass thy lips!"
+    with vpunch
     ban "To darkest depths shalt thou be sent - let Neptune's wrath be swift!"
     ban "There in thy briny prison, 'midst the waves' cold embrace, May thy joy turn to anguish in thine self-wrought disgrace!"
 

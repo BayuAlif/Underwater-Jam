@@ -478,6 +478,7 @@ image banishedoneangry = "images/cutscenes/chapter 5/banishedoneangy.png"
 image banishedonevsfurrylaut = "images/cutscenes/chapter 5/banishedonevsfurrylaut.png"
 image chooseendingsmall = "images/cutscenes/chapter 5/chooseedingsmall.png"
 image chooseendingbig = "images/cutscenes/chapter 5/chooseendingbig.png"
+image chooseendingfinal = "images/cutscenes/chapter 5/chooseendingfinal.png"
 
 image tsunamiending = "images/cutscenes/chapter 5/tsunamiending.jpg"
 
