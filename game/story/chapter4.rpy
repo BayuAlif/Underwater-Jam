@@ -15,37 +15,38 @@ label chapter4_start:
     show cory smile:
         full
         unpose
-    show cory smile:
-        unpose
         rightish
         toleft
         walkloop(0.5, 0.5, 1)
     with moveinleft
+
     show shrimp default:
         unpose
         full
         leftish
         walkloop(1, 1, 1)
     with moveinleft
+    show cory talk
     cory "The water sure feels easier to breathe now that she's gone huh?"
-    hide shrimp default
 
-    show shrimp sepet:
+    hide shrimp default
+    show scy default:
         unpose
         full
         leftish
-        walkloop(1, 1, 1)
+    with dissolve
     scy "Really?! *sniff sniff* I feel the quality of water remains the same!"
     fish1 "SCYLLARUS!!! IM A BIG FAN HI"
     fish2 "THANK YOU FOR BRINGING HER DOWN SCYLLARUS!!"
 
     show cory smile2:
-        full
-        rightish
+            full
+            unpose
+            rightish
+
     show scy surprise:
         unpose
         full
-    show scy surprise:
         leftish
         jump(windup=0.15, power=0.45, airtime=0.35)
     scy "HUH-! Oh! Yes, why of course the pleasure is mine, dear seafolks!"
@@ -56,7 +57,6 @@ label chapter4_start:
     show scy shy:
         unpose
         full
-    show scy shy:
         leftish
     scy "R-right..! Good luck to all of you too!"
 
@@ -68,7 +68,12 @@ label chapter4_start:
         rightish
     cory "hah someone's getting famous ay?"
 
-    show mc happy at mc_left, jumpmc(windup=0.1, power=0.55, airtime=0.4)
+    show mc happy:
+        unpose
+        full
+        mc_left
+        jumpmc(windup=0.1, power=0.55, airtime=0.4)
+    with moveinright
     mc "hehe people love you now Mr. Slarus!"
 
     show scy default_om:
@@ -94,26 +99,48 @@ label chapter4_start:
     cory "We still oughta keep our eyes for the golden fish though"
     cory "Could be anywhere in this vast ocean"
 
-    show scy smile at npc_right
+    show scy smile:
+        unpose
+        full
+        leftish
     scy "Yea! There's no way it could be right behind us.."
 
-    show cory surprise at cory_left, jump(windup=0.1, power=0.6, airtime=0.4)
+    show cory surprise:
+        full
+        unpose
+        rightish
+        jump(windup=0.1, power=0.6, airtime=0.4)
     cory "Speaking of… isn't that the golden fish?"
 
-    show mc shock at mc_left, jumpmc(windup=0.1, power=0.5, airtime=0.35)
+    show mc shock:
+        unpose
+        full
+        mc_left
+        jumpmc(windup=0.1, power=0.5, airtime=0.35)
     mc "whauh?! Where?"
 
-    show cory talk at cory_left
+    show cory talk:
+        full
+        unpose
+        rightish
     cory "right behind you guppy"
 
     play sound "audio/sfx/splash.mp3"
     "A brilliant rainbow-golden glimmer flashes right behind us, darting through the water at impossible speed towards a massive golden gate ahead!"
 
-    show mc excited at mc_left
+    show mc excited:
+        unpose
+        full
+        mc_left
     mc "ah! c'mon sir fishes! after it!!"
 
     $ focus()
-    show mc excited at mc_left, walkto(offscreenright, steps=5, walktime=1.5)
+    show mc excited:
+        unpose
+        full
+        mc_left
+        walkto(offscreenright, steps=5, walktime=1.5)
+
     pause 1.5
 
     jump ch4_day_explore
@@ -126,20 +153,44 @@ label ch4_day_explore:
     scene ch4_festival_day
     with dissolve
     $ focus()
-    show cory upset at cory_left, shake
+    show cory upset:
+        full
+        unpose
+        rightish
+        shake
     cory "aw shrimp! Damn fish must be Usailfish Bolt or something"
 
-    show mc happy at mc_left, jumpmc(windup=0.1, power=0.45, airtime=0.35)
+    show mc happy:
+        unpose
+        full
+        mc_left
+        jumpmc(windup=0.1, power=0.45, airtime=0.35)
     mc "it's okayy mr Cory :DDD, We'll get it next time!!"
 
-    show scy sepet at npc_right, bowleft(depth=1)
-    scy "How are we supposed to find the damn fish among all these gold… wait.. hold on.. Where are we??"
-    show scy sepet at npc_right, unpose
+    show scy sepet:
+        unpose
+        full
+        leftish
+        bowleft(depth=1)
 
-    show cory side at cory_left
+    scy "How are we supposed to find the damn fish among all these gold… wait.. hold on.. Where are we??"
+
+    show scy sepet:
+        unpose
+        full
+        npc_right
+
+    show cory side:
+        full
+        unpose
+        rightish
     cory "I don't know but this place gives me the heebie-jeebies, stay close guppy we don't know what's ahead of us"
 
-    show mc excited at mc_left, vibrate(intensity=2)
+    show mc excited:
+        unpose
+        full
+        mc_left
+        vibrate(intensity=2)
     mc "Look! Maybe those mr fishes would know where we are, let's ask them! :DD"
     $ focus()
 
@@ -226,6 +277,12 @@ label ch4_dinner_incident:
     show mc happy at mc_left, surprise
     mc "Mr whaaale, we're done! :D"
 
+    show rin default:
+        unpose
+        full
+        center
+    with moveinleft
+
     rin "Oh praise the mother of sea.. Aren't you as swift as an arrow?"
     rin "We are truly grateful for your assistance!"
 
@@ -244,10 +301,16 @@ label ch4_dinner_incident:
     "Yet as my gaze fell down to the contents, I scrunched up in disappointment."
     show mc pout at mc_left
 
-    show cory proud at cory_left
+    show cory proud:
+        full
+        unpose
+        centerleft
     cory "bloodworms?! Didn't know you were fancy like that mr chief sir."
 
-    show scy proud at npc_right
+    show scy proud:
+        full
+        unpose
+        centerright
     scy "Hah! Talk about a banquet!"
 
     rin "Yes of course, we prepare this with every species' likings in mind"
@@ -255,9 +318,18 @@ label ch4_dinner_incident:
     show mc o at mc_left
     mc "Are there.. any.. fried fishes?"
 
-    show cory surprise at cory_left, jumpmc(windup=0.1, power=0.45, airtime=0.45)
+    show cory surprise:
+        full
+        unpose
+        cory_left
+        jumpmc(windup=0.1, power=0.45, airtime=0.45)
+
     pause 0.45
-    show cory surprise at cory_left
+
+    show cory surprise:
+        full
+        unpose
+        cory_left
     cory "...???"
     show cory surprise at cory_left
 
@@ -271,10 +343,20 @@ label ch4_dinner_incident:
 
     leo "Mhm that's right, whale sharks eat baby fishes too.. As well shrimps"
 
-    show scy surprise at npc_right, jumpmc(windup=0.1, power=0.7, airtime=0.5)
+    show scy surprise:
+        full
+        unpose
+        npc_right
+        jumpmc(windup=0.1, power=0.7, airtime=0.5)
+
     pause 0.5
+
     scy "Did someone say shrimp?!"
-    show scy surprise at npc_right
+
+    show scy surprise:
+        full
+        unpose
+        npc_right
 
     show mc pout at mc_left
     mc "and mr.. mr scyllarus too you.. you eat crabs.. Supposedly!"
@@ -283,26 +365,45 @@ label ch4_dinner_incident:
 
     mc "But it's how nature is…!"
     
-    show rin surprise
+    show rin surprise:
+        unpose
+        full
+        right
     rin "…"
     "My confused stare bore back into my own at tenfolds. Meanwhile Leo just sits there in the corner unbothered."
     "Her unreadable smile felt like a wash of relief and support amongst the overwhelmingly rigid tension."
 
-    show rin o
+    show rin o:
+        unpose
+        full
+        right
     rin "My apologies young one.. Our village had long forbid such extreme practice…"
     rin "While there are fishes that are still… what I would describe as crassly primitive"
-    show rin o #with sink animation??? idk whichever fits this best
+    show rin o:
+        unpose
+        full
+        right
+        #with sink animation??? idk whichever fits this best
     rin "We do not condone of such unvirtuous behavior around here"
     
-    show rin smile
+    show rin smile:
+        unpose
+        full
+        right
     rin "The best we can provide for your appetites are.. Jellies made algaes"
 
     show mc pout at mc_left
     mc "....okay."
 
-    show rin talk
+    show rin talk:
+        unpose
+        full
+        right
     rin "Do… rest yourselves until tonight. Before the parade begins."
-    show rin o
+    show rin o:
+        unpose
+        full
+        right
     rin "Please excuse me."
 
     ".............................."
@@ -335,7 +436,11 @@ label ch4_dinner_incident:
     mc "I.. *sniff* I'm not hungry anymore…"
 
     play sound "audio/sfx/splash.mp3"
-    show mc holdcry at mc_left, walkto(offscreenleft, steps=6, walktime=1.2, bounce=0.25, sway=0.2)
+    show mc holdcry:
+        unpose
+        mc_left
+        walkto(offscreenleft, steps=6, walktime=1.2, bounce=0.25, sway=0.2)
+
     pause 1.2
     hide mc
     "Stands up and runs away."
